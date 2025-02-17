@@ -48,14 +48,15 @@
       </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="wordModal" tabindex="-1" aria-labelledby="wordModalLabel" style="display: none;" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+    <div class="modal fade" id="wordModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="wordModalLabel" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="wordModalLabel">قائمة الكلمات</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <p class="text-danger text-center">الكلمات لازالت غير مكتملة (يوجد حاليًا كامل كلمات الوحدة الأولى فقط).</p>
                     <table class="table table-striped text-center" dir="ltr">
                         <thead class="table-dark">
                             <tr>
@@ -65,14 +66,64 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td dir="ltr">
-                                    <span class="word">Apple</span>
-                                    <button class="btn btn-sm " onclick="speak(this)">🔊</button>
-                                </td>
-                                <td>
-                                    <span class="word">Banana</span>
-                                    <button class="btn btn-sm" onclick="speak(this)">🔊</button>
-                                </td>
+                                <td><span class="word">Satisfaction</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                                <td><span class="word">Feeling of contentment</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="word">Status</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                                <td><span class="word">State or condition</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="word">Entail</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                                <td><span class="word">To involve or require</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="word">Appreciate</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                                <td><span class="word">To be grateful for</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="word">Income</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                                <td><span class="word">Money received or earned</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="word">Cooperate</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                                <td><span class="word">To work together well</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="word">Respectful</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                                <td><span class="word">Polite, showing consideration</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="word">Analyze</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                                <td><span class="word">To study closely</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="word">Determine</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                                <td><span class="word">To decide or discover</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="word">Identifying</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                                <td><span class="word">Determining what something is</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="word">Allergens</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                                <td><span class="word">Substances that cause sensitivity</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="word">Identical</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                                <td><span class="word">Exactly the same</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="word">Flair</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                                <td><span class="word">A natural talent or ability</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="word">Captive</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                                <td><span class="word">Confined, kept under restraint or control</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="word">Infection</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+                                <td><span class="word">Disease or sickness received from someone or something</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
                             </tr>
                         </tbody>
                     </table>
