@@ -5,25 +5,40 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css"
+    />
     <!-- SweetAlert2 CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
     <!-- Microsoft Clarity analytics script -->
     <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "qa6jmlgjcf");
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "qa6jmlgjcf");
     </script>
     <title>مذاكرة النهائي الثاني ثانوي الفصل الدراسي الثاني 1446هـ</title>
   </head>
   <body>
-  <!-- Container -->
+    <!-- Container -->
     <div class="container mt-5">
       <!-- Card -->
       <div class="card text-center">
-        <div class="card-header">مذاكرة النهائي الثاني ثانوي الفصل الدراسي الثاني 1446هـ</div>
+        <div class="card-header">
+          مذاكرة النهائي الثاني ثانوي الفصل الدراسي الثاني 1446هـ
+        </div>
         <div class="card-body">
           <h5 class="card-title mb-3">اختر المادة</h5>
           <select class="form-select" id="subject" onchange="update()">
@@ -36,8 +51,14 @@
             <option value="biology">الأحياء</option>
           </select>
           <div class="my-3"></div>
-          <p class="mt-5">شكر خاص لجميع المعلمين والطلبة الذين كانوا عون في جمع هذه البيانات.</p>
-          <p class="text-danger mb-0">يمنع إيصال أي معلومات داخل هذا الرابط إلي المعلمين أو الإدارة، وفي حال تسريب المعلومات قد يتم إتخاذ إجراء من لجنة الاختبارات ويتم تعديل النماذج.</p>
+          <p class="mt-5">
+            شكر خاص لجميع المعلمين والطلبة الذين كانوا عون في جمع هذه البيانات.
+          </p>
+          <p class="text-danger mb-0">
+            يمنع إيصال أي معلومات داخل هذا الرابط إلي المعلمين أو الإدارة، وفي
+            حال تسريب المعلومات قد يتم إتخاذ إجراء من لجنة الاختبارات ويتم تعديل
+            النماذج.
+          </p>
         </div>
         <div class="card-footer text-body-secondary">
           <p class="mb-0"></p>
@@ -45,88 +66,129 @@
       </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="wordModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="wordModalLabel" style="display: none;" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="wordModalLabel">قائمة الكلمات</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="text-danger text-center">الكلمات لازالت غير مكتملة (يوجد حاليًا كامل كلمات الوحدة الأولى فقط).</p>
-                    <table class="table table-striped text-center" dir="ltr">
-                        <thead class="table-dark">
-                            <tr>
-                                <th>الكلمة</th>
-                                <th>المعنى</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><span class="word">Satisfaction</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                                <td><span class="word">Feeling of contentment</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                            </tr>
-                            <tr>
-                                <td><span class="word">Status</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                                <td><span class="word">State or condition</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                            </tr>
-                            <tr>
-                                <td><span class="word">Entail</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                                <td><span class="word">To involve or require</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                            </tr>
-                            <tr>
-                                <td><span class="word">Appreciate</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                                <td><span class="word">To be grateful for</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                            </tr>
-                            <tr>
-                                <td><span class="word">Income</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                                <td><span class="word">Money received or earned</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                            </tr>
-                            <tr>
-                                <td><span class="word">Cooperate</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                                <td><span class="word">To work together well</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                            </tr>
-                            <tr>
-                                <td><span class="word">Respectful</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                                <td><span class="word">Polite, showing consideration</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                            </tr>
-                            <tr>
-                                <td><span class="word">Analyze</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                                <td><span class="word">To study closely</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                            </tr>
-                            <tr>
-                                <td><span class="word">Determine</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                                <td><span class="word">To decide or discover</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                            </tr>
-                            <tr>
-                                <td><span class="word">Identifying</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                                <td><span class="word">Determining what something is</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                            </tr>
-                            <tr>
-                                <td><span class="word">Allergens</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                                <td><span class="word">Substances that cause sensitivity</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                            </tr>
-                            <tr>
-                                <td><span class="word">Identical</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                                <td><span class="word">Exactly the same</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                            </tr>
-                            <tr>
-                                <td><span class="word">Flair</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                                <td><span class="word">A natural talent or ability</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                            </tr>
-                            <tr>
-                                <td><span class="word">Captive</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                                <td><span class="word">Confined, kept under restraint or control</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                            </tr>
-                            <tr>
-                                <td><span class="word">Infection</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                                <td><span class="word">Disease or sickness received from someone or something</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+    <div
+      class="modal fade"
+      id="wordModal"
+      data-bs-backdrop="static"
+      tabindex="-1"
+      aria-labelledby="wordModalLabel"
+      style="display: none"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="wordModalLabel">قائمة الكلمات</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p class="text-danger text-center">
+              الكلمات لازالت غير مكتملة (يوجد حاليًا كامل كلمات الوحدة الأولى
+              فقط).
+            </p>
+            <table class="table table-striped text-center" dir="ltr">
+              <thead class="table-dark">
+                <tr>
+                  <th>الكلمة</th>
+                  <th>المعنى</th>
+                </tr>
+              </thead>
+              <tbody id="wordsTableBody"></tbody>
+            </table>
+          </div>
         </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="quizModal"
+      data-bs-backdrop="static"
+      tabindex="-1"
+      aria-labelledby="quizModalLabel"
+      style="display: none"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="quizModalLabel">اختبار الكلمات</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div id="quizContainer">
+              <div class="d-flex justify-content-between mb-4">
+                <div>
+                  <span>الكلمة: </span>
+                  <span id="questionCounter" class="badge bg-primary">1</span>
+                  <span> من </span>
+                  <span id="totalQuestions" class="badge bg-secondary">0</span>
+                </div>
+              </div>
+
+              <div class="card mb-4">
+                <div class="card-body text-center">
+                  <h3 id="currentWord" class="mb-3">Loading...</h3>
+                  <button class="btn btn-sm mb-3" onclick="speakCurrentWord()">
+                    🔊
+                  </button>
+                  <div id="options" class="d-grid gap-2">
+                    <!-- الخيارات ستضاف هنا ديناميكيًا -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="resultsContainer" style="display: none">
+              <div class="card">
+                <div class="card-body text-center">
+                  <h4 class="mb-4">نتائج الاختبار</h4>
+                  <div class="results-summary">
+                    <p class="mb-2">
+                      <span class="fw-bold">عدد الكلمات: </span
+                      ><span id="finalTotalQuestions">0</span>
+                    </p>
+                    <p class="mb-2">
+                      <span class="fw-bold">الإجابات الصحيحة: </span
+                      ><span id="finalCorrectAnswers">0</span>
+                    </p>
+                    <p class="mb-2">
+                      <span class="fw-bold">الإجابات الخاطئة: </span
+                      ><span id="finalWrongAnswers">0</span>
+                    </p>
+                    <p class="mb-2">
+                      <span class="fw-bold">الدرجة النهائية: </span
+                      ><span id="finalScore">0</span>
+                    </p>
+                  </div>
+
+                  <div class="mt-4">
+                    <h5 class="mb-3">الكلمات التي لم تتمكن من معرفتها:</h5>
+                    <ul id="wrongAnswersList" class="list-group">
+                      <!-- ستضاف الكلمات التي لم يعرفها الطالب هنا -->
+                    </ul>
+                  </div>
+
+                  <div class="mt-4">
+                    <button class="btn btn-primary" onclick="restartQuiz()">
+                      إعادة الاختبار
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
   <!-- Bootstrap JS -->
@@ -135,16 +197,6 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- Custom JS Script -->
   <script>
-    const subjects = {
-      0: ``,
-      table: `<table class="table"> <thead> <tr> <th scope="col">اليوم والتاريخ</th> <th scope="col">الاختبار</th> <th scope="col">مدة الاختبار</th> <th scope="col">المعلم كاتب الاختبار</th> </tr> </thead> <tbody> <tr> <th scope="row">الأربعاء 1446/8/13هـ</th> <td>التقنية الرقمية</td> <td>ساعة واحدة</td> <td>نواف المالكي</td> </tr> <tr> <th scope="row">الأحد 1446/8/17هـ</th><td>الرياضيات</td><td>ساعتان ونصف</td> <td>سعود السريحي</td></tr><tr><th scope="row">الإثنين 1446/8/18هـ</th> <td>الكيمياء</td><td>ساعتان ونصف</td> <td>ثامر البوشي</td></tr><tr><th scope="row">الثلاثاء 1446/8/19هـ</th><td>الإنجليزي</td><td>ساعتان ونصف</td> <td>بدر المالكي</td></tr><tr><th scope="row">الأربعاء 1446/8/20هـ</th><td>الأحياء</td><td>ساعتان</td> <td>عبدالرحمن القرني</td> </tr></tbody> </table>`,
-      tech: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>المذاكرة:</h5><p>المذاكرة من الكتاب والمراجعة من الملف التالي:</p><a class="d-block" href="https://drive.google.com/file/d/1EGT54Nhj_WcDCbhQaNesK_kqI8bLyttJ/view?usp=sharing" target="_blank">تحميل بنك أسئلة التقنية الرقمية 2-1 غير محلول</a><a class="d-block" href="https://drive.google.com/file/d/13I0fH_Af7LCrCeuauFhIPxXb73sHPMd8/view?usp=sharing" target="_blank">تحميل بنك أسئلة التقنية الرقمية 2-1 محلول</a>`,
-      math: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-0">30 سؤال اختيارات</p><p class="mb-0">10 أسئلة صح وخطأ</p><p>المجموع 40 سؤال كل سؤال بدرجة</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من الكتاب.</p><a class="d-block" href="https://drive.google.com/file/d/1vmeKuCLu4GKR4BFjOvOQB51GPFT4uZgb/view?usp=sharing" target="_blank">مراجعة 1 رياضيات 2-2 (❗ المراجعة من الإنترنت، ليست من المعلمين، لا تغني عن الكتاب)</a><a class="d-block" href="https://youtu.be/YxqLApTYUGw" target="_blank">شرح مراجعة 1 رياضيات 2-2</a><a class="d-block" href="https://drive.google.com/file/d/1xX2ylDBKYTNOuyhRcfGiTGslIUY8pzYM/view?usp=sharing" target="_blank">مراجعة 2 رياضيات 2-2 (❗ المراجعة من الإنترنت، ليست من المعلمين، لا تغني عن الكتاب)</a><a class="d-block" href="https://youtu.be/5iJstjFH39w" target="_blank">شرح مراجعة 2 رياضيات 2-2</a><h5 class="mt-3">شروحات مساعدة:</h5><a class="d-block" href="https://youtu.be/BQ0Y5gnhRfg" target="_blank">شرح كل مسائل الحاسبة رياضيات 2-2</a><a class="d-block" href="https://youtu.be/2_maY3ya8VM" target="_blank">تبسيط درس دوال التغير</a><a class="d-block" href="https://youtu.be/2Ex06sfoe6U" target="_blank">تبسيط إنطاق المقام</a><h5 class="mt-3">التعاريف المطلوبة:</h5><li>الاستقراء الرياضي</li><li>الكسر المركب</li><li>مثلث باسكال</li><li>LCM</li>`,
-      chemistry: `<h5 class="mt-3">عدد الأسئلة:</h5><p>20 سؤال كل سؤال بدرجة ونصف</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة تكون من الكتاب مع التركيز على المواضيع التالية.</p><li>تعريف الكيمياء الحرارية.</li><li>التفريق بين تعريف المعقد النشط وطاقة التنشيط.</li><li>وحدات القياس (غير مؤكد: وحدات قياس الضغط).</li><li>قانون معادلة حساب الحرارة صفحة 60.</li><li>تعاريف الكون والنظام والمحيط والتفريق بينها.</li><li>الرابطة التي تنشأ بين الجزيئات وهي: الرابطة الهيدروجينية.</li><li>قانون معادلة متوسط سرعة التفاعل صفحة 96.</li><li>حساب الضغوط الجزيئية.</li><li>قانون دالتون للضغوط الجريئة للغازات.</li><li>المفاهيم والتعاريف.</li>`,
-      english: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>القواعد:</h5><p class="mb-1">من الكتاب الـGrammar والـForm, Meaning, and Function.</p><p class="mb-1">الاختبار نسخ لصق من الأمثلة ومن التمارين أسفل كل قاعدة.</p><p>لا يوجد أي أسئلة من كتاب النشاط.</p><h5 class="mt-3">الكلمات:</h5><p>من أسئلة التوصيل في كتاب الطالب.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#wordModal">عرض الكلمات</button><h5 class="mt-3">النص:</h5><p>نص بسيط مع أسئلة صح وخطأ واضحة بدون أي صعوبة.</p>`,
-      biology: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">15 سؤال اختيارات</p><p class="mb-1">5 أسئلة مزاوجة</p><p class="mb-1">10 أسئلة صح وخطأ</p><p>المجموع 30 سؤال كل سؤال بدرجة</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من مسرد الأحياء، يشمل كل المواضيع.</p><a class="d-block" href="https://drive.google.com/file/d/1-YO9hIKnxsOJn3_cRyQyFJ5XLzBOCIOM/view?usp=sharing" target="_blank">تحميل مسرد أفكاء منهج الأحياء 2-2</a>`,
-    };
-
     const footerText = [
       `لا تنسونا من دعائكم لعلكم أقرب إلى الله منزلة`,
       `احرص على ما ينفعك، واستعن بالله ولا تعجز`,
@@ -165,43 +217,6 @@
       `(إِنَّمَا يَخْشَى اللَّهَ مِنْ عِبَادِهِ الْعُلَمَاءُ)`,
     ];
 
-    function speak(button) {
-        window.speechSynthesis.cancel();
-    
-        let text = button.previousElementSibling.innerText;
-        let speech = new SpeechSynthesisUtterance(text);
-        speech.lang = "en-US";
-        speech.rate = 1;
-        speech.pitch = 1;
-        
-        window.speechSynthesis.speak(speech);
-    }
-
-    function fetchTranslation(word) {
-        let apiUrl = `https://api.mymemory.translated.net/get?q=${word}&langpair=en|ar`;
-
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                let translation = data.responseData.translatedText;
-
-              Swal.fire({
-                    html: `<p>الترجمة: ${translation}</p><p class="mt-2 mb-0 fs-6">الترجمة آلية قد تكون غير صحيحة</p>`,
-                    confirmButtonText: "إغلاق",
-                    confirmButtonColor: "#0d6efd",
-                    customClass: {
-                        popup: 'text-light bg-dark border rounded ',
-                        title: 'fw-bold',
-                        confirmButton: 'btn btn-secondary'
-                    }
-            })
-            .catch(error => {
-                console.error("Error fetching translation:", error);
-                Swal.fire("خطأ!", "فشلت عملية الترجمة");
-            });
-      })
-    };
-    
     const random = Math.floor(Math.random() * footerText.length);
 
     const subject = document.getElementById(`subject`);
@@ -215,5 +230,246 @@
     document.querySelector(`body`).onload = function () {
       footerTextDiv.innerHTML = footerText[random];
     };
+
+    const englishWords = {
+      Satisfaction: "feeling of contentment",
+      Status: "state or condition",
+      Entail: "to involve or require",
+      Appreciate: "to be grateful for",
+      Income: "money received or earned",
+      Cooperate: "to work together well",
+      Respectful: "polite, showing consideration",
+      Analyze: "to study closely",
+      Determine: "to decide or discover",
+      Identifying: "determining what something is",
+      Allergens:
+        "substances that cause sensitivity or reactions in some people",
+      Identical: "exactly the same",
+      Flair: "a natural talent or ability",
+      Captive: "confined, kept under restraint or control",
+      Infection: "disease or sickness received from someone or something",
+      Relying: "depending on",
+      Utility:
+        "basic service supplied by a business or facility such as electricity or running water",
+      Bold: "strong and courageous",
+      Committed: "dedicated",
+      Perspective: "a way of seeing something",
+      Harsh: "severe, difficult",
+      Enormous: "extremely large",
+      Sacrifice: "loss of something for a specific purpose",
+    };
+
+    function populateWordsTable() {
+      const tableBody = document.getElementById("wordsTableBody");
+      tableBody.innerHTML = "";
+
+      for (const [word, meaning] of Object.entries(englishWords)) {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td><span class="word">${word}</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+          <td><span class="word">${meaning}</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button></td>
+        `;
+        tableBody.appendChild(row);
+      }
+    }
+
+    document
+      .getElementById("wordModal")
+      .addEventListener("show.bs.modal", populateWordsTable);
+
+    const subjects = {
+      0: ``,
+      table: `<table class="table"> <thead> <tr> <th scope="col">اليوم والتاريخ</th> <th scope="col">الاختبار</th> <th scope="col">مدة الاختبار</th> <th scope="col">المعلم كاتب الاختبار</th> </tr> </thead> <tbody> <tr> <th scope="row">الأربعاء 1446/8/13هـ</th> <td>التقنية الرقمية</td> <td>ساعة واحدة</td> <td>نواف المالكي</td> </tr> <tr> <th scope="row">الأحد 1446/8/17هـ</th><td>الرياضيات</td><td>ساعتان ونصف</td> <td>سعود السريحي</td></tr><tr><th scope="row">الإثنين 1446/8/18هـ</th> <td>الكيمياء</td><td>ساعتان ونصف</td> <td>ثامر البوشي</td></tr><tr><th scope="row">الثلاثاء 1446/8/19هـ</th><td>الإنجليزي</td><td>ساعتان ونصف</td> <td>بدر المالكي</td></tr><tr><th scope="row">الأربعاء 1446/8/20هـ</th><td>الأحياء</td><td>ساعتان</td> <td>عبدالرحمن القرني</td> </tr></tbody> </table>`,
+      tech: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>المذاكرة:</h5><p>المذاكرة من الكتاب والمراجعة من الملف التالي:</p><a class="d-block" href="https://drive.google.com/file/d/1EGT54Nhj_WcDCbhQaNesK_kqI8bLyttJ/view?usp=sharing" target="_blank">تحميل بنك أسئلة التقنية الرقمية 2-1 غير محلول</a><a class="d-block" href="https://drive.google.com/file/d/13I0fH_Af7LCrCeuauFhIPxXb73sHPMd8/view?usp=sharing" target="_blank">تحميل بنك أسئلة التقنية الرقمية 2-1 محلول</a>`,
+      math: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-0">30 سؤال اختيارات</p><p class="mb-0">10 أسئلة صح وخطأ</p><p>المجموع 40 سؤال كل سؤال بدرجة</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من الكتاب.</p><a class="d-block" href="https://drive.google.com/file/d/1vmeKuCLu4GKR4BFjOvOQB51GPFT4uZgb/view?usp=sharing" target="_blank">مراجعة 1 رياضيات 2-2 (❗ المراجعة من الإنترنت، ليست من المعلمين، لا تغني عن الكتاب)</a><a class="d-block" href="https://youtu.be/YxqLApTYUGw" target="_blank">شرح مراجعة 1 رياضيات 2-2</a><a class="d-block" href="https://drive.google.com/file/d/1xX2ylDBKYTNOuyhRcfGiTGslIUY8pzYM/view?usp=sharing" target="_blank">مراجعة 2 رياضيات 2-2 (❗ المراجعة من الإنترنت، ليست من المعلمين، لا تغني عن الكتاب)</a><a class="d-block" href="https://youtu.be/5iJstjFH39w" target="_blank">شرح مراجعة 2 رياضيات 2-2</a><h5 class="mt-3">شروحات مساعدة:</h5><a class="d-block" href="https://youtu.be/BQ0Y5gnhRfg" target="_blank">شرح كل مسائل الحاسبة رياضيات 2-2</a><a class="d-block" href="https://youtu.be/2_maY3ya8VM" target="_blank">تبسيط درس دوال التغير</a><a class="d-block" href="https://youtu.be/2Ex06sfoe6U" target="_blank">تبسيط إنطاق المقام</a><h5 class="mt-3">التعاريف المطلوبة:</h5><li>الاستقراء الرياضي</li><li>الكسر المركب</li><li>مثلث باسكال</li><li>LCM</li>`,
+      chemistry: `<h5 class="mt-3">عدد الأسئلة:</h5><p>20 سؤال كل سؤال بدرجة ونصف</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة تكون من الكتاب مع التركيز على المواضيع التالية.</p><li>تعريف الكيمياء الحرارية.</li><li>التفريق بين تعريف المعقد النشط وطاقة التنشيط.</li><li>وحدات القياس (غير مؤكد: وحدات قياس الضغط).</li><li>قانون معادلة حساب الحرارة صفحة 60.</li><li>تعاريف الكون والنظام والمحيط والتفريق بينها.</li><li>الرابطة التي تنشأ بين الجزيئات وهي: الرابطة الهيدروجينية.</li><li>قانون معادلة متوسط سرعة التفاعل صفحة 96.</li><li>حساب الضغوط الجزيئية.</li><li>قانون دالتون للضغوط الجريئة للغازات.</li><li>المفاهيم والتعاريف.</li>`,
+      english: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>القواعد:</h5><p class="mb-1">من الكتاب الـGrammar والـForm, Meaning, and Function.</p><p class="mb-1">الاختبار نسخ لصق من الأمثلة ومن التمارين أسفل كل قاعدة.</p><p>لا يوجد أي أسئلة من كتاب النشاط.</p><h5 class="mt-3">الكلمات:</h5><p>من أسئلة التوصيل في كتاب الطالب.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#wordModal">عرض الكلمات</button>
+  <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#quizModal">بدء اختبار الكلمات</button><h5 class="mt-3">النص:</h5><p>نص بسيط مع أسئلة صح وخطأ واضحة بدون أي صعوبة.</p>`,
+      biology: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">15 سؤال اختيارات</p><p class="mb-1">5 أسئلة مزاوجة</p><p class="mb-1">10 أسئلة صح وخطأ</p><p>المجموع 30 سؤال كل سؤال بدرجة</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من مسرد الأحياء، يشمل كل المواضيع.</p><a class="d-block" href="https://drive.google.com/file/d/1-YO9hIKnxsOJn3_cRyQyFJ5XLzBOCIOM/view?usp=sharing" target="_blank">تحميل مسرد أفكاء منهج الأحياء 2-2</a>`,
+    };
+
+    function speak(button) {
+      window.speechSynthesis.cancel();
+
+      let text = button.previousElementSibling.innerText;
+      let speech = new SpeechSynthesisUtterance(text);
+      speech.lang = "en-US";
+      speech.rate = 1;
+      speech.pitch = 1;
+
+      window.speechSynthesis.speak(speech);
+    }
+
+    function fetchTranslation(word) {
+      let apiUrl = `https://api.mymemory.translated.net/get?q=${word}&langpair=en|ar`;
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          let translation = data.responseData.translatedText;
+
+          Swal.fire({
+            html: `<p>الترجمة: ${translation}</p><p class="mt-2 mb-0 fs-6">الترجمة آلية قد تكون غير صحيحة</p>`,
+            confirmButtonText: "إغلاق",
+            confirmButtonColor: "#0d6efd",
+            customClass: {
+              popup: "text-light bg-dark border rounded ",
+              title: "fw-bold",
+              confirmButton: "btn btn-secondary",
+            },
+          }).catch(error => {
+            console.error("Error fetching translation:", error);
+            Swal.fire("خطأ!", "فشلت عملية الترجمة");
+          });
+        });
+    }
+
+    let quizWords = [];
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let wrongAnswers = [];
+
+    document
+      .getElementById("quizModal")
+      .addEventListener("show.bs.modal", initializeQuiz);
+
+    function initializeQuiz() {
+      currentQuestionIndex = 0;
+      score = 0;
+      wrongAnswers = [];
+
+      quizWords = Object.entries(englishWords);
+      quizWords = shuffleArray(quizWords);
+
+      document.getElementById("totalQuestions").textContent = quizWords.length;
+      document.getElementById("questionCounter").textContent = "1";
+
+      document.getElementById("resultsContainer").style.display = "none";
+      document.getElementById("quizContainer").style.display = "block";
+
+      displayQuestion();
+    }
+
+    function displayQuestion() {
+      if (currentQuestionIndex < quizWords.length) {
+        const currentWord = quizWords[currentQuestionIndex][0];
+        const correctMeaning = quizWords[currentQuestionIndex][1];
+
+        document.getElementById("currentWord").textContent = currentWord;
+        document.getElementById("questionCounter").textContent = (
+          currentQuestionIndex + 1
+        ).toString();
+
+        const options = generateOptions(correctMeaning);
+
+        const optionsContainer = document.getElementById("options");
+        optionsContainer.innerHTML = "";
+
+        options.forEach((option, index) => {
+          const button = document.createElement("button");
+          button.className = "btn btn-outline-light";
+          button.textContent = option;
+          button.onclick = () => checkAnswer(option, correctMeaning);
+          optionsContainer.appendChild(button);
+        });
+      } else {
+        showResults();
+      }
+    }
+
+    function generateOptions(correctMeaning) {
+      const wrongOptions = getRandomWrongMeanings(correctMeaning, 3);
+
+      const allOptions = [...wrongOptions, correctMeaning];
+
+      return shuffleArray(allOptions);
+    }
+
+    function getRandomWrongMeanings(correctMeaning, count) {
+      const allMeanings = Object.values(englishWords).filter(
+        meaning => meaning !== correctMeaning
+      );
+
+      return shuffleArray(allMeanings).slice(0, count);
+    }
+
+    function checkAnswer(selectedOption, correctMeaning) {
+      if (selectedOption === correctMeaning) {
+        score++;
+      } else {
+        wrongAnswers.push({
+          word: quizWords[currentQuestionIndex][0],
+          correctMeaning: correctMeaning,
+        });
+      }
+
+      currentQuestionIndex++;
+
+      setTimeout(() => {
+        displayQuestion();
+      }, 500);
+    }
+
+    function showResults() {
+      document.getElementById("quizContainer").style.display = "none";
+      document.getElementById("resultsContainer").style.display = "block";
+
+      const totalQuestions = quizWords.length;
+      const correctAnswers = score;
+      const wrongAnswersCount = wrongAnswers.length;
+      const finalScorePercent = Math.round((score / totalQuestions) * 100);
+
+      document.getElementById("finalTotalQuestions").textContent =
+        totalQuestions;
+      document.getElementById("finalCorrectAnswers").textContent =
+        correctAnswers;
+      document.getElementById("finalWrongAnswers").textContent =
+        wrongAnswersCount;
+      document.getElementById(
+        "finalScore"
+      ).textContent = `${correctAnswers}/${totalQuestions} (${finalScorePercent}%)`;
+
+      const wrongAnswersList = document.getElementById("wrongAnswersList");
+      wrongAnswersList.innerHTML = "";
+
+      if (wrongAnswers.length > 0) {
+        wrongAnswers.forEach(wrongAnswer => {
+          const listItem = document.createElement("li");
+          listItem.className = "list-group-item";
+          listItem.innerHTML = `<strong>${wrongAnswer.word}</strong>: ${wrongAnswer.correctMeaning}`;
+          wrongAnswersList.appendChild(listItem);
+        });
+      } else {
+        wrongAnswersList.innerHTML =
+          '<li class="list-group-item">لا توجد أخطاء. أحسنت!</li>';
+      }
+    }
+
+    function restartQuiz() {
+      initializeQuiz();
+    }
+
+    function shuffleArray(array) {
+      const newArray = [...array];
+      for (let i = newArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+      }
+      return newArray;
+    }
+
+    function speakCurrentWord() {
+      window.speechSynthesis.cancel();
+
+      if (currentQuestionIndex < quizWords.length) {
+        const text = quizWords[currentQuestionIndex][0];
+        const speech = new SpeechSynthesisUtterance(text);
+        speech.lang = "en-US";
+        speech.rate = 1;
+        speech.pitch = 1;
+
+        window.speechSynthesis.speak(speech);
+      }
+    }
   </script>
 </html>
