@@ -185,18 +185,16 @@
             .then(data => {
                 let translation = data.responseData.translatedText;
 
-                Swal.fire({
-                    title: word,
-                    text: "الترجمة: " + translation,
+              Swal.fire({
+                    html: `<p>الترجمة: ${translation}</p><p class="mt-2">الترجمة آلية قد تكون غير صحيحة</p>`,
                     confirmButtonText: "إغلاق",
                     confirmButtonColor: "#0d6efd",
                     customClass: {
-                        popup: 'border border-secondary rounded',
+                        popup: 'text-light bg-dark border rounded ',
                         title: 'fw-bold',
                         confirmButton: 'btn btn-secondary'
                     }
-                });
-            })
+            });
             .catch(error => {
                 console.error("Error fetching translation:", error);
                 Swal.fire("خطأ!", "فشلت عملية الترجمة");
