@@ -87,8 +87,8 @@
           </div>
           <div class="modal-body">
             <p class="text-danger text-center">
-              الكلمات لازالت غير مكتملة (يوجد حاليًا كامل كلمات الوحدة الأولى والثانية
-              فقط).
+              الكلمات لازالت غير مكتملة (يوجد حاليًا كامل كلمات الوحدة الأولى
+              والثانية والثالثة فقط).
             </p>
             <p class="text-success text-center">
               شكر خاص للطالب تركي القرشي لترجمة الكلمات
@@ -143,8 +143,7 @@
                   <button class="btn btn-sm mb-3" onclick="speakCurrentWord()">
                     🔊
                   </button>
-                  <div id="options" class="d-grid gap-2">
-                  </div>
+                  <div id="options" class="d-grid gap-2"></div>
                 </div>
               </div>
             </div>
@@ -174,15 +173,18 @@
 
                   <div class="mt-4">
                     <h5 class="mb-3">الكلمات التي لم تتمكن من معرفتها:</h5>
-                    <ul id="wrongAnswersList" class="list-group">
-                    </ul>
+                    <ul id="wrongAnswersList" class="list-group"></ul>
                   </div>
 
                   <div class="mt-4">
                     <button class="btn btn-primary" onclick="restartQuiz()">
                       إعادة الاختبار
                     </button>
-                    <button class="btn secondary" data-bs-dismiss="modal" aria-label="Close">
+                    <button
+                      class="btn secondary"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    >
                       إغلاق
                     </button>
                   </div>
@@ -260,6 +262,12 @@
       Harsh: "severe, difficult",
       Enormous: "extremely large",
       Sacrifice: "loss of something for a specific purpose",
+      Asset: "a useful or valuable thing, person, or quality",
+      Hub: "the center of a region",
+      Nurture:
+        "to care for, help, or encourage the development and growth of something",
+      Cultivate: "to improve or develop by study, training, or effort",
+      Potential: "capacity for growth and development; possibility",
     };
 
     const wordsTranslation = {
