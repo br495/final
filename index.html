@@ -51,6 +51,40 @@
       <!-- Card -->
     </div>
     <!-- Container -->
+    <div class="modal fade" id="wordModal" tabindex="-1" aria-labelledby="wordModalLabel" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="wordModalLabel">قائمة الكلمات</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped text-center" dir="ltr">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>الكلمة</th>
+                                <th>المعنى</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td dir="ltr">
+                                    <span class="word">Apple</span><button class="btn btn-sm " onclick="speak(this)">🔊</button>
+                                    
+                                </td>
+                                <td>
+                                    <span class="word">Banana</span>
+                                    <button class="btn btn-sm" onclick="speak(this)">🔊</button>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
   </body>
   <!-- Custom JS Script -->
   <script>
@@ -60,7 +94,7 @@
       tech: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>المذاكرة:</h5><p>المذاكرة من الكتاب والمراجعة من الملف التالي:</p><a class="d-block" href="https://drive.google.com/file/d/1EGT54Nhj_WcDCbhQaNesK_kqI8bLyttJ/view?usp=sharing" target="_blank">تحميل بنك أسئلة التقنية الرقمية 2-1 غير محلول</a><a class="d-block" href="https://drive.google.com/file/d/13I0fH_Af7LCrCeuauFhIPxXb73sHPMd8/view?usp=sharing" target="_blank">تحميل بنك أسئلة التقنية الرقمية 2-1 محلول</a>`,
       math: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-0">30 سؤال اختيارات</p><p class="mb-0">10 أسئلة صح وخطأ</p><p>المجموع 40 سؤال كل سؤال بدرجة</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من الكتاب.</p><a class="d-block" href="https://drive.google.com/file/d/1vmeKuCLu4GKR4BFjOvOQB51GPFT4uZgb/view?usp=sharing" target="_blank">مراجعة 1 رياضيات 2-2 (❗ المراجعة من الإنترنت، ليست من المعلمين، لا تغني عن الكتاب)</a><a class="d-block" href="https://youtu.be/YxqLApTYUGw" target="_blank">شرح مراجعة 1 رياضيات 2-2</a><a class="d-block" href="https://drive.google.com/file/d/1xX2ylDBKYTNOuyhRcfGiTGslIUY8pzYM/view?usp=sharing" target="_blank">مراجعة 2 رياضيات 2-2 (❗ المراجعة من الإنترنت، ليست من المعلمين، لا تغني عن الكتاب)</a><a class="d-block" href="https://youtu.be/5iJstjFH39w" target="_blank">شرح مراجعة 2 رياضيات 2-2</a><h5 class="mt-3">شروحات مساعدة:</h5><a class="d-block" href="https://youtu.be/BQ0Y5gnhRfg" target="_blank">شرح كل مسائل الحاسبة رياضيات 2-2</a><a class="d-block" href="https://youtu.be/2_maY3ya8VM" target="_blank">تبسيط درس دوال التغير</a><a class="d-block" href="https://youtu.be/2Ex06sfoe6U" target="_blank">تبسيط إنطاق المقام</a><h5 class="mt-3">التعاريف المطلوبة:</h5><li>الاستقراء الرياضي</li><li>الكسر المركب</li><li>مثلث باسكال</li><li>LCM</li>`,
       chemistry: `<h5 class="mt-3">عدد الأسئلة:</h5><p>20 سؤال كل سؤال بدرجة ونصف</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة تكون من الكتاب مع التركيز على المواضيع التالية.</p><li>تعريف الكيمياء الحرارية.</li><li>التفريق بين تعريف المعقد النشط وطاقة التنشيط.</li><li>وحدات القياس (غير مؤكد: وحدات قياس الضغط).</li><li>قانون معادلة حساب الحرارة صفحة 60.</li><li>تعاريف الكون والنظام والمحيط والتفريق بينها.</li><li>الرابطة التي تنشأ بين الجزيئات وهي: الرابطة الهيدروجينية.</li><li>قانون معادلة متوسط سرعة التفاعل صفحة 96.</li><li>حساب الضغوط الجزيئية.</li><li>قانون دالتون للضغوط الجريئة للغازات.</li><li>المفاهيم والتعاريف.</li>`,
-      english: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>القواعد:</h5><p class="mb-1">من الكتاب الـGrammar والـForm, Meaning, and Function.</p><p class="mb-1">الاختبار نسخ لصق من الأمثلة ومن التمارين أسفل كل قاعدة.</p><p>لا يوجد أي أسئلة من كتاب النشاط.</p><h5 class="mt-3">الكلمات:</h5><p>من أسئلة التوصيل في كتاب الطالب.</p><h5 class="mt-3">النص:</h5><p>نص بسيط مع أسئلة صح وخطأ واضحة بدون أي صعوبة.</p>`,
+      english: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>القواعد:</h5><p class="mb-1">من الكتاب الـGrammar والـForm, Meaning, and Function.</p><p class="mb-1">الاختبار نسخ لصق من الأمثلة ومن التمارين أسفل كل قاعدة.</p><p>لا يوجد أي أسئلة من كتاب النشاط.</p><h5 class="mt-3">الكلمات:</h5><p>من أسئلة التوصيل في كتاب الطالب.</p><button class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#wordModal">عرض الكلمات</button><h5 class="mt-3">النص:</h5><p>نص بسيط مع أسئلة صح وخطأ واضحة بدون أي صعوبة.</p>`,
       biology: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">15 سؤال اختيارات</p><p class="mb-1">5 أسئلة مزاوجة</p><p class="mb-1">10 أسئلة صح وخطأ</p><p>المجموع 30 سؤال كل سؤال بدرجة</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من مسرد الأحياء، يشمل كل المواضيع.</p><a class="d-block" href="https://drive.google.com/file/d/1-YO9hIKnxsOJn3_cRyQyFJ5XLzBOCIOM/view?usp=sharing" target="_blank">تحميل مسرد أفكاء منهج الأحياء 2-2</a>`,
     };
 
@@ -84,6 +118,15 @@
       `(إِنَّمَا يَخْشَى اللَّهَ مِنْ عِبَادِهِ الْعُلَمَاءُ)`,
     ];
 
+        function speak(button) {
+        let text = button.previousElementSibling.innerText;
+        let speech = new SpeechSynthesisUtterance(text);
+        speech.lang = "en-US";
+        speech.rate = 1;
+        speech.pitch = 1;
+        window.speechSynthesis.speak(speech);
+    }
+    
     const random = Math.floor(Math.random() * footerText.length);
 
     const subject = document.getElementById(`subject`);
