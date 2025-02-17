@@ -317,7 +317,7 @@
     function speak(button) {
       window.speechSynthesis.cancel();
 
-      let text = button.previousElementSibling.innerHTML;
+      let text = button.previousElementSibling.innerText;
       let speech = new SpeechSynthesisUtterance(text);
       speech.lang = "en-US";
       speech.rate = 1;
@@ -349,7 +349,7 @@
         const row = document.createElement("tr");
         row.innerHTML = `
           <td><span class="word">${word}</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button> <button class="btn btn-sm" onclick="translation(this.previousElementSibling.previousElementSibling.innerHTML)">🌐</button></td>
-          <td><span class="word">${meaning}</span> <button class="btn btn-sm" onclick="speak('this')">🔊</button> <button class="btn btn-sm" onclick="translation(this.previousElementSibling.previousElementSibling.innerHTML)">🌐</button></td>
+          <td><span class="word">${meaning}</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button> <button class="btn btn-sm" onclick="translation(this.previousElementSibling.previousElementSibling.innerHTML)">🌐</button></td>
         `;
         tableBody.appendChild(row);
       }
