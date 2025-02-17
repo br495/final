@@ -69,7 +69,6 @@
     <div
       class="modal fade"
       id="wordModal"
-      data-bs-backdrop="static"
       tabindex="-1"
       aria-labelledby="wordModalLabel"
       style="display: none"
@@ -140,12 +139,11 @@
 
               <div class="card mb-4">
                 <div class="card-body text-center">
-                  <h3 id="currentWord" class="mb-3">Loading...</h3>
+                  <h3 id="currentWord" class="mb-3">جار التحميل...</h3>
                   <button class="btn btn-sm mb-3" onclick="speakCurrentWord()">
                     🔊
                   </button>
                   <div id="options" class="d-grid gap-2">
-                    <!-- الخيارات ستضاف هنا ديناميكيًا -->
                   </div>
                 </div>
               </div>
@@ -177,13 +175,15 @@
                   <div class="mt-4">
                     <h5 class="mb-3">الكلمات التي لم تتمكن من معرفتها:</h5>
                     <ul id="wrongAnswersList" class="list-group">
-                      <!-- ستضاف الكلمات التي لم يعرفها الطالب هنا -->
                     </ul>
                   </div>
 
                   <div class="mt-4">
                     <button class="btn btn-primary" onclick="restartQuiz()">
                       إعادة الاختبار
+                    </button>
+                    <button class="btn secondary" data-bs-dismiss="modal" aria-label="Close">
+                      إغلاق
                     </button>
                   </div>
                 </div>
