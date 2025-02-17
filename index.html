@@ -166,12 +166,15 @@
       `(إِنَّمَا يَخْشَى اللَّهَ مِنْ عِبَادِهِ الْعُلَمَاءُ)`,
     ];
 
-        function speak(button) {
+    function speak(button) {
+        window.speechSynthesis.cancel();
+    
         let text = button.previousElementSibling.innerText;
         let speech = new SpeechSynthesisUtterance(text);
         speech.lang = "en-US";
         speech.rate = 1;
         speech.pitch = 1;
+        
         window.speechSynthesis.speak(speech);
     }
     
