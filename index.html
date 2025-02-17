@@ -86,10 +86,6 @@
             ></button>
           </div>
           <div class="modal-body">
-            <p class="text-danger text-center">
-              الكلمات لازالت غير مكتملة (يوجد حاليًا كامل كلمات الوحدة الأولى
-              والثانية والثالثة فقط).
-            </p>
             <p class="text-success text-center">
               شكر خاص للطالب تركي القرشي لترجمة الكلمات
             </p>
@@ -268,6 +264,19 @@
         "to care for, help, or encourage the development and growth of something",
       Cultivate: "to improve or develop by study, training, or effort",
       Potential: "capacity for growth and development; possibility",
+      Milestone:
+        "a very important event in the development of another event or course of events",
+      "Cross-country skiing": "skiing across fields not down slopes",
+      "Ski-jumping":
+        "a skiing event that involves jumping off a long steep sloping platform through the air as far as possible",
+      Merit: "an advantage or positive feature",
+      Terrain: "a particular type of land",
+      "Be interspersed with":
+        "be combined with / interrupted by something at regular intervals",
+      "Alpine skiing": "skiing downhill on skis with fixed heel binding",
+      "Freestyle skiing": "an acrobatic form of technical and aerial skiing",
+      Astounding: "astonishing, amazing",
+      "Spectator (sport)": "a sport that people go to watch",
     };
 
     const wordsTranslation = {
@@ -356,9 +365,9 @@
       for (const [word, meaning] of Object.entries(englishWords)) {
         const row = document.createElement("tr");
         row.innerHTML = `
-          <td><span class="word">${word}</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button> <button class="btn btn-sm" onclick="translation(this.previousElementSibling.previousElementSibling.innerHTML)">🌐</button></td>
-          <td><span class="word">${meaning}</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button> <button class="btn btn-sm" onclick="translation(this.previousElementSibling.previousElementSibling.innerHTML)">🌐</button></td>
-        `;
+              <td><span class="word">${word}</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button> <button class="btn btn-sm" onclick="translation(this.previousElementSibling.previousElementSibling.innerHTML)">🌐</button></td>
+              <td><span class="word">${meaning}</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button> <button class="btn btn-sm" onclick="translation(this.previousElementSibling.previousElementSibling.innerHTML)">🌐</button></td>
+            `;
         tableBody.appendChild(row);
       }
     }
