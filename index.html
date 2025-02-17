@@ -186,7 +186,7 @@
                 let translation = data.responseData.translatedText;
 
               Swal.fire({
-                    html: `<p>الترجمة: ${translation}</p><p class="mt-2">الترجمة آلية قد تكون غير صحيحة</p>`,
+                    html: `<p>الترجمة: ${translation}</p><p class="mt-2 mb-0 fs-6">الترجمة آلية قد تكون غير صحيحة</p>`,
                     confirmButtonText: "إغلاق",
                     confirmButtonColor: "#0d6efd",
                     customClass: {
@@ -194,12 +194,13 @@
                         title: 'fw-bold',
                         confirmButton: 'btn btn-secondary'
                     }
-            });
+            })
             .catch(error => {
                 console.error("Error fetching translation:", error);
                 Swal.fire("خطأ!", "فشلت عملية الترجمة");
             });
-    }
+      })
+    };
     
     const random = Math.floor(Math.random() * footerText.length);
 
