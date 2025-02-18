@@ -273,6 +273,10 @@
                   <span> من </span>
                   <span id="totalItemsCount" class="badge bg-secondary">0</span>
                 </div>
+                <div id="currentScoreContainer" style="display: none">
+                  <span>الدرجة: </span>
+                  <span id="currentScore" class="badge bg-success">0</span>
+                </div>
               </div>
 
               <div class="card mb-4">
@@ -281,6 +285,8 @@
                     جار التحميل...
                   </h3>
                   <div id="choices" class="d-grid gap-2"></div>
+                  <!-- حفظ الإجابة الصحيحة في عنصر خفي -->
+                  <input type="hidden" id="correctAnswerForQuestion" value="" />
                 </div>
               </div>
             </div>
@@ -2263,6 +2269,26 @@
       .getElementById("examPopup")
       .addEventListener("show.bs.modal", prepareExam);
 
+    // تحسين دالة العشوائية لتوفير خلط أفضل للمصفوفات
+    function improvedRandomizeArray(array) {
+      const newArray = [...array];
+
+      // 1. استخدام خوارزمية Fisher-Yates للخلط
+      for (let i = newArray.length - 1; i > 0; i--) {
+        // استخدام طريقة أكثر عشوائية للحصول على المؤشر j
+        const j = Math.floor(Math.random() * (i + 1));
+        // تبديل العناصر
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+      }
+
+      // 2. في بعض الأحيان، قم بعكس المصفوفة كاملة للحصول على ترتيب مختلف تماماً
+      if (Math.random() > 0.5) {
+        return newArray.reverse();
+      }
+
+      return newArray;
+    }
+
     function prepareExam() {
       examItems = [];
       chosenItems = [];
@@ -2282,8 +2308,8 @@
       // تحويل أسئلة الاختبار إلى مصفوفة من العناصر
       examItems = [...activeExamData];
 
-      // خلط ترتيب الأسئلة
-      examItems = randomizeArray(examItems);
+      // خلط ترتيب الأسئلة بالطريقة المحسنة
+      examItems = improvedRandomizeArray(examItems);
 
       document.getElementById("examConfigSection").style.display = "block";
       document.getElementById("examItemsSection").style.display = "none";
@@ -2383,9 +2409,15 @@
         chosenItems.length;
       document.getElementById("itemCounter").textContent = "1";
 
+      // إعداد الدرجة الحالية
+      document.getElementById("currentScore").textContent = "0";
+
       document.getElementById("examConfigSection").style.display = "none";
       document.getElementById("examScoreSection").style.display = "none";
       document.getElementById("examItemsSection").style.display = "block";
+
+      // إظهار عداد النقاط
+      document.getElementById("currentScoreContainer").style.display = "block";
 
       showCurrentItem();
     }
@@ -2401,27 +2433,77 @@
           currentItemIndex + 1
         ).toString();
 
-        // خلط خيارات الإجابة
-        const choices = randomizeArray([...currentItem.answers]);
+        // استخدام الدالة المحسنة لخلط خيارات الإجابة
+        const choices = improvedRandomizeArray([...currentItem.answers]);
+
+        // تخزين الإجابة الصحيحة في عنصر خفي
+        document.getElementById("correctAnswerForQuestion").value =
+          correctAnswer;
 
         const choicesContainer = document.getElementById("choices");
         choicesContainer.innerHTML = "";
 
         choices.forEach(choice => {
           const button = document.createElement("button");
-          button.className = "btn btn-outline-light";
+          button.className = "btn btn-outline-light choice-button";
           button.textContent = choice;
+          button.dataset.choice = choice;
           button.onclick = () => evaluateAnswer(choice, correctAnswer);
           choicesContainer.appendChild(button);
         });
+
+        // التحقق من وجود زر التالي
+        let nextButton = document.getElementById("nextQuestionBtn");
+        if (!nextButton) {
+          // إنشاء زر التالي إذا لم يكن موجوداً
+          nextButton = document.createElement("button");
+          nextButton.id = "nextQuestionBtn";
+          nextButton.className = "btn btn-primary mt-3 d-block mx-auto";
+          nextButton.onclick = () => moveToNextQuestion();
+          choicesContainer.after(nextButton);
+        }
+
+        // تحديث حالة وعنوان الزر
+        nextButton.disabled = true; // تعطيل الزر حتى يجيب الطالب
+
+        // تغيير نص الزر ليكون "إنهاء الاختبار" في آخر سؤال
+        if (currentItemIndex === chosenItems.length - 1) {
+          nextButton.textContent = "إنهاء الاختبار";
+        } else {
+          nextButton.textContent = "السؤال التالي";
+        }
       } else {
         displayResults();
       }
     }
 
     function evaluateAnswer(selectedChoice, expectedAnswer) {
+      // تعطيل جميع أزرار الاختيار
+      const choiceButtons = document.querySelectorAll(".choice-button");
+      choiceButtons.forEach(button => {
+        button.disabled = true;
+
+        // تحديد الإجابة الصحيحة باللون الأخضر
+        if (button.dataset.choice === expectedAnswer) {
+          button.classList.remove("btn-outline-light");
+          button.classList.add("btn-success");
+        }
+
+        // إذا كان الطالب اختار إجابة خاطئة، تحديدها باللون الأحمر
+        if (
+          button.dataset.choice === selectedChoice &&
+          selectedChoice !== expectedAnswer
+        ) {
+          button.classList.remove("btn-outline-light");
+          button.classList.add("btn-danger");
+        }
+      });
+
+      // تحديث النقاط والإجابات الخاطئة
       if (selectedChoice === expectedAnswer) {
         totalPoints++;
+        // تحديث الدرجة الحالية
+        document.getElementById("currentScore").textContent = totalPoints;
       } else {
         incorrectItems.push({
           question: chosenItems[currentItemIndex].question,
@@ -2429,16 +2511,20 @@
         });
       }
 
-      currentItemIndex++;
+      // تفعيل زر الانتقال للسؤال التالي بعد الإجابة
+      const nextButton = document.getElementById("nextQuestionBtn");
+      nextButton.disabled = false;
+    }
 
-      setTimeout(() => {
-        showCurrentItem();
-      }, 500);
+    function moveToNextQuestion() {
+      currentItemIndex++;
+      showCurrentItem();
     }
 
     function displayResults() {
       document.getElementById("examItemsSection").style.display = "none";
       document.getElementById("examScoreSection").style.display = "block";
+      document.getElementById("currentScoreContainer").style.display = "none";
 
       const totalItems = chosenItems.length;
       const correctItems = totalPoints;
@@ -2473,13 +2559,9 @@
       prepareExam();
     }
 
+    // استبدال دالة randomizeArray الأصلية
     function randomizeArray(array) {
-      const newArray = [...array];
-      for (let i = newArray.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-      }
-      return newArray;
+      return improvedRandomizeArray(array);
     }
   </script>
 </html>
