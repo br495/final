@@ -65,6 +65,9 @@
           <div class="my-3"></div>
 
           <p class="text-danger mb-0">
+            قد تواجه بطئ في تحميل الأسئلة أو الملفات، نعتذر منكم الأمر خارج عن المقدرة، هذه المشاكل سببها محدودية ميزانية تشغيل الموقع.
+          </p>
+          <p class="text-danger mb-0">
             يرجى العلم أن أغلب المعلمين لم يكملوا كتابة الاختبارات الخاصة بهم
             لذلك المعلومات محدودة في الوقت الحالي.
           </p>
@@ -502,7 +505,7 @@
     const subjects = {
       0: ``,
       table: `<table class="table"> <thead> <tr> <th scope="col">اليوم والتاريخ</th> <th scope="col">الاختبار</th> <th scope="col">مدة الاختبار</th> <th scope="col">المعلم كاتب الاختبار</th> </tr> </thead> <tbody> <tr> <th scope="row">الثلاثاء 1446/11/29هـ</th> <td>التقنية الرقمية</td> <td>ساعة واحدة</td> <td>نواف المالكي</td> </tr> <tr> <th scope="row">الأحد 1446/12/19هـ</th><td>الرياضيات</td><td>ساعتان ونصف</td> <td>سعود السريحي</td></tr><tr><th scope="row">الإثنين 1446/12/20هـ</th> <td>الكيمياء</td><td>ساعتان ونصف</td> <td>طارق الحدادي (ماني متأكد من الاسم إلي يعرف اسمه الصح يكلمني تلجرام <a href="https://t.me/br495">@br495</a>)</td></tr><tr><th scope="row">الثلاثاء 1446/12/21هـ</th><td>الإنجليزي</td><td>ساعتان ونصف</td> <td>بدر المالكي</td></tr><tr><th scope="row">الأربعاء 1446/12/22هـ</th><td>الفيزياء</td><td>ساعتان ونصف</td> <td>ضيف الله الحربي</td> </tr><tr><th scope="row">الأربعاء 1446/12/23هـ</th><td>الأحياء</td><td>ساعتان</td> <td>عبدالرحمن القرني</td> </tr></tbody> </table>`,
-      tech: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>المذاكرة:</h5><p>المذاكرة من الكتاب والمراجعة من الملف التالي:</p><a class="d-block" href="/files/بنك أسئلة التقنية الرقمية 2-2 غير محلول.pdf" download>تحميل بنك أسئلة التقنية الرقمية 2-2 غير محلول</a><a class="d-block" href="/files/بنك أسئلة التقنية الرقمية 2-2 محلول.pdf" download>تحميل بنك أسئلة التقنية الرقمية 2-2 محلول</a>`,
+      tech: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>المذاكرة:</h5><p>المذاكرة من الكتاب والمراجعة من الملف التالي:</p><a class="d-block" href="https://drive.google.com/file/d/1s18jqRUb2pLmwQN-eVMNBRd2is8XyJ0D/view?usp=sharing" target="_blank">تحميل بنك أسئلة التقنية الرقمية 2-2 غير محلول</a><a class="d-block" href="https://drive.google.com/file/d/1GEWUGDLD7KXqsjcS29_jlple3fewT4Dz/view?usp=drive_link" target="_blank>تحميل بنك أسئلة التقنية الرقمية 2-2 محلول</a>`,
       math: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من الكتاب.</p><h5 class="mt-3">شروحات مساعدة:</h5><a class="d-block" href="https://youtu.be/n9o8r9YLOqg" target="_blank">ملخص مراجعة الرياضيات ٢-٣ | الوحدة الأولى</a><a class="d-block" href="https://youtu.be/-lLi7rksL0Y" target="_blank">ملخص مراجعة الرياضيات ٢-٣ | الوحدة الثانية</a><a class="d-block" href="https://youtu.be/2Ex06sfoe6U" target="_blank">تبسيط إنطاق المقام</a>`,
       chemistry: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">غير معروف</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من مسرد الكيمياء، يشمل كل المواضيع.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abstractDownloderModal" data-subject="chemistry23">تحميل المسرد</button> <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#quizModal" data-subject="chemistry23" data-title="الكيمياء" > ابدأ الاختبار الإلكتروني للتجميعات </button>`,
       english: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>القواعد:</h5><p class="mb-1">من الكتاب الـGrammar والـForm, Meaning, and Function.</p><p class="mb-1">الاختبار نسخ لصق من الأمثلة ومن التمارين أسفل كل قاعدة.</p><p>لا يوجد أي أسئلة من كتاب النشاط.</p><h5 class="mt-3">الكلمات:</h5><p>من الـQuick Check والـReal Talk والـVocabulary Building.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#wordModal">عرض الكلمات</button> <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#wordsQuizModal">اختبار الكلمات</button><h5 class="mt-3">النص:</h5><p>نص بسيط مع أسئلة صح وخطأ واضحة بدون أي صعوبة.</p>`,
@@ -526,19 +529,19 @@
     const abstracts = {
       biology23: {
         title: "الأحياء",
-        100: "مسرد الأحياء 2-3",
-        110: "مسرد وتجميعات الأحياء 2-3 غير محلول",
-        111: "مسرد وتجميعات الأحياء 2-3 محلول",
-        "010": "تجميعات الأحياء 2-3 غير محلول",
-        "011": "تجميعات الأحياء 2-3 محلول",
+        100: "https://drive.google.com/file/d/1onjPwfpCQrmf_UdaO1yiwoQPDI_Rx6eR/view?usp=sharing",
+        110: "https://drive.google.com/file/d/1txIFykHWjSrcOKdPf7xYNigFHKuF7yCe/view?usp=sharing",
+        111: "https://drive.google.com/file/d/1bqkngstkGp5IK2MMmm-GtbmNEd4MyAe5/view?usp=sharing",
+        "010": "https://drive.google.com/file/d/1ILY1Am26Z3-reWoJ2mN09FL6iG-wkdqQ/view?usp=sharing",
+        "011": "https://drive.google.com/file/d/1Um39S3UVc81tezSbyadyi_jvluGHF__n/view?usp=sharing",
       },
       chemistry23: {
         title: "الكيمياء",
-        100: "مسرد الكيمياء 2-3",
-        110: "مسرد وتجميعات الكيمياء 2-3 غير محلول",
-        111: "مسرد وتجميعات الكيمياء 2-3 محلول",
-        "010": "تجميعات الكيمياء 2-3 غير محلول",
-        "011": "تجميعات الكيمياء 2-3 محلول",
+        100: "https://drive.google.com/file/d/1r4LN8HWd3oifIzRJlVg7M_Aj9iQtt0yT/view?usp=sharing",
+        110: "https://drive.google.com/file/d/1msdn4ZlbW3yQjyWKqICySr7SyMy4z6AY/view?usp=sharing",
+        111: "https://drive.google.com/file/d/1ecRGUeTkUusoC58sbgL6AYCz3RFJgDZP/view?usp=sharing",
+        "010": "https://drive.google.com/file/d/1QB1lC1YwnxvwNcq-xnGj4W6Ct31N5_I4/view?usp=sharing",
+        "011": "https://drive.google.com/file/d/1bSxxcsR-Cr_FErZzCUzYaiysu7OR_vWm/view?usp=sharing",
       },
     };
 
@@ -599,10 +602,10 @@
       const modalTitle = document.getElementById("abstractDownloderModalLabel");
       modalTitle.textContent = `تحميل مسرد ${abstracts[subject]["title"]}`;
 
-      const fileName = `${subject}/${abstracts[subject][code]}.pdf`;
+      const fileName = `${abstracts[subject][code]}`;
       const a = document.createElement("a");
       a.href = fileName;
-      a.download = abstracts[subject][code];
+      a.target = "_blank";
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
