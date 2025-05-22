@@ -1,0 +1,441 @@
+{
+  "subject_name": "الكيمياء 2-3",
+  "uints": [
+    { "id": 1, "name": "الهيدروكربونات" },
+    { "id": 2, "name": "مشتقات المركبات الهيدروكربونية وتفاعلاتها" },
+    { "id": 3, "name": "كيمياء الحياة (المركبات العضوية الحيوية)" },
+    { "id": 4, "name": "الغازات" }
+  ],
+  "lessons": [
+    { "id": 1, "name": "مقدمة إلى الهيدروكربونات", "uint_id": 1 },
+    { "id": 2, "name": "الألكانات", "uint_id": 1 },
+    { "id": 3, "name": "الألكينات والألكاينات", "uint_id": 1 },
+    { "id": 4, "name": "متشكلات الهيدروكربونات", "uint_id": 1 },
+    { "id": 5, "name": "الهيدروكربونات الأروماتية", "uint_id": 1 },
+    { "id": 6, "name": "هاليدات الألكيل وهاليدات الأريل", "uint_id": 2 },
+    { "id": 7, "name": "الكحولات والإيثرات والأمينات", "uint_id": 2 },
+    { "id": 8, "name": "مركبات الكربونيل", "uint_id": 2 },
+    { "id": 9, "name": "تفاعلات أخرى للمركبات العضوية", "uint_id": 2 },
+    { "id": 10, "name": "البوليمرات", "uint_id": 2 },
+    { "id": 11, "name": "البروتينات", "uint_id": 3 },
+    { "id": 12, "name": "الكربوهيدرات", "uint_id": 3 },
+    { "id": 13, "name": "الليبيدات", "uint_id": 3 },
+    { "id": 15, "name": "قوانين الغازات", "uint_id": 4 },
+    { "id": 16, "name": "قانون الغاز المثالي", "uint_id": 4 },
+    { "id": 17, "name": "الحسابات المتعلقه بالغازات", "uint_id": 4 }
+  ],
+  "topics": [
+    {
+      "id": 1,
+      "lesson_id": 1,
+      "name": "الكيمياء العضوية",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "A" },
+        { "id": 2, "link": "", "solve": "D" }
+      ]
+    },
+    {
+      "id": 2,
+      "lesson_id": 2,
+      "name": "الألكانات",
+      "link": "In1tMQE3wPQ",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "1kgFmjV2J80", "solve": "A" },
+        { "id": 2, "link": "HzwolNPAbas", "solve": "C" }
+      ]
+    },
+    {
+      "id": 3,
+      "lesson_id": 2,
+      "name": "مجموعة الألكيل",
+      "link": "eArJlR_lsiY",
+      "exercises": 1,
+      "exercises_solve": [{ "id": 1, "link": "C-iqoL_mxfA", "solve": "B" }]
+    },
+    {
+      "id": 4,
+      "lesson_id": 2,
+      "name": "قواعد الأيوباك في تسمية الألكانات",
+      "link": "BfHL0FYkQMU",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "c4DNACirDaU", "solve": "A" },
+        { "id": 2, "link": "7XHujEv8sz0", "solve": "D" }
+      ]
+    },
+    {
+      "id": 3,
+      "lesson_id": 3,
+      "name": "الألكينات الحلقية",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "B" },
+        { "id": 2, "link": "", "solve": "C" }
+      ]
+    },
+    {
+      "id": 4,
+      "lesson_id": 3,
+      "name": "الألكاينات",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "B" },
+        { "id": 2, "link": "", "solve": "D" }
+      ]
+    },
+    {
+      "id": 6,
+      "lesson_id": 3,
+      "name": "الألكاينات الحلقية",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "A" },
+        { "id": 2, "link": "", "solve": "A" }
+      ]
+    },
+    {
+      "id": 1,
+      "lesson_id": 5,
+      "name": "الهيدروكربونات الأروماتية",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "A" },
+        { "id": 2, "link": "", "solve": "C" }
+      ]
+    },
+    {
+      "id": 1,
+      "lesson_id": 6,
+      "name": "هاليدات الألكيل وهاليدات الأريل",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "A" },
+        { "id": 2, "link": "", "solve": "B" }
+      ]
+    },
+    {
+      "id": 2,
+      "lesson_id": 6,
+      "name": "تفاعلات الاستبدال",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "B" },
+        { "id": 2, "link": "", "solve": "C" }
+      ]
+    },
+    {
+      "id": 1,
+      "lesson_id": 7,
+      "name": "الكحولات",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "C" },
+        { "id": 2, "link": "", "solve": "A" }
+      ]
+    },
+    {
+      "id": 2,
+      "lesson_id": 7,
+      "name": "الإيثرات",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "A" },
+        { "id": 2, "link": "", "solve": "B" }
+      ]
+    },
+    {
+      "id": 3,
+      "lesson_id": 7,
+      "name": "الأمينات",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "B" },
+        { "id": 2, "link": "", "solve": "C" }
+      ]
+    },
+    {
+      "id": 4,
+      "lesson_id": 8,
+      "name": "الإسترات",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "B" },
+        { "id": 2, "link": "", "solve": "D" }
+      ]
+    },
+    {
+      "id": 5,
+      "lesson_id": 8,
+      "name": "الأميدات",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "D" },
+        { "id": 2, "link": "", "solve": "C" }
+      ]
+    },
+    {
+      "id": 6,
+      "lesson_id": 8,
+      "name": "درجة غليان وذوبانية المركبات العضوية",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "B" },
+        { "id": 2, "link": "", "solve": "A" }
+      ]
+    },
+    {
+      "id": 1,
+      "lesson_id": 9,
+      "name": "تفاعلات الحذف",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "B" },
+        { "id": 2, "link": "", "solve": "A" }
+      ]
+    },
+    {
+      "id": 2,
+      "lesson_id": 9,
+      "name": "تفاعلات الإضافة",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "B" },
+        { "id": 2, "link": "", "solve": "A" }
+      ]
+    },
+    {
+      "id": 3,
+      "lesson_id": 9,
+      "name": "تفاعلات الأكسدة والاختزال",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "A" },
+        { "id": 2, "link": "", "solve": "A" }
+      ]
+    },
+    {
+      "id": 1,
+      "lesson_id": 10,
+      "name": "البوليمرات",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "C" },
+        { "id": 2, "link": "", "solve": "C" }
+      ]
+    },
+    {
+      "id": 1,
+      "lesson_id": 11,
+      "name": "البروتينات",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "C" },
+        { "id": 2, "link": "", "solve": "A" }
+      ]
+    },
+    {
+      "id": 2,
+      "lesson_id": 11,
+      "name": "الرابطة الببتيدية",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "B" },
+        { "id": 2, "link": "", "solve": "A" }
+      ]
+    },
+    {
+      "id": 3,
+      "lesson_id": 11,
+      "name": "الوظائف المتعددة للبروتينات",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "A" },
+        { "id": 2, "link": "", "solve": "A" }
+      ]
+    },
+    {
+      "id": 2,
+      "lesson_id": 12,
+      "name": "السكريات الأحادية",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "A" },
+        { "id": 2, "link": "", "solve": "D" }
+      ]
+    },
+    {
+      "id": 3,
+      "lesson_id": 12,
+      "name": "السكريات الثنائية",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "B" },
+        { "id": 2, "link": "", "solve": "C" }
+      ]
+    },
+    {
+      "id": 4,
+      "lesson_id": 12,
+      "name": "السكريات عديدة التسكر",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "B" },
+        { "id": 2, "link": "", "solve": "D" }
+      ]
+    },
+    {
+      "id": 1,
+      "lesson_id": 13,
+      "name": "الليبيدات",
+      "link": "",
+      "exercises": 1,
+      "exercises_solve": [{ "id": 1, "link": "", "solve": "A" }]
+    },
+    {
+      "id": 3,
+      "lesson_id": 13,
+      "name": "الجليسريدات الثلاثية والتصبن",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "B" },
+        { "id": 2, "link": "", "solve": "C" }
+      ]
+    },
+    {
+      "id": 4,
+      "lesson_id": 13,
+      "name": "الليبيدات الفوسفورية والشموع",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "D" },
+        { "id": 2, "link": "", "solve": "C" }
+      ]
+    },
+    {
+      "id": 5,
+      "lesson_id": 13,
+      "name": "السترويدات",
+      "link": "",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "", "solve": "D" },
+        { "id": 2, "link": "", "solve": "A" }
+      ]
+    },
+    {
+      "id": 1,
+      "lesson_id": 15,
+      "name": "قانون بويل",
+      "link": "dyGU9hC9HHg",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "0S-Sh1moS9w", "solve": "C" },
+        { "id": 2, "link": "ZVrC3xiuhSI", "solve": "B" }
+      ]
+    },
+    {
+      "id": 2,
+      "lesson_id": 15,
+      "name": "تحويل درجات الحرارة",
+      "link": "EDpHjAubwMA",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "YVzqmAXufT4", "solve": "C" },
+        { "id": 2, "link": "-7uSr6HD3as", "solve": "D" }
+      ]
+    },
+    {
+      "id": 3,
+      "lesson_id": 15,
+      "name": "الصفر المطلق",
+      "link": "ADAmGMrGU1c",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "kgywZuGRA8U", "solve": "A" },
+        { "id": 2, "link": "fx0V-XG7kLA", "solve": "C" }
+      ]
+    },
+    {
+      "id": 4,
+      "lesson_id": 15,
+      "name": "قانون شارل",
+      "link": "RnNSM2A2XQY",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "wGfjFI_Vp2k", "solve": "D" },
+        { "id": 2, "link": "xpZ6U5CM9SM", "solve": "B" }
+      ]
+    },
+    {
+      "id": 5,
+      "lesson_id": 15,
+      "name": "قانون جاي لوساك",
+      "link": "B-nKtQS7-Uk",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "Z3wfbgsdq5E", "solve": "D" },
+        { "id": 2, "link": "uxhkAiP5qZo", "solve": "B" }
+      ]
+    },
+    {
+      "id": 6,
+      "lesson_id": 15,
+      "name": "القانون العام للغازات",
+      "link": "bxcT7BdilXs",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "gaNYl2dtXRI", "solve": "A" },
+        { "id": 2, "link": "-o4GquNF6Cc", "solve": "B" }
+      ]
+    },
+    {
+      "id": 1,
+      "lesson_id": 16,
+      "name": "مبدأ أفوجادرو وقانون الغاز المثالي",
+      "link": "telXQijJB5I",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "3LWeualJbMM", "solve": "D" },
+        { "id": 2, "link": "5j1XEbcuI6w", "solve": "C" }
+      ]
+    },
+    {
+      "id": 1,
+      "lesson_id": 17,
+      "name": "الحسابات المتعلقة بالغازات",
+      "link": "lN_5D_OT0bA",
+      "exercises": 2,
+      "exercises_solve": [
+        { "id": 1, "link": "yUw_2zSNsjk", "solve": "B" },
+        { "id": 2, "link": "nHLznO_quD4", "solve": "D" }
+      ]
+    }
+  ]
+}

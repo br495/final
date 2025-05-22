@@ -4,6 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -14,6 +15,13 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
     />
+    <!-- Custom CSS -->
+    <style>
+      .w-45 {
+        width: 45% !important;
+      }
+    </style>
+
     <!-- Microsoft Clarity analytics script -->
     <script type="text/javascript">
       (function (c, l, a, r, i, t, y) {
@@ -29,7 +37,8 @@
         y.parentNode.insertBefore(t, y);
       })(window, document, "clarity", "script", "qa6jmlgjcf");
     </script>
-    <title>مذاكرة النهائي الثاني ثانوي الفصل الدراسي الثاني 1446هـ</title>
+
+    <title>مذاكرة النهائي الثاني ثانوي الفصل الدراسي الثالث 1446هـ</title>
   </head>
   <body>
     <!-- Container -->
@@ -37,7 +46,8 @@
       <!-- Card -->
       <div class="card text-center">
         <div class="card-header">
-          مذاكرة النهائي الثاني ثانوي الفصل الدراسي الثاني 1446هـ
+          مصادر النهائي الثاني ثانوي الفصل الدراسي الثالث 1446هـ (عمورية
+          الثانوية - هذا الموقع من تجميع الطلاب لا علاقة للمعلمين به)
         </div>
         <div class="card-body">
           <h5 class="card-title mb-3">اختر المادة</h5>
@@ -49,15 +59,14 @@
             <option value="chemistry">الكيمياء</option>
             <option value="english">الانجليزي</option>
             <option value="biology">الأحياء</option>
+            <option value="physics">الفيزياء</option>
           </select>
+
           <div class="my-3"></div>
-          <p class="mt-5">
-            شكر خاص لجميع المعلمين والطلبة الذين كانوا عون في جمع هذه البيانات.
-          </p>
+
           <p class="text-danger mb-0">
-            يمنع إيصال أي معلومات داخل هذا الرابط إلي المعلمين أو الإدارة، وفي
-            حال تسريب المعلومات قد يتم إتخاذ إجراء من لجنة الاختبارات ويتم تعديل
-            النماذج.
+            يرجى العلم أن أغلب المعلمين لم يكملوا كتابة الاختبارات الخاصة بهم
+            لذلك المعلومات محدودة في الوقت الحالي.
           </p>
         </div>
         <div class="card-footer text-body-secondary">
@@ -65,7 +74,263 @@
         </div>
       </div>
     </div>
-    <!-- Modal -->
+
+    <!-- Abstract Downloder Modal -->
+    <div
+      class="modal fade"
+      id="abstractDownloderModal"
+      tabindex="-1"
+      aria-labelledby="abstractDownloderModalLabel"
+      style="display: none"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-m">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="abstractDownloderModalLabel">
+              تنزيل المسرد
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p class="text-muted mb-4">
+              اختر المحتويات التي تريد تضمينها في المسرد:
+            </p>
+
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="d-grid">
+                  <input
+                    type="checkbox"
+                    class="btn-check"
+                    id="summaryCheckbox"
+                    autocomplete="off"
+                  />
+                  <label class="btn btn-outline-light" for="summaryCheckbox">
+                    <i class="bi bi-file-text me-2"></i>
+                    سرد وتلخيص المادة
+                  </label>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="d-grid gap-2">
+                  <input
+                    type="checkbox"
+                    class="btn-check"
+                    id="questionsCheckbox"
+                    autocomplete="off"
+                  />
+                  <label class="btn btn-outline-light" for="questionsCheckbox">
+                    <i class="bi bi-question-circle me-2"></i>
+                    التجميعات
+                  </label>
+
+                  <div id="answersSection" style="display: none">
+                    <input
+                      type="checkbox"
+                      class="btn-check"
+                      id="answersCheckbox"
+                      autocomplete="off"
+                    />
+                    <label
+                      class="btn btn-outline-success w-100"
+                      for="answersCheckbox"
+                    >
+                      <i class="bi bi-check-circle me-2"></i>
+                      تضمين الحلول
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-danger mt-4" id="warningAlert">
+              <strong>تنبيه:</strong> تأكد من اختيار المحتوى قبل التحميل.
+              <br />
+            </div>
+
+            <div class="d-flex justify-content-end mt-4">
+              <button class="btn btn-secondary me-2" data-bs-dismiss="modal">
+                إلغاء
+              </button>
+              <button class="btn btn-primary" onclick="downloadSummary()">
+                تحميل المسرد
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div
+      class="modal fade"
+      id="quizModal"
+      tabindex="-1"
+      aria-labelledby="quizModalLabel"
+      aria-hidden="true"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+    >
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="quizModalLabel">اختبار</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- Quiz Configuration -->
+            <div id="quiz-config">
+              <h5 class="mb-3">إعدادات الاختبار</h5>
+              <div class="border p-3 rounded">
+                <div class="mb-3">
+                  <label class="form-label"
+                    >اختر المواضيع التي تريد الاختبار بها:</label
+                  >
+                  <div class="d-flex gap-2 mb-2">
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="topic-mode"
+                      id="topic-all"
+                      autocomplete="off"
+                      checked
+                    />
+                    <label class="btn btn-outline-primary" for="topic-all"
+                      >الكل</label
+                    >
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="topic-mode"
+                      id="topic-custom"
+                      autocomplete="off"
+                    />
+                    <label class="btn btn-outline-primary" for="topic-custom"
+                      >مخصص</label
+                    >
+                  </div>
+                </div>
+                <div
+                  class="mb-3"
+                  id="topic-checkboxes-container"
+                  style="display: none"
+                >
+                  <label class="form-label">خصص المواضيع:</label>
+                  <div
+                    id="topic-select-container"
+                    class="d-flex flex-wrap gap-2"
+                  ></div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">عدد الأسئلة:</label>
+                  <div
+                    id="num-questions-group"
+                    class="d-flex flex-wrap gap-2 mb-2"
+                  >
+                    <!-- سيتم توليد الأزرار هنا -->
+                  </div>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="num-questions"
+                    min="1"
+                    style="display: none; width: 50%; direction: rtl"
+                    placeholder="عدد مخصص"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Quiz Section -->
+            <div id="quiz-section" style="display: none">
+              <div id="quiz-progress" class="mb-3 text-center"></div>
+              <div id="question-container">
+                <img
+                  id="question-image"
+                  src=""
+                  alt="Question"
+                  class="img-fluid"
+                  width="100%"
+                />
+              </div>
+              <div
+                id="answer-buttons"
+                class="mt-3 d-flex flex-wrap gap-2 w-100 justify-content-center"
+              >
+                <button
+                  class="btn btn-outline-light answer-btn w-45"
+                  data-answer="A"
+                  id="A"
+                >
+                  A
+                </button>
+                <button
+                  class="btn btn-outline-light answer-btn w-45"
+                  data-answer="B"
+                  id="B"
+                >
+                  B
+                </button>
+                <button
+                  class="btn btn-outline-light answer-btn w-45"
+                  data-answer="C"
+                  id="C"
+                >
+                  C
+                </button>
+                <button
+                  class="btn btn-outline-light answer-btn w-45"
+                  data-answer="D"
+                  id="D"
+                >
+                  D
+                </button>
+              </div>
+              <div id="feedback" class="mt-3 text-center"></div>
+            </div>
+
+            <!-- Result Section -->
+            <div id="result-section" style="display: none" class="text-center">
+              <h5 class="mb-4">النتيجة</h5>
+              <h6 id="score"></h6>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              إغلاق
+            </button>
+            <button
+              id="next-button"
+              class="btn btn-primary"
+              style="display: none"
+            >
+              السؤال التالي
+            </button>
+            <button id="start-quiz-button" class="btn btn-primary">
+              ابدأ الاختبار
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Words Modal-->
     <div
       class="modal fade"
       id="wordModal"
@@ -86,9 +351,6 @@
             ></button>
           </div>
           <div class="modal-body">
-            <p class="text-success text-center">
-              شكر خاص للطالب تركي القرشي لترجمة الكلمات
-            </p>
             <table class="table table-striped text-center" dir="ltr">
               <thead class="table-dark">
                 <tr>
@@ -102,6 +364,8 @@
         </div>
       </div>
     </div>
+
+    <!-- Words Quiz Modal -->
     <div
       class="modal fade"
       id="wordsQuizModal"
@@ -191,160 +455,14 @@
         </div>
       </div>
     </div>
-    <div
-      class="modal fade"
-      id="examPopup"
-      data-bs-backdrop="static"
-      tabindex="-1"
-      aria-labelledby="examPopupLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="examPopupLabel">اختبار</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <div id="examConfigSection">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <h4 class="text-center mb-3">إعدادات الاختبار</h4>
-
-                  <div
-                    id="examInstructionsBox"
-                    class="alert alert-info mb-3"
-                  ></div>
-
-                  <div class="mb-3">
-                    <label for="itemCountDropdown" class="form-label"
-                      >عدد الأسئلة المطلوبة:</label
-                    >
-                    <select id="itemCountDropdown" class="form-select"></select>
-                    <div class="form-check mt-2">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="manualCountCheck"
-                      />
-                      <label class="form-check-label" for="manualCountCheck">
-                        إدخال عدد مخصص
-                      </label>
-                    </div>
-                    <div id="manualCountBox" style="display: none" class="mt-2">
-                      <input
-                        type="number"
-                        class="form-control"
-                        id="manualCountInput"
-                        min="1"
-                        placeholder="أدخل عدد الأسئلة"
-                      />
-                    </div>
-                    <p
-                      id="maxItemsWarning"
-                      class="text-danger fw-bold mt-2"
-                      style="display: none"
-                    >
-                      ملاحظة مهمة: يمكنك اختيار عدد أسئلة أقل من أو يساوي العدد
-                      الإجمالي للأسئلة المتاحة.
-                    </p>
-                  </div>
-
-                  <div class="d-flex justify-content-center">
-                    <button id="beginExamBtn" class="btn btn-primary">
-                      ابدأ الاختبار
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div id="examItemsSection" style="display: none">
-              <div class="d-flex justify-content-between mb-4">
-                <div>
-                  <span>السؤال: </span>
-                  <span id="itemCounter" class="badge bg-primary">1</span>
-                  <span> من </span>
-                  <span id="totalItemsCount" class="badge bg-secondary">0</span>
-                </div>
-                <div id="currentScoreContainer" style="display: none">
-                  <span>الدرجة: </span>
-                  <span id="currentScore" class="badge bg-success">0</span>
-                </div>
-              </div>
-
-              <div class="card mb-4">
-                <div class="card-body">
-                  <h3 id="activeItem" class="mb-4 text-center">
-                    جار التحميل...
-                  </h3>
-                  <div id="choices" class="d-grid gap-2"></div>
-                  <!-- حفظ الإجابة الصحيحة في عنصر خفي -->
-                  <input type="hidden" id="correctAnswerForQuestion" value="" />
-                </div>
-              </div>
-            </div>
-
-            <div id="examScoreSection" style="display: none">
-              <div class="card">
-                <div class="card-body text-center">
-                  <h4 class="mb-4">نتائج الاختبار</h4>
-                  <div class="results-summary">
-                    <p class="mb-2">
-                      <span class="fw-bold">عدد الأسئلة: </span
-                      ><span id="finalItemsCount">0</span>
-                    </p>
-                    <p class="mb-2">
-                      <span class="fw-bold">الإجابات الصحيحة: </span
-                      ><span id="finalCorrectCount">0</span>
-                    </p>
-                    <p class="mb-2">
-                      <span class="fw-bold">الإجابات الخاطئة: </span
-                      ><span id="finalIncorrectCount">0</span>
-                    </p>
-                    <p class="mb-2">
-                      <span class="fw-bold">الدرجة النهائية: </span
-                      ><span id="finalScoreDisplay">0</span>
-                    </p>
-                  </div>
-
-                  <div class="mt-4">
-                    <h5 class="mb-3">
-                      الأسئلة التي لم تتمكن من إجابتها بشكل صحيح:
-                    </h5>
-                    <ul id="incorrectItemsList" class="list-group"></ul>
-                  </div>
-
-                  <div class="mt-4">
-                    <button class="btn btn-primary" onclick="resetExam()">
-                      إعادة الاختبار
-                    </button>
-                    <button
-                      class="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      إغلاق
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </body>
+
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+
   <!-- SweetAlert2 JS -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <!-- Custom JS Script -->
   <script>
     const footerText = [
@@ -381,1664 +499,1224 @@
       footerTextDiv.innerHTML = footerText[random];
     };
 
-    const biologyExam = [
-      {
-        question: "مما يتكون الهيكل العظمي؟",
-        answers: [
-          "قسم محوري وآخر طرفي.",
-          "قسم داخلي وخارجي.",
-          "قسم علوي وسفلي.",
-          "قسم مركزي وفرعي.",
-        ],
-        correctAnswer: "قسم محوري وآخر طرفي.",
-      },
-      {
-        question: "ما مكونات القسم المحوري؟",
-        answers: [
-          "الجمجمة، العمود الفقري، عظمة القص، والأضلاع.",
-          "العمود الفقري والأضلاع فقط.",
-          "الجمجمة والعمود الفقري فقط.",
-          "العمود الفقري والحوض.",
-        ],
-        correctAnswer: "الجمجمة، العمود الفقري، عظمة القص، والأضلاع.",
-      },
-      {
-        question: "ما مكونات القسم الطرفي؟",
-        answers: [
-          "الكتف، الورك، والأطراف العلوية والسفلية.",
-          "العمود الفقري والأضلاع.",
-          "الكتف والورك فقط.",
-          "الأطراف فقط.",
-        ],
-        correctAnswer: "الكتف، الورك، والأطراف العلوية والسفلية.",
-      },
-      {
-        question: "كيف تصنف العظام حسب أشكالها؟",
-        answers: [
-          "طويلة (كالساق والفخذ) وقصيرة (كعظام الرسغ والكاحل).",
-          "طويلة فقط.",
-          "قصيرة فقط.",
-          "مسطحة ومستديرة.",
-        ],
-        correctAnswer: "طويلة (كالساق والفخذ) وقصيرة (كعظام الرسغ والكاحل).",
-      },
-      {
-        question: "كيف تصنف العظام حسب تركيبها؟",
-        answers: [
-          "كثيفة وإسفنجية.",
-          "صلبة ومرنة.",
-          "مترابطة ومقسمة.",
-          "مضغوطة وخفيفة.",
-        ],
-        correctAnswer: "كثيفة وإسفنجية.",
-      },
-      {
-        question: "ما صفات العظم الكثيف؟",
-        answers: [
-          "مضغوط وقوي ويوفر الحماية.",
-          "لين وسهل الكسر.",
-          "متخلخل وضعيف.",
-          "ممتص للصدمات فقط.",
-        ],
-        correctAnswer: "مضغوط وقوي ويوفر الحماية.",
-      },
-      {
-        question: "ما صفات العظم الإسفنجي؟",
-        answers: [
-          "به تجاويف ويوجد في نهايات العظام الطويلة.",
-          "صلب وخالٍ من التجاويف.",
-          "متساوٍ الكثافة في كل مكان.",
-          "أكثر صلابة من العظم الكثيف.",
-        ],
-        correctAnswer: "به تجاويف ويوجد في نهايات العظام الطويلة.",
-      },
-      {
-        question: "أين يتم تكوين خلايا الدم؟",
-        answers: [
-          "في النخاع الأحمر.",
-          "في النخاع الأصفر.",
-          "في العظام المسطحة.",
-          "في الطحال.",
-        ],
-        correctAnswer: "في النخاع الأحمر.",
-      },
-      {
-        question: "ما وظيفة النخاع الأصفر؟",
-        answers: [
-          "تخزين الدهون.",
-          "إنتاج خلايا الدم.",
-          "تصفية السموم.",
-          "دعم الهيكل العظمي.",
-        ],
-        correctAnswer: "تخزين الدهون.",
-      },
-      {
-        question: "ما هو السمحاق؟",
-        answers: [
-          "غشاء يغطي العظم الكثيف.",
-          "نسيج يربط العضلات بالعظام.",
-          "طبقة من العظام الإسفنجية.",
-          "نسيج يحيط بالمفاصل.",
-        ],
-        correctAnswer: "غشاء يغطي العظم الكثيف.",
-      },
-      {
-        question: "ما هي الخلايا العظمية؟",
-        answers: [
-          "تراكيب أنبوبية داخل العظم الكثيف.",
-          "خلايا مكونة للغضروف.",
-          "خلايا تكون الدم.",
-          "خلايا عصبية تتحكم بالحركة.",
-        ],
-        correctAnswer: "تراكيب أنبوبية داخل العظم الكثيف.",
-      },
-      {
-        question: "ما وظيفة الخلايا العظمية البانية؟",
-        answers: [
-          "بناء العظام.",
-          "تحطيم العظام.",
-          "نقل الإشارات العصبية.",
-          "تخزين المعادن.",
-        ],
-        correctAnswer: "بناء العظام.",
-      },
-      {
-        question: "ما وظيفة الخلايا العظمية الهادمة؟",
-        answers: [
-          "تحطيم الخلايا الهرمة.",
-          "إصلاح العظام.",
-          "إنتاج الدم.",
-          "دعم المفاصل.",
-        ],
-        correctAnswer: "تحطيم الخلايا الهرمة.",
-      },
-      {
-        question: "ما أنواع الكسور في العظام؟",
-        answers: [
-          "بسيطة، مركبة، وتشققات.",
-          "مغلقة ومفتوحة فقط.",
-          "كاملة وغير كاملة.",
-          "أفقية وعمودية.",
-        ],
-        correctAnswer: "بسيطة، مركبة، وتشققات.",
-      },
-      {
-        question: "ما هو الكالس؟",
-        answers: [
-          "نسيج عظمي إسفنجي.",
-          "نسيج عضلي.",
-          "نوع من الخلايا اللمفية.",
-          "طبقة خارجية للعظم.",
-        ],
-        correctAnswer: "نسيج عظمي إسفنجي.",
-      },
-      {
-        question: "ما نوع مفاصل الجمجمة؟",
-        answers: ["درزية (ثابتة).", "كروية.", "رزي.", "انزلاقية."],
-        correctAnswer: "درزية (ثابتة).",
-      },
-      {
-        question: "ما نوع مفصل الكتف والورك؟",
-        answers: ["كروي (متحرك).", "درزي.", "رزي.", "مفصل محوري."],
-        correctAnswer: "كروي (متحرك).",
-      },
-      {
-        question: "ما نوع مفصل المرفق والركبة؟",
-        answers: ["رزي.", "كروي.", "درزي.", "انزلاقي."],
-        correctAnswer: "رزي.",
-      },
-      {
-        question: "أين يوجد المفصل المداري؟",
-        answers: ["في المرفق.", "في الركبة.", "في الورك.", "في الكتف."],
-        correctAnswer: "في المرفق.",
-      },
-      {
-        question: "ما نوع مفاصل الرسغ والكاحل والعمود الفقري؟",
-        answers: ["انزلاقية.", "كروية.", "درزية.", "رزي."],
-        correctAnswer: "انزلاقية.",
-      },
-      {
-        question: "ما هي الأربطة وما وظيفتها؟",
-        answers: [
-          "أنسجة ضامة تربط العظام.",
-          "أنسجة تغطي العظام.",
-          "ألياف تصل العضلات بالعظام.",
-          "نسيج يحتوي على خلايا دم.",
-        ],
-        correctAnswer: "أنسجة ضامة تربط العظام.",
-      },
-      {
-        question: "ما وظيفة الأوتار؟",
-        answers: [
-          "ربط العضلات بالعظام.",
-          "ربط العظام ببعضها البعض.",
-          "نقل الدم إلى العضلات.",
-          "دعم المفاصل.",
-        ],
-        correctAnswer: "ربط العضلات بالعظام.",
-      },
-      {
-        question: "ما هو المفصل؟",
-        answers: [
-          "نقطة التقاء عظمين أو أكثر.",
-          "جزء من العظم.",
-          "نسيج يربط العظام.",
-          "مساحة بين العضلات.",
-        ],
-        correctAnswer: "نقطة التقاء عظمين أو أكثر.",
-      },
-      {
-        question: "ما مكونات الجهاز العصبي؟",
-        answers: [
-          "مركزي وطرفي.",
-          "عظمي وعضلي.",
-          "داخلي وخارجي.",
-          "إرادي ولا إرادي.",
-        ],
-        correctAnswer: "مركزي وطرفي.",
-      },
-      {
-        question: "مما يتكون الجهاز العصبي المركزي؟",
-        answers: [
-          "الدماغ والحبل الشوكي.",
-          "الدماغ والأعصاب.",
-          "الحبل الشوكي والأوعية الدموية.",
-          "العمود الفقري والدماغ فقط.",
-        ],
-        correctAnswer: "الدماغ والحبل الشوكي.",
-      },
-      {
-        question: "مما يتكون الجهاز العصبي الطرفي؟",
-        answers: [
-          "الأعصاب الدماغية والشوكية.",
-          "الأعصاب في الأطراف فقط.",
-          "الأعصاب والحبل الشوكي.",
-          "العقد اللمفية والأعصاب.",
-        ],
-        correctAnswer: "الأعصاب الدماغية والشوكية.",
-      },
-      {
-        question: "ما وظيفة المخ؟",
-        answers: [
-          "التحكم في الحركات الإرادية.",
-          "تنظيم ضربات القلب.",
-          "تنظيم درجة الحرارة.",
-          "تنسيق حركات العضلات التلقائية.",
-        ],
-        correctAnswer: "التحكم في الحركات الإرادية.",
-      },
-      {
-        question: "ما وظيفة المخيخ؟",
-        answers: [
-          "التحكم في التوازن والحركات التلقائية.",
-          "تنظيم الجهاز الهضمي.",
-          "تنظيم النوم.",
-          "تحفيز الحركات الإرادية.",
-        ],
-        correctAnswer: "التحكم في التوازن والحركات التلقائية.",
-      },
-      {
-        question: "ما وظيفة جذع الدماغ؟",
-        answers: [
-          "ربط الدماغ بالحبل الشوكي.",
-          "تنظيم الحواس فقط.",
-          "تنسيق الحركات الإرادية.",
-          "تنظيم ضغط الدم.",
-        ],
-        correctAnswer: "ربط الدماغ بالحبل الشوكي.",
-      },
-      {
-        question: "ما وظيفة النخاع المستطيل؟",
-        answers: [
-          "تنظيم التنفس والنبض.",
-          "تنظيم درجة الحرارة.",
-          "تنسيق الحركة.",
-          "تحفيز الهرمونات.",
-        ],
-        correctAnswer: "تنظيم التنفس والنبض.",
-      },
-      {
-        question: "ما وظيفة القنطرة؟",
-        answers: [
-          "نقل الإشارات بين المخ والمخيخ.",
-          "تنظيم النوم.",
-          "تحفيز الجهاز الهضمي.",
-          "ربط الحبل الشوكي بالعمود الفقري.",
-        ],
-        correctAnswer: "نقل الإشارات بين المخ والمخيخ.",
-      },
-      {
-        question: "أين يقع تحت المهاد وما وظيفته؟",
-        answers: [
-          "أسفل المخ؛ يحافظ على الاتزان الداخلي.",
-          "في الحبل الشوكي؛ ينظم الحركات.",
-          "في المخيخ؛ ينظم التوازن.",
-          "في الدماغ؛ ينظم الحواس.",
-        ],
-        correctAnswer: "أسفل المخ؛ يحافظ على الاتزان الداخلي.",
-      },
-      {
-        question: "مما يتكون الحبل الشوكي؟",
-        answers: [
-          "يمتد من الدماغ محميًا بالفقرات.",
-          "يتكون من أعصاب وحبل دهني.",
-          "يتكون من خلايا دم.",
-          "يتكون من العضلات المحيطة.",
-        ],
-        correctAnswer: "يمتد من الدماغ محميًا بالفقرات.",
-      },
-      {
-        question: "ما هي وحدة بناء الجهاز العصبي؟",
-        answers: [
-          "الخلية العصبية (زوائد شجيرية، جسم، محور).",
-          "العقد اللمفية.",
-          "الخلايا الدبقية.",
-          "النواقل العصبية.",
-        ],
-        correctAnswer: "الخلية العصبية (زوائد شجيرية، جسم، محور).",
-      },
-      {
-        question: "ما أنواع الخلايا العصبية؟",
-        answers: [
-          "حسية، حركية، بينية.",
-          "إرادية ولا إرادية.",
-          "أفقية وعمودية.",
-          "مركزية وطرفية.",
-        ],
-        correctAnswer: "حسية، حركية، بينية.",
-      },
-      {
-        question: "ما هو رد الفعل المنعكس؟",
-        answers: [
-          "استجابة سريعة لا إرادية.",
-          "استجابة بطيئة إرادية.",
-          "عملية تفكير معقدة.",
-          "تفاعل كيميائي داخل الخلايا.",
-        ],
-        correctAnswer: "استجابة سريعة لا إرادية.",
-      },
-      {
-        question: "كيف يكون توزيع الشحنات في الخلية العصبية وقت الراحة؟",
-        answers: [
-          "داخلها سالب، خارجها موجب.",
-          "داخلها موجب، خارجها سالب.",
-          "الشحنات متعادلة تماماً.",
-          "الشحنات غير موجودة.",
-        ],
-        correctAnswer: "داخلها سالب، خارجها موجب.",
-      },
-      {
-        question: "كيف يكون توزيع الشحنات في الخلية العصبية أثناء جهد الفعل؟",
-        answers: [
-          "داخلها موجب، خارجها سالب.",
-          "داخلها سالب، خارجها موجب.",
-          "الشحنات لا تتغير.",
-          "لا توجد شحنات في جهد الفعل.",
-        ],
-        correctAnswer: "داخلها موجب، خارجها سالب.",
-      },
-      {
-        question: "ما هي عتبة التنبيه؟",
-        answers: [
-          "الحد الأدنى لتحفيز الخلية.",
-          "أقصى درجة لتحفيز الخلية.",
-          "مستوى الراحة للخلية.",
-          "درجة إفراز النواقل العصبية.",
-        ],
-        correctAnswer: "الحد الأدنى لتحفيز الخلية.",
-      },
-      {
-        question: "ما وظيفة الميلين والعُقد في بعض الخلايا العصبية؟",
-        answers: [
-          "تسريع السيال العصبي.",
-          "إبطاء نقل الإشارات.",
-          "تخزين الطاقة.",
-          "تنظيم عملية الأيض في الخلايا.",
-        ],
-        correctAnswer: "تسريع السيال العصبي.",
-      },
-      {
-        question: "ما هو التشابك العصبي؟",
-        answers: [
-          "نقطة اتصال بين خليتين عصبيتين.",
-          "مجموعة خلايا عصبية.",
-          "مسافة بين العصبونات والمناطق العضلية.",
-          "جزء من الخلية العصبية.",
-        ],
-        correctAnswer: "نقطة اتصال بين خليتين عصبيتين.",
-      },
-      {
-        question: "ما هي النواقل العصبية؟",
-        answers: [
-          "مواد كيميائية تنقل الإشارات.",
-          "خلايا تنقل الإشارات.",
-          "ألياف تنقل الطاقة.",
-          "أجهزة حسية تنقل المعلومات.",
-        ],
-        correctAnswer: "مواد كيميائية تنقل الإشارات.",
-      },
-      {
-        question: "مما يتكون الجهاز العصبي الطرفي؟",
-        answers: ["جسمي وذاتي.", "مركزي وخارجي.", "حسي وحركي.", "عضلي وهرمي."],
-        correctAnswer: "جسمي وذاتي.",
-      },
-      {
-        question: "ما وظيفة الجهاز العصبي الجسمي؟",
-        answers: [
-          "التحكم الإرادي.",
-          "التحكم اللاإرادي.",
-          "تنظيم عمليات الهضم.",
-          "تنسيق النبضات القلبية.",
-        ],
-        correctAnswer: "التحكم الإرادي.",
-      },
-      {
-        question: "ما وظيفة الجهاز العصبي الذاتي؟",
-        answers: [
-          "التحكم اللاإرادي.",
-          "تنظيم الحركات الإرادية.",
-          "تنظيم التوازن.",
-          "تنسيق الحواس.",
-        ],
-        correctAnswer: "التحكم اللاإرادي.",
-      },
-      {
-        question: "ما وظيفة الجهاز العصبي السمبثاوي؟",
-        answers: [
-          "التأهب لحالات الطوارئ.",
-          "الراحة والهضم.",
-          "تنظيم النوم.",
-          "تنسيق الحركات الدقيقة.",
-        ],
-        correctAnswer: "التأهب لحالات الطوارئ.",
-      },
-      {
-        question: "ما وظيفة الجهاز العصبي الجار سمبثاوي؟",
-        answers: [
-          "الراحة وهضم الطعام.",
-          "تحفيز الحركة والإثارة.",
-          "تنظيم التنفس.",
-          "تنشيط العضلات الإرادية.",
-        ],
-        correctAnswer: "الراحة وهضم الطعام.",
-      },
-      {
-        question: "ما هي العقاقير؟",
-        answers: [
-          "مواد تُغير وظائف الجسم.",
-          "أدوية فقط.",
-          "هرمونات طبيعية.",
-          "أنزيمات تحلل الطعام.",
-        ],
-        correctAnswer: "مواد تُغير وظائف الجسم.",
-      },
-      {
-        question: "ما هو الإدمان؟",
-        answers: [
-          "اعتماد نفسي/جسدي على مادة.",
-          "تناول دواء بانتظام.",
-          "تفاعل كيميائي في الجسم.",
-          "ظاهرة مؤقتة بدون آثار.",
-        ],
-        correctAnswer: "اعتماد نفسي/جسدي على مادة.",
-      },
-      {
-        question: "ما هو التحمل؟",
-        answers: [
-          "الحاجة لزيادة الجرعة لنفس الأثر.",
-          "تأثير فوري لمادة.",
-          "استجابة منخفضة من الجسم.",
-          "انخفاض معدل التمثيل الغذائي.",
-        ],
-        correctAnswer: "الحاجة لزيادة الجرعة لنفس الأثر.",
-      },
-      {
-        question: "ما تأثير المنبهات؟",
-        answers: [
-          "زيادة نشاط الجهاز العصبي.",
-          "تقليل نشاط الجهاز العصبي.",
-          "تنظيم ضربات القلب.",
-          "تثبيط إفراز الهرمونات.",
-        ],
-        correctAnswer: "زيادة نشاط الجهاز العصبي.",
-      },
-      {
-        question: "ما تأثير المسكنات؟",
-        answers: [
-          "تثبيط الجهاز العصبي.",
-          "تنشيط الجهاز العصبي.",
-          "زيادة الحساسية.",
-          "تحفيز الجهاز الهضمي.",
-        ],
-        correctAnswer: "تثبيط الجهاز العصبي.",
-      },
-      {
-        question: "ما هو دور الدوبامين في الجسم؟",
-        answers: [
-          "تحفيز الشعور بالسعادة.",
-          "تنظيم النوم فقط.",
-          "زيادة التوتر.",
-          "تقليل النشاط البدني.",
-        ],
-        correctAnswer: "تحفيز الشعور بالسعادة.",
-      },
-      {
-        question: "مما يتكون مسار رد الفعل المنعكس؟",
-        answers: [
-          "خلية حسية، بينية، حركية.",
-          "خلية عصبية فقط.",
-          "خلية حسية وحركية فقط.",
-          "خلية بينية وحسية فقط.",
-        ],
-        correctAnswer: "خلية حسية، بينية، حركية.",
-      },
-      {
-        question: "كيف تقاس طاقة الغذاء؟",
-        answers: [
-          "بالسعرات الحرارية (كربوهيدرات: 4، دهون: 9).",
-          "بالمقدار الغذائي فقط.",
-          "بالجرامات فقط.",
-          "بالمليترات فقط.",
-        ],
-        correctAnswer: "بالسعرات الحرارية (كربوهيدرات: 4، دهون: 9).",
-      },
-      {
-        question: "ما الناتج النهائي لهضم الدهون؟",
-        answers: [
-          "أحماض دهنية وجليسرول.",
-          "سكريات وأحماض أمينية.",
-          "أحماض أمينية فقط.",
-          "جلوكوز فقط.",
-        ],
-        correctAnswer: "أحماض دهنية وجليسرول.",
-      },
-      {
-        question: "ما الناتج النهائي لهضم الكربوهيدرات؟",
-        answers: [
-          "سكريات أحادية.",
-          "أحماض أمينية.",
-          "دهون وثقوب.",
-          "ألياف فقط.",
-        ],
-        correctAnswer: "سكريات أحادية.",
-      },
-      {
-        question: "ما الناتج النهائي لهضم البروتينات؟",
-        answers: ["أحماض أمينية.", "سكريات.", "دهون.", "ألياف."],
-        correctAnswer: "أحماض أمينية.",
-      },
-      {
-        question: "ما هو السيليلوز؟",
-        answers: [
-          "كربوهيدرات معقدة (ألياف).",
-          "بروتينات معقدة.",
-          "دهون بسيطة.",
-          "فيتامينات.",
-        ],
-        correctAnswer: "كربوهيدرات معقدة (ألياف).",
-      },
-      {
-        question: "كيف تصنف الدهون حسب تركيبها الكيميائي؟",
-        answers: [
-          "مشبعة (صلبة) وغير مشبعة (سائلة).",
-          "كثيفة وخفيفة.",
-          "أحمضية وقاعدية.",
-          "عضوية وغير عضوية.",
-        ],
-        correctAnswer: "مشبعة (صلبة) وغير مشبعة (سائلة).",
-      },
-      {
-        question: "ما وظيفة الكربوهيدرات والدهون في الجسم؟",
-        answers: [
-          "توفير الطاقة.",
-          "بناء الخلايا.",
-          "تنظيم الهرمونات.",
-          "تنظيف الجسم من السموم.",
-        ],
-        correctAnswer: "توفير الطاقة.",
-      },
-      {
-        question: "ما أهمية البروتينات في الجسم؟",
-        answers: [
-          "بناء الخلايا.",
-          "توفير الطاقة فقط.",
-          "تنظيم ضربات القلب.",
-          "تحفيز الهضم.",
-        ],
-        correctAnswer: "بناء الخلايا.",
-      },
-      {
-        question: "كم عدد الأحماض الأمينية؟",
-        answers: [
-          "20 (8 أساسية).",
-          "18 (10 أساسية).",
-          "22 (8 أساسية).",
-          "16 (12 أساسية).",
-        ],
-        correctAnswer: "20 (8 أساسية).",
-      },
-      {
-        question:
-          "ما الفرق بين الفيتامينات التي تذوب في الدهون والتي تذوب في الماء؟",
-        answers: [
-          "الذائبة في الدهون تُخزن، والذائبة في الماء تُطرح.",
-          "الذائبة في الماء تُخزن، والذائبة في الدهون تُطرح.",
-          "كلها تُخزن في الجسم.",
-          "كلاهما يُطرح من الجسم بسرعة.",
-        ],
-        correctAnswer: "الذائبة في الدهون تُخزن، والذائبة في الماء تُطرح.",
-      },
-      {
-        question: "ما هي وظيفة الأملاح المعدنية؟",
-        answers: [
-          "بناء الجسم ودعم الوظائف الحيوية.",
-          "توفير الطاقة.",
-          "تنظيم النوم.",
-          "تحفيز إفراز الهرمونات فقط.",
-        ],
-        correctAnswer: "بناء الجسم ودعم الوظائف الحيوية.",
-      },
-      {
-        question: "مما يتكون الجهاز التناسلي الذكري؟",
-        answers: [
-          "الخصيتين، البربخ، الوعاء الناقل، وغدد مساعدة.",
-          "الخصيتين فقط.",
-          "الخصيتين والبربخ فقط.",
-          "الخصيتين والوعاء الناقل فقط.",
-        ],
-        correctAnswer: "الخصيتين، البربخ، الوعاء الناقل، وغدد مساعدة.",
-      },
-      {
-        question: "أين يتم إنتاج الحيوانات المنوية؟",
-        answers: [
-          "في أنابيب الخصيتين.",
-          "في الخصيتين مباشرة.",
-          "في الوعاء الناقل.",
-          "في البربخ.",
-        ],
-        correctAnswer: "في أنابيب الخصيتين.",
-      },
-      {
-        question: "لماذا تقع الخصيتان خارج الجسم؟",
-        answers: [
-          "لحاجتها لدرجة حرارة أقل.",
-          "للحماية من الصدمات.",
-          "لتسهيل إنتاج الهرمونات.",
-          "لتخزين الحيوانات المنوية.",
-        ],
-        correctAnswer: "لحاجتها لدرجة حرارة أقل.",
-      },
-      {
-        question: "ما وظيفة البربخ؟",
-        answers: [
-          "تخزين ونضج الحيوانات المنوية.",
-          "إنتاج الحيوانات المنوية.",
-          "نقل الحيوانات المنوية.",
-          "تنظيم درجة الحرارة.",
-        ],
-        correctAnswer: "تخزين ونضج الحيوانات المنوية.",
-      },
-      {
-        question: "ما وظيفة الوعاء الناقل؟",
-        answers: [
-          "نقل الحيوانات المنوية.",
-          "تخزين الحيوانات المنوية.",
-          "إفراز الهرمونات.",
-          "تنظيم درجة الحرارة.",
-        ],
-        correctAnswer: "نقل الحيوانات المنوية.",
-      },
-      {
-        question: "ما وظيفة الحوصلة المنوية؟",
-        answers: [
-          "إفراز مواد مغذية للسائل المنوي.",
-          "تخزين الحيوانات المنوية.",
-          "تنظيم درجات الحرارة.",
-          "نقل الحيوانات المنوية فقط.",
-        ],
-        correctAnswer: "إفراز مواد مغذية للسائل المنوي.",
-      },
-      {
-        question: "ما وظيفة غدة البروستاتا؟",
-        answers: [
-          "إفراز سائل قلوي لحماية الحيوانات المنوية.",
-          "تخزين الحيوانات المنوية.",
-          "تنظيم الهرمونات.",
-          "إفراز مواد لهضم البروتينات.",
-        ],
-        correctAnswer: "إفراز سائل قلوي لحماية الحيوانات المنوية.",
-      },
-      {
-        question: "ما وظيفة غدتي كوبر؟",
-        answers: [
-          "ترطيب الإحليل وتنظيفه.",
-          "تخزين الحيوانات المنوية.",
-          "إفراز الهرمونات.",
-          "نقل الحيوانات المنوية.",
-        ],
-        correctAnswer: "ترطيب الإحليل وتنظيفه.",
-      },
-      {
-        question: "مما يتكون السائل المنوي؟",
-        answers: [
-          "حيوانات منوية وسوائل مغذية.",
-          "حيوانات منوية فقط.",
-          "سوائل مغذية فقط.",
-          "خلايا دم وسوائل.",
-        ],
-        correctAnswer: "حيوانات منوية وسوائل مغذية.",
-      },
-      {
-        question: "متى يبدأ الرجل بإنتاج الحيوانات المنوية؟",
-        answers: [
-          "عند البلوغ.",
-          "في مرحلة الطفولة.",
-          "بعد الزواج.",
-          "في سن متقدمة.",
-        ],
-        correctAnswer: "عند البلوغ.",
-      },
-      {
-        question: "ما وظيفة هرمون التستوستيرون؟",
-        answers: [
-          "إنتاج الحيوانات المنوية وإظهار الصفات الذكرية.",
-          "تنظيم الدورة الشهرية.",
-          "تنظيم إفراز الدهون.",
-          "تنظيم النوم.",
-        ],
-        correctAnswer: "إنتاج الحيوانات المنوية وإظهار الصفات الذكرية.",
-      },
-      {
-        question: "ما وظيفة الهرمون المنشط للحوصلة (FSH)؟",
-        answers: [
-          "تنظيم إنتاج الحيوانات المنوية.",
-          "تنظيم إفراز الهرمونات الجنسية فقط.",
-          "تنظيم إفراز الهرمون الآخر فقط.",
-          "تحفيز نمو الشعر.",
-        ],
-        correctAnswer: "تنظيم إنتاج الحيوانات المنوية.",
-      },
-      {
-        question: "ما وظيفة الهرمون المنشط للجسم الأصفر (LH)؟",
-        answers: [
-          "تحفيز إفراز التستوستيرون.",
-          "تحفيز إفراز الأستروجين.",
-          "تنظيم الدورة الشهرية.",
-          "تنظيم إفراز الهرمون النمائي.",
-        ],
-        correctAnswer: "تحفيز إفراز التستوستيرون.",
-      },
-      {
-        question: "مما يتكون الجهاز التناسلي الأنثوي؟",
-        answers: [
-          "المبيضين، قناتي فالوب، الرحم، والمهبل.",
-          "المبيضين والرحم فقط.",
-          "المبيضين وقناتي فالوب فقط.",
-          "الرحم والمهبل فقط.",
-        ],
-        correctAnswer: "المبيضين، قناتي فالوب، الرحم، والمهبل.",
-      },
-      {
-        question: "أين يتم إنتاج البويضات؟",
-        answers: ["في المبيضين.", "في الرحم.", "في قناتي فالوب.", "في المهبل."],
-        correctAnswer: "في المبيضين.",
-      },
-      {
-        question: "أين يحدث الإخصاب؟",
-        answers: ["في قناة فالوب.", "في الرحم.", "في المبيضين.", "في المهبل."],
-        correctAnswer: "في قناة فالوب.",
-      },
-      {
-        question: "أين ينمو الجنين أثناء الحمل؟",
-        answers: ["في الرحم.", "في المبيضين.", "في قناتي فالوب.", "في المهبل."],
-        correctAnswer: "في الرحم.",
-      },
-      {
-        question: "ما وظيفة عنق الرحم؟",
-        answers: [
-          "الربط بين الرحم والمهبل.",
-          "إفراز الهرمونات.",
-          "حماية الجنين.",
-          "نقل الحيوانات المنوية.",
-        ],
-        correctAnswer: "الربط بين الرحم والمهبل.",
-      },
-      {
-        question: "ما وظيفة هرمون الأستروجين؟",
-        answers: [
-          "إظهار الصفات الأنثوية.",
-          "تنظيم إفراز الهرمونات الذكرية.",
-          "تنظيم عملية الهضم.",
-          "زيادة كتلة العضلات.",
-        ],
-        correctAnswer: "إظهار الصفات الأنثوية.",
-      },
-      {
-        question: "ما وظيفة هرمون البروجستيرون؟",
-        answers: [
-          "تنظيم الدورة الشهرية ودعم الحمل.",
-          "تحفيز نمو الشعر.",
-          "تنظيم إفراز الدهون.",
-          "تنظيم ضربات القلب.",
-        ],
-        correctAnswer: "تنظيم الدورة الشهرية ودعم الحمل.",
-      },
-      {
-        question: "كيف تتحكم الهرمونات في الدورة الشهرية؟",
-        answers: [
-          "بتوازن FSH، LH، الأستروجين، والبروجستيرون.",
-          "بتوازن الأدرينالين والنورأدرينالين.",
-          "بتوازن الدوبامين والسيروتونين.",
-          "بتنظيم إفراز الغدة الدرقية فقط.",
-        ],
-        correctAnswer: "بتوازن FSH، LH، الأستروجين، والبروجستيرون.",
-      },
-      {
-        question: "كم عدد البويضات التي تمتلكها الأنثى عند الولادة؟",
-        answers: [
-          "عدد محدد يُستهلك مع العمر.",
-          "أكثر من المطلوب.",
-          "يستمر التجدد طوال الحياة.",
-          "غير محدد بشكل ثابت.",
-        ],
-        correctAnswer: "عدد محدد يُستهلك مع العمر.",
-      },
-      {
-        question: "ما الذي يحدث عند انقطاع الطمث؟",
-        answers: [
-          "توقف إطلاق البويضات.",
-          "زيادة إفراز الهرمونات.",
-          "زيادة عدد البويضات.",
-          "استمرار الدورة الشهرية بشكل غير منتظم.",
-        ],
-        correctAnswer: "توقف إطلاق البويضات.",
-      },
-      {
-        question: "ما مراحل دورة الحيض؟",
-        answers: [
-          "تدفق الطمث، الحوصلة، الجسم الأصفر.",
-          "الطمث، الإباضة، والحيض.",
-          "البويضة، السائل، والجسم.",
-          "التحفيز، الإفراز، والانقطاع.",
-        ],
-        correctAnswer: "تدفق الطمث، الحوصلة، الجسم الأصفر.",
-      },
-      {
-        question: "كم حيوان منوي يلقح البويضة؟",
-        answers: ["واحد.", "اثنان.", "ثلاثة.", "لا شيء، العملية مختلفة."],
-        correctAnswer: "واحد.",
-      },
-      {
-        question: "ما وظيفة جهاز المناعة؟",
-        answers: [
-          "الحماية من مسببات الأمراض.",
-          "تنظيم حرارة الجسم.",
-          "نقل الأكسجين.",
-          "تنظيم الجهاز الهضمي.",
-        ],
-        correctAnswer: "الحماية من مسببات الأمراض.",
-      },
-      {
-        question: "ما أنواع المناعة في الجسم؟",
-        answers: [
-          "عامة ونوعية.",
-          "داخلية وخارجية.",
-          "سريعة وبطيئة.",
-          "مباشرة وغير مباشرة.",
-        ],
-        correctAnswer: "عامة ونوعية.",
-      },
-      {
-        question: "ما هي الحواجز في المناعة العامة؟",
-        answers: [
-          "الجلد، اللعاب، حمض المعدة.",
-          "الأغشية المخاطية فقط.",
-          "الخلايا البيضاء فقط.",
-          "الدم والأعصاب.",
-        ],
-        correctAnswer: "الجلد، اللعاب، حمض المعدة.",
-      },
-      {
-        question: "ما طرق الاستجابة في المناعة العامة؟",
-        answers: [
-          "البلعمة، البروتينات المتممة، الالتهاب.",
-          "الإفراز الهرموني فقط.",
-          "تنظيم درجة الحرارة فقط.",
-          "الإنتاج الخلوي فقط.",
-        ],
-        correctAnswer: "البلعمة، البروتينات المتممة، الالتهاب.",
-      },
-      {
-        question: "ما هو اللمف؟",
-        answers: [
-          "سائل ينقل المواد المناعية.",
-          "خلايا مناعية.",
-          "دماء منقولة.",
-          "سائل هضمي.",
-        ],
-        correctAnswer: "سائل ينقل المواد المناعية.",
-      },
-      {
-        question: "ما هي الأعضاء اللمفية؟",
-        answers: [
-          "العقد اللمفية، الطحال، اللوزتين.",
-          "العمود الفقري والمعدة.",
-          "القلب والرئتين.",
-          "الأعصاب والأوعية الدموية.",
-        ],
-        correctAnswer: "العقد اللمفية، الطحال، اللوزتين.",
-      },
-      {
-        question: "ما وظيفة العقد اللمفية؟",
-        answers: [
-          "ترشيح السائل اللمفي.",
-          "إنتاج الدم.",
-          "تنظيم ضربات القلب.",
-          "نقل الإشارات العصبية.",
-        ],
-        correctAnswer: "ترشيح السائل اللمفي.",
-      },
-      {
-        question: "ما وظيفة الطحال؟",
-        answers: [
-          "تخزين الدم وتحطيم الخلايا التالفة.",
-          "تنظيم ضغط الدم.",
-          "نقل الأكسجين.",
-          "تنقية اللمف فقط.",
-        ],
-        correctAnswer: "تخزين الدم وتحطيم الخلايا التالفة.",
-      },
-      {
-        question: "ما أنواع الخلايا اللمفية؟",
-        answers: [
-          "خلايا بائية (أجسام مضادة) وتائية (قتالية).",
-          "خلايا حسية وخلايا حركية.",
-          "خلايا داخلية وخارجية.",
-          "خلايا دموية وخلايا عصبية.",
-        ],
-        correctAnswer: "خلايا بائية (أجسام مضادة) وتائية (قتالية).",
-      },
-      {
-        question: "ما هي المناعة السلبية؟",
-        answers: [
-          "حقن أجسام مضادة جاهزة.",
-          "تحفيز إنتاج الأجسام المضادة.",
-          "تنظيم الجهاز المناعي بواسطة الهرمونات.",
-          "تحفيز خلايا الذاكرة.",
-        ],
-        correctAnswer: "حقن أجسام مضادة جاهزة.",
-      },
-      {
-        question: "ما هي المناعة الإيجابية؟",
-        answers: [
-          "تكوين خلايا ذاكرة (تطعيم أو إصابة).",
-          "حقن أجسام مضادة جاهزة.",
-          "تنشيط المناعة العامة فقط.",
-          "تنظيم الهرمونات المناعية.",
-        ],
-        correctAnswer: "تكوين خلايا ذاكرة (تطعيم أو إصابة).",
-      },
-      {
-        question: "ما هو التطعيم؟",
-        answers: [
-          "حقن مسبب مرض ضعيف لتحفيز المناعة.",
-          "حقن الأجسام المضادة مباشرة.",
-          "تناول مضادات حيوية.",
-          "استخدام لقاح قوي.",
-        ],
-        correctAnswer: "حقن مسبب مرض ضعيف لتحفيز المناعة.",
-      },
-      {
-        question: "ما الفرق بين الاستجابة الأولية والثانوية؟",
-        answers: [
-          "الثانوية أسرع بسبب خلايا الذاكرة.",
-          "الأولية أسرع من الثانوية.",
-          "لا يوجد فرق.",
-          "الثانوية أقل فعالية.",
-        ],
-        correctAnswer: "الثانوية أسرع بسبب خلايا الذاكرة.",
-      },
-      {
-        question: "ما أسباب فشل جهاز المناعة؟",
-        answers: [
-          "عيوب خلقية، فيروس HIV، السرطان.",
-          "فقط نقص الفيتامينات.",
-          "فقط العدوى البكتيرية.",
-          "فقط التعرض للبرد.",
-        ],
-        correctAnswer: "عيوب خلقية، فيروس HIV، السرطان.",
-      },
-      {
-        question: "ما وظيفة جهاز الغدد الصماء؟",
-        answers: [
-          "إفراز الهرمونات لتنظيم الجسم.",
-          "تنظيم الجهاز العصبي.",
-          "تنظيم حركة العضلات.",
-          "تنقية الدم.",
-        ],
-        correctAnswer: "إفراز الهرمونات لتنظيم الجسم.",
-      },
-      {
-        question: "ما هو الهرمون؟",
-        answers: [
-          "مادة كيميائية تنظم وظائف محددة.",
-          "إنزيم يهضم الطعام.",
-          "خلية تنقل الإشارات العصبية.",
-          "مادة تخزن الطاقة.",
-        ],
-        correctAnswer: "مادة كيميائية تنظم وظائف محددة.",
-      },
-      {
-        question: "ما أنواع الهرمونات حسب تركيبها؟",
-        answers: [
-          "ستيرويدية (كالتستوستيرون) وغير ستيرويدية (كالأنسولين).",
-          "محلولة وغير محلولة.",
-          "سائلة وجافة.",
-          "عضوية وغير عضوية.",
-        ],
-        correctAnswer: "ستيرويدية (كالتستوستيرون) وغير ستيرويدية (كالأنسولين).",
-      },
-      {
-        question: "ما هي التغذية الراجعة السلبية؟",
-        answers: [
-          "آلية لحفظ التوازن الداخلي.",
-          "عملية تسرع من نشاط الجسم.",
-          "آلية لإفراز الهرمونات بشكل زائد.",
-          "عملية تحدث فقط في الجهاز العصبي.",
-        ],
-        correctAnswer: "آلية لحفظ التوازن الداخلي.",
-      },
-      {
-        question: "ما هي وظيفة الغدة النخامية؟",
-        answers: [
-          "التحكم في الغدد الصماء.",
-          "تنظيم ضغط الدم فقط.",
-          "إفراز الأنسولين فقط.",
-          "تنظيم عملية الهضم فقط.",
-        ],
-        correctAnswer: "التحكم في الغدد الصماء.",
-      },
-      {
-        question: "ما وظيفة الغدة الدرقية؟",
-        answers: [
-          "إفراز هرمونات الأيض.",
-          "تنظيم ضربات القلب فقط.",
-          "إفراز هرمونات النمو فقط.",
-          "تنظيم حرارة الجسم فقط.",
-        ],
-        correctAnswer: "إفراز هرمونات الأيض.",
-      },
-      {
-        question: "ما وظيفة الغدد جارات الدرقية؟",
-        answers: [
-          "تنظيم الكالسيوم في الدم.",
-          "تنظيم ضغط الدم.",
-          "تنظيم مستوى السكر.",
-          "تنظيم إفراز الأنسولين.",
-        ],
-        correctAnswer: "تنظيم الكالسيوم في الدم.",
-      },
-      {
-        question: "ما وظيفة البنكرياس كغدة صماء؟",
-        answers: [
-          "ضبط مستوى الجلوكوز (أنسولين/جلوكاجون).",
-          "تنظيم هضم الدهون فقط.",
-          "تنظيم ضغط الدم.",
-          "تخزين الكالسيوم.",
-        ],
-        correctAnswer: "ضبط مستوى الجلوكوز (أنسولين/جلوكاجون).",
-      },
-      {
-        question: "ما وظيفة الغدة الكظرية؟",
-        answers: [
-          "إفراز هرمونات الطوارئ (كالأدرينالين).",
-          "تنظيم إفراز الهرمونات الجنسية.",
-          "تنظيم التمثيل الغذائي فقط.",
-          "تنظيم الدورة الشهرية.",
-        ],
-        correctAnswer: "إفراز هرمونات الطوارئ (كالأدرينالين).",
-      },
-      {
-        question: "كيف ينظم الجهاز العصبي عمل جهاز الغدد الصماء؟",
-        answers: [
-          "عبر تحت المهاد والهرمونات.",
-          "عبر الإشارات الكهربائية فقط.",
-          "عبر الجهاز الدوري فقط.",
-          "عبر العضلات.",
-        ],
-        correctAnswer: "عبر تحت المهاد والهرمونات.",
-      },
-      {
-        question: "لماذا يعتبر التكاثر مهمًا؟",
-        answers: [
-          "لضمان استمرارية النوع.",
-          "لتوفير الطاقة.",
-          "لتحسين الجهاز المناعي.",
-          "لتنظيم عملية الهضم.",
-        ],
-        correctAnswer: "لضمان استمرارية النوع.",
-      },
-      {
-        question: "كيف يحدث الإخصاب؟",
-        answers: [
-          "التقاء الحيوان المنوي بالبويضة في قناة فالوب.",
-          "التقاء الحيوان المنوي بالرحم.",
-          "التقاء البويضة بالرحم.",
-          "التقاء الحيوان المنوي بالمبيض.",
-        ],
-        correctAnswer: "التقاء الحيوان المنوي بالبويضة في قناة فالوب.",
-      },
-      {
-        question: "ماذا يحدث بعد الإخصاب؟",
-        answers: [
-          "انقسام اللاقحة وانغراسها في الرحم.",
-          "اندماج الحيوان المنوي مع الرحم.",
-          "تكوين كيس يحتوي على الحيوانات المنوية.",
-          "توقف نمو البويضة.",
-        ],
-        correctAnswer: "انقسام اللاقحة وانغراسها في الرحم.",
-      },
-      {
-        question: "ما هي الموريولا؟",
-        answers: [
-          "كتلة خلايا بعد الانقسامات الأولى.",
-          "مرحلة في تكون النخاع.",
-          "نسيج في الجهاز العصبي.",
-          "خلايا الجذعية فقط.",
-        ],
-        correctAnswer: "كتلة خلايا بعد الانقسامات الأولى.",
-      },
-      {
-        question: "ما هي البلاستيولا؟",
-        answers: [
-          "مرحلة جنينية ذات جوف مملوء بسائل.",
-          "مرحلة تكون الجنين في الرحم.",
-          "نوع من الخلايا الجذعية.",
-          "نسيج يبني الأعضاء.",
-        ],
-        correctAnswer: "مرحلة جنينية ذات جوف مملوء بسائل.",
-      },
-      {
-        question: "ما وظيفة غشاء الكوريون؟",
-        answers: [
-          "المساهمة في تكوين المشيمة.",
-          "حماية الجنين فقط.",
-          "تنظيم إفراز الهرمونات.",
-          "توصيل الأكسجين للجنين.",
-        ],
-        correctAnswer: "المساهمة في تكوين المشيمة.",
-      },
-      {
-        question: "ما وظيفة الغشاء الرهلي؟",
-        answers: [
-          "حماية الجنين بالسائل الرهلي.",
-          "تغذية الجنين.",
-          "تنظيم ضربات القلب.",
-          "نقل النواقل العصبية.",
-        ],
-        correctAnswer: "حماية الجنين بالسائل الرهلي.",
-      },
-      {
-        question: "ما وظيفة المشيمة؟",
-        answers: [
-          "تغذية الجنين وإزالة الفضلات.",
-          "تنظيم درجة حرارة الجنين.",
-          "توفير الحماية فقط.",
-          "تنظيم ضربات القلب.",
-        ],
-        correctAnswer: "تغذية الجنين وإزالة الفضلات.",
-      },
-      {
-        question: "ما وظيفة الحبل السري؟",
-        answers: [
-          "نقل المواد بين الجنين والأم.",
-          "حماية الجنين.",
-          "تنظيم إفراز الهرمونات.",
-          "تخزين الدهون.",
-        ],
-        correctAnswer: "نقل المواد بين الجنين والأم.",
-      },
-      {
-        question: "هل يتصل دم الأم ودم الجنين؟",
-        answers: [
-          "لا، يحدث التبادل عبر المشيمة.",
-          "نعم، يتختلط الدم مباشرة.",
-          "نعم، من خلال الحبل السري.",
-          "لا، لكنهما يلتقيان في الرحم.",
-        ],
-        correctAnswer: "لا، يحدث التبادل عبر المشيمة.",
-      },
-      {
-        question: "ما هو هرمون HCG؟",
-        answers: [
-          "هرمون يحافظ على الحمل في مراحله الأولى.",
-          "هرمون ينظم إفراز الأنسولين.",
-          "هرمون يسبب انقطاع الدورة.",
-          "هرمون ينظم عملية الهضم.",
-        ],
-        correctAnswer: "هرمون يحافظ على الحمل في مراحله الأولى.",
-      },
-      {
-        question: "كم مدة الحمل الطبيعية؟",
-        answers: [
-          "280 يومًا من آخر دورة.",
-          "300 يومًا.",
-          "250 يومًا.",
-          "365 يومًا.",
-        ],
-        correctAnswer: "280 يومًا من آخر دورة.",
-      },
-      {
-        question: "ما مراحل الحمل؟",
-        answers: ["ثلاثة أثلاث.", "ربعين.", "شهرين.", "أرباع."],
-        correctAnswer: "ثلاثة أثلاث.",
-      },
-      {
-        question: "متى تبدأ تعابير الوجه والقدرة على تحريك الأصابع في الجنين؟",
-        answers: [
-          "نهاية الثلث الأول.",
-          "بداية الثلث الأول.",
-          "منتصف الثلث الثاني.",
-          "بداية الثلث الثالث.",
-        ],
-        correctAnswer: "نهاية الثلث الأول.",
-      },
-      {
-        question: "متى يمكن سماع نبض الجنين؟",
-        answers: [
-          "الثلث الثاني.",
-          "الثلث الأول.",
-          "الثلث الثالث.",
-          "منذ الحمل مباشرة.",
-        ],
-        correctAnswer: "الثلث الثاني.",
-      },
-      {
-        question: "متى يكون نمو الجنين الأسرع؟",
-        answers: [
-          "الثلث الثالث.",
-          "الثلث الأول.",
-          "الثلث الثاني.",
-          "بعد الولادة.",
-        ],
-        correctAnswer: "الثلث الثالث.",
-      },
-      {
-        question: "كيف يتم تشخيص الاختلالات عند الجنين؟",
-        answers: [
-          "الموجات فوق الصوتية وتحليل السائل الرهلي.",
-          "الأشعة السينية فقط.",
-          "فحص الدم فقط.",
-          "الفحص البدني فقط.",
-        ],
-        correctAnswer: "الموجات فوق الصوتية وتحليل السائل الرهلي.",
-      },
-      {
-        question: "ما أنواع العضلات في الجسم؟",
-        answers: [
-          "هيكلية، ملساء، قلبية.",
-          "عظمية، ليفية، دماغية.",
-          "قوية، ضعيفة، متوسطة.",
-          "حركية، غير حركية، متطرفة.",
-        ],
-        correctAnswer: "هيكلية، ملساء، قلبية.",
-      },
-      {
-        question: "ما الذي تحتاجه العضلات للانقباض والانبساط؟",
-        answers: ["ATP.", "ADP.", "DNA.", "الأكسجين فقط."],
-        correctAnswer: "ATP.",
-      },
-      {
-        question: "ما هو الميوجلوبين؟",
-        answers: [
-          "بروتين يخزن الأكسجين في العضلات.",
-          "إنزيم يهضم البروتين.",
-          "هرمون ينظم ضربات القلب.",
-          "مادة تخزن الجلوكوز.",
-        ],
-        correctAnswer: "بروتين يخزن الأكسجين في العضلات.",
-      },
-      {
-        question: "ما أنواع الخيوط العضلية؟",
-        answers: [
-          "الميوسين (سميك) والأكتين (رفيع).",
-          "الكولاجين والإيلاستين.",
-          "الأكتين والميوسين فقط.",
-          "تراكيب بروتينية غير محددة.",
-        ],
-        correctAnswer: "الميوسين (سميك) والأكتين (رفيع).",
-      },
-      {
-        question: "ما هي القطع العضلية؟",
-        answers: [
-          "الوحدات الأساسية للانقباض.",
-          "الخلايا العضلية المفردة.",
-          "الألياف العصبية.",
-          "الأجزاء التي تربط العظام.",
-        ],
-        correctAnswer: "الوحدات الأساسية للانقباض.",
-      },
-      {
-        question: "ما أنواع العضلات الهيكلية؟",
-        answers: [
-          "بطيئة وسريعة الانقباض.",
-          "قوية وضعيفة فقط.",
-          "طويلة وقصيرة.",
-          "مرنة وثابتة.",
-        ],
-        correctAnswer: "بطيئة وسريعة الانقباض.",
-      },
-      {
-        question: "مما تتكون العضلات الهيكلية؟",
-        answers: [
-          "مزيج من الألياف البطيئة والسريعة.",
-          "ألياف حركية فقط.",
-          "ألياف عصبية فقط.",
-          "خلايا دم فقط.",
-        ],
-        correctAnswer: "مزيج من الألياف البطيئة والسريعة.",
-      },
-      {
-        question: "ما وظيفة الجهاز الدوري؟",
-        answers: [
-          "نقل الأكسجين والمواد الغذائية.",
-          "تنظيم الحركات الإرادية.",
-          "تنظيم الجهاز العصبي.",
-          "تنظيم درجة الحرارة فقط.",
-        ],
-        correctAnswer: "نقل الأكسجين والمواد الغذائية.",
-      },
-      {
-        question: "ما مكونات الجهاز الدوري؟",
-        answers: [
-          "القلب، الأوعية الدموية، الدم.",
-          "العضلات والأعصاب.",
-          "الدم واللمف فقط.",
-          "القلب والأعضاء فقط.",
-        ],
-        correctAnswer: "القلب، الأوعية الدموية، الدم.",
-      },
-      {
-        question: "مما يتكون القلب؟",
-        answers: [
-          "أربع حجرات (أذينان وبطينان).",
-          "ثلاث حجرات.",
-          "حجرة واحدة.",
-          "خمس حجرات.",
-        ],
-        correctAnswer: "أربع حجرات (أذينان وبطينان).",
-      },
-      {
-        question: "ما وظيفة الصمامات القلبية؟",
-        answers: [
-          "منع رجوع الدم.",
-          "ضخ الدم.",
-          "تنظيم ضربات القلب.",
-          "تنظيم ضغط الدم.",
-        ],
-        correctAnswer: "منع رجوع الدم.",
-      },
-      {
-        question: "ما الفرق بين الدورة الرئوية والجهازية؟",
-        answers: [
-          "الرئوية: قلب-رئتين، الجهازية: قلب-أعضاء.",
-          "الرئوية: قلب-أعضاء، الجهازية: قلب-رئتين.",
-          "كلاهما نفس الدورة.",
-          "الرئوية: جهاز هضمي، الجهازية: جهاز عصبي.",
-        ],
-        correctAnswer: "الرئوية: قلب-رئتين، الجهازية: قلب-أعضاء.",
-      },
-      {
-        question: "لماذا جدار البطين الأيسر أسمك من الأيمن؟",
-        answers: [
-          "ليضخ الدم لجميع الجسم.",
-          "لتوفير حماية للبطين.",
-          "لأنه يتلقى كمية أقل من الدم.",
-          "لأنه يعمل كخزان للدم.",
-        ],
-        correctAnswer: "ليضخ الدم لجميع الجسم.",
-      },
-      {
-        question: "ما أنواع الأوعية الدموية؟",
-        answers: [
-          "شرايين، أوردة، شعيرات.",
-          "شرايين وأوردة فقط.",
-          "شرايين، أوردة، وأوتار.",
-          "أوردة وشعيرات فقط.",
-        ],
-        correctAnswer: "شرايين، أوردة، شعيرات.",
-      },
-      {
-        question: "لماذا تحتوي الأوردة على صمامات؟",
-        answers: [
-          "لمنع رجوع الدم.",
-          "لتسريع تدفق الدم.",
-          "لتخفيف ضغط الدم.",
-          "لتوجيه الدم إلى القلب.",
-        ],
-        correctAnswer: "لمنع رجوع الدم.",
-      },
-      {
-        question: "ما مكونات الدم؟",
-        answers: [
-          "بلازما، خلايا دم حمراء، بيضاء، صفائح.",
-          "خلايا دم حمراء فقط.",
-          "بلازما وخلايا دم فقط.",
-          "خلايا دم بيضاء وخلايا دم حمراء فقط.",
-        ],
-        correctAnswer: "بلازما، خلايا دم حمراء، بيضاء، صفائح.",
-      },
-      {
-        question: "ما وظيفة الهيموجلوبين؟",
-        answers: [
-          "نقل الأكسجين.",
-          "تخزين الدهون.",
-          "تحطيم السموم.",
-          "نقل المواد الغذائية.",
-        ],
-        correctAnswer: "نقل الأكسجين.",
-      },
-      {
-        question: "ما هي فصائل الدم الرئيسية؟",
-        answers: ["A، B، AB، O.", "A، B، C، D.", "X، Y، Z، W.", "1، 2، 3، 4."],
-        correctAnswer: "A، B، AB، O.",
-      },
-      {
-        question: "ما هو العامل الريزيسي (Rh)؟",
-        answers: [
-          "بروتين يُحدد موجب/سالب الفصيلة.",
-          "أنزيم يهضم البروتين.",
-          "هرمون ينظم ضغط الدم.",
-          "خلية مناعية.",
-        ],
-        correctAnswer: "بروتين يُحدد موجب/سالب الفصيلة.",
-      },
-      {
-        question: "ما وظيفة الجهاز التنفسي؟",
-        answers: [
-          "تزويد الجسم بالأكسجين.",
-          "تنظيم حرارة الجسم.",
-          "تنقية الدم.",
-          "نقل المواد الغذائية.",
-        ],
-        correctAnswer: "تزويد الجسم بالأكسجين.",
-      },
-      {
-        question: "ما الهدف من التنفس؟",
-        answers: [
-          "إنتاج ATP للطاقة.",
-          "تنظيم درجة حرارة الجسم.",
-          "إزالة الفضلات.",
-          "تنظيم الدورة الدموية.",
-        ],
-        correctAnswer: "إنتاج ATP للطاقة.",
-      },
-      {
-        question: "ما أنواع عمليات التنفس؟",
-        answers: [
-          "ميكانيكية وتبادل الغازات.",
-          "خارجي وداخلي فقط.",
-          "سريري وكيميائي.",
-          "فسيولوجية وعصبية.",
-        ],
-        correctAnswer: "ميكانيكية وتبادل الغازات.",
-      },
-      {
-        question: "ما الفرق بين التنفس الخارجي والداخلي؟",
-        answers: [
-          "الخارجي: رئة-دم، الداخلي: دم-خلايا.",
-          "الخارجي: دم-خلايا، الداخلي: رئة-دم.",
-          "كلاهما نفس العملية.",
-          "الخارجي: هوائي، الداخلي: مائي.",
-        ],
-        correctAnswer: "الخارجي: رئة-دم، الداخلي: دم-خلايا.",
-      },
-      {
-        question: "ما العضلات المسؤولة عن الشهيق؟",
-        answers: [
-          "الحجاب الحاجز وعضلات الأضلاع.",
-          "العضلات القصبية فقط.",
-          "عضلات البطن فقط.",
-          "عضلات الظهر فقط.",
-        ],
-        correctAnswer: "الحجاب الحاجز وعضلات الأضلاع.",
-      },
-      {
-        question: "ما العضلات المسؤولة عن الزفير؟",
-        answers: [
-          "استرخاء الحجاب الحاجز.",
-          "انقباض الحجاب الحاجز.",
-          "تحفيز عضلات الصدر.",
-          "انقباض عضلات الأضلاع.",
-        ],
-        correctAnswer: "استرخاء الحجاب الحاجز.",
-      },
-      {
-        question: "كيف يتم تنقية الهواء في الأنف؟",
-        answers: [
-          "بالشعيرات والمخاط.",
-          "بواسطة الأسنان.",
-          "بواسطة اللسان.",
-          "بواسطة التجاويف الفموية.",
-        ],
-        correctAnswer: "بالشعيرات والمخاط.",
-      },
-      {
-        question: "ما وظيفة لسان المزمار؟",
-        answers: [
-          "منع دخول الطعام للقصبة الهوائية.",
-          "تنظيم حركة الهواء.",
-          "تحسين حاسة التذوق.",
-          "تنقية الهواء من الجراثيم.",
-        ],
-        correctAnswer: "منع دخول الطعام للقصبة الهوائية.",
-      },
-      {
-        question: "ما هي الحويصلات الهوائية؟",
-        answers: [
-          "أكياس دقيقة لتبادل الغازات.",
-          "أنابيب تنقل الهواء فقط.",
-          "خلايا تنتج الأكسجين.",
-          "أجزاء من الجهاز الهضمي.",
-        ],
-        correctAnswer: "أكياس دقيقة لتبادل الغازات.",
-      },
-    ];
+    const subjects = {
+      0: ``,
+      table: `<table class="table"> <thead> <tr> <th scope="col">اليوم والتاريخ</th> <th scope="col">الاختبار</th> <th scope="col">مدة الاختبار</th> <th scope="col">المعلم كاتب الاختبار</th> </tr> </thead> <tbody> <tr> <th scope="row">الثلاثاء 1446/11/29هـ</th> <td>التقنية الرقمية</td> <td>ساعة واحدة</td> <td>نواف المالكي</td> </tr> <tr> <th scope="row">الأحد 1446/12/19هـ</th><td>الرياضيات</td><td>ساعتان ونصف</td> <td>سعود السريحي</td></tr><tr><th scope="row">الإثنين 1446/12/20هـ</th> <td>الكيمياء</td><td>ساعتان ونصف</td> <td>طارق الحدادي (ماني متأكد من الاسم إلي يعرف اسمه الصح يكلمني تلجرام <a href="https://t.me/br495">@br495</a>)</td></tr><tr><th scope="row">الثلاثاء 1446/12/21هـ</th><td>الإنجليزي</td><td>ساعتان ونصف</td> <td>بدر المالكي</td></tr><tr><th scope="row">الأربعاء 1446/12/22هـ</th><td>الفيزياء</td><td>ساعتان ونصف</td> <td>ضيف الله الحربي</td> </tr><tr><th scope="row">الأربعاء 1446/12/23هـ</th><td>الأحياء</td><td>ساعتان</td> <td>عبدالرحمن القرني</td> </tr></tbody> </table>`,
+      tech: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>المذاكرة:</h5><p>المذاكرة من الكتاب والمراجعة من الملف التالي:</p><a class="d-block" href="/files/بنك أسئلة التقنية الرقمية 2-2 غير محلول.pdf" download>تحميل بنك أسئلة التقنية الرقمية 2-2 غير محلول</a><a class="d-block" href="/files/بنك أسئلة التقنية الرقمية 2-2 محلول.pdf" download>تحميل بنك أسئلة التقنية الرقمية 2-2 محلول</a>`,
+      math: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من الكتاب.</p><h5 class="mt-3">شروحات مساعدة:</h5><a class="d-block" href="https://youtu.be/n9o8r9YLOqg" target="_blank">ملخص مراجعة الرياضيات ٢-٣ | الوحدة الأولى</a><a class="d-block" href="https://youtu.be/-lLi7rksL0Y" target="_blank">ملخص مراجعة الرياضيات ٢-٣ | الوحدة الثانية</a><a class="d-block" href="https://youtu.be/2Ex06sfoe6U" target="_blank">تبسيط إنطاق المقام</a>`,
+      chemistry: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">غير معروف</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من مسرد الكيمياء، يشمل كل المواضيع.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abstractDownloderModal" data-subject="chemistry23">تحميل المسرد</button> <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#quizModal" data-subject="chemistry23" data-title="الكيمياء" > ابدأ الاختبار الإلكتروني للتجميعات </button>`,
+      english: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>القواعد:</h5><p class="mb-1">من الكتاب الـGrammar والـForm, Meaning, and Function.</p><p class="mb-1">الاختبار نسخ لصق من الأمثلة ومن التمارين أسفل كل قاعدة.</p><p>لا يوجد أي أسئلة من كتاب النشاط.</p><h5 class="mt-3">الكلمات:</h5><p>من الـQuick Check والـReal Talk والـVocabulary Building.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#wordModal">عرض الكلمات</button> <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#wordsQuizModal">اختبار الكلمات</button><h5 class="mt-3">النص:</h5><p>نص بسيط مع أسئلة صح وخطأ واضحة بدون أي صعوبة.</p>`,
+      biology: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">غير معروف</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من مسرد الأحياء، يشمل كل المواضيع.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abstractDownloderModal" data-subject="biology23">تحميل المسرد</button> <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#quizModal" data-subject="biology23" data-title="الأحياء" > ابدأ الاختبار الإلكتروني للتجميعات </button>`,
+      physics: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>المذاكرة:</h5><p>قريبًا.</p>`,
+    };
+  </script>
 
+  <!-- Download Summary Script -->
+  <script>
+    document
+      .getElementById("questionsCheckbox")
+      .addEventListener("change", function () {
+        const answersSection = document.getElementById("answersSection");
+        answersSection.style.display = this.checked ? "block" : "none";
+        if (!this.checked) {
+          document.getElementById("answersCheckbox").checked = false;
+        }
+      });
+
+    const abstracts = {
+      biology23: {
+        title: "الأحياء",
+        100: "مسرد الأحياء 2-3",
+        110: "مسرد وتجميعات الأحياء 2-3 غير محلول",
+        111: "مسرد وتجميعات الأحياء 2-3 محلول",
+        "010": "تجميعات الأحياء 2-3 غير محلول",
+        "011": "تجميعات الأحياء 2-3 محلول",
+      },
+      chemistry23: {
+        title: "الكيمياء",
+        100: "مسرد الكيمياء 2-3",
+        110: "مسرد وتجميعات الكيمياء 2-3 غير محلول",
+        111: "مسرد وتجميعات الكيمياء 2-3 محلول",
+        "010": "تجميعات الكيمياء 2-3 غير محلول",
+        "011": "تجميعات الكيمياء 2-3 محلول",
+      },
+    };
+
+    document
+      .getElementById("abstractDownloderModal")
+      .addEventListener("show.bs.modal", function (event) {
+        const button = event.relatedTarget;
+        const subject = button.getAttribute("data-subject");
+        const modalTitle = document.getElementById(
+          "abstractDownloderModalLabel"
+        );
+        const warningAlert = document.getElementById("warningAlert");
+
+        modalTitle.textContent = `تحميل مسرد ${abstracts[subject]["title"]}`;
+        warningAlert.style.display = "none";
+      });
+
+    document
+      .getElementById("abstractDownloderModal")
+      .addEventListener("hidden.bs.modal", function () {
+        const summaryCheckbox = document.getElementById("summaryCheckbox");
+        const questionsCheckbox = document.getElementById("questionsCheckbox");
+        const answersCheckbox = document.getElementById("answersCheckbox");
+        const answersSection = document.getElementById("answersSection");
+        const modalTitle = document.getElementById(
+          "abstractDownloderModalLabel"
+        );
+        const warningAlert = document.getElementById("warningAlert");
+
+        summaryCheckbox.checked = false;
+        questionsCheckbox.checked = false;
+        answersCheckbox.checked = false;
+        answersSection.style.display = "none";
+        warningAlert.style.display = "none";
+        modalTitle.textContent = "تحميل مسرد";
+      });
+
+    function downloadSummary() {
+      const summaryChecked = document.getElementById("summaryCheckbox").checked;
+      const questionsChecked =
+        document.getElementById("questionsCheckbox").checked;
+      const answersChecked = document.getElementById("answersCheckbox").checked;
+      const warningAlert = document.getElementById("warningAlert");
+      const code = `${summaryChecked ? "1" : "0"}${
+        questionsChecked ? "1" : "0"
+      }${answersChecked ? "1" : "0"}`;
+
+      if (code === "000") {
+        warningAlert.style.display = "block";
+        return;
+      } else {
+        warningAlert.style.display = "none";
+      }
+
+      const subjectBtn = document.querySelector("[data-subject]");
+      const subject = subjectBtn.dataset.subject;
+
+      const modalTitle = document.getElementById("abstractDownloderModalLabel");
+      modalTitle.textContent = `تحميل مسرد ${abstracts[subject]["title"]}`;
+
+      const fileName = `${subject}/${abstracts[subject][code]}.pdf`;
+      const a = document.createElement("a");
+      a.href = fileName;
+      a.download = abstracts[subject][code];
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    document
+      .getElementById("questionsCheckbox")
+      .addEventListener("change", function () {
+        const answersSection = document.getElementById("answersSection");
+        answersSection.style.display = this.checked ? "block" : "none";
+
+        if (!this.checked) {
+          document.getElementById("answersCheckbox").checked = false;
+        }
+      });
+  </script>
+
+  <!-- Quiz Script -->
+  <script>
+    // Quiz Logic
+    const quizModal = document.getElementById("quizModal");
+    const quizConfig = document.getElementById("quiz-config");
+    const quizSection = document.getElementById("quiz-section");
+    const resultSection = document.getElementById("result-section");
+    const questionImage = document.getElementById("question-image");
+    const answerButtons = document.getElementById("answer-buttons");
+    const feedback = document.getElementById("feedback");
+    const nextButton = document.getElementById("next-button");
+    const scoreDisplay = document.getElementById("score");
+    const numQuestionsInput = document.getElementById("num-questions");
+    const topicSelect = document.getElementById("topic-select");
+    const startQuizButton = document.getElementById("start-quiz-button");
+    const quizTitle = document.getElementById("quiz-title");
+    const quizProgress = document.getElementById("quiz-progress");
+
+    let questions = [];
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let incorrectAnswers = [];
+    let selectedSubject = "biology23";
+
+    // تحديث توليد الشيكبوكسيز ليكونوا أزرار btn-check
+    function renderTopicCheckboxes(topics) {
+      const topicSelectContainer = document.getElementById(
+        "topic-select-container"
+      );
+      topicSelectContainer.innerHTML = "";
+      topics.forEach(topic => {
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.className = "btn-check";
+        checkbox.id = `topic-${topic}`;
+        checkbox.value = topic;
+        checkbox.autocomplete = "off";
+
+        const label = document.createElement("label");
+        label.className = "btn btn-sm btn-outline-light";
+        label.htmlFor = `topic-${topic}`;
+        label.textContent = topic;
+
+        topicSelectContainer.appendChild(checkbox);
+        topicSelectContainer.appendChild(label);
+      });
+    }
+
+    // تحديث loadQuestions ليأخذ فقط التوبيكات التي تحتوي على أسئلة
+    async function loadQuestions() {
+      try {
+        const response = await fetch(selectedSubject + "/data.json");
+        const data = await response.json();
+        let allQuestions = [];
+
+        // فقط التوبيكات التي تحتوي على أسئلة
+        data.topics.forEach(topic => {
+          if (topic.exercises_solve && topic.exercises_solve.length > 0) {
+            topic.exercises_solve.forEach(ex => {
+              allQuestions.push({
+                topic: topic.name,
+                image: `${topic.name}/exercise_${ex.id}.png`,
+                correctAnswer: ex.solve || "A",
+              });
+            });
+          }
+        });
+
+        questions = allQuestions;
+
+        // توليد الشيكبوكسيز كأزرار
+        const topics = [...new Set(questions.map(q => q.topic))];
+        renderTopicCheckboxes(topics);
+
+        // توليد أزرار عدد الأسئلة
+        renderNumQuestionsButtons(questions.length);
+
+        // عند تغيير اختيار التوبيكات المخصصة، عدل أزرار عدد الأسئلة تلقائياً
+        document
+          .getElementById("topic-select-container")
+          .addEventListener("change", updateCustomNumQuestions);
+      } catch (error) {
+        console.error("Error loading questions:", error);
+        feedback.textContent = "Error loading questions. Please try again.";
+      }
+    }
+
+    // دالة لتحديث أزرار عدد الأسئلة عند تخصيص التوبيكات
+    function updateCustomNumQuestions() {
+      if (document.getElementById("topic-custom").checked) {
+        const selectedTopics = Array.from(
+          document.querySelectorAll(
+            '#topic-select-container input[type="checkbox"]:checked'
+          )
+        ).map(checkbox => checkbox.value);
+
+        // احسب عدد الأسئلة بناءً على التوبيكات المختارة فقط
+        const filteredQuestions = questions.filter(q =>
+          selectedTopics.includes(q.topic)
+        );
+        renderNumQuestionsButtons(filteredQuestions.length);
+
+        // حدث قيمة input ليكون أقصى حد هو عدد الأسئلة المتاحة
+        numQuestionsInput.max = filteredQuestions.length;
+        if (parseInt(numQuestionsInput.value) > filteredQuestions.length) {
+          numQuestionsInput.value = filteredQuestions.length;
+        }
+      }
+    }
+
+    // عند تغيير وضع التوبيك (كل/مخصص) حدث أزرار عدد الأسئلة
+    document
+      .getElementById("topic-all")
+      .addEventListener("change", function () {
+        renderNumQuestionsButtons(questions.length);
+        numQuestionsInput.max = questions.length;
+      });
+    document
+      .getElementById("topic-custom")
+      .addEventListener("change", function () {
+        updateCustomNumQuestions();
+      });
+
+    // توليد أزرار عدد الأسئلة
+    function renderNumQuestionsButtons(total) {
+      const group = document.getElementById("num-questions-group");
+      group.innerHTML = "";
+
+      // توليد خيارات ديناميكية: 10، 20، 30، 50 أو أقل إذا كان العدد أقل
+      let options = [];
+      if (total <= 10) {
+        options = [total];
+      } else if (total <= 20) {
+        options = [10, total];
+      } else if (total <= 30) {
+        options = [10, 20, total];
+      } else if (total <= 50) {
+        options = [10, 20, 30, total];
+      } else {
+        options = [10, 20, 30, 50];
+        if (total > 50) options.push(total);
+      }
+
+      // إزالة التكرار
+      options = [...new Set(options)].filter(n => n > 0 && n <= total);
+
+      options.forEach(num => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "btn btn-outline-primary";
+        btn.textContent = num === total ? `جميع الأسئلة (${total})` : num;
+        btn.onclick = () => {
+          document.getElementById("num-questions").style.display = "none";
+          document.getElementById("num-questions").value = num;
+          setActiveNumBtn(btn);
+        };
+        group.appendChild(btn);
+      });
+
+      // زر مخصص
+      const customBtn = document.createElement("button");
+      customBtn.type = "button";
+      customBtn.className = "btn btn-outline-primary";
+      customBtn.textContent = "مخصص";
+      customBtn.onclick = () => {
+        document.getElementById("num-questions").style.display = "inline-block";
+        document.getElementById("num-questions").value = "";
+        setActiveNumBtn(customBtn);
+      };
+      group.appendChild(customBtn);
+
+      // تفعيل أول زر افتراضيًا
+      group.children[0].click();
+    }
+
+    function setActiveNumBtn(activeBtn) {
+      const group = document.getElementById("num-questions-group");
+      Array.from(group.children).forEach(btn =>
+        btn.classList.remove("btn-primary")
+      );
+      activeBtn.classList.add("btn-primary");
+      activeBtn.classList.remove("btn-outline-primary");
+      Array.from(group.children).forEach(btn => {
+        if (btn !== activeBtn) {
+          btn.classList.remove("btn-primary");
+          btn.classList.add("btn-outline-primary");
+        }
+      });
+    }
+
+    // التحكم في إظهار الشيكبوكسيز حسب اختيار الكل/مخصص
+    document
+      .getElementById("topic-all")
+      .addEventListener("change", function () {
+        document.getElementById("topic-checkboxes-container").style.display =
+          "none";
+      });
+    document
+      .getElementById("topic-custom")
+      .addEventListener("change", function () {
+        document.getElementById("topic-checkboxes-container").style.display =
+          "block";
+      });
+
+    // تحديث startQuiz ليأخذ المواضيع حسب الاختيار
+    function startQuiz() {
+      let filteredQuestions;
+      if (document.getElementById("topic-all").checked) {
+        filteredQuestions = questions;
+      } else {
+        const selectedTopics = Array.from(
+          document.querySelectorAll(
+            '#topic-select-container input[type="checkbox"]:checked'
+          )
+        ).map(checkbox => checkbox.value);
+        filteredQuestions =
+          selectedTopics.length > 0
+            ? questions.filter(question =>
+                selectedTopics.includes(question.topic)
+              )
+            : questions;
+      }
+
+      // خلط الأسئلة
+      filteredQuestions = [...filteredQuestions];
+      shuffleArray(filteredQuestions);
+
+      // تحديد العدد المطلوب فقط
+      let num = parseInt(numQuestionsInput.value) || filteredQuestions.length;
+      filteredQuestions = filteredQuestions.slice(0, num);
+
+      quizConfig.style.display = "none";
+      quizSection.style.display = "block";
+      resultSection.style.display = "none";
+      currentQuestionIndex = 0;
+      score = 0;
+      incorrectAnswers = [];
+      currentQuestions = filteredQuestions; // متغير جديد للمراجعة
+      showQuestion();
+    }
+
+    loadQuestions();
+
+    // Function to start the quiz
+    function startQuiz() {
+      let filteredQuestions;
+      if (document.getElementById("topic-all").checked) {
+        filteredQuestions = questions;
+      } else {
+        const selectedTopics = Array.from(
+          document.querySelectorAll(
+            '#topic-select-container input[type="checkbox"]:checked'
+          )
+        ).map(checkbox => checkbox.value);
+        filteredQuestions =
+          selectedTopics.length > 0
+            ? questions.filter(question =>
+                selectedTopics.includes(question.topic)
+              )
+            : questions;
+      }
+
+      // خلط الأسئلة
+      filteredQuestions = [...filteredQuestions];
+      shuffleArray(filteredQuestions);
+
+      // تحديد العدد المطلوب فقط
+      let num = parseInt(numQuestionsInput.value) || filteredQuestions.length;
+      filteredQuestions = filteredQuestions.slice(0, num);
+
+      quizConfig.style.display = "none";
+      quizSection.style.display = "block";
+      resultSection.style.display = "none";
+      currentQuestionIndex = 0;
+      score = 0;
+      incorrectAnswers = [];
+      currentQuestions = filteredQuestions;
+      userAnswers = new Array(filteredQuestions.length).fill(null);
+      showQuestion();
+      startQuizAutoSave();
+    }
+
+    // Function to show a question
+    function showQuestion() {
+      for (let i = 0; i < answerButtons.children.length; i++) {
+        answerButtons.children[i].classList.remove("btn-success", "btn-danger");
+        answerButtons.children[i].classList.add("btn-outline-light");
+        answerButtons.children[i].disabled = false;
+      }
+
+      // تحديث العداد والدرجة
+      quizProgress.innerHTML = `السؤال <b>${
+        currentQuestionIndex + 1
+      }</b> من <b>${currentQuestions.length}</b> | الدرجة: <b>${score}</b>`;
+
+      if (currentQuestionIndex >= currentQuestions.length) {
+        endQuiz();
+        return;
+      }
+
+      const question = currentQuestions[currentQuestionIndex];
+      questionImage.src = `${selectedSubject}/${question.image}`;
+      feedback.classList.remove("alert", "alert-success", "alert-danger");
+      feedback.textContent = "";
+      nextButton.style.display = "none";
+
+      // Remove previous event listeners
+      answerButtons.querySelectorAll(".answer-btn").forEach(btn => {
+        btn.removeEventListener("click", checkAnswer);
+      });
+
+      // Add event listeners to answer buttons
+      answerButtons.querySelectorAll(".answer-btn").forEach(btn => {
+        btn.addEventListener("click", checkAnswer);
+      });
+    }
+
+    // Function to check the answer
+    function checkAnswer(event) {
+      const selectedAnswer = event.target.dataset.answer;
+      const question = currentQuestions[currentQuestionIndex];
+
+      userAnswers[currentQuestionIndex] = selectedAnswer;
+
+      if (selectedAnswer === question.correctAnswer) {
+        score++;
+        feedback.classList.add("alert", "alert-success");
+        feedback.textContent = "إجابة صحيحة!";
+        document.getElementById(selectedAnswer).classList.add("btn-success");
+        document
+          .getElementById(selectedAnswer)
+          .classList.remove("btn-outline-light");
+      } else {
+        feedback.classList.add("alert", "alert-danger");
+        feedback.textContent = `إجابة خاطئة. الإجابة الصحيحة هي: ${question.correctAnswer}`;
+        document.getElementById(selectedAnswer).classList.add("btn-danger");
+        document
+          .getElementById(selectedAnswer)
+          .classList.remove("btn-outline-light");
+        document
+          .getElementById(question.correctAnswer)
+          .classList.add("btn-success");
+        document
+          .getElementById(question.correctAnswer)
+          .classList.remove("btn-outline-light");
+        incorrectAnswers.push(question);
+      }
+
+      nextButton.style.display = "block";
+
+      // Disable answer buttons
+      answerButtons.querySelectorAll(".answer-btn").forEach(btn => {
+        btn.disabled = true;
+      });
+
+      // تحديث العداد والدرجة بعد الإجابة
+      quizProgress.innerHTML = `السؤال <b>${
+        currentQuestionIndex + 1
+      }</b> من <b>${currentQuestions.length}</b> | الدرجة: <b>${score}</b>`;
+
+      saveQuizState();
+    }
+
+    // Function to go to the next question
+    function nextQuestion() {
+      currentQuestionIndex++;
+      showQuestion();
+      saveQuizState();
+    }
+
+    // Event listeners
+    startQuizButton.addEventListener("click", startQuiz);
+    nextButton.addEventListener("click", nextQuestion);
+
+    // دالة خلط مصفوفة
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    // تحديث startQuiz ليخلط الأسئلة ويضبط العدد الصحيح
+    function startQuiz() {
+      let filteredQuestions;
+      if (document.getElementById("topic-all").checked) {
+        filteredQuestions = questions;
+      } else {
+        const selectedTopics = Array.from(
+          document.querySelectorAll(
+            '#topic-select-container input[type="checkbox"]:checked'
+          )
+        ).map(checkbox => checkbox.value);
+        filteredQuestions =
+          selectedTopics.length > 0
+            ? questions.filter(question =>
+                selectedTopics.includes(question.topic)
+              )
+            : questions;
+      }
+
+      // خلط الأسئلة
+      filteredQuestions = [...filteredQuestions];
+      shuffleArray(filteredQuestions);
+
+      // تحديد العدد المطلوب فقط
+      let num = parseInt(numQuestionsInput.value) || filteredQuestions.length;
+      filteredQuestions = filteredQuestions.slice(0, num);
+
+      quizConfig.style.display = "none";
+      quizSection.style.display = "block";
+      resultSection.style.display = "none";
+      currentQuestionIndex = 0;
+      score = 0;
+      incorrectAnswers = [];
+      currentQuestions = filteredQuestions; // متغير جديد للمراجعة
+      userAnswers = new Array(filteredQuestions.length).fill(null);
+      showQuestion();
+      startQuizAutoSave();
+    }
+
+    // متغير جديد للاحتفاظ بالأسئلة الحالية للمراجعة
+    let currentQuestions = [];
+
+    // تحديث showQuestion ليستخدم currentQuestions
+    function showQuestion() {
+      for (let i = 0; i < answerButtons.children.length; i++) {
+        answerButtons.children[i].classList.remove("btn-success", "btn-danger");
+        answerButtons.children[i].classList.add("btn-outline-light");
+        answerButtons.children[i].disabled = false;
+      }
+
+      // تحديث العداد والدرجة
+      quizProgress.innerHTML = `السؤال <b>${
+        currentQuestionIndex + 1
+      }</b> من <b>${currentQuestions.length}</b> | الدرجة: <b>${score}</b>`;
+
+      if (currentQuestionIndex >= currentQuestions.length) {
+        endQuiz();
+        return;
+      }
+
+      const question = currentQuestions[currentQuestionIndex];
+      questionImage.src = `${selectedSubject}/${question.image}`;
+      feedback.classList.remove("alert", "alert-success", "alert-danger");
+      feedback.textContent = "";
+      nextButton.style.display = "none";
+
+      // Remove previous event listeners
+      answerButtons.querySelectorAll(".answer-btn").forEach(btn => {
+        btn.removeEventListener("click", checkAnswer);
+      });
+
+      // Add event listeners to answer buttons
+      answerButtons.querySelectorAll(".answer-btn").forEach(btn => {
+        btn.addEventListener("click", checkAnswer);
+      });
+    }
+
+    // تحديث checkAnswer ليستخدم currentQuestions
+    function checkAnswer(event) {
+      const selectedAnswer = event.target.dataset.answer;
+      const question = currentQuestions[currentQuestionIndex];
+
+      userAnswers[currentQuestionIndex] = selectedAnswer;
+
+      if (selectedAnswer === question.correctAnswer) {
+        score++;
+        feedback.classList.add("alert", "alert-success");
+        feedback.textContent = "إجابة صحيحة!";
+        document.getElementById(selectedAnswer).classList.add("btn-success");
+        document
+          .getElementById(selectedAnswer)
+          .classList.remove("btn-outline-light");
+      } else {
+        feedback.classList.add("alert", "alert-danger");
+        feedback.textContent = `إجابة خاطئة. الإجابة الصحيحة هي: ${question.correctAnswer}`;
+        document.getElementById(selectedAnswer).classList.add("btn-danger");
+        document
+          .getElementById(selectedAnswer)
+          .classList.remove("btn-outline-light");
+        document
+          .getElementById(question.correctAnswer)
+          .classList.add("btn-success");
+        document
+          .getElementById(question.correctAnswer)
+          .classList.remove("btn-outline-light");
+        incorrectAnswers.push(question);
+      }
+
+      nextButton.style.display = "block";
+
+      // Disable answer buttons
+      answerButtons.querySelectorAll(".answer-btn").forEach(btn => {
+        btn.disabled = true;
+      });
+
+      // تحديث العداد والدرجة بعد الإجابة
+      quizProgress.innerHTML = `السؤال <b>${
+        currentQuestionIndex + 1
+      }</b> من <b>${currentQuestions.length}</b> | الدرجة: <b>${score}</b>`;
+
+      saveQuizState();
+    }
+
+    // تحديث endQuiz ليستخدم currentQuestions
+    function endQuiz() {
+      nextButton.style.display = "none";
+      quizSection.style.display = "none";
+      resultSection.style.display = "block";
+      scoreDisplay.innerHTML = `<b>النتيجة: ${score} / ${currentQuestions.length}</b><br><div class="text-success mt-3">انتهى الاختبار</div>`;
+      clearQuizState(selectedSubject);
+      stopQuizAutoSave();
+    }
+
+    // تحديث nextQuestion ليستخدم currentQuestions
+    function nextQuestion() {
+      currentQuestionIndex++;
+      showQuestion();
+      saveQuizState();
+    }
+
+    // إصلاح زر ابدأ الاختبار (يجب أن يستدعي دالة startQuiz فقط)
+    startQuizButton.onclick = function () {
+      startQuizButton.style.display = "none";
+      startQuiz();
+    };
+
+    // إصلاح إعادة تعيين كل شيء عند فتح المودال
+    quizModal.addEventListener("show.bs.modal", async function (event) {
+      // جلب اسم المادة واسم الملف من الزر
+      let btn = event.relatedTarget;
+      if (!btn) {
+        // إذا لم يوجد زر (مثلاً إعادة فتح)، استخدم الافتراضي
+        btn = document.querySelector('[data-bs-target="#quizModal"]');
+      }
+      const subjectFile = btn.getAttribute("data-subject") || "biology23";
+      const subjectTitle = btn.getAttribute("data-title") || "الأحياء";
+      selectedSubject = subjectFile;
+
+      document.getElementById(
+        "quizModalLabel"
+      ).textContent = `اختبار ${subjectTitle}`;
+
+      // تحقق من وجود اختبار محفوظ
+      const saved = loadQuizState(subjectFile);
+      if (
+        saved &&
+        saved.currentQuestions &&
+        saved.currentQuestions.length > 0
+      ) {
+        const result = await Swal.fire({
+          title: `يوجد اختبار غير مكتمل لمادة ${subjectTitle}`,
+          text: "هل تريد إكمال الاختبار السابق؟",
+          icon: "question",
+          showCancelButton: true,
+          confirmButtonText: "نعم، أكمل",
+          cancelButtonText: "لا، ابدأ جديد",
+        });
+        if (result.isConfirmed) {
+          // استرجع الحالة بالكامل
+          quizConfig.style.display = "none";
+          quizSection.style.display = "block";
+          resultSection.style.display = "none";
+          currentQuestionIndex = saved.currentQuestionIndex;
+          score = saved.score;
+          incorrectAnswers = saved.incorrectAnswers || [];
+          currentQuestions = saved.currentQuestions;
+          userAnswers =
+            saved.userAnswers ||
+            new Array(saved.currentQuestions.length).fill(null);
+
+          // استرجاع إعدادات التصفية
+          if (saved.topicMode === "all") {
+            document.getElementById("topic-all").checked = true;
+            document.getElementById(
+              "topic-checkboxes-container"
+            ).style.display = "none";
+          } else {
+            document.getElementById("topic-custom").checked = true;
+            document.getElementById(
+              "topic-checkboxes-container"
+            ).style.display = "block";
+            document
+              .querySelectorAll(
+                '#topic-select-container input[type="checkbox"]'
+              )
+              .forEach(cb => {
+                cb.checked = saved.selectedTopics.includes(cb.value);
+              });
+          }
+          numQuestionsInput.value =
+            saved.numQuestions || saved.currentQuestions.length;
+
+          showQuestion();
+          startQuizAutoSave();
+          startQuizButton.style.display = "none";
+          return;
+        } else {
+          // حذف الحالة القديمة وبدء جديد
+          clearQuizState(subjectFile);
+        }
+      }
+
+      // ...باقي كود إعادة التعيين كما هو...
+
+      quizConfig.style.display = "block";
+      quizSection.style.display = "none";
+      resultSection.style.display = "none";
+      currentQuestionIndex = 0;
+      score = 0;
+      incorrectAnswers = [];
+      currentQuestions = [];
+      userAnswers = [];
+      document.getElementById("topic-all").checked = true;
+      document.getElementById("topic-checkboxes-container").style.display =
+        "none";
+      loadQuestions();
+      renderNumQuestionsButtons(questions.length);
+      numQuestionsInput.value = "";
+      numQuestionsInput.style.display = "none";
+      document
+        .querySelectorAll('#topic-select-container input[type="checkbox"]')
+        .forEach(cb => (cb.checked = false));
+      startQuizButton.style.display = "block";
+      stopQuizAutoSave();
+    });
+
+    // عند إغلاق المودال أوقف الحفظ الدوري
+    quizModal.addEventListener("hidden.bs.modal", function () {
+      stopQuizAutoSave();
+      // ...باقي كود إعادة التعيين كما هو...
+      quizConfig.style.display = "block";
+      quizSection.style.display = "none";
+      resultSection.style.display = "none";
+      currentQuestionIndex = 0;
+      score = 0;
+      incorrectAnswers = [];
+      currentQuestions = [];
+      // إعادة تعيين اختيار المواضيع وعدد الأسئلة
+      document.getElementById("topic-all").checked = true;
+      document.getElementById("topic-checkboxes-container").style.display =
+        "none";
+      renderNumQuestionsButtons(questions.length);
+      numQuestionsInput.value = "";
+      numQuestionsInput.style.display = "none";
+      // إعادة تعيين الشيكبوكسيز
+      document
+        .querySelectorAll('#topic-select-container input[type="checkbox"]')
+        .forEach(cb => (cb.checked = false));
+      // إعادة تعيين أزرار الإجابة
+      answerButtons.querySelectorAll(".answer-btn").forEach(btn => {
+        btn.classList.remove("btn-success", "btn-danger");
+        btn.classList.add("btn-outline-light");
+        btn.disabled = false;
+      });
+      // إعادة تعيين العداد والدرجة
+      quizProgress.innerHTML = `السؤال <b>0</b> من <b>0</b> | الدرجة: <b>0</b>`;
+      scoreDisplay.innerHTML = `<b>النتيجة: 0 / 0</b><br><div class="text-success mt-3">انتهى الاختبار</div>`;
+      feedback.classList.remove("alert", "alert-success", "alert-danger");
+      feedback.textContent = "";
+      nextButton.style.display = "none";
+      questionImage.src = "";
+      // إعادة تعيين زر ابدأ الاختبار
+      startQuizButton.style.display = "block";
+    });
+
+    // دالة لحفظ كل بيانات الاختبار في localStorage بشكل دوري
+    function saveQuizState() {
+      if (!currentQuestions || currentQuestions.length === 0) return;
+      // حفظ كل شيء: الأسئلة، رقم السؤال الحالي، الدرجة، الإجابات، الأسئلة الخاطئة، إعدادات التصفية
+      const state = {
+        currentQuestionIndex,
+        score,
+        incorrectAnswers,
+        currentQuestions,
+        selectedSubject,
+        userAnswers: userAnswers,
+        topicMode: document.getElementById("topic-all").checked
+          ? "all"
+          : "custom",
+        selectedTopics: Array.from(
+          document.querySelectorAll(
+            '#topic-select-container input[type="checkbox"]:checked'
+          )
+        ).map(cb => cb.value),
+        numQuestions: numQuestionsInput.value,
+        timestamp: Date.now(),
+      };
+      localStorage.setItem(
+        "quizState_" + selectedSubject,
+        JSON.stringify(state)
+      );
+    }
+
+    // دالة لاسترجاع بيانات الاختبار من localStorage
+    function loadQuizState(subject) {
+      const data = localStorage.getItem("quizState_" + subject);
+      if (!data) return null;
+      try {
+        return JSON.parse(data);
+      } catch {
+        return null;
+      }
+    }
+
+    // دالة لحذف بيانات الاختبار من localStorage
+    function clearQuizState(subject) {
+      localStorage.removeItem("quizState_" + subject);
+    }
+
+    // متغير لتخزين إجابات المستخدم
+    let userAnswers = [];
+
+    // حفظ البيانات كل 3 ثواني أثناء الاختبار
+    let quizSaveInterval = null;
+    function startQuizAutoSave() {
+      if (quizSaveInterval) clearInterval(quizSaveInterval);
+      quizSaveInterval = setInterval(saveQuizState, 3000);
+    }
+    function stopQuizAutoSave() {
+      if (quizSaveInterval) clearInterval(quizSaveInterval);
+      quizSaveInterval = null;
+    }
+  </script>
+
+  <!-- Words Script -->
+  <script>
     const englishWords = {
-      Satisfaction: "feeling of contentment",
-      Status: "state or condition",
-      Entail: "to involve or require",
-      Appreciate: "to be grateful for",
-      Income: "money received or earned",
-      Cooperate: "to work together well",
-      Respectful: "polite, showing consideration",
-      Analyze: "to study closely",
-      Determine: "to decide or discover",
-      Identifying: "determining what something is",
-      Allergens:
-        "substances that cause sensitivity or reactions in some people",
-      Identical: "exactly the same",
-      Flair: "a natural talent or ability",
-      Captive: "confined, kept under restraint or control",
-      Infection: "disease or sickness received from someone or something",
-      Relying: "depending on",
-      Utility:
-        "basic service supplied by a business or facility such as electricity or running water",
-      Bold: "strong and courageous",
-      Committed: "dedicated",
-      Perspective: "a way of seeing something",
-      Harsh: "severe, difficult",
-      Enormous: "extremely large",
-      Sacrifice: "loss of something for a specific purpose",
-      Asset: "a useful or valuable thing, person, or quality",
-      Hub: "the center of a region",
-      Nurture:
-        "to care for, help, or encourage the development and growth of something",
-      Cultivate: "to improve or develop by study, training, or effort",
-      Potential: "capacity for growth and development; possibility",
-      Milestone:
-        "a very important event in the development of another event or course of events",
-      "Cross-country skiing": "skiing across fields not down slopes",
-      "Ski-jumping":
-        "a skiing event that involves jumping off a long steep sloping platform through the air as far as possible",
-      Merit: "an advantage or positive feature",
-      Terrain: "a particular type of land",
-      "Be interspersed with":
-        "be combined with / interrupted by something at regular intervals",
-      "Alpine skiing": "skiing downhill on skis with fixed heel binding",
-      "Freestyle skiing": "an acrobatic form of technical and aerial skiing",
-      Astounding: "astonishing, amazing",
-      "Spectator (sport)": "a sport that people go to watch",
+      // Exercise 1 - Fill in the blanks
+      Bilingual: "someone who can speak both Arabic and English",
+      Astonished: "someone who is amazed at something",
+      Remarkable: "something that is incredible",
+      Puzzled: "someone who is confused by something",
+      Irritated: "someone who is annoyed at something",
+      Fascinated: "someone who is very interested in something",
+
+      // Phrases set 1
+      "To tell you the truth": "to tell you exactly how I feel",
+      "Getting to": "annoying or bothering",
+      "Cheer you up": "make you feel happier",
+      Killer: "great, amazing",
+      "Blow me away": "really impress me",
+
+      // Exercise 2 - Medical vocabulary matching
+      Cardiovascular: "involving the heart and blood vessels",
+      Equivalent: "equal",
+      Hearty: "strong and with feeling",
+      Antibodies: "substance produced by the body to fight germs and infection",
+      Pediatric: "related to the medical care of children",
+      Stimulate: "to increase energy or activity",
+      Enhance: "to improve",
+      Prompt: "to cause someone to do something",
+      Genuine: "real, not false",
+
+      // Exercise 3 - Food vocabulary (definitions provided)
+      Delicacy: "an expensive and/or hard to find food",
+      Toxins: "poisons",
+      Licensed: "having legal permission to do something",
+      Maintain: "to keep something in good shape",
+      Peak: "the highest point",
+      Aroma: "fragrant smell",
+      Distinguish: "to be able to identify one from another",
+
+      // Phrases set 2
+      Spread: "an abundant meal laid out on a table",
+      "Whipped it up": "made it quickly and easily",
+      "In no time": "very quickly",
+      "Quite the": "a very good (something)",
+      "Come to think of it": "something has just occurred to me",
+      "Have a sweet tooth": "love desserts and candy",
+
+      // Exercise 4 - General vocabulary matching
+      Existence: "the presence of something in reality",
+      Staple: "a common or important item",
+      Vendor: "someone who sells something",
+      Quandary: "a situation in which someone doesn't know what to do",
+      Indulgence:
+        "something you let yourself have even though it may be bad for you",
+      Substitute: "something that is used in place of another thing",
+      Delectable: "delicious",
+
+      // Exercise 5 - Personal vocabulary matching
+      Residence: "place where someone lives",
+      Bond: "connection between two living things",
+      Duration: "length of time",
+      Abstract: "relating to ideas or feelings",
+      Pampered: "indulged",
+      Adapted: "adjusted to something new",
+
+      // Phrases set 3
+      "Hang in there": "don't give up!",
+      "24/7": "all day and night, non-stop (24 hours a day/7 days a week)",
+      "Get to the point": "be direct",
+      "Calling the shots": "in charge and making the decisions",
+      "Back to the drawing board":
+        "to have to start a process over again from the beginning",
+
+      // Exercise 6 - Psychology vocabulary matching
+      Consciousness: "the state of being awake",
+      Alert: "aware",
+      Disturbed: "worried",
+      Deliberately: "on purpose",
+      Speculates: "guesses about",
+      Domesticated: "tamed",
+      Aggressive: "unfriendly, hostile",
+      Compassion: "sympathy and concern",
+
+      // Exercise 7 - Fill in the blanks with context
+      Responsible: "who is responsible for cleaning up this mess?",
+      Vanish:
+        "my mother's cookies always vanish moments after she takes them out of the oven",
+      Motivate:
+        "the beautiful weather helped motivate me to go outside and get some exercise",
+      Morally: "people should feel that it's morally wrong to buy stolen goods",
+      Dread: "I dread taking final exams next week",
+      Tempted:
+        "I was tempted to watch the film on TV, but I made myself study instead",
+
+      // Phrases set 4
+      Rotten: "bad",
+      "I wouldn't put it past him": "I believe he would do that",
+      "Blow the whistle on": "to reveal and put a stop to wrongdoing",
+      Call: "decision",
+
+      // Exercise 8 - Medical/genetic vocabulary matching
+      Genetic:
+        "related to the part of a cell that contains your parents' characteristics",
+      Treatable: "capable of being cured",
+      Diagnosis: "identification of the cause of a problem",
+      Undergo: "experience",
+      Inherited: "received from a parent or ancestor",
+      Preventative: "done in order to avoid",
+      Controversial: "causing disagreement",
+      Potential: "the possibility of being or doing something",
     };
 
     const wordsTranslation = {
-      Satisfaction: "رضا / شبع ارتضائي",
-      "feeling of contentment": "قناعه",
-      Status: "مكانه/وضع.حالة",
-      "state or condition": "شرط / حالة",
-      Entail: "استلزام / ميراث / ورث",
-      "to involve or require": "لادخال / لطلب",
-      Appreciate: "متقبل - قنوع",
-      "to be grateful for": "ليكون متشكر / شكور/قنوع",
-      Income: "مصدر رِبح",
-      "money received or earned": "المال المُستقبل / المكتسب",
-      Cooperate: "تعاون",
-      "to work together well": "العمل معا ",
-      Respectful: "احترامي",
-      "polite, showing consideration": "محترم",
-      Analyze: "تحليل",
-      "to study closely": "للمذاكرة بعناية",
-      Determine: "توقع / تحديد",
-      "to decide or discover": "اختيار / بحث",
-      Identifying: "تحديد هوية",
-      "determining what something is": "تحديد ماهية شي معين",
-      Allergens: "المواد المهيجة للحساسية",
-      "substances that cause sensitivity or reactions in some people":
-        "تعريف المواد المهيجة للحساسية",
-      Identical: "متطابق",
-      "exactly the same": "نفس الشي تماما",
-      Flair: "موهبة",
-      "a natural talent or ability": "موهبة طبيعية",
-      Captive: "اسير / مقيد",
-      "confined, kept under restraint or control": "مأسور",
-      Infection: "عدوى",
-      "disease or sickness received from someone or something":
-        "مرض عن طريق الإعداء",
-      Relying: "يعتمد",
-      "depending on": "تعلق ",
-      Utility: "اداة",
-      "basic service supplied by a business or facility such as electricity or running water":
-        "تعريف اداة",
-      Bold: "جريء/وقح/شجاع",
-      "strong and courageous": "شجاع / مقدام",
-      Committed: "تسبب",
-      dedicated: "حدد",
-      Perspective: "وجهة نظر",
-      "a way of seeing something": "منظور شيء ما",
-      Harsh: "صارم/قاسي",
-      "severe, difficult": "شديد ، صعب",
-      Enormous: "عملاق",
-      "extremely large": "كبير بشكل مهول",
-      Sacrifice: "تضحيه",
-      "loss of something for a specific purpose": "خسارة شي معين لسبب معين",
-      Asset: "شيء ذو قيمه",
-      "a useful or valuable thing, person, or quality":
-        "شيء او شخص او جودة عالية القيمه / الفائدة",
-      Hub: "مركز",
-      "the center of a region": "مركز المنطقة",
-      Nurture: "رعاية",
-      "to care for, help, or encourage the development and growth of something":
-        "تربية / حصن",
-      Cultivate: "صقل",
-      "to improve or develop by study, training, or effort":
-        "تعليم / تطوير / تدريب",
-      Potential: "امكانية",
-      "capacity for growth and development; possibility": "ترقب / تطور",
-      Milestone: "نقطة تحول ",
-      "a very important event in the development of another event or course of events":
-        " هدف هام",
-      "Cross-country skiing": " رياضة التزلج على الجليد في الريف الدولي",
-      "skiing across fields not down slopes": " التزلج عبر الحقول الريفية",
-      "Ski-jumping": " القفز على الجليد",
-      "a skiing event that involves jumping off a long steep sloping platform through the air as far as possible":
-        " حدث تزلج يتضمن القفز من منصة طويلة شديدة الانحدار في الهواء إلى أقصى حد ممكن",
-      Merit: "جدارة",
-      "an advantage or positive feature": "استحقاق",
-      Terrain: "تضاريس",
-      "a particular type of land ": " نوع من انواع الاراضي (جبلية،ساحلية..الخ)",
-      "Be interspersed with": " اندماج",
-      "be combined with / interrupted by something at regular intervals":
-        " تشابك ",
-      "Alpine skiing": "التزلج على جبال الألب ",
-      "skiing downhill on skis with fixed heel binding":
-        " التزلج بنصل تزلج اطول واوستع",
-      "Freestyle skiing": " التزلج الاستعراضي ",
-      "an acrobatic form of technical and aerial skiing": " التزلج البهلواني",
-      Astounding: " صاعق ",
-      "astonishing, amazing": " مدهش",
-      "Spectator (sport)": " مشاهد / متفرج",
-      "a sport that people go to watch": " رياضة يشاهدها الناس",
+      // Exercise 1 - Fill in the blanks
+      Bilingual: "ثنائي اللغة",
+      "someone who can speak both Arabic and English":
+        "شخص يستطيع التحدث بالعربية والإنجليزية",
+
+      Astonished: "مندهش، مذهول",
+      "someone who is amazed at something": "شخص معجب أو مندهش من شيء ما",
+
+      Remarkable: "رائع، مميز، جدير بالملاحظة",
+      "something that is incredible": "شيء لا يصدق أو مذهل",
+
+      Puzzled: "محتار، مرتبك",
+      "someone who is confused by something": "شخص محتار أو مرتبك من شيء ما",
+
+      Irritated: "منزعج، متضايق",
+      "someone who is annoyed at something": "شخص منزعج أو متضايق من شيء ما",
+
+      Fascinated: "مفتون، شديد الاهتمام",
+      "someone who is very interested in something":
+        "شخص مهتم جداً أو مفتون بشيء ما",
+
+      // Phrases set 1
+      "To tell you the truth": "لأكون صادقاً معك",
+      "to tell you exactly how I feel": "لأخبرك بالضبط كيف أشعر",
+
+      "Getting to": "يزعج، يضايق",
+      "annoying or bothering": "إزعاج أو مضايقة",
+
+      "Cheer you up": "يرفع معنوياتك",
+      "make you feel happier": "يجعلك تشعر بسعادة أكبر",
+
+      Killer: "رائع، مذهل",
+      "great, amazing": "عظيم، مذهل",
+
+      "Blow me away": "يبهرني، يذهلني",
+      "really impress me": "يعجبني حقاً أو يبهرني",
+
+      // Exercise 2 - Medical vocabulary matching
+      Cardiovascular: "قلبي وعائي",
+      "involving the heart and blood vessels": "يتعلق بالقلب والأوعية الدموية",
+
+      Equivalent: "مكافئ، معادل",
+      equal: "متساوي",
+
+      Hearty: "حار، بحماس",
+      "strong and with feeling": "قوي ومليء بالمشاعر",
+
+      Antibodies: "أجسام مضادة",
+      "substance produced by the body to fight germs and infection":
+        "مادة ينتجها الجسم لمحاربة الجراثيم والعدوى",
+
+      Pediatric: "طب الأطفال",
+      "related to the medical care of children":
+        "متعلق بالرعاية الطبية للأطفال",
+
+      Stimulate: "يحفز، يُنشط",
+      "to increase energy or activity": "لزيادة الطاقة أو النشاط",
+
+      Enhance: "يُحسن، يُعزز",
+      "to improve": "لتحسين شيء ما",
+
+      Prompt: "يحث، يدفع",
+      "to cause someone to do something": "لجعل شخص يفعل شيئاً ما",
+
+      Genuine: "حقيقي، أصيل",
+      "real, not false": "حقيقي، ليس مزيفاً",
+
+      // Exercise 3 - Food vocabulary
+      Delicacy: "طعام شهي، أكلة مميزة",
+      "an expensive and/or hard to find food": "طعام غالي و/أو صعب الحصول عليه",
+
+      Toxins: "سموم",
+      poisons: "سموم",
+
+      Licensed: "مُرخص",
+      "having legal permission to do something": "لديه إذن قانوني لفعل شيء ما",
+
+      Maintain: "يحافظ على",
+      "to keep something in good shape": "للمحافظة على شيء في حالة جيدة",
+
+      Peak: "قمة، أعلى نقطة",
+      "the highest point": "أعلى نقطة",
+
+      Aroma: "رائحة عطرة",
+      "fragrant smell": "رائحة عطرة",
+
+      Distinguish: "يميز",
+      "to be able to identify one from another": "القدرة على تمييز شيء عن آخر",
+
+      // Phrases set 2
+      Spread: "مأدبة، وليمة",
+      "an abundant meal laid out on a table": "وجبة وفيرة موضوعة على المائدة",
+
+      "Whipped it up": "حضرته بسرعة",
+      "made it quickly and easily": "صنعه بسرعة وسهولة",
+
+      "In no time": "في لمح البصر",
+      "very quickly": "بسرعة كبيرة",
+
+      "Quite the": "رائع جداً",
+      "a very good (something)": "(شيء) جيد جداً",
+
+      "Come to think of it": "والآن أتذكر",
+      "something has just occurred to me": "شيء خطر ببالي للتو",
+
+      "Have a sweet tooth": "محب للحلويات",
+      "love desserts and candy": "يحب الحلويات والسكاكر",
+
+      // Exercise 4 - General vocabulary matching
+      Existence: "وجود",
+      "the presence of something in reality": "وجود شيء في الواقع",
+
+      Staple: "أساسي، عنصر مهم",
+      "a common or important item": "عنصر شائع أو مهم",
+
+      Vendor: "بائع",
+      "someone who sells something": "شخص يبيع شيئاً ما",
+
+      Quandary: "حيرة، معضلة",
+      "a situation in which someone doesn't know what to do":
+        "موقف لا يعرف فيه الشخص ماذا يفعل",
+
+      Indulgence: "تدليل النفس",
+      "something you let yourself have even though it may be bad for you":
+        "شيء تسمح لنفسك به رغم أنه قد يكون ضاراً",
+
+      Substitute: "بديل",
+      "something that is used in place of another thing":
+        "شيء يُستخدم مكان شيء آخر",
+
+      Delectable: "لذيذ، شهي",
+      delicious: "لذيذ",
+
+      // Exercise 5 - Personal vocabulary matching
+      Residence: "إقامة، منزل",
+      "place where someone lives": "مكان يعيش فيه شخص ما",
+
+      Bond: "رابطة، علاقة",
+      "connection between two living things": "صلة بين كائنين حيين",
+
+      Duration: "مدة، فترة زمنية",
+      "length of time": "طول الوقت",
+
+      Abstract: "مجرد، نظري",
+      "relating to ideas or feelings": "متعلق بالأفكار أو المشاعر",
+
+      Pampered: "مدلل",
+      indulged: "مدلل أو مهتم به بإفراط",
+
+      Adapted: "تأقلم، تكيف",
+      "adjusted to something new": "تكيف مع شيء جديد",
+
+      // Phrases set 3
+      "Hang in there": "اصبر، لا تستسلم",
+      "don't give up!": "لا تستسلم!",
+
+      "24/7": "على مدار الساعة",
+      "all day and night, non-stop (24 hours a day/7 days a week)":
+        "طوال النهار والليل، بلا توقف (24 ساعة في اليوم/7 أيام في الأسبوع)",
+
+      "Get to the point": "ادخل في الموضوع",
+      "be direct": "كن مباشراً",
+
+      "Calling the shots": "يتخذ القرارات",
+      "in charge and making the decisions": "مسؤول ويتخذ القرارات",
+
+      "Back to the drawing board": "العودة للبداية",
+      "to have to start a process over again from the beginning":
+        "الاضطرار لبدء عملية من جديد من البداية",
+
+      // Exercise 6 - Psychology vocabulary matching
+      Consciousness: "وعي",
+      "the state of being awake": "حالة اليقظة",
+
+      Alert: "يقظ، منتبه",
+      aware: "واعي",
+
+      Disturbed: "قلق، مضطرب",
+      worried: "قلق",
+
+      Deliberately: "عمداً، قصداً",
+      "on purpose": "عن قصد",
+
+      Speculates: "يتكهن، يخمن",
+      "guesses about": "يخمن حول",
+
+      Domesticated: "أليف، مُستأنس",
+      tamed: "مُروض",
+
+      Aggressive: "عدواني",
+      "unfriendly, hostile": "غير ودود، عدائي",
+
+      Compassion: "شفقة، رحمة",
+      "sympathy and concern": "تعاطف واهتمام",
+
+      // Exercise 7 - Fill in the blanks with context
+      Responsible: "مسؤول",
+      "who is responsible for cleaning up this mess?":
+        "من المسؤول عن تنظيف هذه الفوضى؟",
+
+      Vanish: "تختفي",
+      "my mother's cookies always vanish moments after she takes them out of the oven":
+        "كعك أمي يختفي دائماً بعد لحظات من إخراجه من الفرن",
+
+      Motivate: "يحفز",
+      "the beautiful weather helped motivate me to go outside and get some exercise":
+        "الطقس الجميل ساعد في تحفيزي للخروج وممارسة الرياضة",
+
+      Morally: "أخلاقياً",
+      "people should feel that it's morally wrong to buy stolen goods":
+        "يجب أن يشعر الناس أنه من الخطأ أخلاقياً شراء البضائع المسروقة",
+
+      Dread: "أخشى، أرهب",
+      "I dread taking final exams next week":
+        "أخشى من امتحانات نهاية الفصل الأسبوع القادم",
+
+      Tempted: "مُغرى، مُجرب",
+      "I was tempted to watch the film on TV, but I made myself study instead":
+        "كنت مُغرى لمشاهدة الفيلم على التلفاز، لكنني أجبرت نفسي على الدراسة بدلاً من ذلك",
+
+      // Phrases set 4
+      Rotten: "فاسد، سيء",
+      bad: "سيء",
+
+      "I wouldn't put it past him": "لا أستبعد منه ذلك",
+      "I believe he would do that": "أعتقد أنه سيفعل ذلك",
+
+      "Blow the whistle on": "يفضح، يكشف",
+      "to reveal and put a stop to wrongdoing": "لكشف ووقف الأعمال الخاطئة",
+
+      Call: "قرار",
+      decision: "قرار",
+
+      // Exercise 8 - Medical/genetic vocabulary matching
+      Genetic: "وراثي",
+      "related to the part of a cell that contains your parents' characteristics":
+        "متعلق بجزء الخلية الذي يحتوي على خصائص والديك",
+
+      Treatable: "قابل للعلاج",
+      "capable of being cured": "قابل للشفاء",
+
+      Diagnosis: "تشخيص",
+      "identification of the cause of a problem": "تحديد سبب المشكلة",
+
+      Undergo: "يخضع لـ، يتعرض لـ",
+      experience: "يخوض تجربة",
+
+      Inherited: "موروث",
+      "received from a parent or ancestor": "مُستلم من أحد الوالدين أو الأجداد",
+
+      Preventative: "وقائي",
+      "done in order to avoid": "يُفعل لتجنب شيء ما",
+
+      Controversial: "مثير للجدل",
+      "causing disagreement": "يسبب خلافاً",
+
+      Potential: "محتمل، إمكانية",
+      "the possibility of being or doing something":
+        "إمكانية أن تكون أو تفعل شيئاً ما",
     };
 
     function speak(button) {
@@ -2099,22 +1777,6 @@
     document
       .getElementById("wordModal")
       .addEventListener("show.bs.modal", populateWordsTable);
-
-    const subjects = {
-      0: ``,
-      table: `<table class="table"> <thead> <tr> <th scope="col">اليوم والتاريخ</th> <th scope="col">الاختبار</th> <th scope="col">مدة الاختبار</th> <th scope="col">المعلم كاتب الاختبار</th> </tr> </thead> <tbody> <tr> <th scope="row">الأربعاء 1446/8/13هـ</th> <td>التقنية الرقمية</td> <td>ساعة واحدة</td> <td>نواف المالكي</td> </tr> <tr> <th scope="row">الأحد 1446/8/17هـ</th><td>الرياضيات</td><td>ساعتان ونصف</td> <td>سعود السريحي</td></tr><tr><th scope="row">الإثنين 1446/8/18هـ</th> <td>الكيمياء</td><td>ساعتان ونصف</td> <td>ثامر البوشي</td></tr><tr><th scope="row">الثلاثاء 1446/8/19هـ</th><td>الإنجليزي</td><td>ساعتان ونصف</td> <td>بدر المالكي</td></tr><tr><th scope="row">الأربعاء 1446/8/20هـ</th><td>الأحياء</td><td>ساعتان</td> <td>عبدالرحمن القرني</td> </tr></tbody> </table>`,
-      tech: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>المذاكرة:</h5><p>المذاكرة من الكتاب والمراجعة من الملف التالي:</p><a class="d-block" href="https://drive.google.com/file/d/1EGT54Nhj_WcDCbhQaNesK_kqI8bLyttJ/view?usp=sharing" target="_blank">تحميل بنك أسئلة التقنية الرقمية 2-1 غير محلول</a><a class="d-block" href="https://drive.google.com/file/d/13I0fH_Af7LCrCeuauFhIPxXb73sHPMd8/view?usp=sharing" target="_blank">تحميل بنك أسئلة التقنية الرقمية 2-1 محلول</a>`,
-      math: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-0">30 سؤال اختيارات</p><p class="mb-0">10 أسئلة صح وخطأ</p><p>المجموع 40 سؤال كل سؤال بدرجة</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من الكتاب.</p><a class="d-block" href="https://drive.google.com/file/d/1vmeKuCLu4GKR4BFjOvOQB51GPFT4uZgb/view?usp=sharing" target="_blank">مراجعة 1 رياضيات 2-2 (❗ المراجعة من الإنترنت، ليست من المعلمين، لا تغني عن الكتاب)</a><a class="d-block" href="https://youtu.be/YxqLApTYUGw" target="_blank">شرح مراجعة 1 رياضيات 2-2</a><a class="d-block" href="https://drive.google.com/file/d/1xX2ylDBKYTNOuyhRcfGiTGslIUY8pzYM/view?usp=sharing" target="_blank">مراجعة 2 رياضيات 2-2 (❗ المراجعة من الإنترنت، ليست من المعلمين، لا تغني عن الكتاب)</a><a class="d-block" href="https://youtu.be/5iJstjFH39w" target="_blank">شرح مراجعة 2 رياضيات 2-2</a><h5 class="mt-3">شروحات مساعدة:</h5><a class="d-block" href="https://youtu.be/BQ0Y5gnhRfg" target="_blank">شرح كل مسائل الحاسبة رياضيات 2-2</a><a class="d-block" href="https://youtu.be/2_maY3ya8VM" target="_blank">تبسيط درس دوال التغير</a><a class="d-block" href="https://youtu.be/2Ex06sfoe6U" target="_blank">تبسيط إنطاق المقام</a><h5 class="mt-3">التعاريف المطلوبة:</h5><li>الاستقراء الرياضي</li><li>الكسر المركب</li><li>مثلث باسكال</li><li>LCM</li>`,
-      chemistry: `<h5 class="mt-3">عدد الأسئلة:</h5><p>20 سؤال كل سؤال بدرجة ونصف</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة تكون من الكتاب مع التركيز على المواضيع التالية.</p><li>تعريف الكيمياء الحرارية.</li><li>التفريق بين تعريف المعقد النشط وطاقة التنشيط.</li><li>وحدات القياس (غير مؤكد: وحدات قياس الضغط).</li><li>قانون معادلة حساب الحرارة صفحة 60.</li><li>تعاريف الكون والنظام والمحيط والتفريق بينها.</li><li>الرابطة التي تنشأ بين الجزيئات وهي: الرابطة الهيدروجينية.</li><li>قانون معادلة متوسط سرعة التفاعل صفحة 96.</li><li>حساب الضغوط الجزيئية.</li><li>قانون دالتون للضغوط الجريئة للغازات.</li><li>المفاهيم والتعاريف.</li>`,
-      english: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>القواعد:</h5><p class="mb-1">من الكتاب الـGrammar والـForm, Meaning, and Function.</p><p class="mb-1">الاختبار نسخ لصق من الأمثلة ومن التمارين أسفل كل قاعدة.</p><p>لا يوجد أي أسئلة من كتاب النشاط.</p><h5 class="mt-3">الكلمات:</h5><p>من أسئلة التوصيل في كتاب الطالب.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#wordModal">عرض الكلمات</button> <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#wordsQuizModal">اختبار الكلمات</button><h5 class="mt-3">النص:</h5><p>نص بسيط مع أسئلة صح وخطأ واضحة بدون أي صعوبة.</p>`,
-      biology: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">15 سؤال اختيارات</p><p class="mb-1">5 أسئلة مزاوجة</p><p class="mb-1">10 أسئلة صح وخطأ</p><p>المجموع 30 سؤال كل سؤال بدرجة</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من مسرد الأحياء، يشمل كل المواضيع.</p><a class="d-block" href="https://drive.google.com/file/d/1-YO9hIKnxsOJn3_cRyQyFJ5XLzBOCIOM/view?usp=sharing" target="_blank">تحميل مسرد أفكاء منهج الأحياء 2-2</a> <button class="btn btn-success mt-2" onclick="launchExam(biologyExam, 'الأسئلة مكتوبة من الذكاء الإصطناعي قد تحوي أخطاء، الاختبار لا يغني عن المذاكرة، الأسئلة ليست من معلمي.')">اختبر نفسك</button>`,
-    };
-  </script>
-  <script>
-    // let quizWords = [];
-    // let currentQuestionIndex = 0;
-    // let score = 0;
-    // let wrongAnswers = [];
 
     document
       .getElementById("wordsQuizModal")
@@ -2243,325 +1905,6 @@
         [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
       }
       return newArray;
-    }
-  </script>
-  <script>
-    let examItems = [];
-    let chosenItems = [];
-    let currentItemIndex = 0;
-    let totalPoints = 0;
-    let incorrectItems = [];
-    let activeExamData = null;
-    let activeExamInstructions = "";
-    let maximumItemsCount = 0;
-
-    function launchExam(itemsArray, examInstructions = "") {
-      activeExamData = itemsArray;
-      activeExamInstructions = examInstructions;
-
-      const examPopup = new bootstrap.Modal(
-        document.getElementById("examPopup")
-      );
-      examPopup.show();
-    }
-
-    document
-      .getElementById("examPopup")
-      .addEventListener("show.bs.modal", prepareExam);
-
-    // تحسين دالة العشوائية لتوفير خلط أفضل للمصفوفات
-    function improvedRandomizeArray(array) {
-      const newArray = [...array];
-
-      // 1. استخدام خوارزمية Fisher-Yates للخلط
-      for (let i = newArray.length - 1; i > 0; i--) {
-        // استخدام طريقة أكثر عشوائية للحصول على المؤشر j
-        const j = Math.floor(Math.random() * (i + 1));
-        // تبديل العناصر
-        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-      }
-
-      // 2. في بعض الأحيان، قم بعكس المصفوفة كاملة للحصول على ترتيب مختلف تماماً
-      if (Math.random() > 0.5) {
-        return newArray.reverse();
-      }
-
-      return newArray;
-    }
-
-    function prepareExam() {
-      examItems = [];
-      chosenItems = [];
-      currentItemIndex = 0;
-      totalPoints = 0;
-      incorrectItems = [];
-
-      if (
-        !activeExamData ||
-        !Array.isArray(activeExamData) ||
-        activeExamData.length === 0
-      ) {
-        alert("Error: No exam items defined!");
-        return;
-      }
-
-      // تحويل أسئلة الاختبار إلى مصفوفة من العناصر
-      examItems = [...activeExamData];
-
-      // خلط ترتيب الأسئلة بالطريقة المحسنة
-      examItems = improvedRandomizeArray(examItems);
-
-      document.getElementById("examConfigSection").style.display = "block";
-      document.getElementById("examItemsSection").style.display = "none";
-      document.getElementById("examScoreSection").style.display = "none";
-
-      maximumItemsCount = examItems.length;
-      const examInstructionsBox = document.getElementById(
-        "examInstructionsBox"
-      );
-
-      if (activeExamInstructions && activeExamInstructions.trim() !== "") {
-        examInstructionsBox.innerHTML = activeExamInstructions;
-        examInstructionsBox.style.display = "block";
-      } else {
-        examInstructionsBox.style.display = "none";
-      }
-
-      const manualCountCheck = document.getElementById("manualCountCheck");
-      const manualCountBox = document.getElementById("manualCountBox");
-
-      manualCountCheck.addEventListener("change", function () {
-        if (this.checked) {
-          manualCountBox.style.display = "block";
-          document.getElementById("itemCountDropdown").disabled = true;
-        } else {
-          manualCountBox.style.display = "none";
-          document.getElementById("itemCountDropdown").disabled = false;
-        }
-      });
-
-      const itemCountDropdown = document.getElementById("itemCountDropdown");
-      itemCountDropdown.innerHTML = "";
-
-      const insertOption = (value, text) => {
-        const option = document.createElement("option");
-        option.value = value;
-        option.textContent = text;
-        itemCountDropdown.appendChild(option);
-      };
-
-      insertOption(maximumItemsCount, `جميع الأسئلة (${maximumItemsCount})`);
-
-      if (maximumItemsCount > 10) {
-        insertOption(
-          Math.floor(maximumItemsCount / 2),
-          `نصف الأسئلة (${Math.floor(maximumItemsCount / 2)})`
-        );
-      }
-
-      if (maximumItemsCount > 5) {
-        insertOption(5, "5 أسئلة");
-      }
-
-      if (maximumItemsCount > 10) {
-        insertOption(10, "10 أسئلة");
-      }
-
-      if (maximumItemsCount > 15) {
-        insertOption(15, "15 سؤال");
-      }
-
-      if (maximumItemsCount > 20) {
-        insertOption(20, "20 سؤال");
-      }
-
-      document.getElementById("beginExamBtn").onclick = startExam;
-    }
-
-    function startExam() {
-      let chosenCount = 0;
-
-      if (document.getElementById("manualCountCheck").checked) {
-        const manualInput = document.getElementById("manualCountInput");
-        chosenCount = parseInt(manualInput.value);
-
-        if (isNaN(chosenCount) || chosenCount <= 0) {
-          alert("أدخل رقم أكبر من 0 وأقل من عدد الأسئلة الكلي.");
-          return;
-        }
-      } else {
-        const itemCountDropdown = document.getElementById("itemCountDropdown");
-        chosenCount = parseInt(itemCountDropdown.value);
-      }
-
-      if (chosenCount > maximumItemsCount) {
-        document.getElementById("maxItemsWarning").style.display = "block";
-        return;
-      }
-
-      chosenItems = examItems.slice(0, chosenCount);
-
-      currentItemIndex = 0;
-      totalPoints = 0;
-      incorrectItems = [];
-
-      document.getElementById("totalItemsCount").textContent =
-        chosenItems.length;
-      document.getElementById("itemCounter").textContent = "1";
-
-      // إعداد الدرجة الحالية
-      document.getElementById("currentScore").textContent = "0";
-
-      document.getElementById("examConfigSection").style.display = "none";
-      document.getElementById("examScoreSection").style.display = "none";
-      document.getElementById("examItemsSection").style.display = "block";
-
-      // إظهار عداد النقاط
-      document.getElementById("currentScoreContainer").style.display = "block";
-
-      showCurrentItem();
-    }
-
-    function showCurrentItem() {
-      if (currentItemIndex < chosenItems.length) {
-        const currentItem = chosenItems[currentItemIndex];
-        const questionText = currentItem.question;
-        const correctAnswer = currentItem.correctAnswer;
-
-        document.getElementById("activeItem").textContent = questionText;
-        document.getElementById("itemCounter").textContent = (
-          currentItemIndex + 1
-        ).toString();
-
-        // استخدام الدالة المحسنة لخلط خيارات الإجابة
-        const choices = improvedRandomizeArray([...currentItem.answers]);
-
-        // تخزين الإجابة الصحيحة في عنصر خفي
-        document.getElementById("correctAnswerForQuestion").value =
-          correctAnswer;
-
-        const choicesContainer = document.getElementById("choices");
-        choicesContainer.innerHTML = "";
-
-        choices.forEach(choice => {
-          const button = document.createElement("button");
-          button.className = "btn btn-outline-light choice-button";
-          button.textContent = choice;
-          button.dataset.choice = choice;
-          button.onclick = () => evaluateAnswer(choice, correctAnswer);
-          choicesContainer.appendChild(button);
-        });
-
-        // التحقق من وجود زر التالي
-        let nextButton = document.getElementById("nextQuestionBtn");
-        if (!nextButton) {
-          // إنشاء زر التالي إذا لم يكن موجوداً
-          nextButton = document.createElement("button");
-          nextButton.id = "nextQuestionBtn";
-          nextButton.className = "btn btn-primary mt-3 d-block mx-auto";
-          nextButton.onclick = () => moveToNextQuestion();
-          choicesContainer.after(nextButton);
-        }
-
-        // تحديث حالة وعنوان الزر
-        nextButton.disabled = true; // تعطيل الزر حتى يجيب الطالب
-
-        // تغيير نص الزر ليكون "إنهاء الاختبار" في آخر سؤال
-        if (currentItemIndex === chosenItems.length - 1) {
-          nextButton.textContent = "إنهاء الاختبار";
-        } else {
-          nextButton.textContent = "السؤال التالي";
-        }
-      } else {
-        displayResults();
-      }
-    }
-
-    function evaluateAnswer(selectedChoice, expectedAnswer) {
-      // تعطيل جميع أزرار الاختيار
-      const choiceButtons = document.querySelectorAll(".choice-button");
-      choiceButtons.forEach(button => {
-        button.disabled = true;
-
-        // تحديد الإجابة الصحيحة باللون الأخضر
-        if (button.dataset.choice === expectedAnswer) {
-          button.classList.remove("btn-outline-light");
-          button.classList.add("btn-success");
-        }
-
-        // إذا كان الطالب اختار إجابة خاطئة، تحديدها باللون الأحمر
-        if (
-          button.dataset.choice === selectedChoice &&
-          selectedChoice !== expectedAnswer
-        ) {
-          button.classList.remove("btn-outline-light");
-          button.classList.add("btn-danger");
-        }
-      });
-
-      // تحديث النقاط والإجابات الخاطئة
-      if (selectedChoice === expectedAnswer) {
-        totalPoints++;
-        // تحديث الدرجة الحالية
-        document.getElementById("currentScore").textContent = totalPoints;
-      } else {
-        incorrectItems.push({
-          question: chosenItems[currentItemIndex].question,
-          correctAnswer: expectedAnswer,
-        });
-      }
-
-      // تفعيل زر الانتقال للسؤال التالي بعد الإجابة
-      const nextButton = document.getElementById("nextQuestionBtn");
-      nextButton.disabled = false;
-    }
-
-    function moveToNextQuestion() {
-      currentItemIndex++;
-      showCurrentItem();
-    }
-
-    function displayResults() {
-      document.getElementById("examItemsSection").style.display = "none";
-      document.getElementById("examScoreSection").style.display = "block";
-      document.getElementById("currentScoreContainer").style.display = "none";
-
-      const totalItems = chosenItems.length;
-      const correctItems = totalPoints;
-      const incorrectItemsCount = incorrectItems.length;
-      const finalScorePercent = Math.round((totalPoints / totalItems) * 100);
-
-      document.getElementById("finalItemsCount").textContent = totalItems;
-      document.getElementById("finalCorrectCount").textContent = correctItems;
-      document.getElementById("finalIncorrectCount").textContent =
-        incorrectItemsCount;
-      document.getElementById(
-        "finalScoreDisplay"
-      ).textContent = `${correctItems}/${totalItems} (${finalScorePercent}%)`;
-
-      const incorrectItemsList = document.getElementById("incorrectItemsList");
-      incorrectItemsList.innerHTML = "";
-
-      if (incorrectItems.length > 0) {
-        incorrectItems.forEach(incorrectItem => {
-          const listItem = document.createElement("li");
-          listItem.className = "list-group-item";
-          listItem.innerHTML = `<strong>${incorrectItem.question}</strong>: ${incorrectItem.correctAnswer}`;
-          incorrectItemsList.appendChild(listItem);
-        });
-      } else {
-        incorrectItemsList.innerHTML =
-          '<li class="list-group-item">لا توجد أخطاء. أحسنت!</li>';
-      }
-    }
-
-    function resetExam() {
-      prepareExam();
-    }
-
-    // استبدال دالة randomizeArray الأصلية
-    function randomizeArray(array) {
-      return improvedRandomizeArray(array);
     }
   </script>
 </html>
