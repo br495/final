@@ -10,6 +10,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
 
     <!-- SweetAlert2 CSS -->
     <link
@@ -65,6 +69,24 @@
 
       select + .select2-container--bootstrap-5 {
         margin-bottom: 15px;
+      }
+
+      .audio-player {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 20px;
+        margin: 15px;
+        background-color: rgba(222, 226, 230, 0.01);
+        border: 1px solid #495057;
+        border-radius: 10px;
+      }
+      .audio-player .progress {
+        flex-grow: 1;
+        height: 5px;
+      }
+      .audio-player audio {
+        display: none;
       }
     </style>
 
@@ -642,6 +664,10 @@
 
     function update() {
       bodyTextDiv.innerHTML = subjects[subject.value];
+
+      if (subject.value == "biology") {
+        audioSetup();
+      }
     }
 
     document.querySelector(`body`).onload = function () {
@@ -656,7 +682,7 @@
       math: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">30 سؤال اختيارات</p><p class="mb-1">10 أسئلة صح وخطأ</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من الكتاب، مع العلم أن الصح والخطأ سيكون من التعريفات باللون الأصفر والمفاهيم الرئيسية في المربعات الزرقاء (الصح والخطأ يُفهم لا يُحفظ).</p><h5 class="mt-3">شروحات مساعدة:</h5><a class="d-block" href="https://youtu.be/n9o8r9YLOqg" target="_blank">ملخص مراجعة الرياضيات ٢-٣ | الوحدة الأولى</a><a class="d-block" href="https://youtu.be/v_4IjpjFlfY" target="_blank">ملخص مراجعة الرياضيات ٢-٣ | الوحدة الثانية</a><a class="d-block" href="https://youtu.be/2Ex06sfoe6U" target="_blank">تبسيط إنطاق المقام</a><a class="d-block" href="https://drive.google.com/file/d/1YU7dmR_5EkhaHiP7byO8x_byUJkFHp5f/view?usp=drive_link" target="_blank">تجميع التعريفات باللون الأصفر والمفاهيم الرئيسية في المربعات الزرقاء (تجميع الصح والخطأ)</a><h5 class="mt-3">نقاط محذوفة من المذاكرة:</h5> <ul class="list-group list-group-flush"><li class="list-group-item">المفهوم الأساسي (المثلثات الممكنة في الحالة SSA) صـ٨٠ والأمثلة التي تتبعه (مثال ٣)</li><li class="list-group-item">المفهوم الأساسي (دالة الظل) صـ١٠٢ والأمثلة التي تتبعه (مثال ٤)</li><li class="list-group-item">⁠المفهوم الأساسي (دوال قاطع التمام والقاطع وظل التمام) صـ١٠٣ والأمثلة التي تتبعه (مثال ٥)</li><li class="list-group-item">⁠الرسم البياني في المفهوم الأساسي (الدوال المثلثية العكسية) صـ١٠٧</li><li class="list-group-item">⁠المجال والمدى في جميع المفاهيم الأساسية الخاصة بالدوال (الدرسين الأخريين)</li><li class="list-group-item">⁠أمثلة "مثال من واقع الحياة"</li><li class="list-group-item">⁠جميع الأسئلة التي يوجد لها طرقتين للحل أحدها يدوية وأحدها بالآلة الحاسبة يكفي مذاكرة طريقتها في الحاسبة (جميعها في الاختبار ستكون ممكنة الحل بالآلة الحاسبة)</li></ul>`,
       chemistry: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">غير معروف</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من مسرد الكيمياء، يشمل كل المواضيع.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abstractDownloderModal" data-subject="chemistry23">تحميل المسرد</button> <br> <button class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#explainModal" onclick="initializeExplainModal(chemistryData, 'chemistry', 'الكيمياء')">شرح المسرد</button> <br> <button class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#quizModal" data-subject="chemistry23" data-title="الكيمياء" > ابدأ الاختبار الإلكتروني للتجميعات </button>`,
       english: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>القواعد:</h5><p class="mb-1">من الكتاب الـGrammar والـForm, Meaning, and Function.</p><p class="mb-1">الاختبار نسخ لصق من الأمثلة ومن التمارين أسفل كل قاعدة.</p><p>لا يوجد أي أسئلة من كتاب النشاط.</p><h5 class="mt-3">الكلمات:</h5><p>من الـQuick Check والـVocabulary Building.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#wordModal">عرض الكلمات</button> <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#wordsQuizModal">اختبار الكلمات</button><h5 class="mt-3">النص:</h5><p>نص بسيط مع أسئلة صح وخطأ واضحة بدون أي صعوبة.</p><h5 class="mt-3">شروحات مساعدة:</h5><a class="d-block" href="https://youtu.be/68GnVXacrLI" target="_blank">ملخص مراجعة قواعد ميقا قول ٢-٣</a></ul>`,
-      biology: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">20 سؤال اختيارات</p><p class="mb-1">10 أسئلة صح وخطأ</p><p class="mb-1">5 أسئلة مزاوجة</p><p>المجموع 35 سؤال</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من مسرد الأحياء، يشمل كل المواضيع.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abstractDownloderModal" data-subject="biology23">تحميل المسرد</button> <br> <button class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#explainModal" onclick="initializeExplainModal(biologyData, 'biology', 'الأحياء')">شرح المسرد</button> <br> <button class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#quizModal" data-subject="biology23" data-title="الأحياء" > ابدأ الاختبار الإلكتروني للتجميعات </button>`,
+      biology: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">20 سؤال اختيارات</p><p class="mb-1">10 أسئلة صح وخطأ</p><p class="mb-1">5 أسئلة مزاوجة</p><p>المجموع 35 سؤال</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من مسرد الأحياء، يشمل كل المواضيع.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abstractDownloderModal" data-subject="biology23">تحميل المسرد</button> <br> <button class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#explainModal" onclick="initializeExplainModal(biologyData, 'biology', 'الأحياء')">شرح المسرد</button> <br> <button class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#quizModal" data-subject="biology23" data-title="الأحياء" > ابدأ الاختبار الإلكتروني للتجميعات </button> <h5 class="mt-3">ملاحظة صوتية من الأستاذ عبدالرحمن القرني حول المسرد:</h5> <div class="audio-player"> <button id="playBtn" class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;"> <i id="playIcon" class="bi bi-play-fill fs-3"></i> </button> <div class="progress"> <div id="progressBar" class="progress-bar" style="width: 0%;"></div> </div> </div> <audio id="audio" src="biology23.mp3"></audio> </div>`,
       physics: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>الملفات المساعدة:</h5><a class="d-block" href="https://drive.google.com/file/d/15SOAEsxxd3VzZqIkJ8uhCDA7Sp3o_YXh/view?usp=drivesdk" target="_blank">تحميل تجميعات الفيزياء 2 غير محلول</a><a class="d-block" href="https://drive.google.com/file/d/1KuvHtT1p-mIuiUOzdXmJCQ8K8yGtldc0/view?usp=drivesdk" target="_blank">تحميل تجميعات الفيزياء 2  محلول</a>`,
     };
   </script>
@@ -3001,6 +3027,36 @@
 
         window.open(link, "_blank").focus();
       }
+    }
+  </script>
+
+  <!-- Audio Player -->
+  <script>
+    function audioSetup() {
+      const playBtn = document.getElementById("playBtn");
+      const playIcon = document.getElementById("playIcon");
+      const audio = document.getElementById("audio");
+      const progressBar = document.getElementById("progressBar");
+
+      playBtn.addEventListener("click", () => {
+        if (audio.paused) {
+          audio.play();
+          playIcon.classList.replace("bi-play-fill", "bi-pause-fill");
+        } else {
+          audio.pause();
+          playIcon.classList.replace("bi-pause-fill", "bi-play-fill");
+        }
+      });
+
+      audio.addEventListener("timeupdate", () => {
+        const percent = (audio.currentTime / audio.duration) * 100;
+        progressBar.style.width = percent + "%";
+      });
+
+      audio.addEventListener("ended", () => {
+        playIcon.classList.replace("bi-pause-fill", "bi-play-fill");
+        progressBar.style.width = "0%";
+      });
     }
   </script>
 </html>
