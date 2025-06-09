@@ -522,7 +522,7 @@
           ></button>
         </div>
         <div class="modal-body text-center">
-          <p class="text-warning special-paragraph chemistry">
+          <p class="text-warning special-paragraph chemistry biology">
             فيديوهات الشرح تحوي أولًا جزئية شرح المحتوى العملي ثم جزئية شرح
             الأسئلة جميعها في نفس الفيديو.
           </p>
@@ -577,9 +577,9 @@
           </div>
 
           <p class="special-paragraph chemistry">شرح الأستاذ محمد زيادة.</p>
+          <p class="special-paragraph biology">شرح الأستاذة فرح ابراهيم.</p>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary" id="linkOpen">فتح الشرح</button>
           <button
             class="btn btn-secondary"
             data-bs-dismiss="modal"
@@ -587,6 +587,7 @@
           >
             إغلاق
           </button>
+          <button class="btn btn-primary" id="linkOpen">فتح الشرح</button>
         </div>
       </div>
     </div>
@@ -604,6 +605,12 @@
   <!-- Select2 JS -->
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/i18n/ar.js"></script>
+
+  <!-- Disable-devtool -->
+  <script
+    disable-devtool-auto
+    src="https://cdn.jsdelivr.net/npm/disable-devtool@latest"
+  ></script>
 
   <!-- Initialize Script -->
   <script>
@@ -647,9 +654,9 @@
       youtube: `<table class="table table-responsive table-striped-columns"> <thead> <tr> <th scope="col">المادة</th> <th scope="col">الخيار الأول</th> <th scope="col">الخيار الثاني</th> </tr> </thead> <tbody> <tr> <td scope="row">الرياضيات</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLK744YNyj0pqGnF69lxYY920pfzpiPDut">أحمد الفديد</a> يفهمك ويشرح على هداوه</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLRrrrF5D5HiSo8hbOyEc-bjJIvv-1KZne">علي العنبري</a> أطلق واحد لكن شرحه صعب لأي شخص مستواه مو متقدم جدًا (استعمله لو كنت دافور او تراجع بس)</td> </tr> <tr> <td scope="row">الكيمياء</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLQUAm1qELiwCijyJA7_qP0yVynAzMIpAJ">محمد زيادة</a> المعروف لا يعرف</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLc7cQyFl3z7Sf2YO-nrpvXBQBkIkYgUtu">منار</a> شرحها ضعيف بس مختصر</td> </tr> <tr> <td scope="row">الإنجليزي</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLCYI2-XDHeNOnXNV1sM3YIcGd8mvpheHC">ماجدة</a> أطلق وحده</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLzVRVtLN8aqis3G-GZ9Cmp-dcIxR4Wvpk">الاخوات BHD</a> خيار مقبول</td> </tr> <tr> <td scope="row">الفيزياء</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLP2IZ7Q5_bQgwrPtKi4ZxBRhwsjjaXN6g">واضح</a> مره ممتاز وواضح والحلو أنه يجلس يشرح تمارين بعد ما يخلص شرح</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLQUAm1qELiwBRJqMDWcpwaDalK9tKKmRK">محمد زيادة</a> الفيزياء مو تخصصه بس شرحه كويس لكن فيه أخطاء بسيطه هنا وهناك</td> </tr> <tr> <td scope="row">الأحياء</td> <td colspan="2"><a target="_blank" href="https://www.youtube.com/playlist?list=PLgJJOLnBSZ5vesYwikrjxpZY7R0GZ9Q59">Ahmad School (أحياء وعلم بيئة)</a> ممتاز جدًا</td> </tr> </tbody> </table>`,
       tech: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>المذاكرة:</h5><p>المذاكرة من الكتاب والمراجعة من الملف التالي:</p><a class="d-block" href="https://drive.google.com/file/d/1s18jqRUb2pLmwQN-eVMNBRd2is8XyJ0D/view?usp=sharing" target="_blank">تحميل بنك أسئلة التقنية الرقمية 2-2 غير محلول</a><a class="d-block" href="https://drive.google.com/file/d/1GEWUGDLD7KXqsjcS29_jlple3fewT4Dz/view?usp=drive_link" target="_blank">تحميل بنك أسئلة التقنية الرقمية 2-2 محلول</a>`,
       math: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">30 سؤال اختيارات</p><p class="mb-1">10 أسئلة صح وخطأ</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من الكتاب، مع العلم أن الصح والخطأ سيكون من التعريفات باللون الأصفر والمفاهيم الرئيسية في المربعات الزرقاء (الصح والخطأ يُفهم لا يُحفظ).</p><h5 class="mt-3">شروحات مساعدة:</h5><a class="d-block" href="https://youtu.be/n9o8r9YLOqg" target="_blank">ملخص مراجعة الرياضيات ٢-٣ | الوحدة الأولى</a><a class="d-block" href="https://youtu.be/v_4IjpjFlfY" target="_blank">ملخص مراجعة الرياضيات ٢-٣ | الوحدة الثانية</a><a class="d-block" href="https://youtu.be/2Ex06sfoe6U" target="_blank">تبسيط إنطاق المقام</a><a class="d-block" href="https://drive.google.com/file/d/1YU7dmR_5EkhaHiP7byO8x_byUJkFHp5f/view?usp=drive_link" target="_blank">تجميع التعريفات باللون الأصفر والمفاهيم الرئيسية في المربعات الزرقاء (تجميع الصح والخطأ)</a><h5 class="mt-3">نقاط محذوفة من المذاكرة:</h5> <ul class="list-group list-group-flush"><li class="list-group-item">المفهوم الأساسي (المثلثات الممكنة في الحالة SSA) صـ٨٠ والأمثلة التي تتبعه (مثال ٣)</li><li class="list-group-item">المفهوم الأساسي (دالة الظل) صـ١٠٢ والأمثلة التي تتبعه (مثال ٤)</li><li class="list-group-item">⁠المفهوم الأساسي (دوال قاطع التمام والقاطع وظل التمام) صـ١٠٣ والأمثلة التي تتبعه (مثال ٥)</li><li class="list-group-item">⁠الرسم البياني في المفهوم الأساسي (الدوال المثلثية العكسية) صـ١٠٧</li><li class="list-group-item">⁠المجال والمدى في جميع المفاهيم الأساسية الخاصة بالدوال (الدرسين الأخريين)</li><li class="list-group-item">⁠أمثلة "مثال من واقع الحياة"</li><li class="list-group-item">⁠جميع الأسئلة التي يوجد لها طرقتين للحل أحدها يدوية وأحدها بالآلة الحاسبة يكفي مذاكرة طريقتها في الحاسبة (جميعها في الاختبار ستكون ممكنة الحل بالآلة الحاسبة)</li></ul>`,
-      chemistry: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">غير معروف</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من مسرد الكيمياء، يشمل كل المواضيع.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abstractDownloderModal" data-subject="chemistry23">تحميل المسرد</button> <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#quizModal" data-subject="chemistry23" data-title="الكيمياء" > ابدأ الاختبار الإلكتروني للتجميعات </button><br><button class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#explainModal" onclick="initializeExplainModal(chemistryData, 'chemistry', 'الكيمياء')">شرح المسرد</button>`,
+      chemistry: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">غير معروف</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من مسرد الكيمياء، يشمل كل المواضيع.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abstractDownloderModal" data-subject="chemistry23">تحميل المسرد</button> <br> <button class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#explainModal" onclick="initializeExplainModal(chemistryData, 'chemistry', 'الكيمياء')">شرح المسرد</button> <br> <button class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#quizModal" data-subject="chemistry23" data-title="الكيمياء" > ابدأ الاختبار الإلكتروني للتجميعات </button>`,
       english: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>القواعد:</h5><p class="mb-1">من الكتاب الـGrammar والـForm, Meaning, and Function.</p><p class="mb-1">الاختبار نسخ لصق من الأمثلة ومن التمارين أسفل كل قاعدة.</p><p>لا يوجد أي أسئلة من كتاب النشاط.</p><h5 class="mt-3">الكلمات:</h5><p>من الـQuick Check والـVocabulary Building.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#wordModal">عرض الكلمات</button> <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#wordsQuizModal">اختبار الكلمات</button><h5 class="mt-3">النص:</h5><p>نص بسيط مع أسئلة صح وخطأ واضحة بدون أي صعوبة.</p><h5 class="mt-3">شروحات مساعدة:</h5><a class="d-block" href="https://youtu.be/68GnVXacrLI" target="_blank">ملخص مراجعة قواعد ميقا قول ٢-٣</a></ul>`,
-      biology: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">20 سؤال اختيارات</p><p class="mb-1">10 أسئلة صح وخطأ</p><p class="mb-1">5 أسئلة مزاوجة</p><p>المجموع 35 سؤال</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من مسرد الأحياء، يشمل كل المواضيع.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abstractDownloderModal" data-subject="biology23">تحميل المسرد</button> <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#quizModal" data-subject="biology23" data-title="الأحياء" > ابدأ الاختبار الإلكتروني للتجميعات </button>`,
+      biology: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">20 سؤال اختيارات</p><p class="mb-1">10 أسئلة صح وخطأ</p><p class="mb-1">5 أسئلة مزاوجة</p><p>المجموع 35 سؤال</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من مسرد الأحياء، يشمل كل المواضيع.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abstractDownloderModal" data-subject="biology23">تحميل المسرد</button> <br> <button class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#explainModal" onclick="initializeExplainModal(biologyData, 'biology', 'الأحياء')">شرح المسرد</button> <br> <button class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#quizModal" data-subject="biology23" data-title="الأحياء" > ابدأ الاختبار الإلكتروني للتجميعات </button>`,
       physics: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>الملفات المساعدة:</h5><a class="d-block" href="https://drive.google.com/file/d/15SOAEsxxd3VzZqIkJ8uhCDA7Sp3o_YXh/view?usp=drivesdk" target="_blank">تحميل تجميعات الفيزياء 2 غير محلول</a><a class="d-block" href="https://drive.google.com/file/d/1KuvHtT1p-mIuiUOzdXmJCQ8K8yGtldc0/view?usp=drivesdk" target="_blank">تحميل تجميعات الفيزياء 2  محلول</a>`,
     };
   </script>
@@ -2525,6 +2532,327 @@
       ],
       min: 1,
       max: 74,
+    };
+
+    const biologyData = {
+      lessons: [
+        {
+          id: 1,
+          name: "الغشاء البلازمي والهيكل الخلوي",
+          link: "https://youtu.be/2qRRqwDbkHQ",
+        },
+        {
+          id: 2,
+          name: "تراكيب الخلية",
+          link: "https://youtu.be/2qRRqwDbkHQ?t=413",
+        },
+        {
+          id: 3,
+          name: "التمييز بين الخلية الحيوانية والنباتية",
+          link: "https://youtu.be/2qRRqwDbkHQ?t=1610",
+        },
+        {
+          id: 4,
+          name: "الإنزيمات",
+          link: "https://youtu.be/2qRRqwDbkHQ?t=1878",
+        },
+        {
+          id: 5,
+          name: "الديناميكا الحرارية",
+          link: "https://youtu.be/2qRRqwDbkHQ?t=2144",
+        },
+        {
+          id: 6,
+          name: "ATP (الأدينوسين ثلاثي الفوسفات)",
+          link: "https://youtu.be/2qRRqwDbkHQ?t=2337",
+        },
+        {
+          id: 7,
+          name: "تركيب البلاستيدة الخضراء",
+          link: "https://youtu.be/z7BU3l24n-w?t=5",
+        },
+        {
+          id: 8,
+          name: "عملية البناء الضوئي",
+          link: "https://youtu.be/z7BU3l24n-w?t=515",
+        },
+        {
+          id: 9,
+          name: "التنفس الخلوي",
+          link: "https://youtu.be/z7BU3l24n-w?t=917",
+        },
+        {
+          id: 10,
+          name: "التحلل السكري",
+          link: "https://youtu.be/z7BU3l24n-w?t=1391",
+        },
+        {
+          id: 11,
+          name: "مراحل التنفس الهوائي",
+          link: "https://youtu.be/z7BU3l24n-w?t=2023",
+        },
+        {
+          id: 12,
+          name: "التنفس اللاهوائي (التخمر)",
+          link: "https://youtu.be/z7BU3l24n-w?t=2681",
+        },
+        {
+          id: 13,
+          name: "العدوى الفيروسية والتنفس الخلوي",
+          link: "https://youtu.be/z7BU3l24n-w?t=2954",
+        },
+        {
+          id: 14,
+          name: "حدود حجم الخلية",
+          link: "https://youtu.be/z7BU3l24n-w?t=3091",
+        },
+        {
+          id: 15,
+          name: "دورة الخلية والطور البيني",
+          link: "https://youtu.be/z7BU3l24n-w?t=3645",
+        },
+        {
+          id: 16,
+          name: "الانقسام المتساوي",
+          link: "https://youtu.be/z7BU3l24n-w?t=4150",
+        },
+        {
+          id: 17,
+          name: "مراحل الانقسام المتساوي",
+          link: "https://youtu.be/z7BU3l24n-w?t=4403",
+        },
+        {
+          id: 18,
+          name: "الكروموسوم والكروماتيدات الشقيقة",
+          link: "https://youtu.be/z7BU3l24n-w?t=5141",
+        },
+        {
+          id: 19,
+          name: "انقسام السيتوبلازم",
+          link: "https://youtu.be/z7BU3l24n-w?t=5291",
+        },
+        {
+          id: 20,
+          name: "تنظيم دورة الخلية",
+          link: "https://youtu.be/oU-ZsR3MT2w?t=3",
+        },
+        {
+          id: 21,
+          name: "الخلايا والعدد الكروموسومي",
+          link: "https://youtu.be/oU-ZsR3MT2w?t=742",
+        },
+        {
+          id: 22,
+          name: "الانقسام المنصف (الاختزالي)",
+          link: "https://youtu.be/oU-ZsR3MT2w?t=1010",
+        },
+        {
+          id: 23,
+          name: "المرحلة الأولى من الانقسام المنصف",
+          link: "https://youtu.be/oU-ZsR3MT2w?t=1295",
+        },
+        {
+          id: 24,
+          name: "العبور الجيني",
+          link: "https://youtu.be/oU-ZsR3MT2w?t=2668",
+        },
+        {
+          id: 25,
+          name: "المرحلة الثانية من الانقسام المنصف",
+          link: "https://youtu.be/oU-ZsR3MT2w?t=2759",
+        },
+        {
+          id: 26,
+          name: "الوراثة المندلية",
+          link: "https://youtu.be/N5boNeXLNFI?t=5",
+        },
+        {
+          id: 27,
+          name: "مربع بانيت - التلقيح الأحادي والثنائي",
+          link: "https://youtu.be/N5boNeXLNFI?t=1789",
+        },
+        {
+          id: 28,
+          name: "التراكيب الجينية",
+          link: "https://youtu.be/N5boNeXLNFI?t=2702",
+        },
+        {
+          id: 29,
+          name: "الاختلافات الوراثية المتنحية في الإنسان",
+          link: "https://youtu.be/N5boNeXLNFI?t=2751",
+        },
+        {
+          id: 30,
+          name: "الاختلافات الوراثية السائدة في الإنسان",
+          link: "https://youtu.be/N5boNeXLNFI?t=3473",
+        },
+        {
+          id: 31,
+          name: "مخطط السلاسة",
+          link: "https://youtu.be/N5boNeXLNFI?t=3561",
+        },
+        {
+          id: 32,
+          name: "الأنماط الوراثية المعقدة",
+          link: "https://youtu.be/N5boNeXLNFI?t=4248",
+        },
+        {
+          id: 33,
+          name: "الجينات المتعددة المتقابلة وتفوق الجينات",
+          link: "https://youtu.be/N5boNeXLNFI?t=4758",
+        },
+        {
+          id: 34,
+          name: "الكروموسومات الجنسية والجسمية",
+          link: "https://youtu.be/N5boNeXLNFI?t=5372",
+        },
+        {
+          id: 35,
+          name: "الصفات المرتبطة والمتأثرة بالجنس",
+          link: "https://youtu.be/N5boNeXLNFI?t=6060",
+        },
+        {
+          id: 36,
+          name: "التيلوميرات ومتلازمة داون",
+          link: "https://youtu.be/bMWr6Zzpetw",
+        },
+        {
+          id: 37,
+          name: "عدم انفصال الكروموسومات الجنسية",
+          link: "https://youtu.be/bMWr6Zzpetw?t=543",
+        },
+        {
+          id: 38,
+          name: "اكتشاف المادة الوراثية",
+          link: "https://youtu.be/bMWr6Zzpetw?t=859",
+        },
+        {
+          id: 39,
+          name: "الأحماض النووية وتركيبها",
+          link: "https://youtu.be/bMWr6Zzpetw?t=2022",
+        },
+        {
+          id: 40,
+          name: "القواعد النيتروجينية وكيفية ارتباطها",
+          link: "https://youtu.be/bMWr6Zzpetw?t=2438",
+        },
+        {
+          id: 41,
+          name: "مراحل تضاعف DNA شبه المحافظ",
+          link: "https://youtu.be/bMWr6Zzpetw?t=2952",
+        },
+        {
+          id: 42,
+          name: "أنواع RNA في الخلايا الحية",
+          link: "https://youtu.be/bMWr6Zzpetw?t=3229",
+        },
+        {
+          id: 43,
+          name: "النسخ والترجمة والتنظيم الجيني",
+          link: "https://youtu.be/bMWr6Zzpetw?t=3571",
+        },
+        {
+          id: 44,
+          name: "الطفرات والهندسة الوراثية والجينوم",
+          link: "https://youtu.be/bMWr6Zzpetw?t=4069",
+        },
+      ],
+      questions: [
+        { q_id: 1, l_id: 1 },
+        { q_id: 2, l_id: 1 },
+        { q_id: 3, l_id: 1 },
+        { q_id: 4, l_id: 1 },
+        { q_id: 5, l_id: 1 },
+        { q_id: 6, l_id: 1 },
+        { q_id: 7, l_id: 2 },
+        { q_id: 8, l_id: 2 },
+        { q_id: 9, l_id: 2 },
+        { q_id: 10, l_id: 2 },
+        { q_id: 11, l_id: 2 },
+        { q_id: 12, l_id: 2 },
+        { q_id: 13, l_id: 3 },
+        { q_id: 14, l_id: 3 },
+        { q_id: 15, l_id: 4 },
+        { q_id: 16, l_id: 6 },
+        { q_id: 17, l_id: 6 },
+        { q_id: 18, l_id: 6 },
+        { q_id: 19, l_id: 6 },
+        { q_id: 20, l_id: 7 },
+        { q_id: 21, l_id: 7 },
+        { q_id: 22, l_id: 8 },
+        { q_id: 23, l_id: 8 },
+        { q_id: 24, l_id: 8 },
+        { q_id: 25, l_id: 9 },
+        { q_id: 26, l_id: 9 },
+        { q_id: 27, l_id: 9 },
+        { q_id: 28, l_id: 10 },
+        { q_id: 29, l_id: 10 },
+        { q_id: 30, l_id: 11 },
+        { q_id: 31, l_id: 11 },
+        { q_id: 32, l_id: 11 },
+        { q_id: 33, l_id: 12 },
+        { q_id: 34, l_id: 12 },
+        { q_id: 35, l_id: 12 },
+        { q_id: 36, l_id: 13 },
+        { q_id: 37, l_id: 14 },
+        { q_id: 38, l_id: 15 },
+        { q_id: 39, l_id: 16 },
+        { q_id: 40, l_id: 16 },
+        { q_id: 41, l_id: 17 },
+        { q_id: 42, l_id: 17 },
+        { q_id: 43, l_id: 17 },
+        { q_id: 44, l_id: 18 },
+        { q_id: 45, l_id: 20 },
+        { q_id: 46, l_id: 20 },
+        { q_id: 47, l_id: 20 },
+        { q_id: 48, l_id: 21 },
+        { q_id: 49, l_id: 22 },
+        { q_id: 50, l_id: 22 },
+        { q_id: 51, l_id: 23 },
+        { q_id: 52, l_id: 23 },
+        { q_id: 53, l_id: 23 },
+        { q_id: 54, l_id: 26 },
+        { q_id: 55, l_id: 26 },
+        { q_id: 56, l_id: 28 },
+        { q_id: 57, l_id: 29 },
+        { q_id: 58, l_id: 29 },
+        { q_id: 59, l_id: 29 },
+        { q_id: 60, l_id: 30 },
+        { q_id: 61, l_id: 30 },
+        { q_id: 62, l_id: 31 },
+        { q_id: 63, l_id: 31 },
+        { q_id: 64, l_id: 31 },
+        { q_id: 65, l_id: 32 },
+        { q_id: 66, l_id: 33 },
+        { q_id: 67, l_id: 33 },
+        { q_id: 68, l_id: 34 },
+        { q_id: 69, l_id: 34 },
+        { q_id: 70, l_id: 35 },
+        { q_id: 71, l_id: 35 },
+        { q_id: 72, l_id: 36 },
+        { q_id: 73, l_id: 36 },
+        { q_id: 74, l_id: 37 },
+        { q_id: 75, l_id: 37 },
+        { q_id: 76, l_id: 37 },
+        { q_id: 77, l_id: 37 },
+        { q_id: 78, l_id: 38 },
+        { q_id: 79, l_id: 38 },
+        { q_id: 80, l_id: 38 },
+        { q_id: 81, l_id: 39 },
+        { q_id: 82, l_id: 39 },
+        { q_id: 83, l_id: 39 },
+        { q_id: 84, l_id: 40 },
+        { q_id: 85, l_id: 40 },
+        { q_id: 86, l_id: 41 },
+        { q_id: 87, l_id: 41 },
+        { q_id: 88, l_id: 42 },
+        { q_id: 89, l_id: 42 },
+        { q_id: 90, l_id: 43 },
+        { q_id: 91, l_id: 43 },
+        { q_id: 92, l_id: 43 },
+        { q_id: 93, l_id: 44 },
+        { q_id: 94, l_id: 44 },
+      ],
     };
 
     const byName = document.getElementById("byName");
