@@ -10,15 +10,61 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css"
     />
+
     <!-- SweetAlert2 CSS -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
     />
+
+    <!-- Select2 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css"
+    />
+
     <!-- Custom CSS -->
     <style>
       .w-45 {
         width: 45% !important;
+      }
+
+      .select2-container--bootstrap-5 .select2-selection,
+      .select2-container--bootstrap-5 .select2-dropdown {
+        color: #dee2e6;
+        background-color: #212529;
+        border: 1px solid #495057;
+      }
+
+      .select2-container--bootstrap-5
+        .select2-dropdown
+        .select2-results__options
+        .select2-results__option.select2-results__option--highlighted {
+        color: #ffffff;
+        background-color: #495057;
+      }
+
+      .select2-container--bootstrap-5
+        .select2-dropdown
+        .select2-search
+        .select2-search__field {
+        color: #dee2e6;
+        background-color: #212529;
+        border: 1px solid #495057;
+      }
+
+      .select2-container--bootstrap-5
+        .select2-selection--single
+        .select2-selection__rendered {
+        color: #dee2e6;
+      }
+
+      select + .select2-container--bootstrap-5 {
+        margin-bottom: 15px;
       }
     </style>
 
@@ -54,7 +100,9 @@
           <select class="form-select" id="subject" onchange="update()">
             <option value="0" selected disabled></option>
             <option value="table">جدول الاختبارات (المسار العام)</option>
-            <option value="youtube">جدول اقتراحات لشروحات المناهج في يوتيوب</option>
+            <option value="youtube">
+              جدول اقتراحات لشروحات المناهج في يوتيوب
+            </option>
             <option value="tech">التقنية الرقمية</option>
             <option value="math">الرياضيات</option>
             <option value="chemistry">الكيمياء</option>
@@ -64,7 +112,6 @@
           </select>
 
           <div class="my-3"></div>
-
         </div>
         <div class="card-footer text-body-secondary">
           <p class="mb-0"></p>
@@ -454,13 +501,111 @@
     </div>
   </body>
 
+  <!-- Explain Modal-->
+  <div
+    class="modal fade"
+    id="explainModal"
+    tabindex="-1"
+    aria-labelledby="explainModalLabel"
+    style="display: none"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="explainModalLabel">شرح مسرد مادة</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body text-center">
+          <p class="text-warning special-paragraph chemistry">
+            فيديوهات الشرح تحوي أولًا جزئية شرح المحتوى العملي ثم جزئية شرح
+            الأسئلة جميعها في نفس الفيديو.
+          </p>
+          <div class="btn-group mb-3" role="group">
+            <input
+              type="radio"
+              class="btn-check viaName"
+              name="btnradio"
+              id="btnradio1"
+              autocomplete="off"
+              checked
+              onclick="toggleType()"
+            />
+            <label class="btn btn-outline-primary" for="btnradio1"
+              >شرح درس</label
+            >
+
+            <input
+              type="radio"
+              class="btn-check viaQNO"
+              name="btnradio"
+              id="btnradio2"
+              autocomplete="off"
+              onclick="toggleType()"
+            />
+            <label class="btn btn-outline-primary" for="btnradio2"
+              >شرح سؤال</label
+            >
+          </div>
+
+          <div id="byName" class="mb-3">
+            <select id="modalSelect" class="form-select">
+              <option></option>
+            </select>
+          </div>
+
+          <div id="byQNO" class="d-none">
+            <div class="mb-3">
+              <input
+                type="number"
+                class="form-control"
+                id="inputQNO"
+                placeholder="أدخل رقم السؤال"
+                style="direction: rtl"
+              />
+            </div>
+            <div
+              class="alert alert-danger d-none"
+              role="alert"
+              id="warnQNO"
+            ></div>
+          </div>
+
+          <p class="special-paragraph chemistry">شرح الأستاذ محمد زيادة.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" id="linkOpen">فتح الشرح</button>
+          <button
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          >
+            إغلاق
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (required for Select2) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
   <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- SweetAlert2 JS -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  <!-- Custom JS Script -->
+  <!-- Select2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/i18n/ar.js"></script>
+
+  <!-- Initialize Script -->
   <script>
     const footerText = [
       `لا تنسونا من دعائكم لعلكم أقرب إلى الله منزلة`,
@@ -502,7 +647,7 @@
       youtube: `<table class="table table-responsive table-striped-columns"> <thead> <tr> <th scope="col">المادة</th> <th scope="col">الخيار الأول</th> <th scope="col">الخيار الثاني</th> </tr> </thead> <tbody> <tr> <td scope="row">الرياضيات</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLK744YNyj0pqGnF69lxYY920pfzpiPDut">أحمد الفديد</a> يفهمك ويشرح على هداوه</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLRrrrF5D5HiSo8hbOyEc-bjJIvv-1KZne">علي العنبري</a> أطلق واحد لكن شرحه صعب لأي شخص مستواه مو متقدم جدًا (استعمله لو كنت دافور او تراجع بس)</td> </tr> <tr> <td scope="row">الكيمياء</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLQUAm1qELiwCijyJA7_qP0yVynAzMIpAJ">محمد زيادة</a> المعروف لا يعرف</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLc7cQyFl3z7Sf2YO-nrpvXBQBkIkYgUtu">منار</a> شرحها ضعيف بس مختصر</td> </tr> <tr> <td scope="row">الإنجليزي</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLCYI2-XDHeNOnXNV1sM3YIcGd8mvpheHC">ماجدة</a> أطلق وحده</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLzVRVtLN8aqis3G-GZ9Cmp-dcIxR4Wvpk">الاخوات BHD</a> خيار مقبول</td> </tr> <tr> <td scope="row">الفيزياء</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLP2IZ7Q5_bQgwrPtKi4ZxBRhwsjjaXN6g">واضح</a> مره ممتاز وواضح والحلو أنه يجلس يشرح تمارين بعد ما يخلص شرح</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLQUAm1qELiwBRJqMDWcpwaDalK9tKKmRK">محمد زيادة</a> الفيزياء مو تخصصه بس شرحه كويس لكن فيه أخطاء بسيطه هنا وهناك</td> </tr> <tr> <td scope="row">الأحياء</td> <td colspan="2"><a target="_blank" href="https://www.youtube.com/playlist?list=PLgJJOLnBSZ5vesYwikrjxpZY7R0GZ9Q59">Ahmad School (أحياء وعلم بيئة)</a> ممتاز جدًا</td> </tr> </tbody> </table>`,
       tech: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>المذاكرة:</h5><p>المذاكرة من الكتاب والمراجعة من الملف التالي:</p><a class="d-block" href="https://drive.google.com/file/d/1s18jqRUb2pLmwQN-eVMNBRd2is8XyJ0D/view?usp=sharing" target="_blank">تحميل بنك أسئلة التقنية الرقمية 2-2 غير محلول</a><a class="d-block" href="https://drive.google.com/file/d/1GEWUGDLD7KXqsjcS29_jlple3fewT4Dz/view?usp=drive_link" target="_blank">تحميل بنك أسئلة التقنية الرقمية 2-2 محلول</a>`,
       math: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">30 سؤال اختيارات</p><p class="mb-1">10 أسئلة صح وخطأ</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من الكتاب، مع العلم أن الصح والخطأ سيكون من التعريفات باللون الأصفر والمفاهيم الرئيسية في المربعات الزرقاء (الصح والخطأ يُفهم لا يُحفظ).</p><h5 class="mt-3">شروحات مساعدة:</h5><a class="d-block" href="https://youtu.be/n9o8r9YLOqg" target="_blank">ملخص مراجعة الرياضيات ٢-٣ | الوحدة الأولى</a><a class="d-block" href="https://youtu.be/-lLi7rksL0Y" target="_blank">ملخص مراجعة الرياضيات ٢-٣ | الوحدة الثانية</a><a class="d-block" href="https://youtu.be/2Ex06sfoe6U" target="_blank">تبسيط إنطاق المقام</a><a class="d-block" href="https://drive.google.com/file/d/1YU7dmR_5EkhaHiP7byO8x_byUJkFHp5f/view?usp=drive_link" target="_blank">تجميع التعريفات باللون الأصفر والمفاهيم الرئيسية في المربعات الزرقاء (تجميع الصح والخطأ)</a><h5 class="mt-3">نقاط محذوفة من المذاكرة:</h5> <ul class="list-group list-group-flush"><li class="list-group-item">المفهوم الأساسي (المثلثات الممكنة في الحالة SSA) صـ٨٠ والأمثلة التي تتبعه (مثال ٣)</li><li class="list-group-item">المفهوم الأساسي (دالة الظل) صـ١٠٢ والأمثلة التي تتبعه (مثال ٤)</li><li class="list-group-item">⁠المفهوم الأساسي (دوال قاطع التمام والقاطع وظل التمام) صـ١٠٣ والأمثلة التي تتبعه (مثال ٥)</li><li class="list-group-item">⁠الرسم البياني في المفهوم الأساسي (الدوال المثلثية العكسية) صـ١٠٧</li><li class="list-group-item">⁠المجال والمدى في جميع المفاهيم الأساسية الخاصة بالدوال (الدرسين الأخريين)</li><li class="list-group-item">⁠أمثلة "مثال من واقع الحياة"</li><li class="list-group-item">⁠جميع الأسئلة التي يوجد لها طرقتين للحل أحدها يدوية وأحدها بالآلة الحاسبة يكفي مذاكرة طريقتها في الحاسبة (جميعها في الاختبار ستكون ممكنة الحل بالآلة الحاسبة)</li></ul>`,
-      chemistry: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">غير معروف</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من مسرد الكيمياء، يشمل كل المواضيع.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abstractDownloderModal" data-subject="chemistry23">تحميل المسرد</button> <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#quizModal" data-subject="chemistry23" data-title="الكيمياء" > ابدأ الاختبار الإلكتروني للتجميعات </button>`,
+      chemistry: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">غير معروف</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من مسرد الكيمياء، يشمل كل المواضيع.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abstractDownloderModal" data-subject="chemistry23">تحميل المسرد</button> <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#quizModal" data-subject="chemistry23" data-title="الكيمياء" > ابدأ الاختبار الإلكتروني للتجميعات </button><br><button class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#explainModal" onclick="initializeExplainModal(chemistryData, 'chemistry', 'الكيمياء')">شرح المسرد</button>`,
       english: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>القواعد:</h5><p class="mb-1">من الكتاب الـGrammar والـForm, Meaning, and Function.</p><p class="mb-1">الاختبار نسخ لصق من الأمثلة ومن التمارين أسفل كل قاعدة.</p><p>لا يوجد أي أسئلة من كتاب النشاط.</p><h5 class="mt-3">الكلمات:</h5><p>من الـQuick Check والـVocabulary Building.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#wordModal">عرض الكلمات</button> <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#wordsQuizModal">اختبار الكلمات</button><h5 class="mt-3">النص:</h5><p>نص بسيط مع أسئلة صح وخطأ واضحة بدون أي صعوبة.</p><h5 class="mt-3">شروحات مساعدة:</h5><a class="d-block" href="https://youtu.be/68GnVXacrLI" target="_blank">ملخص مراجعة قواعد ميقا قول ٢-٣</a></ul>`,
       biology: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">20 سؤال اختيارات</p><p class="mb-1">10 أسئلة صح وخطأ</p><p class="mb-1">5 أسئلة مزاوجة</p><p>المجموع 35 سؤال</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من مسرد الأحياء، يشمل كل المواضيع.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abstractDownloderModal" data-subject="biology23">تحميل المسرد</button> <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#quizModal" data-subject="biology23" data-title="الأحياء" > ابدأ الاختبار الإلكتروني للتجميعات </button>`,
       physics: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>الملفات المساعدة:</h5><a class="d-block" href="https://drive.google.com/file/d/15SOAEsxxd3VzZqIkJ8uhCDA7Sp3o_YXh/view?usp=drivesdk" target="_blank">تحميل تجميعات الفيزياء 2 غير محلول</a><a class="d-block" href="https://drive.google.com/file/d/1KuvHtT1p-mIuiUOzdXmJCQ8K8yGtldc0/view?usp=drivesdk" target="_blank">تحميل تجميعات الفيزياء 2  محلول</a>`,
@@ -527,16 +672,20 @@
         100: "https://drive.google.com/file/d/1onjPwfpCQrmf_UdaO1yiwoQPDI_Rx6eR/view?usp=sharing",
         110: "https://drive.google.com/file/d/1txIFykHWjSrcOKdPf7xYNigFHKuF7yCe/view?usp=sharing",
         111: "https://drive.google.com/file/d/1bqkngstkGp5IK2MMmm-GtbmNEd4MyAe5/view?usp=sharing",
-        "010": "https://drive.google.com/file/d/1ILY1Am26Z3-reWoJ2mN09FL6iG-wkdqQ/view?usp=sharing",
-        "011": "https://drive.google.com/file/d/1Um39S3UVc81tezSbyadyi_jvluGHF__n/view?usp=sharing",
+        "010":
+          "https://drive.google.com/file/d/1ILY1Am26Z3-reWoJ2mN09FL6iG-wkdqQ/view?usp=sharing",
+        "011":
+          "https://drive.google.com/file/d/1Um39S3UVc81tezSbyadyi_jvluGHF__n/view?usp=sharing",
       },
       chemistry23: {
         title: "الكيمياء",
         100: "https://drive.google.com/file/d/1r4LN8HWd3oifIzRJlVg7M_Aj9iQtt0yT/view?usp=sharing",
         110: "https://drive.google.com/file/d/1msdn4ZlbW3yQjyWKqICySr7SyMy4z6AY/view?usp=sharing",
         111: "https://drive.google.com/file/d/1ecRGUeTkUusoC58sbgL6AYCz3RFJgDZP/view?usp=sharing",
-        "010": "https://drive.google.com/file/d/1QB1lC1YwnxvwNcq-xnGj4W6Ct31N5_I4/view?usp=sharing",
-        "011": "https://drive.google.com/file/d/1bSxxcsR-Cr_FErZzCUzYaiysu7OR_vWm/view?usp=sharing",
+        "010":
+          "https://drive.google.com/file/d/1QB1lC1YwnxvwNcq-xnGj4W6Ct31N5_I4/view?usp=sharing",
+        "011":
+          "https://drive.google.com/file/d/1bSxxcsR-Cr_FErZzCUzYaiysu7OR_vWm/view?usp=sharing",
       },
     };
 
@@ -1355,8 +1504,6 @@
       Irritated: "someone who is annoyed at something",
       Fascinated: "someone who is very interested in something",
 
-
-
       // Exercise 2 - Medical vocabulary matching
       Cardiovascular: "involving the heart and blood vessels",
       Equivalent: "equal",
@@ -1377,8 +1524,6 @@
       Aroma: "fragrant smell",
       Distinguish: "to be able to identify one from another",
 
-
-
       // Exercise 4 - General vocabulary matching
       Existence: "the presence of something in reality",
       Staple: "a common or important item",
@@ -1396,8 +1541,6 @@
       Abstract: "relating to ideas or feelings",
       Pampered: "indulged",
       Adapted: "adjusted to something new",
-
-
 
       // Exercise 6 - Psychology vocabulary matching
       Consciousness: "the state of being awake",
@@ -1419,8 +1562,6 @@
       Dread: "I dread taking final exams next week",
       Tempted:
         "I was tempted to watch the film on TV, but I made myself study instead",
-
-
 
       // Exercise 8 - Medical/genetic vocabulary matching
       Genetic:
@@ -1730,9 +1871,9 @@
       for (const [word, meaning] of Object.entries(englishWords)) {
         const row = document.createElement("tr");
         row.innerHTML = `
-              <td><span class="word">${word}</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button> <button class="btn btn-sm" onclick="translation(this.previousElementSibling.previousElementSibling.innerHTML)">🌐</button></td>
-              <td><span class="word">${meaning}</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button> <button class="btn btn-sm" onclick="translation(this.previousElementSibling.previousElementSibling.innerHTML)">🌐</button></td>
-            `;
+                <td><span class="word">${word}</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button> <button class="btn btn-sm" onclick="translation(this.previousElementSibling.previousElementSibling.innerHTML)">🌐</button></td>
+                <td><span class="word">${meaning}</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button> <button class="btn btn-sm" onclick="translation(this.previousElementSibling.previousElementSibling.innerHTML)">🌐</button></td>
+              `;
         tableBody.appendChild(row);
       }
     }
@@ -1882,6 +2023,656 @@
         [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
       }
       return newArray;
+    }
+  </script>
+
+  <script>
+    const chemistryData = {
+      lessons: [
+        {
+          id: 1,
+          name: "الكيمياء العضوية",
+          link: "https://youtu.be/PM-o7lQnV3Q?t=17",
+        },
+        {
+          id: 2,
+          name: "الألكانات",
+          link: "https://youtu.be/PM-o7lQnV3Q?t=544",
+        },
+        {
+          id: 3,
+          name: "مجموعة الألكيل",
+          link: "https://youtu.be/PM-o7lQnV3Q?t=983",
+        },
+        {
+          id: 4,
+          name: "قواعد الأيوباك في تسمية الألكانات",
+          link: "https://youtu.be/PM-o7lQnV3Q?t=1093",
+        },
+        {
+          id: 5,
+          name: "الألكانات الحلقية",
+          link: "https://youtu.be/PM-o7lQnV3Q?t=1921",
+        },
+        {
+          id: 6,
+          name: "الألكينات",
+          link: "https://youtu.be/PM-o7lQnV3Q?t=2396",
+        },
+        {
+          id: 7,
+          name: "الألكينات الحلقية",
+          link: "https://youtu.be/PM-o7lQnV3Q?t=2803",
+        },
+        {
+          id: 8,
+          name: "الألكاينات",
+          link: "https://youtu.be/CWxeiVw542s?t=23",
+        },
+        {
+          id: 9,
+          name: "الألكاينات الحلقية",
+          link: "https://youtu.be/CWxeiVw542s?t=635",
+        },
+        {
+          id: 10,
+          name: "الهيدروكربونات الأروماتية",
+          link: "https://youtu.be/CWxeiVw542s?t=1395",
+        },
+        {
+          id: 11,
+          name: "هاليدات الألكيل وهاليدات الأريل",
+          link: "https://youtu.be/h6Qo-PAzspg?t=19",
+        },
+        {
+          id: 12,
+          name: "تفاعلات الاستبدال",
+          link: "https://youtu.be/augWBc7PH5c?t=448",
+        },
+        {
+          id: 13,
+          name: "الكحولات",
+          link: "https://youtu.be/h6Qo-PAzspg?t=883",
+        },
+        {
+          id: 14,
+          name: "الإيثرات",
+          link: "https://youtu.be/h6Qo-PAzspg?t=1591",
+        },
+        {
+          id: 15,
+          name: "الأمينات",
+          link: "https://youtu.be/m8NKgX-qklI?t=20",
+        },
+        {
+          id: 16,
+          name: "الإسترات",
+          link: "https://youtu.be/m8NKgX-qklI?t=1464",
+        },
+        {
+          id: 17,
+          name: "الأميدات",
+          link: "https://youtu.be/augWBc7PH5c?t=20",
+        },
+        {
+          id: 18,
+          name: "تفاعلات الحذف",
+          link: "https://youtu.be/augWBc7PH5c?t=761",
+        },
+        {
+          id: 19,
+          name: "تفاعلات الإضافة",
+          link: "https://youtu.be/augWBc7PH5c?t=949",
+        },
+        {
+          id: 20,
+          name: "تفاعلات الأكسدة والاختزال",
+          link: "https://youtu.be/augWBc7PH5c?t=1098",
+        },
+        {
+          id: 21,
+          name: "البوليمرات",
+          link: "https://youtu.be/augWBc7PH5c?t=1289",
+        },
+        {
+          id: 22,
+          name: "البروتينات",
+          link: "https://youtu.be/BgVTdy3HXvI?t=28",
+        },
+        {
+          id: 23,
+          name: "الرابطة الببتيدية",
+          link: "https://youtu.be/BgVTdy3HXvI?t=222",
+        },
+        {
+          id: 24,
+          name: "الوظائف المتعددة للبروتينات",
+          link: "https://youtu.be/BgVTdy3HXvI?t=473",
+        },
+        {
+          id: 25,
+          name: "السكريات الأحادية",
+          link: "https://youtu.be/BgVTdy3HXvI?t=984",
+        },
+        {
+          id: 26,
+          name: "السكريات الثنائية",
+          link: "https://youtu.be/BgVTdy3HXvI?t=1258",
+        },
+        {
+          id: 27,
+          name: "السكريات عديدة التسكر",
+          link: "https://youtu.be/BgVTdy3HXvI?t=1387",
+        },
+        {
+          id: 28,
+          name: "الليبيدات",
+          link: "https://youtu.be/7zg1Awvkn9k?t=21",
+        },
+        {
+          id: 29,
+          name: "الجليسريدات الثلاثية والتصبن",
+          link: "https://youtu.be/7zg1Awvkn9k?t=235",
+        },
+        {
+          id: 30,
+          name: "الليبيدات الفوسفورية والشموع",
+          link: "https://youtu.be/7zg1Awvkn9k?t=503",
+        },
+        {
+          id: 31,
+          name: "السترويدات",
+          link: "https://youtu.be/7zg1Awvkn9k?t=656",
+        },
+        {
+          id: 32,
+          name: "قانون بويل",
+          link: "https://youtu.be/dRkoCoC-fx8?t=921",
+        },
+        {
+          id: 33,
+          name: "تحويل درجات الحرارة",
+          link: "https://youtu.be/dRkoCoC-fx8?t=1141",
+        },
+        {
+          id: 34,
+          name: "الصفر المطلق",
+          link: "https://youtu.be/dRkoCoC-fx8?t=1672",
+        },
+        {
+          id: 35,
+          name: "قانون شارل",
+          link: "https://youtu.be/dRkoCoC-fx8?t=1369",
+        },
+        {
+          id: 36,
+          name: "قانون جاي لوساك",
+          link: "https://youtu.be/nD67jSZRApE?t=23",
+        },
+        {
+          id: 37,
+          name: "القانون العام للغازات",
+          link: "https://youtu.be/nD67jSZRApE?t=296",
+        },
+        {
+          id: 38,
+          name: "مبدأ أفوجادرو وقانون الغاز المثالي",
+          link: "https://youtu.be/nD67jSZRApE?t=665",
+        },
+        {
+          id: 39,
+          name: "الحسابات المتعلقة بالغازات",
+          link: "https://youtu.be/nD67jSZRApE?t=977",
+        },
+      ],
+      questions: [
+        {
+          q_id: 1,
+          l_id: 1,
+        },
+        {
+          q_id: 2,
+          l_id: 1,
+        },
+        {
+          q_id: 3,
+          l_id: 2,
+        },
+        {
+          q_id: 4,
+          l_id: 2,
+        },
+        {
+          q_id: 5,
+          l_id: 3,
+        },
+        {
+          q_id: 6,
+          l_id: 4,
+        },
+        {
+          q_id: 7,
+          l_id: 4,
+        },
+        {
+          q_id: 8,
+          l_id: 5,
+        },
+        {
+          q_id: 9,
+          l_id: 5,
+        },
+        {
+          q_id: 10,
+          l_id: 6,
+        },
+        {
+          q_id: 11,
+          l_id: 6,
+        },
+        {
+          q_id: 12,
+          l_id: 7,
+        },
+        {
+          q_id: 13,
+          l_id: 7,
+        },
+        {
+          q_id: 14,
+          l_id: 8,
+        },
+        {
+          q_id: 15,
+          l_id: 8,
+        },
+        {
+          q_id: 16,
+          l_id: 9,
+        },
+        {
+          q_id: 17,
+          l_id: 9,
+        },
+        {
+          q_id: 18,
+          l_id: 10,
+        },
+        {
+          q_id: 19,
+          l_id: 10,
+        },
+        {
+          q_id: 20,
+          l_id: 11,
+        },
+        {
+          q_id: 21,
+          l_id: 11,
+        },
+        {
+          q_id: 22,
+          l_id: 12,
+        },
+        {
+          q_id: 23,
+          l_id: 12,
+        },
+        {
+          q_id: 24,
+          l_id: 13,
+        },
+        {
+          q_id: 25,
+          l_id: 13,
+        },
+        {
+          q_id: 26,
+          l_id: 14,
+        },
+        {
+          q_id: 27,
+          l_id: 14,
+        },
+        {
+          q_id: 28,
+          l_id: 15,
+        },
+        {
+          q_id: 29,
+          l_id: 15,
+        },
+        {
+          q_id: 30,
+          l_id: 16,
+        },
+        {
+          q_id: 31,
+          l_id: 16,
+        },
+        {
+          q_id: 32,
+          l_id: 17,
+        },
+        {
+          q_id: 33,
+          l_id: 17,
+        },
+        {
+          q_id: 34,
+          l_id: 18,
+        },
+        {
+          q_id: 35,
+          l_id: 18,
+        },
+        {
+          q_id: 36,
+          l_id: 19,
+        },
+        {
+          q_id: 37,
+          l_id: 19,
+        },
+        {
+          q_id: 38,
+          l_id: 20,
+        },
+        {
+          q_id: 39,
+          l_id: 20,
+        },
+        {
+          q_id: 40,
+          l_id: 21,
+        },
+        {
+          q_id: 41,
+          l_id: 21,
+        },
+        {
+          q_id: 42,
+          l_id: 22,
+        },
+        {
+          q_id: 43,
+          l_id: 22,
+        },
+        {
+          q_id: 44,
+          l_id: 23,
+        },
+        {
+          q_id: 45,
+          l_id: 23,
+        },
+        {
+          q_id: 46,
+          l_id: 24,
+        },
+        {
+          q_id: 47,
+          l_id: 24,
+        },
+        {
+          q_id: 48,
+          l_id: 25,
+        },
+        {
+          q_id: 49,
+          l_id: 25,
+        },
+        {
+          q_id: 50,
+          l_id: 26,
+        },
+        {
+          q_id: 51,
+          l_id: 26,
+        },
+        {
+          q_id: 52,
+          l_id: 27,
+        },
+        {
+          q_id: 53,
+          l_id: 27,
+        },
+        {
+          q_id: 54,
+          l_id: 28,
+        },
+        {
+          q_id: 55,
+          l_id: 29,
+        },
+        {
+          q_id: 56,
+          l_id: 29,
+        },
+        {
+          q_id: 57,
+          l_id: 30,
+        },
+        {
+          q_id: 58,
+          l_id: 30,
+        },
+        {
+          q_id: 59,
+          l_id: 31,
+        },
+        {
+          q_id: 60,
+          l_id: 31,
+        },
+        {
+          q_id: 61,
+          l_id: 32,
+        },
+        {
+          q_id: 62,
+          l_id: 32,
+        },
+        {
+          q_id: 63,
+          l_id: 33,
+        },
+        {
+          q_id: 64,
+          l_id: 33,
+        },
+        {
+          q_id: 65,
+          l_id: 34,
+        },
+        {
+          q_id: 66,
+          l_id: 34,
+        },
+        {
+          q_id: 67,
+          l_id: 35,
+        },
+        {
+          q_id: 68,
+          l_id: 35,
+        },
+        {
+          q_id: 69,
+          l_id: 36,
+        },
+        {
+          q_id: 70,
+          l_id: 36,
+        },
+        {
+          q_id: 71,
+          l_id: 37,
+        },
+        {
+          q_id: 72,
+          l_id: 37,
+        },
+        {
+          q_id: 73,
+          l_id: 38,
+        },
+        {
+          q_id: 74,
+          l_id: 38,
+        },
+      ],
+      min: 1,
+      max: 74,
+    };
+
+    const byName = document.getElementById("byName");
+    const byQNO = document.getElementById("byQNO");
+    let linkOpenType = null;
+
+    function initializeExplainModal(data, name, nameAR) {
+      document.getElementById(
+        "explainModalLabel"
+      ).innerText = `شرح مسرد مادة ${nameAR}`;
+
+      document.querySelector(".viaName").checked = true;
+      document.querySelector(".viaQNO").checked = false;
+
+      if (byName.classList.contains("d-none")) {
+        byName.classList.toggle("d-none");
+        byQNO.classList.toggle("d-none");
+      }
+
+      linkOpenType = "name";
+
+      let specialParagraphs = document.querySelectorAll(
+        "#explainModal .special-paragraph"
+      );
+
+      for (let i = 0; i < specialParagraphs.length; i++) {
+        specialParagraphs[i].style.display = "none";
+      }
+
+      let nowSpecialParagraphs = document.querySelectorAll(
+        `#explainModal .special-paragraph.${name}`
+      );
+
+      for (let i = 0; i < nowSpecialParagraphs.length; i++) {
+        nowSpecialParagraphs[i].style.display = "block";
+      }
+
+      let newData = extractNames(data);
+
+      initializeSearch(newData);
+
+      let oldLinkOpener = document.getElementById("linkOpen");
+      let newLinkOpener = oldLinkOpener.cloneNode(true);
+      oldLinkOpener.parentNode.replaceChild(newLinkOpener, oldLinkOpener);
+
+      document
+        .getElementById("linkOpen")
+        .addEventListener("click", () => linkOpen(data));
+
+      document.getElementById(
+        "warnQNO"
+      ).innerText = `يجب أن لا يقل رقم السؤال عن ${data.min}، ولا يزيد عن ${data.max}.`;
+    }
+
+    // Select2 search initialize
+    function initializeSearch(data) {
+      if ($("#modalSelect").hasClass("select2-hidden-accessible")) {
+        $("#modalSelect").select2("destroy");
+      }
+
+      $("#modalSelect").empty();
+
+      data.forEach(item => {
+        const option = new Option(item.text, item.id, false, false);
+        $("#modalSelect").append(option);
+      });
+
+      $("#modalSelect").select2({
+        theme: "bootstrap-5",
+        placeholder: "اختر الدرس",
+        dropdownParent: $("#explainModal"),
+        width: "100%",
+        language: "ar",
+        matcher: function (params, data) {
+          if (!params.term || params.term.trim() === "") {
+            return data;
+          }
+          const term = normalizeArabic(params.term);
+          const text = normalizeArabic(data.text);
+          if (text.indexOf(term) > -1) {
+            return data;
+          }
+          return null;
+        },
+      });
+
+      // اجعل القيمة فارغة (لا خيار محدد)
+      $("#modalSelect").val(null).trigger("change");
+    }
+
+    function normalizeArabic(text) {
+      return text
+        .replace(/أ|إ|آ/g, "ا")
+        .replace(/ى/g, "ي")
+        .replace(/ة/g, "ه")
+        .replace(/[ًٌٍَُِّْ]/g, "")
+        .toLowerCase();
+    }
+
+    function extractNames(data) {
+      if (!data.lessons || !Array.isArray(data.lessons)) {
+        return [];
+      }
+
+      return data.lessons.map(lesson => ({
+        id: lesson.id,
+        text: lesson.name,
+      }));
+    }
+
+    function toggleType() {
+      byName.classList.toggle("d-none");
+      byQNO.classList.toggle("d-none");
+
+      if (linkOpenType === "name") {
+        linkOpenType = "QNO";
+      } else {
+        linkOpenType = "name";
+      }
+    }
+
+    function linkOpen(data) {
+      if (linkOpenType === "name") {
+        const select = document.getElementById("modalSelect");
+        const selectedId = select.value;
+
+        const link = data.lessons[selectedId - 1].link;
+
+        window.open(link, "_blank").focus();
+      } else if (linkOpenType === "QNO") {
+        const input = document.getElementById("inputQNO");
+        const selectedQ = input.value;
+
+        if (selectedQ < data.min || selectedQ > data.max || !selectedQ) {
+          document.getElementById("warnQNO").classList.remove("d-none");
+          input.value = null;
+          return;
+        } else {
+          document.getElementById("warnQNO").classList.add("d-none");
+        }
+
+        const lessonID = data.questions[selectedQ - 1].l_id;
+        const link = data.lessons[lessonID - 1].link;
+
+        input.value = null;
+
+        window.open(link, "_blank").focus();
+      }
     }
   </script>
 </html>
