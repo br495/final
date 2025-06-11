@@ -2832,4 +2832,14 @@
       });
     }
   </script>
+  <script>
+    var inputQNO = document.getElementById("inputQNO");
+
+    inputQNO.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("linkOpen").click();
+      }
+    });
+  </script>
 </html>
