@@ -672,10 +672,10 @@
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/i18n/ar.js"></script>
 
   <!-- Disable-devtool -->
-  <script
+  <!-- <script
     disable-devtool-auto
     src="https://cdn.jsdelivr.net/npm/disable-devtool@latest"
-  ></script>
+  ></script> -->
 
   <!-- Warn Modal Script -->
   <script>
@@ -735,13 +735,13 @@
 
       if (!hasSeenModal) {
         const myModal = new bootstrap.Modal(
-          document.getElementById("welcomeModal")
+          document.getElementById("warnModal")
         );
         myModal.show();
 
         // عند إغلاق المودال
         document
-          .getElementById("welcomeModal")
+          .getElementById("warnModal")
           .addEventListener("hidden.bs.modal", function () {
             setCookie("seenModal", "true", 2);
 
