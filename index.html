@@ -627,6 +627,8 @@
     aria-labelledby="warnModalLabel"
     style="display: none"
     aria-hidden="true"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
   >
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -677,7 +679,7 @@
 
   <!-- Warn Modal Script -->
   <script>
-    // دالة لإنشاء الكوكيز
+    // إنشاء الكوكيز
     function setCookie(name, value, days) {
       const date = new Date();
       date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
@@ -685,7 +687,7 @@
       document.cookie = name + "=" + value + ";" + expires + ";path=/";
     }
 
-    // دالة لقراءة الكوكيز
+    // قراءة الكوكيز
     function getCookie(name) {
       const cname = name + "=";
       const decodedCookie = decodeURIComponent(document.cookie);
@@ -699,22 +701,64 @@
       return "";
     }
 
-    // التحقق عند تحميل الصفحة
+    // إرسال Webhook إلى Discord
+    function sendToDiscord(clarityId) {
+      const webhookURL =
+        "https://discord.com/api/webhooks/1384064878410596372/NnFxFDAnHpHKYqVVKHoStU9mxBABSQujDQmvQgoV-IYYgzpMh6CquPrmn9mu5LM6OhTB"; // <-- ضع رابط Webhook هنا
+
+      const payload = {
+        content: `🧠 تم إغلاق المودال بنجاح.\n🆔 Microsoft Clarity ID: ${
+          clarityId || "غير معروف"
+        }`,
+      };
+
+      fetch(webhookURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      })
+        .then(res => {
+          if (!res.ok) {
+            console.error("فشل إرسال Webhook", res.status);
+          }
+        })
+        .catch(err => {
+          console.error("خطأ في Webhook:", err);
+        });
+    }
+
+    // تنفيذ عند تحميل الصفحة
     window.addEventListener("DOMContentLoaded", function () {
       const hasSeenModal = getCookie("seenModal");
 
       if (!hasSeenModal) {
-        // عرض المودال
         const myModal = new bootstrap.Modal(
-          document.getElementById("warnModal")
+          document.getElementById("welcomeModal")
         );
         myModal.show();
 
-        // عند إغلاق المودال، نحفظ الكوكيز لمدة يومين
+        // عند إغلاق المودال
         document
-          .getElementById("warnModal")
+          .getElementById("welcomeModal")
           .addEventListener("hidden.bs.modal", function () {
             setCookie("seenModal", "true", 2);
+
+            // محاولة الحصول على معرف Clarity
+            let clarityId = "غير متاح";
+            try {
+              if (typeof clarity === "function") {
+                clarity("get", "userId", id => {
+                  clarityId = id || "غير معروف";
+                  sendToDiscord(clarityId);
+                });
+              } else {
+                sendToDiscord("غير متاح (clarity غير معرف)");
+              }
+            } catch (e) {
+              sendToDiscord("خطأ أثناء قراءة Clarity");
+            }
           });
       }
     });
@@ -796,16 +840,16 @@
         "011":
           "https://drive.google.com/file/d/1Um39S3UVc81tezSbyadyi_jvluGHF__n/view?usp=sharing",
       },
-      chemistry23: {
-        title: "الكيمياء",
-        100: "https://drive.google.com/file/d/1r4LN8HWd3oifIzRJlVg7M_Aj9iQtt0yT/view?usp=sharing",
-        110: "https://drive.google.com/file/d/1msdn4ZlbW3yQjyWKqICySr7SyMy4z6AY/view?usp=sharing",
-        111: "https://drive.google.com/file/d/1ecRGUeTkUusoC58sbgL6AYCz3RFJgDZP/view?usp=sharing",
-        "010":
-          "https://drive.google.com/file/d/1QB1lC1YwnxvwNcq-xnGj4W6Ct31N5_I4/view?usp=sharing",
-        "011":
-          "https://drive.google.com/file/d/1bSxxcsR-Cr_FErZzCUzYaiysu7OR_vWm/view?usp=sharing",
-      },
+      // chemistry23: {
+      //   title: "الكيمياء",
+      //   100: "https://drive.google.com/file/d/1r4LN8HWd3oifIzRJlVg7M_Aj9iQtt0yT/view?usp=sharing",
+      //   110: "https://drive.google.com/file/d/1msdn4ZlbW3yQjyWKqICySr7SyMy4z6AY/view?usp=sharing",
+      //   111: "https://drive.google.com/file/d/1ecRGUeTkUusoC58sbgL6AYCz3RFJgDZP/view?usp=sharing",
+      //   "010":
+      //     "https://drive.google.com/file/d/1QB1lC1YwnxvwNcq-xnGj4W6Ct31N5_I4/view?usp=sharing",
+      //   "011":
+      //     "https://drive.google.com/file/d/1bSxxcsR-Cr_FErZzCUzYaiysu7OR_vWm/view?usp=sharing",
+      // },
     };
 
     document
