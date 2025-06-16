@@ -619,45 +619,6 @@
     </div>
   </div>
 
-  <!-- Warn Modal -->
-  <div
-    class="modal fade"
-    id="warnModal"
-    tabindex="-1"
-    aria-labelledby="warnModalLabel"
-    style="display: none"
-    aria-hidden="true"
-    data-bs-backdrop="static"
-    data-bs-keyboard="false"
-  >
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="warnModalLabel">تنبيه</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <p class="text-center fs-5">
-            نشكر لكم ثقتكم، ونحيطكم علمًا بأنه يرجي حاليًا محاولات لإيقاف الموقع
-            ومنع لنشر المحتوى فيه من إدارة ومعلمين المدرسة؛
-            <span class="text-danger"
-              >لذلك نطلب تعاونكم معنا ومساعدتنا من خلال التكتم على محتوى الموقع
-              وعدم إبلاغ المعلمين، الإدارة، ولجنة التصحيح؛</span
-            >
-            إيصال محتوى الموقع إلى هذه الأطراف يعرض الموقع والقائمين عليه للضرر
-            ويعرض الاختبارات لإعادة الكتابة مما ينتج عنه تصعيب الاختبارات عليكم
-            ؛ نطمح لتعاونكم ونشكر ثقتكم.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- jQuery (required for Select2) -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -676,93 +637,6 @@
     disable-devtool-auto
     src="https://cdn.jsdelivr.net/npm/disable-devtool@latest"
   ></script>
-
-  <!-- Warn Modal Script -->
-  <script>
-    // إنشاء الكوكيز
-    function setCookie(name, value, days) {
-      const date = new Date();
-      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-      const expires = "expires=" + date.toUTCString();
-      document.cookie = name + "=" + value + ";" + expires + ";path=/";
-    }
-
-    // قراءة الكوكيز
-    function getCookie(name) {
-      const cname = name + "=";
-      const decodedCookie = decodeURIComponent(document.cookie);
-      const ca = decodedCookie.split(";");
-      for (let i = 0; i < ca.length; i++) {
-        let c = ca[i].trim();
-        if (c.indexOf(cname) == 0) {
-          return c.substring(cname.length, c.length);
-        }
-      }
-      return "";
-    }
-
-    // إرسال Webhook إلى Discord
-    function sendToDiscord(clarityId) {
-      const webhookURL =
-        "https://discord.com/api/webhooks/1384064878410596372/NnFxFDAnHpHKYqVVKHoStU9mxBABSQujDQmvQgoV-IYYgzpMh6CquPrmn9mu5LM6OhTB"; // <-- ضع رابط Webhook هنا
-
-      const payload = {
-        content: `🧠 تم إغلاق المودال بنجاح.\n🆔 Microsoft Clarity ID: ${
-          clarityId || "غير معروف"
-        }`,
-      };
-
-      fetch(webhookURL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      })
-        .then(res => {
-          if (!res.ok) {
-            console.error("فشل إرسال Webhook", res.status);
-          }
-        })
-        .catch(err => {
-          console.error("خطأ في Webhook:", err);
-        });
-    }
-
-    // تنفيذ عند تحميل الصفحة
-    window.addEventListener("DOMContentLoaded", function () {
-      const hasSeenModal = getCookie("seenModal");
-
-      if (!hasSeenModal) {
-        const myModal = new bootstrap.Modal(
-          document.getElementById("warnModal")
-        );
-        myModal.show();
-
-        // عند إغلاق المودال
-        document
-          .getElementById("warnModal")
-          .addEventListener("hidden.bs.modal", function () {
-            setCookie("seenModal", "true", 2);
-
-            // محاولة الحصول على معرف Clarity
-            let clarityId = "غير متاح";
-            try {
-              if (typeof clarity === "function") {
-                clarity("get", "userId", id => {
-                  clarityId = id || "غير معروف";
-                  sendToDiscord(clarityId);
-                });
-              } else {
-                sendToDiscord("غير متاح (clarity غير معرف)");
-              }
-            } catch (e) {
-              sendToDiscord("خطأ أثناء قراءة Clarity");
-            }
-          });
-      }
-    });
-  </script>
 
   <!-- Initialize Script -->
   <script>
@@ -812,7 +686,7 @@
       math: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">30 سؤال اختيارات</p><p class="mb-1">10 أسئلة صح وخطأ</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من الكتاب، مع العلم أن الصح والخطأ سيكون من التعريفات باللون الأصفر والمفاهيم الرئيسية في المربعات الزرقاء (الصح والخطأ يُفهم لا يُحفظ).</p><h5 class="mt-3">شروحات مساعدة:</h5><a class="d-block" href="https://youtu.be/n9o8r9YLOqg" target="_blank">ملخص مراجعة الرياضيات ٢-٣ | الوحدة الأولى</a><a class="d-block" href="https://youtu.be/v_4IjpjFlfY" target="_blank">ملخص مراجعة الرياضيات ٢-٣ | الوحدة الثانية</a><a class="d-block" href="https://youtu.be/2Ex06sfoe6U" target="_blank">تبسيط إنطاق المقام</a><a class="d-block" href="https://drive.google.com/file/d/1YU7dmR_5EkhaHiP7byO8x_byUJkFHp5f/view?usp=drive_link" target="_blank">تجميع التعريفات باللون الأصفر والمفاهيم الرئيسية في المربعات الزرقاء (تجميع الصح والخطأ)</a><h5 class="mt-3">نقاط محذوفة من المذاكرة:</h5> <ul class="list-group list-group-flush"><li class="list-group-item">المفهوم الأساسي (المثلثات الممكنة في الحالة SSA) صـ٨٠ والأمثلة التي تتبعه (مثال ٣)</li><li class="list-group-item">المفهوم الأساسي (دالة الظل) صـ١٠٢ والأمثلة التي تتبعه (مثال ٤)</li><li class="list-group-item">⁠المفهوم الأساسي (دوال قاطع التمام والقاطع وظل التمام) صـ١٠٣ والأمثلة التي تتبعه (مثال ٥)</li><li class="list-group-item">⁠الرسم البياني في المفهوم الأساسي (الدوال المثلثية العكسية) صـ١٠٧</li><li class="list-group-item">⁠المجال والمدى في جميع المفاهيم الأساسية الخاصة بالدوال (الدرسين الأخريين)</li><li class="list-group-item">⁠جميع الأسئلة التي يوجد لها طرقتين للحل أحدها يدوية وأحدها بالآلة الحاسبة يكفي مذاكرة طريقتها في الحاسبة (جميعها في الاختبار ستكون ممكنة الحل بالآلة الحاسبة)</li></ul>`,
       chemistry: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">غير معروف</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من مسرد الكيمياء، يشمل كل المواضيع.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abstractDownloderModal" data-subject="chemistry23">تحميل المسرد</button> <br> <button class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#explainModal" onclick="initializeExplainModal(chemistryData, 'chemistry', 'الكيمياء')">شرح المسرد</button> <br> <button class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#quizModal" data-subject="chemistry23" data-title="الكيمياء" > ابدأ الاختبار الإلكتروني للتجميعات </button>`,
       english: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>القواعد:</h5><p class="mb-1">من الكتاب الـGrammar والـForm, Meaning, and Function.</p><p class="mb-1">الاختبار نسخ لصق من الأمثلة ومن التمارين أسفل كل قاعدة.</p><p>لا يوجد أي أسئلة من كتاب النشاط.</p><h5 class="mt-3">الكلمات:</h5><p>من الـQuick Check والـVocabulary Building.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#wordModal">عرض الكلمات</button> <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#wordsQuizModal">اختبار الكلمات</button><h5 class="mt-3">النص:</h5><p>نص بسيط مع أسئلة صح وخطأ واضحة بدون أي صعوبة.</p><h5 class="mt-3">شروحات مساعدة:</h5><a class="d-block" href="https://youtu.be/68GnVXacrLI" target="_blank">ملخص مراجعة قواعد ميقا قول ٢-٣</a></ul>`,
-      biology: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">20 سؤال اختيارات</p><p class="mb-1">10 أسئلة صح وخطأ</p><p class="mb-1">5 أسئلة مزاوجة</p><p>المجموع 35 سؤال</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من مسرد الأحياء، يشمل كل المواضيع.</p> <div class="alert alert-danger" role="alert">المعارف في ختام المسرد مكملة للمسرد وليست مكررة، والاسئلة تصاغ بالطريقة المناسبة بحول الله من كامل المسرد، الفهم في المذاكرة&nbsp;هو&nbsp;مفتاح الحل وليس الحفظ. </div> <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abstractDownloderModal" data-subject="biology23">تحميل المسرد</button> <br> <button class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#explainModal" onclick="initializeExplainModal(biologyData, 'biology', 'الأحياء')">شرح المسرد</button> <br> <button class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#quizModal" data-subject="biology23" data-title="الأحياء" > ابدأ الاختبار الإلكتروني للتجميعات </button>`,
+      biology: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">20 سؤال اختيارات</p><p class="mb-1">10 أسئلة صح وخطأ</p><p class="mb-1">5 أسئلة مزاوجة</p><p>المجموع 35 سؤال</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من مسرد الأحياء، يشمل كل المواضيع.</p> <div class="alert alert-danger" role="alert">المعارف في ختام المسرد مكملة للمسرد وليست مكررة، والاسئلة تصاغ بالطريقة المناسبة بحول الله من كامل المسرد، الفهم في المذاكرة&nbsp;هو&nbsp;مفتاح الحل وليس الحفظ. </div> <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abstractDownloderModal" data-subject="biology23">تحميل المسرد</button> <br> <button class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#explainModal" onclick="initializeExplainModal(biologyData, 'biology', 'الأحياء')">شرح المسرد</button> <br> <button class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#quizModal" data-subject="biology23" data-title="الأحياء" > ابدأ الاختبار الإلكتروني للتجميعات </button> <br> <button class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#quizModal" data-subject="biology23addon" data-ai="ture" data-title="المعارف الهامة (أحياء 2-3)" > اختبار إلكتروني لمراجعة المعارف الهامة  </button> <h5 class="mt-3">ملاحظة صوتية من الأستاذ عبدالرحمن القرني حول المسرد:</h5> <div class="audio-player"> <button id="playBtn" class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;"> <i id="playIcon" class="bi bi-play-fill fs-3"></i> </button> <div class="progress"> <div id="progressBar" class="progress-bar" style="width: 0%;"></div> </div> </div> <audio id="audio" src="biology23.mp3"></audio> </div>`,
       physics: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>الملفات المساعدة:</h5><a class="d-block" href="https://drive.google.com/file/d/15SOAEsxxd3VzZqIkJ8uhCDA7Sp3o_YXh/view?usp=drivesdk" target="_blank">تحميل تجميعات الفيزياء 2 غير محلول</a><a class="d-block" href="https://drive.google.com/file/d/1KuvHtT1p-mIuiUOzdXmJCQ8K8yGtldc0/view?usp=drivesdk" target="_blank">تحميل تجميعات الفيزياء 2  محلول</a>`,
     };
   </script>
@@ -840,16 +714,16 @@
         "011":
           "https://drive.google.com/file/d/1Um39S3UVc81tezSbyadyi_jvluGHF__n/view?usp=sharing",
       },
-      // chemistry23: {
-      //   title: "الكيمياء",
-      //   100: "https://drive.google.com/file/d/1r4LN8HWd3oifIzRJlVg7M_Aj9iQtt0yT/view?usp=sharing",
-      //   110: "https://drive.google.com/file/d/1msdn4ZlbW3yQjyWKqICySr7SyMy4z6AY/view?usp=sharing",
-      //   111: "https://drive.google.com/file/d/1ecRGUeTkUusoC58sbgL6AYCz3RFJgDZP/view?usp=sharing",
-      //   "010":
-      //     "https://drive.google.com/file/d/1QB1lC1YwnxvwNcq-xnGj4W6Ct31N5_I4/view?usp=sharing",
-      //   "011":
-      //     "https://drive.google.com/file/d/1bSxxcsR-Cr_FErZzCUzYaiysu7OR_vWm/view?usp=sharing",
-      // },
+      chemistry23: {
+        title: "الكيمياء",
+        100: "https://drive.google.com/file/d/1r4LN8HWd3oifIzRJlVg7M_Aj9iQtt0yT/view?usp=sharing",
+        110: "https://drive.google.com/file/d/1msdn4ZlbW3yQjyWKqICySr7SyMy4z6AY/view?usp=sharing",
+        111: "https://drive.google.com/file/d/1ecRGUeTkUusoC58sbgL6AYCz3RFJgDZP/view?usp=sharing",
+        "010":
+          "https://drive.google.com/file/d/1QB1lC1YwnxvwNcq-xnGj4W6Ct31N5_I4/view?usp=sharing",
+        "011":
+          "https://drive.google.com/file/d/1bSxxcsR-Cr_FErZzCUzYaiysu7OR_vWm/view?usp=sharing",
+      },
     };
 
     document
