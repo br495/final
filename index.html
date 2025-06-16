@@ -619,6 +619,43 @@
     </div>
   </div>
 
+  <!-- Warn Modal -->
+  <div
+    class="modal fade"
+    id="warnModal"
+    tabindex="-1"
+    aria-labelledby="warnModalLabel"
+    style="display: none"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="warnModalLabel">تنبيه</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <p class="text-center fs-5">
+            نشكر لكم ثقتكم، ونحيطكم علمًا بأنه يرجي حاليًا محاولات لإيقاف الموقع
+            ومنع لنشر المحتوى فيه من إدارة ومعلمين المدرسة؛
+            <span class="text-danger"
+              >لذلك نطلب تعاونكم معنا ومساعدتنا من خلال التكتم على محتوى الموقع
+              وعدم إبلاغ المعلمين، الإدارة، ولجنة التصحيح؛</span
+            >
+            إيصال محتوى الموقع إلى هذه الأطراف يعرض الموقع والقائمين عليه للضرر
+            ويعرض الاختبارات لإعادة الكتابة مما ينتج عنه تصعيب الاختبارات عليكم
+            ؛ نطمح لتعاونكم ونشكر ثقتكم.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- jQuery (required for Select2) -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -637,6 +674,51 @@
     disable-devtool-auto
     src="https://cdn.jsdelivr.net/npm/disable-devtool@latest"
   ></script>
+
+  <!-- Warn Modal Script -->
+  <script>
+    // دالة لإنشاء الكوكيز
+    function setCookie(name, value, days) {
+      const date = new Date();
+      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+      const expires = "expires=" + date.toUTCString();
+      document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    }
+
+    // دالة لقراءة الكوكيز
+    function getCookie(name) {
+      const cname = name + "=";
+      const decodedCookie = decodeURIComponent(document.cookie);
+      const ca = decodedCookie.split(";");
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i].trim();
+        if (c.indexOf(cname) == 0) {
+          return c.substring(cname.length, c.length);
+        }
+      }
+      return "";
+    }
+
+    // التحقق عند تحميل الصفحة
+    window.addEventListener("DOMContentLoaded", function () {
+      const hasSeenModal = getCookie("seenModal");
+
+      if (!hasSeenModal) {
+        // عرض المودال
+        const myModal = new bootstrap.Modal(
+          document.getElementById("warnModal")
+        );
+        myModal.show();
+
+        // عند إغلاق المودال، نحفظ الكوكيز لمدة يومين
+        document
+          .getElementById("warnModal")
+          .addEventListener("hidden.bs.modal", function () {
+            setCookie("seenModal", "true", 2);
+          });
+      }
+    });
+  </script>
 
   <!-- Initialize Script -->
   <script>
