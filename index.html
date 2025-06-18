@@ -33,6 +33,10 @@
 
     <!-- Custom CSS -->
     <style>
+      .rtl {
+        direction: rtl;
+      }
+
       .w-45 {
         width: 45% !important;
       }
@@ -130,6 +134,9 @@
             <option value="english">الانجليزي</option>
             <option value="physics">الفيزياء</option>
             <option value="biology">الأحياء</option>
+            <option value="calculator" disabled>
+              حاسبة نسبة الفصل الدراسي الثالث
+            </option>
           </select>
 
           <div class="my-3"></div>
@@ -312,7 +319,9 @@
                   </div>
                   <input
                     type="number"
-                    class="form-control"
+                    class="form-control rtl"
+                    min="0"
+                    max="100"
                     id="num-questions"
                     min="1"
                     style="display: none; width: 50%; direction: rtl"
@@ -588,7 +597,9 @@
             <div class="mb-3">
               <input
                 type="number"
-                class="form-control"
+                class="form-control rtl"
+                min="0"
+                max="100"
                 id="inputQNO"
                 placeholder="أدخل رقم السؤال"
                 style="direction: rtl"
@@ -666,11 +677,19 @@
     const footerTextDiv = document.querySelector(`.card-footer > p`);
 
     function update() {
-      bodyTextDiv.innerHTML = subjects[subject.value];
+      const selected = subject.value;
 
-      if (subject.value == "biology") {
+      bodyTextDiv.innerHTML = subjects[selected];
+      if (selected == "biology") {
         audioSetup();
+      } else if (selected == "calculator") {
+        document.getElementById("calcR").innerHTML = "";
       }
+    }
+
+    function secret() {
+      document.getElementById("subject").value = "calculator";
+      update();
     }
 
     document.querySelector(`body`).onload = function () {
@@ -679,7 +698,7 @@
 
     const subjects = {
       0: ``,
-      table: `<table class="table table-responsive table-striped-columns"> <thead> <tr> <th scope="col">اليوم والتاريخ</th> <th scope="col">الاختبار</th> <th scope="col">مدة الاختبار</th> <th scope="col">المعلم كاتب الاختبار</th> </tr> </thead> <tbody> <tr> <th scope="row">الثلاثاء 1446/11/29هـ</th> <td>التقنية الرقمية</td> <td>ساعتان ونصف</td> <td>نواف المالكي</td> </tr> <tr> <th scope="row">الأحد 1446/12/19هـ</th><td>الرياضيات</td><td>ساعتان ونصف</td> <td>سعود السريحي</td></tr><tr><th scope="row">الإثنين 1446/12/20هـ</th> <td>الكيمياء</td><td>ساعتان ونصف</td> <td>طارق الكناني</td></tr><tr><th scope="row">الثلاثاء 1446/12/21هـ</th><td>الإنجليزي</td><td>ساعتان ونصف</td> <td>بدر المالكي</td></tr><tr><th scope="row">الأربعاء 1446/12/22هـ</th><td>الفيزياء</td><td>ساعتان ونصف</td> <td>ضيف الله الحربي</td> </tr><tr><th scope="row">الخميس 1446/12/23هـ</th><td>الأحياء</td><td>ساعتان ونصف</td> <td>عبدالرحمن القرني</td> </tr></tbody> </table>`,
+      table: `<table class="table table-responsive table-striped-columns"> <thead> <tr> <th scope="col" onclick="secret()">اليوم والتاريخ</th> <th scope="col">الاختبار</th> <th scope="col">مدة الاختبار</th> <th scope="col">المعلم كاتب الاختبار</th> </tr> </thead> <tbody> <tr> <th scope="row">الثلاثاء 1446/11/29هـ</th> <td>التقنية الرقمية</td> <td>ساعتان ونصف</td> <td>نواف المالكي</td> </tr> <tr> <th scope="row">الأحد 1446/12/19هـ</th><td>الرياضيات</td><td>ساعتان ونصف</td> <td>سعود السريحي</td></tr><tr><th scope="row">الإثنين 1446/12/20هـ</th> <td>الكيمياء</td><td>ساعتان ونصف</td> <td>طارق الكناني</td></tr><tr><th scope="row">الثلاثاء 1446/12/21هـ</th><td>الإنجليزي</td><td>ساعتان ونصف</td> <td>بدر المالكي</td></tr><tr><th scope="row">الأربعاء 1446/12/22هـ</th><td>الفيزياء</td><td>ساعتان ونصف</td> <td>ضيف الله الحربي</td> </tr><tr><th scope="row">الخميس 1446/12/23هـ</th><td>الأحياء</td><td>ساعتان ونصف</td> <td>عبدالرحمن القرني</td> </tr></tbody> </table>`,
       youtube: `<table class="table table-responsive table-striped-columns"> <thead> <tr> <th scope="col">المادة</th> <th scope="col">الخيار الأول</th> <th scope="col">الخيار الثاني</th> </tr> </thead> <tbody> <tr> <td scope="row">الرياضيات</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLK8yT47itUfnNhLGQVK1stKtJS_-Kf6_q">محمد الحربي</a> أفضل واحد </td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLRrrrF5D5HiSo8hbOyEc-bjJIvv-1KZne">علي العنبري</a> أفضل واحد لكن شرحه صعب لأي شخص مستواه مو متقدم جدًا (استعمله لو كنت دافور او تراجع بس)</td> </tr> <tr> <td scope="row">الكيمياء</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLQUAm1qELiwCijyJA7_qP0yVynAzMIpAJ">محمد زيادة</a> المعروف لا يعرف</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLc7cQyFl3z7Sf2YO-nrpvXBQBkIkYgUtu">منار</a> شرحها ضعيف بس مختصر</td> </tr> <tr> <td scope="row">الإنجليزي</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLCYI2-XDHeNOnXNV1sM3YIcGd8mvpheHC">ماجدة</a> أفضل وحده</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLzVRVtLN8aqis3G-GZ9Cmp-dcIxR4Wvpk">الاخوات BHD</a> خيار مقبول</td> </tr> <tr> <td scope="row">الفيزياء</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLP2IZ7Q5_bQgwrPtKi4ZxBRhwsjjaXN6g">واضح</a> مره ممتاز وواضح والحلو أنه يجلس يشرح تمارين بعد ما يخلص شرح</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLQUAm1qELiwBRJqMDWcpwaDalK9tKKmRK">محمد زيادة</a> شرحه كويس لكن فيه أخطاء بسيطه هنا وهناك</td> </tr> <tr> <td scope="row">الأحياء</td> <td colspan="2"><a target="_blank" href="https://www.youtube.com/playlist?list=PLgJJOLnBSZ5vesYwikrjxpZY7R0GZ9Q59">Ahmad School (أحياء وعلم بيئة)</a> ممتاز جدًا</td> </tr> </tbody> </table>`,
       tech: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>المذاكرة:</h5><p>المذاكرة من الكتاب والمراجعة من الملف التالي:</p><a class="d-block" href="https://drive.google.com/file/d/1s18jqRUb2pLmwQN-eVMNBRd2is8XyJ0D/view?usp=sharing" target="_blank">تحميل بنك أسئلة التقنية الرقمية 2-2 غير محلول</a><a class="d-block" href="https://drive.google.com/file/d/1GEWUGDLD7KXqsjcS29_jlple3fewT4Dz/view?usp=drive_link" target="_blank">تحميل بنك أسئلة التقنية الرقمية 2-2 محلول</a>`,
       math: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">30 سؤال اختيارات</p><p class="mb-1">10 أسئلة صح وخطأ</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من الكتاب، مع العلم أن الصح والخطأ سيكون من التعريفات باللون الأصفر والمفاهيم الرئيسية في المربعات الزرقاء (الصح والخطأ يُفهم لا يُحفظ).</p><h5 class="mt-3">شروحات مساعدة:</h5><a class="d-block" href="https://youtu.be/n9o8r9YLOqg" target="_blank">ملخص مراجعة الرياضيات ٢-٣ | الوحدة الأولى</a><a class="d-block" href="https://youtu.be/v_4IjpjFlfY" target="_blank">ملخص مراجعة الرياضيات ٢-٣ | الوحدة الثانية</a><a class="d-block" href="https://youtu.be/2Ex06sfoe6U" target="_blank">تبسيط إنطاق المقام</a><a class="d-block" href="https://drive.google.com/file/d/1YU7dmR_5EkhaHiP7byO8x_byUJkFHp5f/view?usp=drive_link" target="_blank">تجميع التعريفات باللون الأصفر والمفاهيم الرئيسية في المربعات الزرقاء (تجميع الصح والخطأ)</a><h5 class="mt-3">نقاط محذوفة من المذاكرة:</h5> <ul class="list-group list-group-flush"><li class="list-group-item">المفهوم الأساسي (المثلثات الممكنة في الحالة SSA) صـ٨٠ والأمثلة التي تتبعه (مثال ٣)</li><li class="list-group-item">المفهوم الأساسي (دالة الظل) صـ١٠٢ والأمثلة التي تتبعه (مثال ٤)</li><li class="list-group-item">⁠المفهوم الأساسي (دوال قاطع التمام والقاطع وظل التمام) صـ١٠٣ والأمثلة التي تتبعه (مثال ٥)</li><li class="list-group-item">⁠الرسم البياني في المفهوم الأساسي (الدوال المثلثية العكسية) صـ١٠٧</li><li class="list-group-item">⁠المجال والمدى في جميع المفاهيم الأساسية الخاصة بالدوال (الدرسين الأخريين)</li><li class="list-group-item">⁠جميع الأسئلة التي يوجد لها طرقتين للحل أحدها يدوية وأحدها بالآلة الحاسبة يكفي مذاكرة طريقتها في الحاسبة (جميعها في الاختبار ستكون ممكنة الحل بالآلة الحاسبة)</li></ul>`,
@@ -687,7 +706,68 @@
       english: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>القواعد:</h5><p class="mb-1">من الكتاب الـGrammar والـForm, Meaning, and Function.</p><p class="mb-1">الاختبار نسخ لصق من الأمثلة ومن التمارين أسفل كل قاعدة.</p><p>لا يوجد أي أسئلة من كتاب النشاط.</p><h5 class="mt-3">الكلمات:</h5><p>من الـQuick Check والـVocabulary Building.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#wordModal">عرض الكلمات</button> <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#wordsQuizModal">اختبار الكلمات</button><h5 class="mt-3">النص:</h5><p>نص بسيط مع أسئلة صح وخطأ واضحة بدون أي صعوبة.</p><h5 class="mt-3">شروحات مساعدة:</h5><a class="d-block" href="https://youtu.be/68GnVXacrLI" target="_blank">ملخص مراجعة قواعد ميقا قول ٢-٣</a></ul>`,
       physics: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>المذاكرة:</h5><p>المذاكرة من الكتاب.</p><div class="alert alert-danger" role="alert">الملفات المساعدة تجميعات متوفرة في الانترنت في مواقع متعددة وتم تجميع أهم النقاط منها، الملف لم يتم نشره من معلم المادة.</div><h5>الملفات المساعدة:</h5><a class="d-block" href="https://drive.google.com/file/d/15SOAEsxxd3VzZqIkJ8uhCDA7Sp3o_YXh/view?usp=drivesdk" target="_blank">تحميل تجميعات الفيزياء 2 غير محلول</a><a class="d-block" href="https://drive.google.com/file/d/1KuvHtT1p-mIuiUOzdXmJCQ8K8yGtldc0/view?usp=drivesdk" target="_blank">تحميل تجميعات الفيزياء 2  محلول</a>`,
       biology: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">20 سؤال اختيارات</p><p class="mb-1">10 أسئلة صح وخطأ</p><p class="mb-1">5 أسئلة مزاوجة</p><p>المجموع 35 سؤال</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من الكتاب، والمراجعة من المسرد.</p> <div class="alert alert-danger" role="alert">المسرد هو إعادة صياغة لمحتوى الكتاب بشكل أكثر ترتيبًا مع إضافة تجميعات تحصيلي إليه (المسرد هو محتوى كتاب التحصيلي لكاتبه ناصر العبدالكريم) وليس من كتابة معلم المادة.</div> <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abstractDownloderModal" data-subject="biology23">تحميل المسرد</button> <br> <button class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#explainModal" onclick="initializeExplainModal(biologyData, 'biology', 'الأحياء')">شرح المسرد</button> <br> <button class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#quizModal" data-subject="biology23" data-title="الأحياء" > ابدأ الاختبار الإلكتروني للتجميعات </button>`,
+      calculator: `<div class="row mb-2"> <div class="col">المادة</div> <div class="col">عدد الدرجات الناقصة</div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الرياضيات</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="100" id="sub1" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الفيزياء</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="100" id="sub2" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الكيمياء</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="100" id="sub3" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الأحياء</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="100" id="sub4" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">اللغة الانجليزية</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="100" id="sub5" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الكفايات اللغوية</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="100" id="sub6" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">التقنية الرقمية</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="100" id="sub7" style="height: 30px" /> </div> </div><div id="calcR"></div><button class="btn btn-secondary"" onclick="calc()">حساب</button>`,
     };
+
+    function calc() {
+      let sub1 = document.getElementById("sub1").value * 5;
+      let sub2 = document.getElementById("sub2").value * 5;
+      let sub3 = document.getElementById("sub3").value * 5;
+      let sub4 = document.getElementById("sub4").value * 4;
+      let sub5 = document.getElementById("sub5").value * 5;
+      let sub6 = document.getElementById("sub6").value * 3;
+      let sub7 = document.getElementById("sub7").value * 3;
+
+      if (0 > sub1 || 100 < sub1) {
+        document.getElementById(
+          "calcR"
+        ).innerHTML = `<div class="alert alert-danger" role="alert">تحقق من درجاتك</div>`;
+        return;
+      }
+      if (0 > sub2 || 100 < sub2) {
+        document.getElementById(
+          "calcR"
+        ).innerHTML = `<div class="alert alert-danger" role="alert">تحقق من درجاتك</div>`;
+        return;
+      }
+      if (0 > sub3 || 100 < sub3) {
+        document.getElementById(
+          "calcR"
+        ).innerHTML = `<div class="alert alert-danger" role="alert">تحقق من درجاتك</div>`;
+        return;
+      }
+      if (0 > sub4 || 100 < sub4) {
+        document.getElementById(
+          "calcR"
+        ).innerHTML = `<div class="alert alert-danger" role="alert">تحقق من درجاتك</div>`;
+        return;
+      }
+      if (0 > sub5 || 100 < sub5) {
+        document.getElementById(
+          "calcR"
+        ).innerHTML = `<div class="alert alert-danger" role="alert">تحقق من درجاتك</div>`;
+        return;
+      }
+      if (0 > sub6 || 100 < sub6) {
+        document.getElementById(
+          "calcR"
+        ).innerHTML = `<div class="alert alert-danger" role="alert">تحقق من درجاتك</div>`;
+        return;
+      }
+      if (0 > sub7 || 100 < sub7) {
+        document.getElementById(
+          "calcR"
+        ).innerHTML = `<div class="alert alert-danger" role="alert">تحقق من درجاتك</div>`;
+        return;
+      }
+
+      let mouzona = 3000 - (sub1 + sub2 + sub3 + sub4 + sub5 + sub6 + sub7);
+      let presence = Math.round((mouzona / 3000) * 10000) / 100;
+
+      document.getElementById(
+        "calcR"
+      ).innerHTML = `<div class="alert alert-success" role="alert">درجتك الموزونة هي: ${mouzona} | نسبتك هي: ${presence}%</div>`;
+    }
   </script>
 
   <!-- Download Summary Script -->
