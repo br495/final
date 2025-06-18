@@ -710,60 +710,47 @@
     };
 
     function calc() {
-      let sub1 = document.getElementById("sub1").value * 5;
-      let sub2 = document.getElementById("sub2").value * 5;
-      let sub3 = document.getElementById("sub3").value * 5;
-      let sub4 = document.getElementById("sub4").value * 4;
-      let sub5 = document.getElementById("sub5").value * 5;
-      let sub6 = document.getElementById("sub6").value * 3;
-      let sub7 = document.getElementById("sub7").value * 3;
+      // قراءة الدرجات الأصلية وتحويلها إلى أرقام
+      let s1 = Number(document.getElementById("sub1").value);
+      let s2 = Number(document.getElementById("sub2").value);
+      let s3 = Number(document.getElementById("sub3").value);
+      let s4 = Number(document.getElementById("sub4").value);
+      let s5 = Number(document.getElementById("sub5").value);
+      let s6 = Number(document.getElementById("sub6").value);
+      let s7 = Number(document.getElementById("sub7").value);
 
-      if (0 > sub1 || 100 < sub1) {
-        document.getElementById(
-          "calcR"
-        ).innerHTML = `<div class="alert alert-danger" role="alert">تحقق من درجاتك</div>`;
-        return;
-      }
-      if (0 > sub2 || 100 < sub2) {
-        document.getElementById(
-          "calcR"
-        ).innerHTML = `<div class="alert alert-danger" role="alert">تحقق من درجاتك</div>`;
-        return;
-      }
-      if (0 > sub3 || 100 < sub3) {
-        document.getElementById(
-          "calcR"
-        ).innerHTML = `<div class="alert alert-danger" role="alert">تحقق من درجاتك</div>`;
-        return;
-      }
-      if (0 > sub4 || 100 < sub4) {
-        document.getElementById(
-          "calcR"
-        ).innerHTML = `<div class="alert alert-danger" role="alert">تحقق من درجاتك</div>`;
-        return;
-      }
-      if (0 > sub5 || 100 < sub5) {
-        document.getElementById(
-          "calcR"
-        ).innerHTML = `<div class="alert alert-danger" role="alert">تحقق من درجاتك</div>`;
-        return;
-      }
-      if (0 > sub6 || 100 < sub6) {
-        document.getElementById(
-          "calcR"
-        ).innerHTML = `<div class="alert alert-danger" role="alert">تحقق من درجاتك</div>`;
-        return;
-      }
-      if (0 > sub7 || 100 < sub7) {
-        document.getElementById(
-          "calcR"
-        ).innerHTML = `<div class="alert alert-danger" role="alert">تحقق من درجاتك</div>`;
-        return;
+      // مصفوفة للتحقق
+      let originalSubs = [s1, s2, s3, s4, s5, s6, s7];
+      for (let i = 0; i < originalSubs.length; i++) {
+        if (
+          originalSubs[i] < 0 ||
+          originalSubs[i] > 100 ||
+          isNaN(originalSubs[i])
+        ) {
+          document.getElementById(
+            "calcR"
+          ).innerHTML = `<div class="alert alert-danger" role="alert">تحقق من درجاتك في المادة رقم ${
+            i + 1
+          }</div>`;
+          return;
+        }
       }
 
-      let mouzona = 3000 - (sub1 + sub2 + sub3 + sub4 + sub5 + sub6 + sub7);
+      // الضرب في عدد الوحدات
+      let sub1 = s1 * 5;
+      let sub2 = s2 * 5;
+      let sub3 = s3 * 5;
+      let sub4 = s4 * 4;
+      let sub5 = s5 * 5;
+      let sub6 = s6 * 3;
+      let sub7 = s7 * 3;
+
+      // الدرجة الموزونة والنسبة
+      let total = sub1 + sub2 + sub3 + sub4 + sub5 + sub6 + sub7;
+      let mouzona = 3000 - total;
       let presence = Math.round((mouzona / 3000) * 10000) / 100;
 
+      // النتيجة النهائية
       document.getElementById(
         "calcR"
       ).innerHTML = `<div class="alert alert-success" role="alert">درجتك الموزونة هي: ${mouzona} | نسبتك هي: ${presence}%</div>`;
