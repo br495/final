@@ -128,14 +128,20 @@
             <option value="youtube">
               جدول اقتراحات لشروحات المناهج في يوتيوب
             </option>
+            <option disabled>--------------</option>
             <option value="tech">التقنية الرقمية</option>
             <option value="math">الرياضيات</option>
             <option value="chemistry">الكيمياء</option>
             <option value="english">الانجليزي</option>
             <option value="physics">الفيزياء</option>
             <option value="biology">الأحياء</option>
-            <option value="calculator" disabled>
+            <option disabled>--------------</option>
+            <option value="calculator">حاسبة الدرجات الموزونة</option>
+            <option value="calculatorTERM">
               حاسبة نسبة الفصل الدراسي الثالث
+            </option>
+            <option value="calculatorHIGH">
+              حاسبة المعدل التراكمي للثانوية
             </option>
           </select>
 
@@ -681,15 +687,21 @@
 
       bodyTextDiv.innerHTML = subjects[selected];
       if (selected == "biology") {
-        audioSetup();
-      } else if (selected == "calculator") {
+        // audioSetup();
+      } else if (
+        selected == "calculator" ||
+        selected == "calculatorTERM" ||
+        selected == "calculatorHIGH"
+      ) {
+        document.getElementById("calcR").innerHTML = "";
+        document.getElementById("calcR").innerHTML = "";
         document.getElementById("calcR").innerHTML = "";
       }
     }
 
     function secret() {
-      document.getElementById("subject").value = "calculator";
-      update();
+      // document.getElementById("subject").value = "calculator";
+      // update();
     }
 
     document.querySelector(`body`).onload = function () {
@@ -707,6 +719,8 @@
       physics: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>المذاكرة:</h5><p>المذاكرة من الكتاب.</p><div class="alert alert-danger" role="alert">الملفات المساعدة تجميعات متوفرة في الانترنت في مواقع متعددة وتم تجميع أهم النقاط منها، الملف لم يتم نشره من معلم المادة.</div><h5>الملفات المساعدة:</h5><a class="d-block" href="https://drive.google.com/file/d/15SOAEsxxd3VzZqIkJ8uhCDA7Sp3o_YXh/view?usp=drivesdk" target="_blank">تحميل تجميعات الفيزياء 2 غير محلول</a><a class="d-block" href="https://drive.google.com/file/d/1KuvHtT1p-mIuiUOzdXmJCQ8K8yGtldc0/view?usp=drivesdk" target="_blank">تحميل تجميعات الفيزياء 2  محلول</a>`,
       biology: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">20 سؤال اختيارات</p><p class="mb-1">10 أسئلة صح وخطأ</p><p class="mb-1">5 أسئلة مزاوجة</p><p>المجموع 35 سؤال</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من الكتاب، والمراجعة من المسرد.</p> <div class="alert alert-danger" role="alert">المسرد هو إعادة صياغة لمحتوى الكتاب بشكل أكثر ترتيبًا مع إضافة تجميعات تحصيلي إليه (المسرد هو محتوى كتاب التحصيلي لكاتبه ناصر العبدالكريم) وليس من كتابة معلم المادة.</div> <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abstractDownloderModal" data-subject="biology23">تحميل المسرد</button> <br> <button class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#explainModal" onclick="initializeExplainModal(biologyData, 'biology', 'الأحياء')">شرح المسرد</button> <br> <button class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#quizModal" data-subject="biology23" data-title="الأحياء" > ابدأ الاختبار الإلكتروني للتجميعات </button>`,
       calculator: `<div class="row mb-2"> <div class="col">المادة</div> <div class="col">عدد الدرجات الناقصة</div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الرياضيات</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="100" id="sub1" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الفيزياء</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="100" id="sub2" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الكيمياء</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="100" id="sub3" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الأحياء</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="100" id="sub4" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">اللغة الانجليزية</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="100" id="sub5" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الكفايات اللغوية</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="100" id="sub6" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">التقنية الرقمية</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="100" id="sub7" style="height: 30px" /> </div> </div><div id="calcR"></div><button class="btn btn-secondary"" onclick="calc()">حساب</button>`,
+      calculatorTERM: `<div class="row mb-2"> <div class="col">الفصل الدراسي</div> <div class="col">الدرجة الموزونة من الشهادة</div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الأول</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="3000" id="t1" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الثاني</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="3000" id="t2" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الثالث</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="3000" id="t3" style="height: 30px" /> </div> </div></div><div id="calcR"></div><button class="btn btn-secondary"" onclick="calcTERM()">حساب</button>`,
+      calculatorHIGH: `<div class="row mb-2"> <div class="col">السنة</div> <div class="col">النسبة</div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الأول ثانوي</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="3000" id="y1" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الثاني ثانوي</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="3000" id="y2" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الثالث ثانوي</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="3000" id="y3" style="height: 30px" /> </div> </div></div><div id="calcR"></div><button class="btn btn-secondary"" onclick="calcHIGH()">حساب</button>`,
     };
 
     function calc() {
@@ -752,6 +766,54 @@
       document.getElementById(
         "calcR"
       ).innerHTML = `<div class="alert alert-success" role="alert">درجتك الموزونة هي: ${mouzona} | نسبتك هي: ${presence}%</div>`;
+    }
+
+    function calcTERM() {
+      let t1 = Number(document.getElementById("t1").value);
+      let t2 = Number(document.getElementById("t2").value);
+      let t3 = Number(document.getElementById("t3").value);
+
+      if (t3 < t1 + t2 || t1 === 0 || t2 === 0 || t3 === 0) {
+        document.getElementById(
+          "calcR"
+        ).innerHTML = `<div class="alert alert-danger" role="alert">تحقق من درجاتك</div>`;
+        return;
+      }
+
+      let mouzona = t3 - (t1 + t2);
+      let presence = Math.round((mouzona / 3000) * 10000) / 100;
+
+      if (presence < 100) {
+        document.getElementById(
+          "calcR"
+        ).innerHTML = `<div class="alert alert-danger" role="alert">تحقق من درجاتك</div>`;
+        return;
+      }
+
+      // النتيجة النهائية
+      document.getElementById(
+        "calcR"
+      ).innerHTML = `<div class="alert alert-success" role="alert">درجتك الموزونة هي: ${mouzona} | نسبتك هي: ${presence}%</div>`;
+    }
+
+    function calcHIGH() {
+      let y1 = Number(document.getElementById("y1").value);
+      let y2 = Number(document.getElementById("y2").value);
+      let y3 = Number(document.getElementById("y3").value);
+
+      if (0 > y1 > 100 || 0 > y2 > 100 || 0 > y3 > 100) {
+        document.getElementById(
+          "calcR"
+        ).innerHTML = `<div class="alert alert-danger" role="alert">تحقق من درجاتك</div>`;
+        return;
+      }
+
+      // النتيجة النهائية
+      document.getElementById(
+        "calcR"
+      ).innerHTML = `<div class="alert alert-success" role="alert">نسبتك هي: ${
+        y1 * 0.2 + y2 * 0.4 + y3 * 0.4
+      }%</div>`;
     }
   </script>
 
