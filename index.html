@@ -110,7 +110,7 @@
       })(window, document, "clarity", "script", "qa6jmlgjcf");
     </script>
 
-    <title>مراجعات نهائي الثاني ثانوي الفصل الدراسي الثالث 1446هـ</title>
+    <title>مراجعات نهائي الثالث ثانوي الفصل الدراسي الأول ١٤٤٧هـ</title>
   </head>
   <body>
     <!-- Container -->
@@ -118,7 +118,7 @@
       <!-- Card -->
       <div class="card text-center">
         <div class="card-header">
-          مراجعات نهائي الثاني ثانوي الفصل الدراسي الثالث 1446هـ
+          مراجعات نهائي الثالث ثانوي الفصل الدراسي الأول ١٤٤٧هـ
         </div>
         <div class="card-body">
           <h5 class="card-title mb-3">اختر المادة</h5>
@@ -129,20 +129,11 @@
               جدول اقتراحات لشروحات المناهج في يوتيوب
             </option>
             <option disabled>--------------</option>
-            <option value="tech">التقنية الرقمية</option>
             <option value="math">الرياضيات</option>
+            <option value="physics">الفيزياء</option>
             <option value="chemistry">الكيمياء</option>
             <option value="english">الانجليزي</option>
-            <option value="physics">الفيزياء</option>
-            <option value="biology">الأحياء</option>
-            <option disabled>--------------</option>
-            <option value="calculator">حاسبة الدرجات الموزونة</option>
-            <option value="calculatorTERM">
-              حاسبة نسبة الفصل الدراسي الثالث
-            </option>
-            <option value="calculatorHIGH">
-              حاسبة المعدل التراكمي للثانوية
-            </option>
+            <option value="biology">علم الأرض</option>
           </select>
 
           <div class="my-3"></div>
@@ -152,501 +143,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Abstract Downloder Modal -->
-    <div
-      class="modal fade"
-      id="abstractDownloderModal"
-      tabindex="-1"
-      aria-labelledby="abstractDownloderModalLabel"
-      style="display: none"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-m">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="abstractDownloderModalLabel">
-              تنزيل المسرد
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <p class="text-muted mb-4">
-              اختر المحتويات التي تريد تضمينها في المسرد:
-            </p>
-
-            <div class="row g-3">
-              <div class="col-6">
-                <div class="d-grid">
-                  <input
-                    type="checkbox"
-                    class="btn-check"
-                    id="summaryCheckbox"
-                    autocomplete="off"
-                  />
-                  <label class="btn btn-outline-light" for="summaryCheckbox">
-                    <i class="bi bi-file-text me-2"></i>
-                    سرد وتلخيص المادة
-                  </label>
-                </div>
-              </div>
-
-              <div class="col-6">
-                <div class="d-grid gap-2">
-                  <input
-                    type="checkbox"
-                    class="btn-check"
-                    id="questionsCheckbox"
-                    autocomplete="off"
-                  />
-                  <label class="btn btn-outline-light" for="questionsCheckbox">
-                    <i class="bi bi-question-circle me-2"></i>
-                    التجميعات
-                  </label>
-
-                  <div id="answersSection" style="display: none">
-                    <input
-                      type="checkbox"
-                      class="btn-check"
-                      id="answersCheckbox"
-                      autocomplete="off"
-                    />
-                    <label
-                      class="btn btn-outline-success w-100"
-                      for="answersCheckbox"
-                    >
-                      <i class="bi bi-check-circle me-2"></i>
-                      تضمين الحلول
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="alert alert-danger mt-4" id="warningAlert">
-              <strong>تنبيه:</strong> تأكد من اختيار المحتوى قبل التحميل.
-              <br />
-            </div>
-
-            <div class="d-flex justify-content-end mt-4">
-              <button class="btn btn-secondary me-2" data-bs-dismiss="modal">
-                إلغاء
-              </button>
-              <button class="btn btn-primary" onclick="downloadSummary()">
-                تحميل المسرد
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Quiz Modal -->
-    <div
-      class="modal fade"
-      id="quizModal"
-      tabindex="-1"
-      aria-labelledby="quizModalLabel"
-      aria-hidden="true"
-      data-bs-backdrop="static"
-      data-bs-keyboard="false"
-    >
-      <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="quizModalLabel">اختبار</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <!-- Quiz Configuration -->
-            <div id="quiz-config">
-              <h5 class="mb-3">إعدادات الاختبار</h5>
-              <div class="alert alert-warning" role="alert" id="quizAiWarn">
-                أسئلة هذا الاختبار مكتوبة بالذكاء الاصطناعي، قد تحوي أخطاء (أي
-                أخطاء يتم إكتشافها يرجى الإبلاغ عنها لتعديلها).
-              </div>
-              <div class="border p-3 rounded">
-                <div class="mb-3">
-                  <label class="form-label"
-                    >اختر المواضيع التي تريد الاختبار بها:</label
-                  >
-                  <div class="d-flex gap-2 mb-2">
-                    <input
-                      type="radio"
-                      class="btn-check"
-                      name="topic-mode"
-                      id="topic-all"
-                      autocomplete="off"
-                      checked
-                    />
-                    <label class="btn btn-outline-primary" for="topic-all"
-                      >الكل</label
-                    >
-                    <input
-                      type="radio"
-                      class="btn-check"
-                      name="topic-mode"
-                      id="topic-custom"
-                      autocomplete="off"
-                    />
-                    <label class="btn btn-outline-primary" for="topic-custom"
-                      >مخصص</label
-                    >
-                  </div>
-                </div>
-                <div
-                  class="mb-3"
-                  id="topic-checkboxes-container"
-                  style="display: none"
-                >
-                  <label class="form-label">خصص المواضيع:</label>
-                  <div
-                    id="topic-select-container"
-                    class="d-flex flex-wrap gap-2"
-                  ></div>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">عدد الأسئلة:</label>
-                  <div
-                    id="num-questions-group"
-                    class="d-flex flex-wrap gap-2 mb-2"
-                  >
-                    <!-- سيتم توليد الأزرار هنا -->
-                  </div>
-                  <input
-                    type="number"
-                    class="form-control rtl"
-                    min="0"
-                    max="100"
-                    id="num-questions"
-                    min="1"
-                    style="display: none; width: 50%; direction: rtl"
-                    placeholder="عدد مخصص"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <!-- Quiz Section -->
-            <div id="quiz-section" style="display: none">
-              <div id="quiz-progress" class="mb-3 text-center"></div>
-              <div id="question-container">
-                <img
-                  id="question-image"
-                  src=""
-                  alt="Question"
-                  class="img-fluid"
-                  width="100%"
-                />
-              </div>
-              <div
-                id="answer-buttons"
-                class="mt-3 d-flex flex-wrap gap-2 w-100 justify-content-center"
-              >
-                <button
-                  class="btn btn-outline-light answer-btn w-45"
-                  data-answer="A"
-                  id="A"
-                >
-                  A
-                </button>
-                <button
-                  class="btn btn-outline-light answer-btn w-45"
-                  data-answer="B"
-                  id="B"
-                >
-                  B
-                </button>
-                <button
-                  class="btn btn-outline-light answer-btn w-45"
-                  data-answer="C"
-                  id="C"
-                >
-                  C
-                </button>
-                <button
-                  class="btn btn-outline-light answer-btn w-45"
-                  data-answer="D"
-                  id="D"
-                >
-                  D
-                </button>
-              </div>
-              <div id="feedback" class="mt-3 text-center"></div>
-            </div>
-
-            <!-- Result Section -->
-            <div id="result-section" style="display: none" class="text-center">
-              <h5 class="mb-4">النتيجة</h5>
-              <h6 id="score"></h6>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              إغلاق
-            </button>
-            <button
-              id="next-button"
-              class="btn btn-primary"
-              style="display: none"
-            >
-              السؤال التالي
-            </button>
-            <button id="start-quiz-button" class="btn btn-primary">
-              ابدأ الاختبار
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Words Modal-->
-    <div
-      class="modal fade"
-      id="wordModal"
-      tabindex="-1"
-      aria-labelledby="wordModalLabel"
-      style="display: none"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="wordModalLabel">قائمة الكلمات</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <table class="table table-striped text-center" dir="ltr">
-              <thead class="table-dark">
-                <tr>
-                  <th>الكلمة</th>
-                  <th>المعنى</th>
-                </tr>
-              </thead>
-              <tbody id="wordsTableBody"></tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Words Quiz Modal -->
-    <div
-      class="modal fade"
-      id="wordsQuizModal"
-      data-bs-backdrop="static"
-      tabindex="-1"
-      aria-labelledby="wordsQuizModalLabel"
-      style="display: none"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="wordsQuizModalLabel">اختبار الكلمات</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <div id="quizContainer">
-              <div class="d-flex justify-content-between mb-4">
-                <div>
-                  <span>الكلمة: </span>
-                  <span id="questionCounter" class="badge bg-primary">1</span>
-                  <span> من </span>
-                  <span id="totalQuestions" class="badge bg-secondary">0</span>
-                </div>
-              </div>
-
-              <div class="card mb-4">
-                <div class="card-body text-center">
-                  <h3 id="currentWord" class="mb-3">جار التحميل...</h3>
-                  <button class="btn btn-sm mb-3" onclick="speakCurrentWord()">
-                    🔊
-                  </button>
-                  <div id="options" class="d-grid gap-2"></div>
-                </div>
-              </div>
-            </div>
-
-            <div id="resultsContainer" style="display: none">
-              <div class="card">
-                <div class="card-body text-center">
-                  <h4 class="mb-4">نتائج الاختبار</h4>
-                  <div class="results-summary">
-                    <p class="mb-2">
-                      <span class="fw-bold">عدد الكلمات: </span
-                      ><span id="finalTotalQuestions">0</span>
-                    </p>
-                    <p class="mb-2">
-                      <span class="fw-bold">الإجابات الصحيحة: </span
-                      ><span id="finalCorrectAnswers">0</span>
-                    </p>
-                    <p class="mb-2">
-                      <span class="fw-bold">الإجابات الخاطئة: </span
-                      ><span id="finalWrongAnswers">0</span>
-                    </p>
-                    <p class="mb-2">
-                      <span class="fw-bold">الدرجة النهائية: </span
-                      ><span id="finalScore">0</span>
-                    </p>
-                  </div>
-
-                  <div class="mt-4">
-                    <h5 class="mb-3">الكلمات التي لم تتمكن من معرفتها:</h5>
-                    <ul id="wrongAnswersList" class="list-group"></ul>
-                  </div>
-
-                  <div class="mt-4">
-                    <button class="btn btn-primary" onclick="restartWordQuiz()">
-                      إعادة الاختبار
-                    </button>
-                    <button
-                      class="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      إغلاق
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
-
-  <!-- Explain Modal-->
-  <div
-    class="modal fade"
-    id="explainModal"
-    tabindex="-1"
-    aria-labelledby="explainModalLabel"
-    style="display: none"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="explainModalLabel">شرح مسرد مادة</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body text-center">
-          <p class="text-warning special-paragraph chemistry biology">
-            فيديوهات الشرح تحوي أولًا جزئية شرح المحتوى العملي ثم جزئية شرح
-            الأسئلة جميعها في نفس الفيديو.
-          </p>
-          <div class="btn-group mb-3" role="group">
-            <input
-              type="radio"
-              class="btn-check viaName"
-              name="btnradio"
-              id="btnradio1"
-              autocomplete="off"
-              checked
-              onclick="toggleType()"
-            />
-            <label class="btn btn-outline-primary" for="btnradio1"
-              >شرح درس</label
-            >
-
-            <input
-              type="radio"
-              class="btn-check viaQNO"
-              name="btnradio"
-              id="btnradio2"
-              autocomplete="off"
-              onclick="toggleType()"
-            />
-            <label class="btn btn-outline-primary" for="btnradio2"
-              >شرح سؤال</label
-            >
-          </div>
-
-          <div id="byName" class="mb-3">
-            <select id="modalSelect" class="form-select">
-              <option></option>
-            </select>
-          </div>
-
-          <div id="byQNO" class="d-none">
-            <div class="mb-3">
-              <input
-                type="number"
-                class="form-control rtl"
-                min="0"
-                max="100"
-                id="inputQNO"
-                placeholder="أدخل رقم السؤال"
-                style="direction: rtl"
-              />
-            </div>
-            <div
-              class="alert alert-danger d-none"
-              role="alert"
-              id="warnQNO"
-            ></div>
-          </div>
-
-          <p class="special-paragraph chemistry">شرح الأستاذ محمد زيادة.</p>
-          <p class="special-paragraph biology">شرح الأستاذة فرح ابراهيم.</p>
-        </div>
-        <div class="modal-footer">
-          <button
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          >
-            إغلاق
-          </button>
-          <button class="btn btn-primary" id="linkOpen">فتح الشرح</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- jQuery (required for Select2) -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- SweetAlert2 JS -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-  <!-- Select2 JS -->
-  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/i18n/ar.js"></script>
 
   <!-- Disable-devtool -->
   <script
@@ -686,24 +182,8 @@
       const selected = subject.value;
 
       bodyTextDiv.innerHTML = subjects[selected];
-      if (selected == "biology") {
-        // audioSetup();
-      } else if (
-        selected == "calculator" ||
-        selected == "calculatorTERM" ||
-        selected == "calculatorHIGH"
-      ) {
-        document.getElementById("calcR").innerHTML = "";
-        document.getElementById("calcR").innerHTML = "";
-        document.getElementById("calcR").innerHTML = "";
-      }
     }
-
-    function secret() {
-      // document.getElementById("subject").value = "calculator";
-      // update();
-    }
-
+    
     document.querySelector(`body`).onload = function () {
       footerTextDiv.innerHTML = footerText[random];
     };
@@ -712,2271 +192,11 @@
       0: ``,
       table: `<table class="table table-responsive table-striped-columns"> <thead> <tr> <th scope="col" onclick="secret()">اليوم والتاريخ</th> <th scope="col">الاختبار</th> <th scope="col">مدة الاختبار</th> <th scope="col">المعلم كاتب الاختبار</th> </tr> </thead> <tbody> <tr> <th scope="row">الثلاثاء 1446/11/29هـ</th> <td>التقنية الرقمية</td> <td>ساعتان ونصف</td> <td>نواف المالكي</td> </tr> <tr> <th scope="row">الأحد 1446/12/19هـ</th><td>الرياضيات</td><td>ساعتان ونصف</td> <td>سعود السريحي</td></tr><tr><th scope="row">الإثنين 1446/12/20هـ</th> <td>الكيمياء</td><td>ساعتان ونصف</td> <td>طارق الكناني</td></tr><tr><th scope="row">الثلاثاء 1446/12/21هـ</th><td>الإنجليزي</td><td>ساعتان ونصف</td> <td>بدر المالكي</td></tr><tr><th scope="row">الأربعاء 1446/12/22هـ</th><td>الفيزياء</td><td>ساعتان ونصف</td> <td>ضيف الله الحربي</td> </tr><tr><th scope="row">الخميس 1446/12/23هـ</th><td>الأحياء</td><td>ساعتان ونصف</td> <td>عبدالرحمن القرني</td> </tr></tbody> </table>`,
       youtube: `<table class="table table-responsive table-striped-columns"> <thead> <tr> <th scope="col">المادة</th> <th scope="col">الخيار الأول</th> <th scope="col">الخيار الثاني</th> </tr> </thead> <tbody> <tr> <td scope="row">الرياضيات</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLK8yT47itUfnNhLGQVK1stKtJS_-Kf6_q">محمد الحربي</a> أفضل واحد </td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLRrrrF5D5HiSo8hbOyEc-bjJIvv-1KZne">علي العنبري</a> أفضل واحد لكن شرحه صعب لأي شخص مستواه مو متقدم جدًا (استعمله لو كنت دافور او تراجع بس)</td> </tr> <tr> <td scope="row">الكيمياء</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLQUAm1qELiwCijyJA7_qP0yVynAzMIpAJ">محمد زيادة</a> المعروف لا يعرف</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLc7cQyFl3z7Sf2YO-nrpvXBQBkIkYgUtu">منار</a> شرحها ضعيف بس مختصر</td> </tr> <tr> <td scope="row">الإنجليزي</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLCYI2-XDHeNOnXNV1sM3YIcGd8mvpheHC">ماجدة</a> أفضل وحده</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLzVRVtLN8aqis3G-GZ9Cmp-dcIxR4Wvpk">الاخوات BHD</a> خيار مقبول</td> </tr> <tr> <td scope="row">الفيزياء</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLP2IZ7Q5_bQgwrPtKi4ZxBRhwsjjaXN6g">واضح</a> مره ممتاز وواضح والحلو أنه يجلس يشرح تمارين بعد ما يخلص شرح</td> <td><a target="_blank" href="https://www.youtube.com/playlist?list=PLQUAm1qELiwBRJqMDWcpwaDalK9tKKmRK">محمد زيادة</a> شرحه كويس لكن فيه أخطاء بسيطه هنا وهناك</td> </tr> <tr> <td scope="row">الأحياء</td> <td colspan="2"><a target="_blank" href="https://www.youtube.com/playlist?list=PLgJJOLnBSZ5vesYwikrjxpZY7R0GZ9Q59">Ahmad School (أحياء وعلم بيئة)</a> ممتاز جدًا</td> </tr> </tbody> </table>`,
-      tech: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>المذاكرة:</h5><p>المذاكرة من الكتاب والمراجعة من الملف التالي:</p><a class="d-block" href="https://drive.google.com/file/d/1s18jqRUb2pLmwQN-eVMNBRd2is8XyJ0D/view?usp=sharing" target="_blank">تحميل بنك أسئلة التقنية الرقمية 2-2 غير محلول</a><a class="d-block" href="https://drive.google.com/file/d/1GEWUGDLD7KXqsjcS29_jlple3fewT4Dz/view?usp=drive_link" target="_blank">تحميل بنك أسئلة التقنية الرقمية 2-2 محلول</a>`,
-      math: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">30 سؤال اختيارات</p><p class="mb-1">10 أسئلة صح وخطأ</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من الكتاب، مع العلم أن الصح والخطأ سيكون من التعريفات باللون الأصفر والمفاهيم الرئيسية في المربعات الزرقاء (الصح والخطأ يُفهم لا يُحفظ).</p><h5 class="mt-3">شروحات مساعدة:</h5><a class="d-block" href="https://youtu.be/n9o8r9YLOqg" target="_blank">ملخص مراجعة الرياضيات ٢-٣ | الوحدة الأولى</a><a class="d-block" href="https://youtu.be/v_4IjpjFlfY" target="_blank">ملخص مراجعة الرياضيات ٢-٣ | الوحدة الثانية</a><a class="d-block" href="https://youtu.be/2Ex06sfoe6U" target="_blank">تبسيط إنطاق المقام</a><a class="d-block" href="https://drive.google.com/file/d/1YU7dmR_5EkhaHiP7byO8x_byUJkFHp5f/view?usp=drive_link" target="_blank">تجميع التعريفات باللون الأصفر والمفاهيم الرئيسية في المربعات الزرقاء (تجميع الصح والخطأ)</a><h5 class="mt-3">نقاط محذوفة من المذاكرة:</h5> <ul class="list-group list-group-flush"><li class="list-group-item">المفهوم الأساسي (المثلثات الممكنة في الحالة SSA) صـ٨٠ والأمثلة التي تتبعه (مثال ٣)</li><li class="list-group-item">المفهوم الأساسي (دالة الظل) صـ١٠٢ والأمثلة التي تتبعه (مثال ٤)</li><li class="list-group-item">⁠المفهوم الأساسي (دوال قاطع التمام والقاطع وظل التمام) صـ١٠٣ والأمثلة التي تتبعه (مثال ٥)</li><li class="list-group-item">⁠الرسم البياني في المفهوم الأساسي (الدوال المثلثية العكسية) صـ١٠٧</li><li class="list-group-item">⁠المجال والمدى في جميع المفاهيم الأساسية الخاصة بالدوال (الدرسين الأخريين)</li><li class="list-group-item">⁠جميع الأسئلة التي يوجد لها طرقتين للحل أحدها يدوية وأحدها بالآلة الحاسبة يكفي مذاكرة طريقتها في الحاسبة (جميعها في الاختبار ستكون ممكنة الحل بالآلة الحاسبة)</li></ul>`,
-      chemistry: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">غير معروف</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من الكتاب،والمراجعة من المسرد.</p><div class="alert alert-danger" role="alert">المسرد هو إعادة صياغة لمحتوى الكتاب بشكل أكثر ترتيبًا مع إضافة تجميعات تحصيلي إليه (المسرد هو محتوى كتاب التحصيلي لكاتبه ناصر العبدالكريم) وليس من كتابة معلم المادة.</div><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abstractDownloderModal" data-subject="chemistry23">تحميل المسرد</button> <br> <button class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#explainModal" onclick="initializeExplainModal(chemistryData, 'chemistry', 'الكيمياء')">شرح المسرد</button> <br> <button class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#quizModal" data-subject="chemistry23" data-title="الكيمياء" > ابدأ الاختبار الإلكتروني للتجميعات </button>`,
-      english: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>القواعد:</h5><p class="mb-1">من الكتاب الـGrammar والـForm, Meaning, and Function.</p><p class="mb-1">الاختبار نسخ لصق من الأمثلة ومن التمارين أسفل كل قاعدة.</p><p>لا يوجد أي أسئلة من كتاب النشاط.</p><h5 class="mt-3">الكلمات:</h5><p>من الـQuick Check والـVocabulary Building.</p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#wordModal">عرض الكلمات</button> <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#wordsQuizModal">اختبار الكلمات</button><h5 class="mt-3">النص:</h5><p>نص بسيط مع أسئلة صح وخطأ واضحة بدون أي صعوبة.</p><h5 class="mt-3">شروحات مساعدة:</h5><a class="d-block" href="https://youtu.be/68GnVXacrLI" target="_blank">ملخص مراجعة قواعد ميقا قول ٢-٣</a></ul>`,
-      physics: `<h5 class="mt-3">عدد الأسئلة:</h5><p>غير معروف</p><h5>المذاكرة:</h5><p>المذاكرة من الكتاب.</p><div class="alert alert-danger" role="alert">الملفات المساعدة تجميعات متوفرة في الانترنت في مواقع متعددة وتم تجميع أهم النقاط منها، الملف لم يتم نشره من معلم المادة.</div><h5>الملفات المساعدة:</h5><a class="d-block" href="https://drive.google.com/file/d/15SOAEsxxd3VzZqIkJ8uhCDA7Sp3o_YXh/view?usp=drivesdk" target="_blank">تحميل تجميعات الفيزياء 2 غير محلول</a><a class="d-block" href="https://drive.google.com/file/d/1KuvHtT1p-mIuiUOzdXmJCQ8K8yGtldc0/view?usp=drivesdk" target="_blank">تحميل تجميعات الفيزياء 2  محلول</a>`,
-      biology: `<h5 class="mt-3">عدد الأسئلة:</h5><p class="mb-1">20 سؤال اختيارات</p><p class="mb-1">10 أسئلة صح وخطأ</p><p class="mb-1">5 أسئلة مزاوجة</p><p>المجموع 35 سؤال</p><h5 class="mt-3">المذاكرة:</h5><p>المذاكرة من الكتاب، والمراجعة من المسرد.</p> <div class="alert alert-danger" role="alert">المسرد هو إعادة صياغة لمحتوى الكتاب بشكل أكثر ترتيبًا مع إضافة تجميعات تحصيلي إليه (المسرد هو محتوى كتاب التحصيلي لكاتبه ناصر العبدالكريم) وليس من كتابة معلم المادة.</div> <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abstractDownloderModal" data-subject="biology23">تحميل المسرد</button> <br> <button class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#explainModal" onclick="initializeExplainModal(biologyData, 'biology', 'الأحياء')">شرح المسرد</button> <br> <button class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#quizModal" data-subject="biology23" data-title="الأحياء" > ابدأ الاختبار الإلكتروني للتجميعات </button>`,
-      calculator: `<div class="row mb-2"> <div class="col">المادة</div> <div class="col">عدد الدرجات الناقصة</div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الرياضيات</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="100" id="sub1" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الفيزياء</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="100" id="sub2" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الكيمياء</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="100" id="sub3" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الأحياء</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="100" id="sub4" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">اللغة الانجليزية</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="100" id="sub5" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الكفايات اللغوية</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="100" id="sub6" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">التقنية الرقمية</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="100" id="sub7" style="height: 30px" /> </div> </div><div id="calcR"></div><button class="btn btn-secondary"" onclick="calc()">حساب</button>`,
-      calculatorTERM: `<div class="row mb-2"> <div class="col">الفصل الدراسي</div> <div class="col">الدرجة الموزونة من الشهادة</div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الأول</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="3000" id="t1" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الثاني</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="3000" id="t2" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الثالث</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="3000" id="t3" style="height: 30px" /> </div> </div></div><div id="calcR"></div><button class="btn btn-secondary"" onclick="calcTERM()">حساب</button>`,
-      calculatorHIGH: `<div class="row mb-2"> <div class="col">السنة</div> <div class="col">النسبة</div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الأول ثانوي</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="3000" id="y1" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الثاني ثانوي</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="3000" id="y2" style="height: 30px" /> </div> </div> <div class="row mb-2"> <div class="col" style="height: 30px">الثالث ثانوي</div> <div class="col"> <input type="number" class="form-control rtl" min="0" max="3000" id="y3" style="height: 30px" /> </div> </div></div><div id="calcR"></div><button class="btn btn-secondary"" onclick="calcHIGH()">حساب</button>`,
+      math: `<a class="btn btn-primary" href="#" target="_blank"> مراجعة رياضيات </a><br /><a class="btn btn-primary" href="#" target="_blank"> حل مراجعة رياضيات </a><br /><a class="btn btn-primary" href="#" target="_blank"> شرح مراجعة رياضيات </a><br />`,
+      chemistry: `<a class="btn btn-primary" href="#" target="_blank"> مراجعة كيمياء </a><br /><a class="btn btn-primary" href="#" target="_blank"> حل مراجعة كيمياء </a>`,
+      english: ``,
+      physics: `<a class="btn btn-primary" href="#" target="_blank"> مراجعة فيزياء </a><br /><a class="btn btn-primary" href="#" target="_blank"> حل مراجعة فيزياء </a>`,
+      biology: `<a class="btn btn-primary" href="#" target="_blank"> مراجعة علم أرض </a><br /><a class="btn btn-primary" href="#" target="_blank"> حل مراجعة علم أرض </a>`,
     };
-
-    function calc() {
-      // قراءة الدرجات الأصلية وتحويلها إلى أرقام
-      let s1 = Number(document.getElementById("sub1").value);
-      let s2 = Number(document.getElementById("sub2").value);
-      let s3 = Number(document.getElementById("sub3").value);
-      let s4 = Number(document.getElementById("sub4").value);
-      let s5 = Number(document.getElementById("sub5").value);
-      let s6 = Number(document.getElementById("sub6").value);
-      let s7 = Number(document.getElementById("sub7").value);
-
-      // مصفوفة للتحقق
-      let originalSubs = [s1, s2, s3, s4, s5, s6, s7];
-      for (let i = 0; i < originalSubs.length; i++) {
-        if (
-          originalSubs[i] < 0 ||
-          originalSubs[i] > 100 ||
-          isNaN(originalSubs[i])
-        ) {
-          document.getElementById(
-            "calcR"
-          ).innerHTML = `<div class="alert alert-danger" role="alert">تحقق من درجاتك</div>`;
-          return;
-        }
-      }
-
-      // الضرب في عدد الوحدات
-      let sub1 = s1 * 5;
-      let sub2 = s2 * 5;
-      let sub3 = s3 * 5;
-      let sub4 = s4 * 4;
-      let sub5 = s5 * 5;
-      let sub6 = s6 * 3;
-      let sub7 = s7 * 3;
-
-      // الدرجة الموزونة والنسبة
-      let total = sub1 + sub2 + sub3 + sub4 + sub5 + sub6 + sub7;
-      let mouzona = 3000 - total;
-      let presence = Math.round((mouzona / 3000) * 10000) / 100;
-
-      // النتيجة النهائية
-      document.getElementById(
-        "calcR"
-      ).innerHTML = `<div class="alert alert-success" role="alert">درجتك الموزونة هي: ${mouzona} | نسبتك هي: ${presence}%</div>`;
-    }
-
-    function calcTERM() {
-      let t1 = Number(document.getElementById("t1").value);
-      let t2 = Number(document.getElementById("t2").value);
-      let t3 = Number(document.getElementById("t3").value);
-
-      if (t3 < t1 + t2 || t1 === 0 || t2 === 0 || t3 === 0) {
-        document.getElementById(
-          "calcR"
-        ).innerHTML = `<div class="alert alert-danger" role="alert">تحقق من درجاتك</div>`;
-        return;
-      }
-
-      let mouzona = t3 - (t1 + t2);
-      let presence = Math.round((mouzona / 3000) * 10000) / 100;
-
-      if (presence < 100) {
-        document.getElementById(
-          "calcR"
-        ).innerHTML = `<div class="alert alert-danger" role="alert">تحقق من درجاتك</div>`;
-        return;
-      }
-
-      // النتيجة النهائية
-      document.getElementById(
-        "calcR"
-      ).innerHTML = `<div class="alert alert-success" role="alert">درجتك الموزونة هي: ${mouzona} | نسبتك هي: ${presence}%</div>`;
-    }
-
-    function calcHIGH() {
-      let y1 = Number(document.getElementById("y1").value);
-      let y2 = Number(document.getElementById("y2").value);
-      let y3 = Number(document.getElementById("y3").value);
-
-      if (0 > y1 > 100 || 0 > y2 > 100 || 0 > y3 > 100) {
-        document.getElementById(
-          "calcR"
-        ).innerHTML = `<div class="alert alert-danger" role="alert">تحقق من درجاتك</div>`;
-        return;
-      }
-
-      // النتيجة النهائية
-      document.getElementById(
-        "calcR"
-      ).innerHTML = `<div class="alert alert-success" role="alert">نسبتك هي: ${
-        y1 * 0.2 + y2 * 0.4 + y3 * 0.4
-      }%</div>`;
-    }
-  </script>
-
-  <!-- Download Summary Script -->
-  <script>
-    document
-      .getElementById("questionsCheckbox")
-      .addEventListener("change", function () {
-        const answersSection = document.getElementById("answersSection");
-        answersSection.style.display = this.checked ? "block" : "none";
-        if (!this.checked) {
-          document.getElementById("answersCheckbox").checked = false;
-        }
-      });
-
-    const abstracts = {
-      biology23: {
-        title: "الأحياء",
-        100: "https://drive.google.com/file/d/1onjPwfpCQrmf_UdaO1yiwoQPDI_Rx6eR/view?usp=sharing",
-        110: "https://drive.google.com/file/d/1txIFykHWjSrcOKdPf7xYNigFHKuF7yCe/view?usp=sharing",
-        111: "https://drive.google.com/file/d/1bqkngstkGp5IK2MMmm-GtbmNEd4MyAe5/view?usp=sharing",
-        "010":
-          "https://drive.google.com/file/d/1ILY1Am26Z3-reWoJ2mN09FL6iG-wkdqQ/view?usp=sharing",
-        "011":
-          "https://drive.google.com/file/d/1Um39S3UVc81tezSbyadyi_jvluGHF__n/view?usp=sharing",
-      },
-      chemistry23: {
-        title: "الكيمياء",
-        100: "https://drive.google.com/file/d/1r4LN8HWd3oifIzRJlVg7M_Aj9iQtt0yT/view?usp=sharing",
-        110: "https://drive.google.com/file/d/1msdn4ZlbW3yQjyWKqICySr7SyMy4z6AY/view?usp=sharing",
-        111: "https://drive.google.com/file/d/1ecRGUeTkUusoC58sbgL6AYCz3RFJgDZP/view?usp=sharing",
-        "010":
-          "https://drive.google.com/file/d/1QB1lC1YwnxvwNcq-xnGj4W6Ct31N5_I4/view?usp=sharing",
-        "011":
-          "https://drive.google.com/file/d/1bSxxcsR-Cr_FErZzCUzYaiysu7OR_vWm/view?usp=sharing",
-      },
-    };
-
-    document
-      .getElementById("abstractDownloderModal")
-      .addEventListener("show.bs.modal", function (event) {
-        const button = event.relatedTarget;
-        const subject = button.getAttribute("data-subject");
-        const modalTitle = document.getElementById(
-          "abstractDownloderModalLabel"
-        );
-        const warningAlert = document.getElementById("warningAlert");
-
-        modalTitle.textContent = `تحميل مسرد ${abstracts[subject]["title"]}`;
-        warningAlert.style.display = "none";
-      });
-
-    document
-      .getElementById("abstractDownloderModal")
-      .addEventListener("hidden.bs.modal", function () {
-        const summaryCheckbox = document.getElementById("summaryCheckbox");
-        const questionsCheckbox = document.getElementById("questionsCheckbox");
-        const answersCheckbox = document.getElementById("answersCheckbox");
-        const answersSection = document.getElementById("answersSection");
-        const modalTitle = document.getElementById(
-          "abstractDownloderModalLabel"
-        );
-        const warningAlert = document.getElementById("warningAlert");
-
-        summaryCheckbox.checked = false;
-        questionsCheckbox.checked = false;
-        answersCheckbox.checked = false;
-        answersSection.style.display = "none";
-        warningAlert.style.display = "none";
-        modalTitle.textContent = "تحميل مسرد";
-      });
-
-    function downloadSummary() {
-      const summaryChecked = document.getElementById("summaryCheckbox").checked;
-      const questionsChecked =
-        document.getElementById("questionsCheckbox").checked;
-      const answersChecked = document.getElementById("answersCheckbox").checked;
-      const warningAlert = document.getElementById("warningAlert");
-      const code = `${summaryChecked ? "1" : "0"}${
-        questionsChecked ? "1" : "0"
-      }${answersChecked ? "1" : "0"}`;
-
-      if (code === "000") {
-        warningAlert.style.display = "block";
-        return;
-      } else {
-        warningAlert.style.display = "none";
-      }
-
-      const subjectBtn = document.querySelector("[data-subject]");
-      const subject = subjectBtn.dataset.subject;
-
-      const modalTitle = document.getElementById("abstractDownloderModalLabel");
-      modalTitle.textContent = `تحميل مسرد ${abstracts[subject]["title"]}`;
-
-      const fileName = `${abstracts[subject][code]}`;
-      const a = document.createElement("a");
-      a.href = fileName;
-      a.target = "_blank";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-    }
-
-    document
-      .getElementById("questionsCheckbox")
-      .addEventListener("change", function () {
-        const answersSection = document.getElementById("answersSection");
-        answersSection.style.display = this.checked ? "block" : "none";
-
-        if (!this.checked) {
-          document.getElementById("answersCheckbox").checked = false;
-        }
-      });
-  </script>
-
-  <!-- Quiz Script -->
-  <script>
-    // Quiz Logic
-    const quizModal = document.getElementById("quizModal");
-    const quizConfig = document.getElementById("quiz-config");
-    const quizSection = document.getElementById("quiz-section");
-    const resultSection = document.getElementById("result-section");
-    const questionImage = document.getElementById("question-image");
-    const answerButtons = document.getElementById("answer-buttons");
-    const feedback = document.getElementById("feedback");
-    const nextButton = document.getElementById("next-button");
-    const scoreDisplay = document.getElementById("score");
-    const numQuestionsInput = document.getElementById("num-questions");
-    const topicSelect = document.getElementById("topic-select");
-    const startQuizButton = document.getElementById("start-quiz-button");
-    const quizTitle = document.getElementById("quiz-title");
-    const quizProgress = document.getElementById("quiz-progress");
-
-    let questions = [];
-    let currentQuestionIndex = 0;
-    let score = 0;
-    let incorrectAnswers = [];
-    let selectedSubject = "biology23";
-
-    // تحديث توليد الشيكبوكسيز ليكونوا أزرار btn-check
-    function renderTopicCheckboxes(topics) {
-      const topicSelectContainer = document.getElementById(
-        "topic-select-container"
-      );
-      topicSelectContainer.innerHTML = "";
-      topics.forEach(topic => {
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.className = "btn-check";
-        checkbox.id = `topic-${topic}`;
-        checkbox.value = topic;
-        checkbox.autocomplete = "off";
-
-        const label = document.createElement("label");
-        label.className = "btn btn-sm btn-outline-light";
-        label.htmlFor = `topic-${topic}`;
-        label.textContent = topic;
-
-        topicSelectContainer.appendChild(checkbox);
-        topicSelectContainer.appendChild(label);
-      });
-    }
-
-    // تحديث loadQuestions ليأخذ فقط التوبيكات التي تحتوي على أسئلة
-    async function loadQuestions() {
-      try {
-        const response = await fetch(selectedSubject + "/data.json");
-        const data = await response.json();
-        let allQuestions = [];
-
-        // فقط التوبيكات التي تحتوي على أسئلة
-        data.topics.forEach(topic => {
-          if (topic.exercises_solve && topic.exercises_solve.length > 0) {
-            topic.exercises_solve.forEach(ex => {
-              allQuestions.push({
-                topic: topic.name,
-                image: `${topic.name}/exercise_${ex.id}.png`,
-                correctAnswer: ex.solve || "A",
-              });
-            });
-          }
-        });
-
-        questions = allQuestions;
-
-        // توليد الشيكبوكسيز كأزرار
-        const topics = [...new Set(questions.map(q => q.topic))];
-        renderTopicCheckboxes(topics);
-
-        // توليد أزرار عدد الأسئلة
-        renderNumQuestionsButtons(questions.length);
-
-        // عند تغيير اختيار التوبيكات المخصصة، عدل أزرار عدد الأسئلة تلقائياً
-        document
-          .getElementById("topic-select-container")
-          .addEventListener("change", updateCustomNumQuestions);
-      } catch (error) {
-        console.error("Error loading questions:", error);
-        feedback.textContent = "Error loading questions. Please try again.";
-      }
-    }
-
-    // دالة لتحديث أزرار عدد الأسئلة عند تخصيص التوبيكات
-    function updateCustomNumQuestions() {
-      if (document.getElementById("topic-custom").checked) {
-        const selectedTopics = Array.from(
-          document.querySelectorAll(
-            '#topic-select-container input[type="checkbox"]:checked'
-          )
-        ).map(checkbox => checkbox.value);
-
-        // احسب عدد الأسئلة بناءً على التوبيكات المختارة فقط
-        const filteredQuestions = questions.filter(q =>
-          selectedTopics.includes(q.topic)
-        );
-        renderNumQuestionsButtons(filteredQuestions.length);
-
-        // حدث قيمة input ليكون أقصى حد هو عدد الأسئلة المتاحة
-        numQuestionsInput.max = filteredQuestions.length;
-        if (parseInt(numQuestionsInput.value) > filteredQuestions.length) {
-          numQuestionsInput.value = filteredQuestions.length;
-        }
-      }
-    }
-
-    // عند تغيير وضع التوبيك (كل/مخصص) حدث أزرار عدد الأسئلة
-    document
-      .getElementById("topic-all")
-      .addEventListener("change", function () {
-        renderNumQuestionsButtons(questions.length);
-        numQuestionsInput.max = questions.length;
-      });
-    document
-      .getElementById("topic-custom")
-      .addEventListener("change", function () {
-        updateCustomNumQuestions();
-      });
-
-    // توليد أزرار عدد الأسئلة
-    function renderNumQuestionsButtons(total) {
-      const group = document.getElementById("num-questions-group");
-      group.innerHTML = "";
-
-      // توليد خيارات ديناميكية: 10، 20، 30، 50 أو أقل إذا كان العدد أقل
-      let options = [];
-      if (total <= 10) {
-        options = [total];
-      } else if (total <= 20) {
-        options = [10, total];
-      } else if (total <= 30) {
-        options = [10, 20, total];
-      } else if (total <= 50) {
-        options = [10, 20, 30, total];
-      } else {
-        options = [10, 20, 30, 50];
-        if (total > 50) options.push(total);
-      }
-
-      // إزالة التكرار
-      options = [...new Set(options)].filter(n => n > 0 && n <= total);
-
-      options.forEach(num => {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "btn btn-outline-primary";
-        btn.textContent = num === total ? `جميع الأسئلة (${total})` : num;
-        btn.onclick = () => {
-          document.getElementById("num-questions").style.display = "none";
-          document.getElementById("num-questions").value = num;
-          setActiveNumBtn(btn);
-        };
-        group.appendChild(btn);
-      });
-
-      // زر مخصص
-      const customBtn = document.createElement("button");
-      customBtn.type = "button";
-      customBtn.className = "btn btn-outline-primary";
-      customBtn.textContent = "مخصص";
-      customBtn.onclick = () => {
-        document.getElementById("num-questions").style.display = "inline-block";
-        document.getElementById("num-questions").value = "";
-        setActiveNumBtn(customBtn);
-      };
-      group.appendChild(customBtn);
-
-      // تفعيل أول زر افتراضيًا
-      group.children[0].click();
-    }
-
-    function setActiveNumBtn(activeBtn) {
-      const group = document.getElementById("num-questions-group");
-      Array.from(group.children).forEach(btn =>
-        btn.classList.remove("btn-primary")
-      );
-      activeBtn.classList.add("btn-primary");
-      activeBtn.classList.remove("btn-outline-primary");
-      Array.from(group.children).forEach(btn => {
-        if (btn !== activeBtn) {
-          btn.classList.remove("btn-primary");
-          btn.classList.add("btn-outline-primary");
-        }
-      });
-    }
-
-    // التحكم في إظهار الشيكبوكسيز حسب اختيار الكل/مخصص
-    document
-      .getElementById("topic-all")
-      .addEventListener("change", function () {
-        document.getElementById("topic-checkboxes-container").style.display =
-          "none";
-      });
-    document
-      .getElementById("topic-custom")
-      .addEventListener("change", function () {
-        document.getElementById("topic-checkboxes-container").style.display =
-          "block";
-      });
-
-    // تحديث startQuiz ليأخذ المواضيع حسب الاختيار
-    function startQuiz() {
-      let filteredQuestions;
-      if (document.getElementById("topic-all").checked) {
-        filteredQuestions = questions;
-      } else {
-        const selectedTopics = Array.from(
-          document.querySelectorAll(
-            '#topic-select-container input[type="checkbox"]:checked'
-          )
-        ).map(checkbox => checkbox.value);
-        filteredQuestions =
-          selectedTopics.length > 0
-            ? questions.filter(question =>
-                selectedTopics.includes(question.topic)
-              )
-            : questions;
-      }
-
-      // خلط الأسئلة
-      filteredQuestions = [...filteredQuestions];
-      shuffleArray(filteredQuestions);
-
-      // تحديد العدد المطلوب فقط
-      let num = parseInt(numQuestionsInput.value) || filteredQuestions.length;
-      filteredQuestions = filteredQuestions.slice(0, num);
-
-      quizConfig.style.display = "none";
-      quizSection.style.display = "block";
-      resultSection.style.display = "none";
-      currentQuestionIndex = 0;
-      score = 0;
-      incorrectAnswers = [];
-      currentQuestions = filteredQuestions; // متغير جديد للمراجعة
-      showQuestion();
-    }
-
-    loadQuestions();
-
-    // Function to start the quiz
-    function startQuiz() {
-      let filteredQuestions;
-      if (document.getElementById("topic-all").checked) {
-        filteredQuestions = questions;
-      } else {
-        const selectedTopics = Array.from(
-          document.querySelectorAll(
-            '#topic-select-container input[type="checkbox"]:checked'
-          )
-        ).map(checkbox => checkbox.value);
-        filteredQuestions =
-          selectedTopics.length > 0
-            ? questions.filter(question =>
-                selectedTopics.includes(question.topic)
-              )
-            : questions;
-      }
-
-      // خلط الأسئلة
-      filteredQuestions = [...filteredQuestions];
-      shuffleArray(filteredQuestions);
-
-      // تحديد العدد المطلوب فقط
-      let num = parseInt(numQuestionsInput.value) || filteredQuestions.length;
-      filteredQuestions = filteredQuestions.slice(0, num);
-
-      quizConfig.style.display = "none";
-      quizSection.style.display = "block";
-      resultSection.style.display = "none";
-      currentQuestionIndex = 0;
-      score = 0;
-      incorrectAnswers = [];
-      currentQuestions = filteredQuestions;
-      userAnswers = new Array(filteredQuestions.length).fill(null);
-      showQuestion();
-      startQuizAutoSave();
-    }
-
-    // Function to show a question
-    function showQuestion() {
-      for (let i = 0; i < answerButtons.children.length; i++) {
-        answerButtons.children[i].classList.remove("btn-success", "btn-danger");
-        answerButtons.children[i].classList.add("btn-outline-light");
-        answerButtons.children[i].disabled = false;
-      }
-
-      // تحديث العداد والدرجة
-      quizProgress.innerHTML = `السؤال <b>${
-        currentQuestionIndex + 1
-      }</b> من <b>${currentQuestions.length}</b> | الدرجة: <b>${score}</b>`;
-
-      if (currentQuestionIndex >= currentQuestions.length) {
-        endQuiz();
-        return;
-      }
-
-      const question = currentQuestions[currentQuestionIndex];
-      questionImage.src = `${selectedSubject}/${question.image}`;
-      feedback.classList.remove("alert", "alert-success", "alert-danger");
-      feedback.textContent = "";
-      nextButton.style.display = "none";
-
-      // Remove previous event listeners
-      answerButtons.querySelectorAll(".answer-btn").forEach(btn => {
-        btn.removeEventListener("click", checkAnswer);
-      });
-
-      // Add event listeners to answer buttons
-      answerButtons.querySelectorAll(".answer-btn").forEach(btn => {
-        btn.addEventListener("click", checkAnswer);
-      });
-    }
-
-    // Function to check the answer
-    function checkAnswer(event) {
-      const selectedAnswer = event.target.dataset.answer;
-      const question = currentQuestions[currentQuestionIndex];
-
-      userAnswers[currentQuestionIndex] = selectedAnswer;
-
-      if (selectedAnswer === question.correctAnswer) {
-        score++;
-        feedback.classList.add("alert", "alert-success");
-        feedback.textContent = "إجابة صحيحة!";
-        document.getElementById(selectedAnswer).classList.add("btn-success");
-        document
-          .getElementById(selectedAnswer)
-          .classList.remove("btn-outline-light");
-      } else {
-        feedback.classList.add("alert", "alert-danger");
-        feedback.textContent = `إجابة خاطئة. الإجابة الصحيحة هي: ${question.correctAnswer}`;
-        document.getElementById(selectedAnswer).classList.add("btn-danger");
-        document
-          .getElementById(selectedAnswer)
-          .classList.remove("btn-outline-light");
-        document
-          .getElementById(question.correctAnswer)
-          .classList.add("btn-success");
-        document
-          .getElementById(question.correctAnswer)
-          .classList.remove("btn-outline-light");
-        incorrectAnswers.push(question);
-      }
-
-      nextButton.style.display = "block";
-
-      // Disable answer buttons
-      answerButtons.querySelectorAll(".answer-btn").forEach(btn => {
-        btn.disabled = true;
-      });
-
-      // تحديث العداد والدرجة بعد الإجابة
-      quizProgress.innerHTML = `السؤال <b>${
-        currentQuestionIndex + 1
-      }</b> من <b>${currentQuestions.length}</b> | الدرجة: <b>${score}</b>`;
-
-      saveQuizState();
-    }
-
-    // Function to go to the next question
-    function nextQuestion() {
-      currentQuestionIndex++;
-      showQuestion();
-      saveQuizState();
-    }
-
-    // Event listeners
-    startQuizButton.addEventListener("click", startQuiz);
-    nextButton.addEventListener("click", nextQuestion);
-
-    // دالة خلط مصفوفة
-    function shuffleArray(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-    }
-
-    // تحديث startQuiz ليخلط الأسئلة ويضبط العدد الصحيح
-    function startQuiz() {
-      let filteredQuestions;
-      if (document.getElementById("topic-all").checked) {
-        filteredQuestions = questions;
-      } else {
-        const selectedTopics = Array.from(
-          document.querySelectorAll(
-            '#topic-select-container input[type="checkbox"]:checked'
-          )
-        ).map(checkbox => checkbox.value);
-        filteredQuestions =
-          selectedTopics.length > 0
-            ? questions.filter(question =>
-                selectedTopics.includes(question.topic)
-              )
-            : questions;
-      }
-
-      // خلط الأسئلة
-      filteredQuestions = [...filteredQuestions];
-      shuffleArray(filteredQuestions);
-
-      // تحديد العدد المطلوب فقط
-      let num = parseInt(numQuestionsInput.value) || filteredQuestions.length;
-      filteredQuestions = filteredQuestions.slice(0, num);
-
-      quizConfig.style.display = "none";
-      quizSection.style.display = "block";
-      resultSection.style.display = "none";
-      currentQuestionIndex = 0;
-      score = 0;
-      incorrectAnswers = [];
-      currentQuestions = filteredQuestions; // متغير جديد للمراجعة
-      userAnswers = new Array(filteredQuestions.length).fill(null);
-      showQuestion();
-      startQuizAutoSave();
-    }
-
-    // متغير جديد للاحتفاظ بالأسئلة الحالية للمراجعة
-    let currentQuestions = [];
-
-    // تحديث showQuestion ليستخدم currentQuestions
-    function showQuestion() {
-      for (let i = 0; i < answerButtons.children.length; i++) {
-        answerButtons.children[i].classList.remove("btn-success", "btn-danger");
-        answerButtons.children[i].classList.add("btn-outline-light");
-        answerButtons.children[i].disabled = false;
-      }
-
-      // تحديث العداد والدرجة
-      quizProgress.innerHTML = `السؤال <b>${
-        currentQuestionIndex + 1
-      }</b> من <b>${currentQuestions.length}</b> | الدرجة: <b>${score}</b>`;
-
-      if (currentQuestionIndex >= currentQuestions.length) {
-        endQuiz();
-        return;
-      }
-
-      const question = currentQuestions[currentQuestionIndex];
-      questionImage.src = `${selectedSubject}/${question.image}`;
-      feedback.classList.remove("alert", "alert-success", "alert-danger");
-      feedback.textContent = "";
-      nextButton.style.display = "none";
-
-      // Remove previous event listeners
-      answerButtons.querySelectorAll(".answer-btn").forEach(btn => {
-        btn.removeEventListener("click", checkAnswer);
-      });
-
-      // Add event listeners to answer buttons
-      answerButtons.querySelectorAll(".answer-btn").forEach(btn => {
-        btn.addEventListener("click", checkAnswer);
-      });
-    }
-
-    // تحديث checkAnswer ليستخدم currentQuestions
-    function checkAnswer(event) {
-      const selectedAnswer = event.target.dataset.answer;
-      const question = currentQuestions[currentQuestionIndex];
-
-      userAnswers[currentQuestionIndex] = selectedAnswer;
-
-      if (selectedAnswer === question.correctAnswer) {
-        score++;
-        feedback.classList.add("alert", "alert-success");
-        feedback.textContent = "إجابة صحيحة!";
-        document.getElementById(selectedAnswer).classList.add("btn-success");
-        document
-          .getElementById(selectedAnswer)
-          .classList.remove("btn-outline-light");
-      } else {
-        feedback.classList.add("alert", "alert-danger");
-        feedback.textContent = `إجابة خاطئة. الإجابة الصحيحة هي: ${question.correctAnswer}`;
-        document.getElementById(selectedAnswer).classList.add("btn-danger");
-        document
-          .getElementById(selectedAnswer)
-          .classList.remove("btn-outline-light");
-        document
-          .getElementById(question.correctAnswer)
-          .classList.add("btn-success");
-        document
-          .getElementById(question.correctAnswer)
-          .classList.remove("btn-outline-light");
-        incorrectAnswers.push(question);
-      }
-
-      nextButton.style.display = "block";
-
-      // Disable answer buttons
-      answerButtons.querySelectorAll(".answer-btn").forEach(btn => {
-        btn.disabled = true;
-      });
-
-      // تحديث العداد والدرجة بعد الإجابة
-      quizProgress.innerHTML = `السؤال <b>${
-        currentQuestionIndex + 1
-      }</b> من <b>${currentQuestions.length}</b> | الدرجة: <b>${score}</b>`;
-
-      saveQuizState();
-    }
-
-    // تحديث endQuiz ليستخدم currentQuestions
-    function endQuiz() {
-      nextButton.style.display = "none";
-      quizSection.style.display = "none";
-      resultSection.style.display = "block";
-      scoreDisplay.innerHTML = `<b>النتيجة: ${score} / ${currentQuestions.length}</b><br><div class="text-success mt-3">انتهى الاختبار</div>`;
-      clearQuizState(selectedSubject);
-      stopQuizAutoSave();
-    }
-
-    // تحديث nextQuestion ليستخدم currentQuestions
-    function nextQuestion() {
-      currentQuestionIndex++;
-      showQuestion();
-      saveQuizState();
-    }
-
-    // إصلاح زر ابدأ الاختبار (يجب أن يستدعي دالة startQuiz فقط)
-    startQuizButton.onclick = function () {
-      startQuizButton.style.display = "none";
-      startQuiz();
-    };
-
-    // إصلاح إعادة تعيين كل شيء عند فتح المودال
-    quizModal.addEventListener("show.bs.modal", async function (event) {
-      // جلب اسم المادة واسم الملف من الزر
-      let btn = event.relatedTarget;
-      if (!btn) {
-        // إذا لم يوجد زر (مثلاً إعادة فتح)، استخدم الافتراضي
-        btn = document.querySelector('[data-bs-target="#quizModal"]');
-      }
-      const subjectFile = btn.getAttribute("data-subject") || "biology23";
-      const subjectTitle = btn.getAttribute("data-title") || "الأحياء";
-      const isAI = btn.hasAttribute("data-ai");
-      selectedSubject = subjectFile;
-
-      if (isAI) {
-        document.getElementById("quizAiWarn").style.display = "block";
-      } else {
-        document.getElementById("quizAiWarn").style.display = "none";
-      }
-
-      document.getElementById(
-        "quizModalLabel"
-      ).textContent = `اختبار ${subjectTitle}`;
-
-      // تحقق من وجود اختبار محفوظ
-      const saved = loadQuizState(subjectFile);
-      if (
-        saved &&
-        saved.currentQuestions &&
-        saved.currentQuestions.length > 0
-      ) {
-        const result = await Swal.fire({
-          title: `يوجد اختبار غير مكتمل لمادة ${subjectTitle}`,
-          text: "هل تريد إكمال الاختبار السابق؟",
-          icon: "question",
-          showCancelButton: true,
-          confirmButtonText: "نعم، أكمل",
-          cancelButtonText: "لا، ابدأ جديد",
-        });
-        if (result.isConfirmed) {
-          // استرجع الحالة بالكامل
-          quizConfig.style.display = "none";
-          quizSection.style.display = "block";
-          resultSection.style.display = "none";
-          currentQuestionIndex = saved.currentQuestionIndex;
-          score = saved.score;
-          incorrectAnswers = saved.incorrectAnswers || [];
-          currentQuestions = saved.currentQuestions;
-          userAnswers =
-            saved.userAnswers ||
-            new Array(saved.currentQuestions.length).fill(null);
-
-          // استرجاع إعدادات التصفية
-          if (saved.topicMode === "all") {
-            document.getElementById("topic-all").checked = true;
-            document.getElementById(
-              "topic-checkboxes-container"
-            ).style.display = "none";
-          } else {
-            document.getElementById("topic-custom").checked = true;
-            document.getElementById(
-              "topic-checkboxes-container"
-            ).style.display = "block";
-            document
-              .querySelectorAll(
-                '#topic-select-container input[type="checkbox"]'
-              )
-              .forEach(cb => {
-                cb.checked = saved.selectedTopics.includes(cb.value);
-              });
-          }
-          numQuestionsInput.value =
-            saved.numQuestions || saved.currentQuestions.length;
-
-          showQuestion();
-          startQuizAutoSave();
-          startQuizButton.style.display = "none";
-          return;
-        } else {
-          // حذف الحالة القديمة وبدء جديد
-          clearQuizState(subjectFile);
-        }
-      }
-
-      // ...باقي كود إعادة التعيين كما هو...
-
-      quizConfig.style.display = "block";
-      quizSection.style.display = "none";
-      resultSection.style.display = "none";
-      currentQuestionIndex = 0;
-      score = 0;
-      incorrectAnswers = [];
-      currentQuestions = [];
-      userAnswers = [];
-      document.getElementById("topic-all").checked = true;
-      document.getElementById("topic-checkboxes-container").style.display =
-        "none";
-      loadQuestions();
-      renderNumQuestionsButtons(questions.length);
-      numQuestionsInput.value = "";
-      numQuestionsInput.style.display = "none";
-      document
-        .querySelectorAll('#topic-select-container input[type="checkbox"]')
-        .forEach(cb => (cb.checked = false));
-      startQuizButton.style.display = "block";
-      stopQuizAutoSave();
-    });
-
-    // عند إغلاق المودال أوقف الحفظ الدوري
-    quizModal.addEventListener("hidden.bs.modal", function () {
-      stopQuizAutoSave();
-      // ...باقي كود إعادة التعيين كما هو...
-      quizConfig.style.display = "block";
-      quizSection.style.display = "none";
-      resultSection.style.display = "none";
-      currentQuestionIndex = 0;
-      score = 0;
-      incorrectAnswers = [];
-      currentQuestions = [];
-      // إعادة تعيين اختيار المواضيع وعدد الأسئلة
-      document.getElementById("topic-all").checked = true;
-      document.getElementById("topic-checkboxes-container").style.display =
-        "none";
-      renderNumQuestionsButtons(questions.length);
-      numQuestionsInput.value = "";
-      numQuestionsInput.style.display = "none";
-      // إعادة تعيين الشيكبوكسيز
-      document
-        .querySelectorAll('#topic-select-container input[type="checkbox"]')
-        .forEach(cb => (cb.checked = false));
-      // إعادة تعيين أزرار الإجابة
-      answerButtons.querySelectorAll(".answer-btn").forEach(btn => {
-        btn.classList.remove("btn-success", "btn-danger");
-        btn.classList.add("btn-outline-light");
-        btn.disabled = false;
-      });
-      // إعادة تعيين العداد والدرجة
-      quizProgress.innerHTML = `السؤال <b>0</b> من <b>0</b> | الدرجة: <b>0</b>`;
-      scoreDisplay.innerHTML = `<b>النتيجة: 0 / 0</b><br><div class="text-success mt-3">انتهى الاختبار</div>`;
-      feedback.classList.remove("alert", "alert-success", "alert-danger");
-      feedback.textContent = "";
-      nextButton.style.display = "none";
-      questionImage.src = "";
-      // إعادة تعيين زر ابدأ الاختبار
-      startQuizButton.style.display = "block";
-    });
-
-    // دالة لحفظ كل بيانات الاختبار في localStorage بشكل دوري
-    function saveQuizState() {
-      if (!currentQuestions || currentQuestions.length === 0) return;
-      // حفظ كل شيء: الأسئلة، رقم السؤال الحالي، الدرجة، الإجابات، الأسئلة الخاطئة، إعدادات التصفية
-      const state = {
-        currentQuestionIndex,
-        score,
-        incorrectAnswers,
-        currentQuestions,
-        selectedSubject,
-        userAnswers: userAnswers,
-        topicMode: document.getElementById("topic-all").checked
-          ? "all"
-          : "custom",
-        selectedTopics: Array.from(
-          document.querySelectorAll(
-            '#topic-select-container input[type="checkbox"]:checked'
-          )
-        ).map(cb => cb.value),
-        numQuestions: numQuestionsInput.value,
-        timestamp: Date.now(),
-      };
-      localStorage.setItem(
-        "quizState_" + selectedSubject,
-        JSON.stringify(state)
-      );
-    }
-
-    // دالة لاسترجاع بيانات الاختبار من localStorage
-    function loadQuizState(subject) {
-      const data = localStorage.getItem("quizState_" + subject);
-      if (!data) return null;
-      try {
-        return JSON.parse(data);
-      } catch {
-        return null;
-      }
-    }
-
-    // دالة لحذف بيانات الاختبار من localStorage
-    function clearQuizState(subject) {
-      localStorage.removeItem("quizState_" + subject);
-    }
-
-    // متغير لتخزين إجابات المستخدم
-    let userAnswers = [];
-
-    // حفظ البيانات كل 3 ثواني أثناء الاختبار
-    let quizSaveInterval = null;
-    function startQuizAutoSave() {
-      if (quizSaveInterval) clearInterval(quizSaveInterval);
-      quizSaveInterval = setInterval(saveQuizState, 3000);
-    }
-    function stopQuizAutoSave() {
-      if (quizSaveInterval) clearInterval(quizSaveInterval);
-      quizSaveInterval = null;
-    }
-  </script>
-
-  <!-- Words Script -->
-  <script>
-    const englishWords = {
-      // Exercise 1 - Fill in the blanks
-      // Bilingual: "someone who can speak both Arabic and English",
-      // Astonished: "someone who is amazed at something",
-      // Remarkable: "something that is incredible",
-      // Puzzled: "someone who is confused by something",
-      // Irritated: "someone who is annoyed at something",
-      // Fascinated: "someone who is very interested in something",
-
-      // Exercise 2 - Medical vocabulary matching
-      Cardiovascular: "involving the heart and blood vessels",
-      Equivalent: "equal",
-      Hearty: "strong and with feeling",
-      Antibodies: "substance produced by the body to fight germs and infection",
-      Pediatric: "related to the medical care of children",
-      Stimulate: "to increase energy or activity",
-      Enhance: "to improve",
-      Prompt: "to cause someone to do something",
-      Genuine: "real, not false",
-
-      // Exercise 3 - Food vocabulary (definitions provided)
-      // Delicacy: "an expensive and/or hard to find food",
-      // Toxins: "poisons",
-      // Licensed: "having legal permission to do something",
-      // Maintain: "to keep something in good shape",
-      // Peak: "the highest point",
-      // Aroma: "fragrant smell",
-      // Distinguish: "to be able to identify one from another",
-
-      // Exercise 4 - General vocabulary matching
-      Existence: "the presence of something in reality",
-      Staple: "a common or important item",
-      Vendor: "someone who sells something",
-      Quandary: "a situation in which someone doesn't know what to do",
-      Indulgence:
-        "something you let yourself have even though it may be bad for you",
-      Substitute: "something that is used in place of another thing",
-      Delectable: "delicious",
-
-      // Exercise 5 - Personal vocabulary matching
-      Residence: "place where someone lives",
-      Bond: "connection between two living things",
-      Duration: "length of time",
-      Abstract: "relating to ideas or feelings",
-      Pampered: "indulged",
-      Adapted: "adjusted to something new",
-
-      // Exercise 6 - Psychology vocabulary matching
-      Consciousness: "the state of being awake",
-      Alert: "aware",
-      Disturbed: "worried",
-      Deliberately: "on purpose",
-      Speculates: "guesses about",
-      Domesticated: "tamed",
-      Aggressive: "unfriendly, hostile",
-      Compassion: "sympathy and concern",
-
-      // Exercise 7 - Fill in the blanks with context
-      // Responsible: "who is responsible for cleaning up this mess?",
-      // Vanish:
-      //   "my mother's cookies always vanish moments after she takes them out of the oven",
-      // Motivate:
-      //   "the beautiful weather helped motivate me to go outside and get some exercise",
-      // Morally: "people should feel that it's morally wrong to buy stolen goods",
-      // Dread: "I dread taking final exams next week",
-      // Tempted:
-      //   "I was tempted to watch the film on TV, but I made myself study instead",
-
-      // Exercise 8 - Medical/genetic vocabulary matching
-      Genetic:
-        "related to the part of a cell that contains your parents' characteristics",
-      Treatable: "capable of being cured",
-      Diagnosis: "identification of the cause of a problem",
-      Undergo: "experience",
-      Inherited: "received from a parent or ancestor",
-      Preventative: "done in order to avoid",
-      Controversial: "causing disagreement",
-      Potential: "the possibility of being or doing something",
-    };
-
-    const wordsTranslation = {
-      // Exercise 1 - Fill in the blanks
-      Bilingual: "ثنائي اللغة",
-      "someone who can speak both Arabic and English":
-        "شخص يستطيع التحدث بالعربية والإنجليزية",
-
-      Astonished: "مندهش، مذهول",
-      "someone who is amazed at something": "شخص معجب أو مندهش من شيء ما",
-
-      Remarkable: "رائع، مميز، جدير بالملاحظة",
-      "something that is incredible": "شيء لا يصدق أو مذهل",
-
-      Puzzled: "محتار، مرتبك",
-      "someone who is confused by something": "شخص محتار أو مرتبك من شيء ما",
-
-      Irritated: "منزعج، متضايق",
-      "someone who is annoyed at something": "شخص منزعج أو متضايق من شيء ما",
-
-      Fascinated: "مفتون، شديد الاهتمام",
-      "someone who is very interested in something":
-        "شخص مهتم جداً أو مفتون بشيء ما",
-
-      // Phrases set 1
-      "To tell you the truth": "لأكون صادقاً معك",
-      "to tell you exactly how I feel": "لأخبرك بالضبط كيف أشعر",
-
-      "Getting to": "يزعج، يضايق",
-      "annoying or bothering": "إزعاج أو مضايقة",
-
-      "Cheer you up": "يرفع معنوياتك",
-      "make you feel happier": "يجعلك تشعر بسعادة أكبر",
-
-      Killer: "رائع، مذهل",
-      "great, amazing": "عظيم، مذهل",
-
-      "Blow me away": "يبهرني، يذهلني",
-      "really impress me": "يعجبني حقاً أو يبهرني",
-
-      // Exercise 2 - Medical vocabulary matching
-      Cardiovascular: "قلبي وعائي",
-      "involving the heart and blood vessels": "يتعلق بالقلب والأوعية الدموية",
-
-      Equivalent: "مكافئ، معادل",
-      equal: "متساوي",
-
-      Hearty: "حار، بحماس",
-      "strong and with feeling": "قوي ومليء بالمشاعر",
-
-      Antibodies: "أجسام مضادة",
-      "substance produced by the body to fight germs and infection":
-        "مادة ينتجها الجسم لمحاربة الجراثيم والعدوى",
-
-      Pediatric: "طب الأطفال",
-      "related to the medical care of children":
-        "متعلق بالرعاية الطبية للأطفال",
-
-      Stimulate: "يحفز، يُنشط",
-      "to increase energy or activity": "لزيادة الطاقة أو النشاط",
-
-      Enhance: "يُحسن، يُعزز",
-      "to improve": "لتحسين شيء ما",
-
-      Prompt: "يحث، يدفع",
-      "to cause someone to do something": "لجعل شخص يفعل شيئاً ما",
-
-      Genuine: "حقيقي، أصيل",
-      "real, not false": "حقيقي، ليس مزيفاً",
-
-      // Exercise 3 - Food vocabulary
-      Delicacy: "طعام شهي، أكلة مميزة",
-      "an expensive and/or hard to find food": "طعام غالي و/أو صعب الحصول عليه",
-
-      Toxins: "سموم",
-      poisons: "سموم",
-
-      Licensed: "مُرخص",
-      "having legal permission to do something": "لديه إذن قانوني لفعل شيء ما",
-
-      Maintain: "يحافظ على",
-      "to keep something in good shape": "للمحافظة على شيء في حالة جيدة",
-
-      Peak: "قمة، أعلى نقطة",
-      "the highest point": "أعلى نقطة",
-
-      Aroma: "رائحة عطرة",
-      "fragrant smell": "رائحة عطرة",
-
-      Distinguish: "يميز",
-      "to be able to identify one from another": "القدرة على تمييز شيء عن آخر",
-
-      // Phrases set 2
-      Spread: "مأدبة، وليمة",
-      "an abundant meal laid out on a table": "وجبة وفيرة موضوعة على المائدة",
-
-      "Whipped it up": "حضرته بسرعة",
-      "made it quickly and easily": "صنعه بسرعة وسهولة",
-
-      "In no time": "في لمح البصر",
-      "very quickly": "بسرعة كبيرة",
-
-      "Quite the": "رائع جداً",
-      "a very good (something)": "(شيء) جيد جداً",
-
-      "Come to think of it": "والآن أتذكر",
-      "something has just occurred to me": "شيء خطر ببالي للتو",
-
-      "Have a sweet tooth": "محب للحلويات",
-      "love desserts and candy": "يحب الحلويات والسكاكر",
-
-      // Exercise 4 - General vocabulary matching
-      Existence: "وجود",
-      "the presence of something in reality": "وجود شيء في الواقع",
-
-      Staple: "أساسي، عنصر مهم",
-      "a common or important item": "عنصر شائع أو مهم",
-
-      Vendor: "بائع",
-      "someone who sells something": "شخص يبيع شيئاً ما",
-
-      Quandary: "حيرة، معضلة",
-      "a situation in which someone doesn't know what to do":
-        "موقف لا يعرف فيه الشخص ماذا يفعل",
-
-      Indulgence: "تدليل النفس",
-      "something you let yourself have even though it may be bad for you":
-        "شيء تسمح لنفسك به رغم أنه قد يكون ضاراً",
-
-      Substitute: "بديل",
-      "something that is used in place of another thing":
-        "شيء يُستخدم مكان شيء آخر",
-
-      Delectable: "لذيذ، شهي",
-      delicious: "لذيذ",
-
-      // Exercise 5 - Personal vocabulary matching
-      Residence: "إقامة، منزل",
-      "place where someone lives": "مكان يعيش فيه شخص ما",
-
-      Bond: "رابطة، علاقة",
-      "connection between two living things": "صلة بين كائنين حيين",
-
-      Duration: "مدة، فترة زمنية",
-      "length of time": "طول الوقت",
-
-      Abstract: "مجرد، نظري",
-      "relating to ideas or feelings": "متعلق بالأفكار أو المشاعر",
-
-      Pampered: "مدلل",
-      indulged: "مدلل أو مهتم به بإفراط",
-
-      Adapted: "تأقلم، تكيف",
-      "adjusted to something new": "تكيف مع شيء جديد",
-
-      // Phrases set 3
-      "Hang in there": "اصبر، لا تستسلم",
-      "don't give up!": "لا تستسلم!",
-
-      "24/7": "على مدار الساعة",
-      "all day and night, non-stop (24 hours a day/7 days a week)":
-        "طوال النهار والليل، بلا توقف (24 ساعة في اليوم/7 أيام في الأسبوع)",
-
-      "Get to the point": "ادخل في الموضوع",
-      "be direct": "كن مباشراً",
-
-      "Calling the shots": "يتخذ القرارات",
-      "in charge and making the decisions": "مسؤول ويتخذ القرارات",
-
-      "Back to the drawing board": "العودة للبداية",
-      "to have to start a process over again from the beginning":
-        "الاضطرار لبدء عملية من جديد من البداية",
-
-      // Exercise 6 - Psychology vocabulary matching
-      Consciousness: "وعي",
-      "the state of being awake": "حالة اليقظة",
-
-      Alert: "يقظ، منتبه",
-      aware: "واعي",
-
-      Disturbed: "قلق، مضطرب",
-      worried: "قلق",
-
-      Deliberately: "عمداً، قصداً",
-      "on purpose": "عن قصد",
-
-      Speculates: "يتكهن، يخمن",
-      "guesses about": "يخمن حول",
-
-      Domesticated: "أليف، مُستأنس",
-      tamed: "مُروض",
-
-      Aggressive: "عدواني",
-      "unfriendly, hostile": "غير ودود، عدائي",
-
-      Compassion: "شفقة، رحمة",
-      "sympathy and concern": "تعاطف واهتمام",
-
-      // Exercise 7 - Fill in the blanks with context
-      Responsible: "مسؤول",
-      "who is responsible for cleaning up this mess?":
-        "من المسؤول عن تنظيف هذه الفوضى؟",
-
-      Vanish: "تختفي",
-      "my mother's cookies always vanish moments after she takes them out of the oven":
-        "كعك أمي يختفي دائماً بعد لحظات من إخراجه من الفرن",
-
-      Motivate: "يحفز",
-      "the beautiful weather helped motivate me to go outside and get some exercise":
-        "الطقس الجميل ساعد في تحفيزي للخروج وممارسة الرياضة",
-
-      Morally: "أخلاقياً",
-      "people should feel that it's morally wrong to buy stolen goods":
-        "يجب أن يشعر الناس أنه من الخطأ أخلاقياً شراء البضائع المسروقة",
-
-      Dread: "أخشى، أرهب",
-      "I dread taking final exams next week":
-        "أخشى من امتحانات نهاية الفصل الأسبوع القادم",
-
-      Tempted: "مُغرى، مُجرب",
-      "I was tempted to watch the film on TV, but I made myself study instead":
-        "كنت مُغرى لمشاهدة الفيلم على التلفاز، لكنني أجبرت نفسي على الدراسة بدلاً من ذلك",
-
-      // Phrases set 4
-      Rotten: "فاسد، سيء",
-      bad: "سيء",
-
-      "I wouldn't put it past him": "لا أستبعد منه ذلك",
-      "I believe he would do that": "أعتقد أنه سيفعل ذلك",
-
-      "Blow the whistle on": "يفضح، يكشف",
-      "to reveal and put a stop to wrongdoing": "لكشف ووقف الأعمال الخاطئة",
-
-      Call: "قرار",
-      decision: "قرار",
-
-      // Exercise 8 - Medical/genetic vocabulary matching
-      Genetic: "وراثي",
-      "related to the part of a cell that contains your parents' characteristics":
-        "متعلق بجزء الخلية الذي يحتوي على خصائص والديك",
-
-      Treatable: "قابل للعلاج",
-      "capable of being cured": "قابل للشفاء",
-
-      Diagnosis: "تشخيص",
-      "identification of the cause of a problem": "تحديد سبب المشكلة",
-
-      Undergo: "يخضع لـ، يتعرض لـ",
-      experience: "يخوض تجربة",
-
-      Inherited: "موروث",
-      "received from a parent or ancestor": "مُستلم من أحد الوالدين أو الأجداد",
-
-      Preventative: "وقائي",
-      "done in order to avoid": "يُفعل لتجنب شيء ما",
-
-      Controversial: "مثير للجدل",
-      "causing disagreement": "يسبب خلافاً",
-
-      Potential: "محتمل، إمكانية",
-      "the possibility of being or doing something":
-        "إمكانية أن تكون أو تفعل شيئاً ما",
-    };
-
-    function speak(button) {
-      window.speechSynthesis.cancel();
-
-      let text = button.previousElementSibling.innerText;
-      let speech = new SpeechSynthesisUtterance(text);
-      speech.lang = "en-US";
-      speech.rate = 1;
-      speech.pitch = 1;
-
-      window.speechSynthesis.speak(speech);
-    }
-
-    function translation(word) {
-      const translation = wordsTranslation[word] || "الترجمة غير متوفرة";
-
-      Swal.fire({
-        html: `<p><strong>الكلمة:</strong> ${word}</p><p class="mb-0"><strong>الترجمة:</strong> ${translation}</p>`,
-        confirmButtonText: "إغلاق",
-        confirmButtonColor: "#0d6efd",
-        customClass: {
-          popup: "text-light bg-dark border rounded ",
-          title: "fw-bold",
-          confirmButton: "btn btn-secondary",
-        },
-      });
-    }
-
-    function populateWordsTable() {
-      const tableBody = document.getElementById("wordsTableBody");
-      tableBody.innerHTML = "";
-
-      for (const [word, meaning] of Object.entries(englishWords)) {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-                <td><span class="word">${word}</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button> <button class="btn btn-sm" onclick="translation(this.previousElementSibling.previousElementSibling.innerHTML)">🌐</button></td>
-                <td><span class="word">${meaning}</span> <button class="btn btn-sm" onclick="speak(this)">🔊</button> <button class="btn btn-sm" onclick="translation(this.previousElementSibling.previousElementSibling.innerHTML)">🌐</button></td>
-              `;
-        tableBody.appendChild(row);
-      }
-    }
-
-    function speakCurrentWord() {
-      window.speechSynthesis.cancel();
-
-      if (currentQuestionIndex < quizWords.length) {
-        const text = quizWords[currentQuestionIndex][0];
-        const speech = new SpeechSynthesisUtterance(text);
-        speech.lang = "en-US";
-        speech.rate = 1;
-        speech.pitch = 1;
-
-        window.speechSynthesis.speak(speech);
-      }
-    }
-
-    document
-      .getElementById("wordModal")
-      .addEventListener("show.bs.modal", populateWordsTable);
-
-    document
-      .getElementById("wordsQuizModal")
-      .addEventListener("show.bs.modal", initializeWordQuiz);
-
-    function initializeWordQuiz() {
-      currentQuestionIndex = 0;
-      score = 0;
-      wrongAnswers = [];
-
-      quizWords = Object.entries(englishWords);
-      quizWords = shuffleWordArray(quizWords);
-
-      document.getElementById("totalQuestions").textContent = quizWords.length;
-      document.getElementById("questionCounter").textContent = "1";
-
-      document.getElementById("resultsContainer").style.display = "none";
-      document.getElementById("quizContainer").style.display = "block";
-
-      displayWordQuestion();
-    }
-
-    function displayWordQuestion() {
-      if (currentQuestionIndex < quizWords.length) {
-        const currentWord = quizWords[currentQuestionIndex][0];
-        const correctMeaning = quizWords[currentQuestionIndex][1];
-
-        document.getElementById("currentWord").textContent = currentWord;
-        document.getElementById("questionCounter").textContent = (
-          currentQuestionIndex + 1
-        ).toString();
-
-        const options = generateWordOptions(correctMeaning);
-
-        const optionsContainer = document.getElementById("options");
-        optionsContainer.innerHTML = "";
-
-        options.forEach((option, index) => {
-          const button = document.createElement("button");
-          button.className = "btn btn-outline-light";
-          button.textContent = option;
-          button.onclick = () => checkWordAnswer(option, correctMeaning);
-          optionsContainer.appendChild(button);
-        });
-      } else {
-        showWordResults();
-      }
-    }
-
-    function generateWordOptions(correctMeaning) {
-      const wrongOptions = getRandomWrongMeanings(correctMeaning, 3);
-
-      const allOptions = [...wrongOptions, correctMeaning];
-
-      return shuffleWordArray(allOptions);
-    }
-
-    function getRandomWrongMeanings(correctMeaning, count) {
-      const allMeanings = Object.values(englishWords).filter(
-        meaning => meaning !== correctMeaning
-      );
-
-      return shuffleWordArray(allMeanings).slice(0, count);
-    }
-
-    function checkWordAnswer(selectedOption, correctMeaning) {
-      if (selectedOption === correctMeaning) {
-        score++;
-      } else {
-        wrongAnswers.push({
-          word: quizWords[currentQuestionIndex][0],
-          correctMeaning: correctMeaning,
-        });
-      }
-
-      currentQuestionIndex++;
-
-      setTimeout(() => {
-        displayWordQuestion();
-      }, 500);
-    }
-
-    function showWordResults() {
-      document.getElementById("quizContainer").style.display = "none";
-      document.getElementById("resultsContainer").style.display = "block";
-
-      const totalQuestions = quizWords.length;
-      const correctAnswers = score;
-      const wrongAnswersCount = wrongAnswers.length;
-      const finalScorePercent = Math.round((score / totalQuestions) * 100);
-
-      document.getElementById("finalTotalQuestions").textContent =
-        totalQuestions;
-      document.getElementById("finalCorrectAnswers").textContent =
-        correctAnswers;
-      document.getElementById("finalWrongAnswers").textContent =
-        wrongAnswersCount;
-      document.getElementById(
-        "finalScore"
-      ).textContent = `${correctAnswers}/${totalQuestions} (${finalScorePercent}%)`;
-
-      const wrongAnswersList = document.getElementById("wrongAnswersList");
-      wrongAnswersList.innerHTML = "";
-
-      if (wrongAnswers.length > 0) {
-        wrongAnswers.forEach(wrongAnswer => {
-          const listItem = document.createElement("li");
-          listItem.className = "list-group-item";
-          listItem.innerHTML = `<strong>${wrongAnswer.word}</strong>: ${wrongAnswer.correctMeaning}`;
-          wrongAnswersList.appendChild(listItem);
-        });
-      } else {
-        wrongAnswersList.innerHTML =
-          '<li class="list-group-item">لا توجد أخطاء. أحسنت!</li>';
-      }
-    }
-
-    function restartWordQuiz() {
-      initializeWordQuiz();
-    }
-
-    function shuffleWordArray(array) {
-      const newArray = [...array];
-      for (let i = newArray.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-      }
-      return newArray;
-    }
-  </script>
-
-  <script>
-    const chemistryData = {
-      lessons: [
-        {
-          id: 1,
-          name: "الكيمياء العضوية",
-          link: "https://youtu.be/PM-o7lQnV3Q?t=17",
-        },
-        {
-          id: 2,
-          name: "الألكانات",
-          link: "https://youtu.be/PM-o7lQnV3Q?t=544",
-        },
-        {
-          id: 3,
-          name: "مجموعة الألكيل",
-          link: "https://youtu.be/PM-o7lQnV3Q?t=983",
-        },
-        {
-          id: 4,
-          name: "قواعد الأيوباك في تسمية الألكانات",
-          link: "https://youtu.be/PM-o7lQnV3Q?t=1093",
-        },
-        {
-          id: 5,
-          name: "الألكينات الحلقية",
-          link: "https://youtu.be/PM-o7lQnV3Q?t=2804",
-        },
-        {
-          id: 6,
-          name: "الألكاينات",
-          link: "https://youtu.be/CWxeiVw542s?t=23",
-        },
-        {
-          id: 7,
-          name: "الألكاينات الحلقية",
-          link: "https://youtu.be/CWxeiVw542s?t=635",
-        },
-        {
-          id: 8,
-          name: "الهيدروكربونات الأروماتية",
-          link: "https://youtu.be/CWxeiVw542s?t=1395",
-        },
-        {
-          id: 9,
-          name: "هاليدات الألكيل وهاليدات الأريل",
-          link: "https://youtu.be/h6Qo-PAzspg?t=19",
-        },
-        {
-          id: 10,
-          name: "تفاعلات الاستبدال",
-          link: "https://youtu.be/augWBc7PH5c?t=448",
-        },
-        {
-          id: 11,
-          name: "الكحولات",
-          link: "https://youtu.be/h6Qo-PAzspg?t=883",
-        },
-        {
-          id: 12,
-          name: "الإيثرات",
-          link: "https://youtu.be/h6Qo-PAzspg?t=1591",
-        },
-        {
-          id: 13,
-          name: "الأمينات",
-          link: "https://youtu.be/m8NKgX-qklI?t=20",
-        },
-        {
-          id: 14,
-          name: "الإسترات",
-          link: "https://youtu.be/m8NKgX-qklI?t=1464",
-        },
-        {
-          id: 15,
-          name: "الأميدات",
-          link: "https://youtu.be/augWBc7PH5c?t=20",
-        },
-        {
-          id: 16,
-          name: "درجة غليان وذوبانية المركبات العضوية",
-          link: "https://youtu.be/augWBc7PH5c?t=263",
-        },
-        {
-          id: 17,
-          name: "تفاعلات الحذف",
-          link: "https://youtu.be/augWBc7PH5c?t=761",
-        },
-        {
-          id: 18,
-          name: "تفاعلات الإضافة",
-          link: "https://youtu.be/augWBc7PH5c?t=949",
-        },
-        {
-          id: 19,
-          name: "تفاعلات الأكسدة والاختزال",
-          link: "https://youtu.be/augWBc7PH5c?t=1098",
-        },
-        {
-          id: 20,
-          name: "البوليمرات",
-          link: "https://youtu.be/augWBc7PH5c?t=1289",
-        },
-        {
-          id: 21,
-          name: "البروتينات",
-          link: "https://youtu.be/BgVTdy3HXvI?t=28",
-        },
-        {
-          id: 22,
-          name: "الرابطة الببتيدية",
-          link: "https://youtu.be/BgVTdy3HXvI?t=222",
-        },
-        {
-          id: 23,
-          name: "الوظائف المتعددة للبروتينات",
-          link: "https://youtu.be/BgVTdy3HXvI?t=473",
-        },
-        {
-          id: 24,
-          name: "السكريات الأحادية",
-          link: "https://youtu.be/BgVTdy3HXvI?t=984",
-        },
-        {
-          id: 25,
-          name: "السكريات الثنائية",
-          link: "https://youtu.be/BgVTdy3HXvI?t=1258",
-        },
-        {
-          id: 26,
-          name: "السكريات عديدة التسكر",
-          link: "https://youtu.be/BgVTdy3HXvI?t=1387",
-        },
-        {
-          id: 27,
-          name: "الليبيدات",
-          link: "https://youtu.be/7zg1Awvkn9k?t=21",
-        },
-        {
-          id: 28,
-          name: "الجليسريدات الثلاثية والتصبن",
-          link: "https://youtu.be/7zg1Awvkn9k?t=235",
-        },
-        {
-          id: 29,
-          name: "الليبيدات الفوسفورية والشموع",
-          link: "https://youtu.be/7zg1Awvkn9k?t=503",
-        },
-        {
-          id: 30,
-          name: "السترويدات",
-          link: "https://youtu.be/7zg1Awvkn9k?t=656",
-        },
-        {
-          id: 31,
-          name: "قانون بويل",
-          link: "https://youtu.be/dRkoCoC-fx8?t=921",
-        },
-        {
-          id: 32,
-          name: "تحويل درجات الحرارة",
-          link: "https://youtu.be/dRkoCoC-fx8?t=1141",
-        },
-        {
-          id: 33,
-          name: "الصفر المطلق",
-          link: "https://youtu.be/dRkoCoC-fx8?t=1672",
-        },
-        {
-          id: 34,
-          name: "قانون شارل",
-          link: "https://youtu.be/dRkoCoC-fx8?t=1369",
-        },
-        {
-          id: 35,
-          name: "قانون جاي لوساك",
-          link: "https://youtu.be/nD67jSZRApE?t=23",
-        },
-        {
-          id: 36,
-          name: "القانون العام للغازات",
-          link: "https://youtu.be/nD67jSZRApE?t=296",
-        },
-        {
-          id: 37,
-          name: "مبدأ أفوجادرو وقانون الغاز المثالي",
-          link: "https://youtu.be/nD67jSZRApE?t=665",
-        },
-        {
-          id: 38,
-          name: "الحسابات المتعلقة بالغازات",
-          link: "https://youtu.be/nD67jSZRApE?t=977",
-        },
-      ],
-      questions: [
-        { q_id: 1, l_id: 1 },
-        { q_id: 2, l_id: 1 },
-        { q_id: 3, l_id: 2 },
-        { q_id: 4, l_id: 2 },
-        { q_id: 5, l_id: 3 },
-        { q_id: 6, l_id: 4 },
-        { q_id: 7, l_id: 4 },
-        { q_id: 8, l_id: 5 },
-        { q_id: 9, l_id: 5 },
-        { q_id: 10, l_id: 6 },
-        { q_id: 11, l_id: 6 },
-        { q_id: 12, l_id: 7 },
-        { q_id: 13, l_id: 7 },
-        { q_id: 14, l_id: 8 },
-        { q_id: 15, l_id: 8 },
-        { q_id: 16, l_id: 9 },
-        { q_id: 17, l_id: 9 },
-        { q_id: 18, l_id: 10 },
-        { q_id: 19, l_id: 10 },
-        { q_id: 20, l_id: 11 },
-        { q_id: 21, l_id: 11 },
-        { q_id: 22, l_id: 12 },
-        { q_id: 23, l_id: 12 },
-        { q_id: 24, l_id: 13 },
-        { q_id: 25, l_id: 13 },
-        { q_id: 26, l_id: 14 },
-        { q_id: 27, l_id: 14 },
-        { q_id: 28, l_id: 15 },
-        { q_id: 29, l_id: 15 },
-        { q_id: 30, l_id: 16 },
-        { q_id: 31, l_id: 16 },
-        { q_id: 32, l_id: 17 },
-        { q_id: 33, l_id: 17 },
-        { q_id: 34, l_id: 18 },
-        { q_id: 35, l_id: 18 },
-        { q_id: 36, l_id: 19 },
-        { q_id: 37, l_id: 19 },
-        { q_id: 38, l_id: 20 },
-        { q_id: 39, l_id: 20 },
-        { q_id: 40, l_id: 21 },
-        { q_id: 41, l_id: 21 },
-        { q_id: 42, l_id: 22 },
-        { q_id: 43, l_id: 22 },
-        { q_id: 44, l_id: 23 },
-        { q_id: 45, l_id: 23 },
-        { q_id: 46, l_id: 24 },
-        { q_id: 47, l_id: 24 },
-        { q_id: 48, l_id: 25 },
-        { q_id: 49, l_id: 25 },
-        { q_id: 50, l_id: 26 },
-        { q_id: 51, l_id: 26 },
-        { q_id: 52, l_id: 27 },
-        { q_id: 53, l_id: 28 },
-        { q_id: 54, l_id: 28 },
-        { q_id: 55, l_id: 29 },
-        { q_id: 56, l_id: 29 },
-        { q_id: 57, l_id: 30 },
-        { q_id: 58, l_id: 30 },
-        { q_id: 59, l_id: 31 },
-        { q_id: 60, l_id: 31 },
-        { q_id: 61, l_id: 32 },
-        { q_id: 62, l_id: 32 },
-        { q_id: 63, l_id: 33 },
-        { q_id: 64, l_id: 33 },
-        { q_id: 65, l_id: 34 },
-        { q_id: 66, l_id: 34 },
-        { q_id: 67, l_id: 35 },
-        { q_id: 68, l_id: 35 },
-        { q_id: 69, l_id: 36 },
-        { q_id: 70, l_id: 36 },
-        { q_id: 71, l_id: 37 },
-        { q_id: 72, l_id: 37 },
-        { q_id: 73, l_id: 38 },
-        { q_id: 74, l_id: 38 },
-      ],
-      min: 1,
-      max: 74,
-    };
-
-    const biologyData = {
-      lessons: [
-        {
-          id: 1,
-          name: "الغشاء البلازمي والهيكل الخلوي",
-          link: "https://youtu.be/2qRRqwDbkHQ",
-        },
-        {
-          id: 2,
-          name: "تراكيب الخلية",
-          link: "https://youtu.be/2qRRqwDbkHQ?t=413",
-        },
-        {
-          id: 3,
-          name: "التمييز بين الخلية الحيوانية والنباتية",
-          link: "https://youtu.be/2qRRqwDbkHQ?t=1610",
-        },
-        {
-          id: 4,
-          name: "الإنزيمات",
-          link: "https://youtu.be/2qRRqwDbkHQ?t=1878",
-        },
-        {
-          id: 5,
-          name: "الديناميكا الحرارية",
-          link: "https://youtu.be/2qRRqwDbkHQ?t=2144",
-        },
-        {
-          id: 6,
-          name: "ATP (الأدينوسين ثلاثي الفوسفات)",
-          link: "https://youtu.be/2qRRqwDbkHQ?t=2337",
-        },
-        {
-          id: 7,
-          name: "تركيب البلاستيدة الخضراء",
-          link: "https://youtu.be/z7BU3l24n-w?t=5",
-        },
-        {
-          id: 8,
-          name: "عملية البناء الضوئي",
-          link: "https://youtu.be/z7BU3l24n-w?t=515",
-        },
-        {
-          id: 9,
-          name: "التنفس الخلوي",
-          link: "https://youtu.be/z7BU3l24n-w?t=917",
-        },
-        {
-          id: 10,
-          name: "التحلل السكري",
-          link: "https://youtu.be/z7BU3l24n-w?t=1391",
-        },
-        {
-          id: 11,
-          name: "مراحل التنفس الهوائي",
-          link: "https://youtu.be/z7BU3l24n-w?t=2023",
-        },
-        {
-          id: 12,
-          name: "التنفس اللاهوائي (التخمر)",
-          link: "https://youtu.be/z7BU3l24n-w?t=2681",
-        },
-        {
-          id: 13,
-          name: "العدوى الفيروسية والتنفس الخلوي",
-          link: "https://youtu.be/z7BU3l24n-w?t=2954",
-        },
-        {
-          id: 14,
-          name: "حدود حجم الخلية",
-          link: "https://youtu.be/z7BU3l24n-w?t=3091",
-        },
-        {
-          id: 15,
-          name: "دورة الخلية والطور البيني",
-          link: "https://youtu.be/z7BU3l24n-w?t=3645",
-        },
-        {
-          id: 16,
-          name: "الانقسام المتساوي",
-          link: "https://youtu.be/z7BU3l24n-w?t=4150",
-        },
-        {
-          id: 17,
-          name: "مراحل الانقسام المتساوي",
-          link: "https://youtu.be/z7BU3l24n-w?t=4403",
-        },
-        {
-          id: 18,
-          name: "الكروموسوم والكروماتيدات الشقيقة",
-          link: "https://youtu.be/z7BU3l24n-w?t=5141",
-        },
-        {
-          id: 19,
-          name: "انقسام السيتوبلازم",
-          link: "https://youtu.be/z7BU3l24n-w?t=5291",
-        },
-        {
-          id: 20,
-          name: "تنظيم دورة الخلية",
-          link: "https://youtu.be/oU-ZsR3MT2w?t=3",
-        },
-        {
-          id: 21,
-          name: "الخلايا والعدد الكروموسومي",
-          link: "https://youtu.be/oU-ZsR3MT2w?t=742",
-        },
-        {
-          id: 22,
-          name: "الانقسام المنصف (الاختزالي)",
-          link: "https://youtu.be/oU-ZsR3MT2w?t=1010",
-        },
-        {
-          id: 23,
-          name: "المرحلة الأولى من الانقسام المنصف",
-          link: "https://youtu.be/oU-ZsR3MT2w?t=1295",
-        },
-        {
-          id: 24,
-          name: "العبور الجيني",
-          link: "https://youtu.be/oU-ZsR3MT2w?t=2668",
-        },
-        {
-          id: 25,
-          name: "المرحلة الثانية من الانقسام المنصف",
-          link: "https://youtu.be/oU-ZsR3MT2w?t=2759",
-        },
-        {
-          id: 26,
-          name: "الوراثة المندلية",
-          link: "https://youtu.be/N5boNeXLNFI?t=5",
-        },
-        {
-          id: 27,
-          name: "مربع بانيت - التلقيح الأحادي والثنائي",
-          link: "https://youtu.be/N5boNeXLNFI?t=1789",
-        },
-        {
-          id: 28,
-          name: "التراكيب الجينية",
-          link: "https://youtu.be/N5boNeXLNFI?t=2702",
-        },
-        {
-          id: 29,
-          name: "الاختلافات الوراثية المتنحية في الإنسان",
-          link: "https://youtu.be/N5boNeXLNFI?t=2751",
-        },
-        {
-          id: 30,
-          name: "الاختلافات الوراثية السائدة في الإنسان",
-          link: "https://youtu.be/N5boNeXLNFI?t=3473",
-        },
-        {
-          id: 31,
-          name: "مخطط السلاسة",
-          link: "https://youtu.be/N5boNeXLNFI?t=3561",
-        },
-        {
-          id: 32,
-          name: "الأنماط الوراثية المعقدة",
-          link: "https://youtu.be/N5boNeXLNFI?t=4248",
-        },
-        {
-          id: 33,
-          name: "الجينات المتعددة المتقابلة وتفوق الجينات",
-          link: "https://youtu.be/N5boNeXLNFI?t=4758",
-        },
-        {
-          id: 34,
-          name: "الكروموسومات الجنسية والجسمية",
-          link: "https://youtu.be/N5boNeXLNFI?t=5372",
-        },
-        {
-          id: 35,
-          name: "الصفات المرتبطة والمتأثرة بالجنس",
-          link: "https://youtu.be/N5boNeXLNFI?t=6060",
-        },
-        {
-          id: 36,
-          name: "التيلوميرات ومتلازمة داون",
-          link: "https://youtu.be/bMWr6Zzpetw",
-        },
-        {
-          id: 37,
-          name: "عدم انفصال الكروموسومات الجنسية",
-          link: "https://youtu.be/bMWr6Zzpetw?t=543",
-        },
-        {
-          id: 38,
-          name: "اكتشاف المادة الوراثية",
-          link: "https://youtu.be/bMWr6Zzpetw?t=859",
-        },
-        {
-          id: 39,
-          name: "الأحماض النووية وتركيبها",
-          link: "https://youtu.be/bMWr6Zzpetw?t=2022",
-        },
-        {
-          id: 40,
-          name: "القواعد النيتروجينية وكيفية ارتباطها",
-          link: "https://youtu.be/bMWr6Zzpetw?t=2438",
-        },
-        {
-          id: 41,
-          name: "مراحل تضاعف DNA شبه المحافظ",
-          link: "https://youtu.be/bMWr6Zzpetw?t=2952",
-        },
-        {
-          id: 42,
-          name: "أنواع RNA في الخلايا الحية",
-          link: "https://youtu.be/bMWr6Zzpetw?t=3229",
-        },
-        {
-          id: 43,
-          name: "النسخ والترجمة والتنظيم الجيني",
-          link: "https://youtu.be/bMWr6Zzpetw?t=3571",
-        },
-        {
-          id: 44,
-          name: "الطفرات والهندسة الوراثية والجينوم",
-          link: "https://youtu.be/bMWr6Zzpetw?t=4069",
-        },
-      ],
-      questions: [
-        { q_id: 1, l_id: 1 },
-        { q_id: 2, l_id: 1 },
-        { q_id: 3, l_id: 1 },
-        { q_id: 4, l_id: 1 },
-        { q_id: 5, l_id: 1 },
-        { q_id: 6, l_id: 1 },
-        { q_id: 7, l_id: 2 },
-        { q_id: 8, l_id: 2 },
-        { q_id: 9, l_id: 2 },
-        { q_id: 10, l_id: 2 },
-        { q_id: 11, l_id: 2 },
-        { q_id: 12, l_id: 2 },
-        { q_id: 13, l_id: 3 },
-        { q_id: 14, l_id: 3 },
-        { q_id: 15, l_id: 4 },
-        { q_id: 16, l_id: 6 },
-        { q_id: 17, l_id: 6 },
-        { q_id: 18, l_id: 6 },
-        { q_id: 19, l_id: 6 },
-        { q_id: 20, l_id: 7 },
-        { q_id: 21, l_id: 7 },
-        { q_id: 22, l_id: 8 },
-        { q_id: 23, l_id: 8 },
-        { q_id: 24, l_id: 8 },
-        { q_id: 25, l_id: 9 },
-        { q_id: 26, l_id: 9 },
-        { q_id: 27, l_id: 9 },
-        { q_id: 28, l_id: 10 },
-        { q_id: 29, l_id: 10 },
-        { q_id: 30, l_id: 11 },
-        { q_id: 31, l_id: 11 },
-        { q_id: 32, l_id: 11 },
-        { q_id: 33, l_id: 12 },
-        { q_id: 34, l_id: 12 },
-        { q_id: 35, l_id: 12 },
-        { q_id: 36, l_id: 13 },
-        { q_id: 37, l_id: 14 },
-        { q_id: 38, l_id: 15 },
-        { q_id: 39, l_id: 16 },
-        { q_id: 40, l_id: 16 },
-        { q_id: 41, l_id: 17 },
-        { q_id: 42, l_id: 17 },
-        { q_id: 43, l_id: 17 },
-        { q_id: 44, l_id: 18 },
-        { q_id: 45, l_id: 20 },
-        { q_id: 46, l_id: 20 },
-        { q_id: 47, l_id: 20 },
-        { q_id: 48, l_id: 21 },
-        { q_id: 49, l_id: 22 },
-        { q_id: 50, l_id: 22 },
-        { q_id: 51, l_id: 23 },
-        { q_id: 52, l_id: 23 },
-        { q_id: 53, l_id: 23 },
-        { q_id: 54, l_id: 26 },
-        { q_id: 55, l_id: 26 },
-        { q_id: 56, l_id: 28 },
-        { q_id: 57, l_id: 29 },
-        { q_id: 58, l_id: 29 },
-        { q_id: 59, l_id: 29 },
-        { q_id: 60, l_id: 30 },
-        { q_id: 61, l_id: 30 },
-        { q_id: 62, l_id: 31 },
-        { q_id: 63, l_id: 31 },
-        { q_id: 64, l_id: 31 },
-        { q_id: 65, l_id: 32 },
-        { q_id: 66, l_id: 33 },
-        { q_id: 67, l_id: 33 },
-        { q_id: 68, l_id: 34 },
-        { q_id: 69, l_id: 34 },
-        { q_id: 70, l_id: 35 },
-        { q_id: 71, l_id: 35 },
-        { q_id: 72, l_id: 36 },
-        { q_id: 73, l_id: 36 },
-        { q_id: 74, l_id: 37 },
-        { q_id: 75, l_id: 37 },
-        { q_id: 76, l_id: 37 },
-        { q_id: 77, l_id: 37 },
-        { q_id: 78, l_id: 38 },
-        { q_id: 79, l_id: 38 },
-        { q_id: 80, l_id: 38 },
-        { q_id: 81, l_id: 39 },
-        { q_id: 82, l_id: 39 },
-        { q_id: 83, l_id: 39 },
-        { q_id: 84, l_id: 40 },
-        { q_id: 85, l_id: 40 },
-        { q_id: 86, l_id: 41 },
-        { q_id: 87, l_id: 41 },
-        { q_id: 88, l_id: 42 },
-        { q_id: 89, l_id: 42 },
-        { q_id: 90, l_id: 43 },
-        { q_id: 91, l_id: 43 },
-        { q_id: 92, l_id: 43 },
-        { q_id: 93, l_id: 44 },
-        { q_id: 94, l_id: 44 },
-      ],
-    };
-
-    const byName = document.getElementById("byName");
-    const byQNO = document.getElementById("byQNO");
-    let linkOpenType = null;
-
-    function initializeExplainModal(data, name, nameAR) {
-      document.getElementById(
-        "explainModalLabel"
-      ).innerText = `شرح مسرد مادة ${nameAR}`;
-
-      document.querySelector(".viaName").checked = true;
-      document.querySelector(".viaQNO").checked = false;
-
-      if (byName.classList.contains("d-none")) {
-        byName.classList.toggle("d-none");
-        byQNO.classList.toggle("d-none");
-      }
-
-      linkOpenType = "name";
-
-      let specialParagraphs = document.querySelectorAll(
-        "#explainModal .special-paragraph"
-      );
-
-      for (let i = 0; i < specialParagraphs.length; i++) {
-        specialParagraphs[i].style.display = "none";
-      }
-
-      let nowSpecialParagraphs = document.querySelectorAll(
-        `#explainModal .special-paragraph.${name}`
-      );
-
-      for (let i = 0; i < nowSpecialParagraphs.length; i++) {
-        nowSpecialParagraphs[i].style.display = "block";
-      }
-
-      let newData = extractNames(data);
-
-      initializeSearch(newData);
-
-      let oldLinkOpener = document.getElementById("linkOpen");
-      let newLinkOpener = oldLinkOpener.cloneNode(true);
-      oldLinkOpener.parentNode.replaceChild(newLinkOpener, oldLinkOpener);
-
-      document
-        .getElementById("linkOpen")
-        .addEventListener("click", () => linkOpen(data));
-
-      document.getElementById(
-        "warnQNO"
-      ).innerText = `يجب أن لا يقل رقم السؤال عن ${data.min}، ولا يزيد عن ${data.max}.`;
-    }
-
-    // Select2 search initialize
-    function initializeSearch(data) {
-      if ($("#modalSelect").hasClass("select2-hidden-accessible")) {
-        $("#modalSelect").select2("destroy");
-      }
-
-      $("#modalSelect").empty();
-
-      data.forEach(item => {
-        const option = new Option(item.text, item.id, false, false);
-        $("#modalSelect").append(option);
-      });
-
-      $("#modalSelect").select2({
-        theme: "bootstrap-5",
-        placeholder: "اختر الدرس",
-        dropdownParent: $("#explainModal"),
-        width: "100%",
-        language: "ar",
-        matcher: function (params, data) {
-          if (!params.term || params.term.trim() === "") {
-            return data;
-          }
-          const term = normalizeArabic(params.term);
-          const text = normalizeArabic(data.text);
-          if (text.indexOf(term) > -1) {
-            return data;
-          }
-          return null;
-        },
-      });
-
-      // اجعل القيمة فارغة (لا خيار محدد)
-      $("#modalSelect").val(null).trigger("change");
-    }
-
-    function normalizeArabic(text) {
-      return text
-        .replace(/أ|إ|آ/g, "ا")
-        .replace(/ى/g, "ي")
-        .replace(/ة/g, "ه")
-        .replace(/[ًٌٍَُِّْ]/g, "")
-        .toLowerCase();
-    }
-
-    function extractNames(data) {
-      if (!data.lessons || !Array.isArray(data.lessons)) {
-        return [];
-      }
-
-      return data.lessons.map(lesson => ({
-        id: lesson.id,
-        text: lesson.name,
-      }));
-    }
-
-    function toggleType() {
-      byName.classList.toggle("d-none");
-      byQNO.classList.toggle("d-none");
-
-      if (linkOpenType === "name") {
-        linkOpenType = "QNO";
-      } else {
-        linkOpenType = "name";
-      }
-    }
-
-    function linkOpen(data) {
-      if (linkOpenType === "name") {
-        const select = document.getElementById("modalSelect");
-        const selectedId = select.value;
-
-        const link = data.lessons[selectedId - 1].link;
-
-        window.open(link, "_blank").focus();
-      } else if (linkOpenType === "QNO") {
-        const input = document.getElementById("inputQNO");
-        const selectedQ = input.value;
-
-        if (selectedQ < data.min || selectedQ > data.max || !selectedQ) {
-          document.getElementById("warnQNO").classList.remove("d-none");
-          input.value = null;
-          return;
-        } else {
-          document.getElementById("warnQNO").classList.add("d-none");
-        }
-
-        const lessonID = data.questions[selectedQ - 1].l_id;
-        const link = data.lessons[lessonID - 1].link;
-
-        input.value = null;
-
-        window.open(link, "_blank").focus();
-      }
-    }
-  </script>
-
-  <!-- Audio Player -->
-  <script>
-    function audioSetup() {
-      const playBtn = document.getElementById("playBtn");
-      const playIcon = document.getElementById("playIcon");
-      const audio = document.getElementById("audio");
-      const progressBar = document.getElementById("progressBar");
-
-      playBtn.addEventListener("click", () => {
-        if (audio.paused) {
-          audio.play();
-          playIcon.classList.replace("bi-play-fill", "bi-pause-fill");
-        } else {
-          audio.pause();
-          playIcon.classList.replace("bi-pause-fill", "bi-play-fill");
-        }
-      });
-
-      audio.addEventListener("timeupdate", () => {
-        const percent = (audio.currentTime / audio.duration) * 100;
-        progressBar.style.width = percent + "%";
-      });
-
-      audio.addEventListener("ended", () => {
-        playIcon.classList.replace("bi-pause-fill", "bi-play-fill");
-        progressBar.style.width = "0%";
-      });
-    }
-  </script>
-  <script>
-    var inputQNO = document.getElementById("inputQNO");
-
-    inputQNO.addEventListener("keypress", function (event) {
-      if (event.key === "Enter") {
-        event.preventDefault();
-        document.getElementById("linkOpen").click();
-      }
-    });
   </script>
 </html>
