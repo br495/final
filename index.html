@@ -144,6 +144,63 @@
       </div>
     </div>
 
+    <!-- Warning Modal -->
+<div
+  class="modal fade"
+  id="warningModal"
+  tabindex="-1"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content border-danger">
+      <div class="modal-header">
+        <h5 class="modal-title text-danger fw-bold">
+          تنبيه مهم
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+  <div class="modal-body text-danger fs-5">
+    <p>
+      هذا العمل تطلّب <strong>جهودًا عالية</strong>، وقد تم
+      <strong>رفضه من المعلمين والإدارة</strong>.
+    </p>
+  
+    <p>
+      <strong>نشر هذا الموقع أو مشاركة رابطه</strong>
+      مع المعلمين أو الإدارة قد يؤدي إلى
+      <strong>إغلاق الموقع نهائيًا</strong>، وضياع المحتوى بالكامل،
+      وانعدام الفائدة لجميع الطلاب، إضافةً إلى احتمالية تغيير أسئلة
+      الاختبارات والتسبب بمشاكل مع إدارة المدرسة لمنشئ الموقع.
+    </p>
+  
+    <p>
+      هذا الموقع مخصص <strong>للاستخدام بين الطلاب فقط</strong> بهدف
+      المذاكرة، وأي استخدام خارج هذا الإطار يضر بالجميع دون استثناء.
+    </p>
+  </div>
+      <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-danger"
+        id="closeWarningBtn"
+        data-bs-dismiss="modal"
+        disabled
+      >
+        إغلاق (10)
+      </button>
+      </div>
+    </div>
+  </div>
+</div>
+    
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
   <!-- Disable-devtool -->
   <script
     disable-devtool-auto
@@ -198,5 +255,38 @@
       physics: `<a class="btn btn-primary" href="#" target="_blank"> مراجعة فيزياء </a><br /><a class="btn btn-primary" href="#" target="_blank"> حل مراجعة فيزياء </a>`,
       biology: `<a class="btn btn-primary" href="#" target="_blank"> مراجعة علم أرض </a><br /><a class="btn btn-primary" href="#" target="_blank"> حل مراجعة علم أرض </a>`,
     };
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const hasSeenWarning = localStorage.getItem("warning_seen");
+    if (hasSeenWarning) return;
+
+    const modalEl = document.getElementById("warningModal");
+    const modal = new bootstrap.Modal(modalEl, {
+      backdrop: "static",
+      keyboard: false,
+    });
+
+    modal.show();
+
+    let seconds = 10;
+    const countdownEl = document.getElementById("countdown");
+    const closeBtn = document.getElementById("closeWarningBtn");
+
+    const timer = setInterval(() => {
+      seconds--;
+      countdownEl.textContent = seconds;
+      closeBtn.textContent = `إغلاق (${seconds})`;
+
+      if (seconds <= 0) {
+        clearInterval(timer);
+        closeBtn.disabled = false;
+        closeBtn.textContent = "إغلاق";
+      }
+    }, 1000);
+
+    modalEl.addEventListener("hidden.bs.modal", () => {
+      localStorage.setItem("warning_seen", "true");
+    });
+  });
   </script>
 </html>
